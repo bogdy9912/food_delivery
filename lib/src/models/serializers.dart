@@ -7,8 +7,6 @@ part 'serializers.g.dart';
 
 @SerializersFor(<Type>[
   AppState,
-  AuthState,
-  AppUser,
 ])
 Serializers serializers = (_$serializers.toBuilder()//
   ..addPlugin(StandardJsonPlugin()) //
