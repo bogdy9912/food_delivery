@@ -1,9 +1,9 @@
-abstract class AppActions {
-  const AppActions();
+abstract class AppAction {
+  const AppAction();
 }
 
-abstract class ErrorActions implements AppActions{
-  const ErrorActions();
+abstract class ErrorAction implements AppAction{
+  const ErrorAction();
 
   Object get error;
 }

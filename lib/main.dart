@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/models/index.dart';
-import 'package:food_delivery/src/presentations/mixin/init_mixin.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
+import 'package:food_delivery/src/presentations/mixin/init_mixin.dart';
 import 'package:redux/redux.dart';
 
 void main() {
@@ -25,7 +25,9 @@ class _FoodDeliveryState extends State<FoodDelivery> with InitMixin<FoodDelivery
             return StoreProvider<AppState>(
               store: store,
               child: MaterialApp(
-                theme: ThemeData.dark(),
+                theme: ThemeData(
+                  primaryColor: Colors.blue,
+                ),
                 routes: AppRoutes.routes,
               ),
             );

@@ -13,8 +13,8 @@ Future<Store<AppState>> init() async {
   await Firebase.initializeApp();
 
   final AuthApi authApi = AuthApi(auth: FirebaseAuth.instance, firestore: FirebaseFirestore.instance);
-
   final AppEpics epic = AppEpics(api: authApi);
+
   return Store<AppState>(
     reducer,
     initialState: AppState.initalState(),

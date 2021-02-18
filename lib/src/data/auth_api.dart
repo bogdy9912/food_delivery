@@ -17,8 +17,32 @@ class AuthApi {
     final UserCredential result = await _auth.signInWithEmailAndPassword(email: email, password: password);
     final User user = result.user;
 
-    final DocumentSnapshot data = await _firestore.doc('users/${user.uid}').get();
+    final DocumentSnapshot doc = await _firestore.doc('users/${user.uid}').get();
 
-    return AppUser.fromJson(data);
+    return AppUser.fromJson(doc.data());
   }
+
+  Future<AppUser> signUp(
+      {@required String email,
+      @required String password,
+      @required String firstName,
+      @required String lastName}) async {
+    final UserCredential response = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+
+    final User user = response.user;
+
+    final AppUser newUser = AppUser((AppUserBuilder b) {
+      b
+        ..uid = user.uid
+        ..email = user.email
+        ..lastName = lastName
+        ..firstName = firstName;
+    });
+
+    _firestore.doc('users/${user.uid}').set(newUser.json);
+
+    return newUser;
+  }
+
+
 }

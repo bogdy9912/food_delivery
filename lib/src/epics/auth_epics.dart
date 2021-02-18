@@ -10,18 +10,31 @@ import 'package:rxdart/rxdart.dart';
 class AuthEpics {
   AuthEpics({@required AuthApi api})
       : assert(api != null),
-        _authApi = api;
+        _api = api;
 
-  final AuthApi _authApi;
+  final AuthApi _api;
 
   Epic<AppState> get epics => combineEpics(<Epic<AppState>>[
         TypedEpic<AppState, Login$>(_login),
+        TypedEpic<AppState, SignUp$>(_signUp),
       ]);
 
-  Stream<AppActions> _login(Stream<Login$> actions, EpicStore<AppState> store) {
+  Stream<AppAction> _login(Stream<Login$> actions, EpicStore<AppState> store) {
     return actions
-        .asyncMap((Login$ action) => _authApi.login(email: action.email, password: action.password))
+        .asyncMap((Login$ action) => _api.login(email: action.email, password: action.password))
         .map((AppUser user) => Login.successful(user))
         .onErrorReturnWith((dynamic error) => Login.error(error));
-    }
+  }
+
+  Stream<AppAction> _signUp(Stream<SignUp$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((SignUp$ action) => Stream<SignUp$>.value(action)
+            .asyncMap((_) => _api.signUp(
+                email: store.state.auth.info.email,
+                password: store.state.auth.info.password,
+                firstName: store.state.auth.info.firstName,
+                lastName: store.state.auth.info.lastName))
+            .map((AppUser user) => SignUp.successful(user))
+            .onErrorReturnWith((dynamic error) => SignUp.error(error)));
+  }
 }
