@@ -2,19 +2,19 @@
  App used be local businesses for ordering food made in Flutter framework 
 
 ## Project setup (35')
-* [ ] dependencies (10')
-* [ ] redux (10')
-* [ ] services config (15')
+* [x] dependencies (10')
+* [x] redux (10')
+* [x] services config (15')
 
 ## Loading screen (10')
-* [ ] show app logo for 3 secs (10')
+* [x] show app logo for 3 secs (10')
 
 ## Authentication
-* [ ] login/register with email and password (15')
+* [x] login/register with email and password (15')
 * [ ] login/register with google (25')
-* [ ] login/register with apple (25')
-* [ ] logout (10')
-* [ ] forgot password (10')
+* [x] logout (10')
+* [x] stay login (10')
+* [x] forgot password (10')
 
 
 ## HomePage (120')

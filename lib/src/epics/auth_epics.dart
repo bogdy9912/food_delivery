@@ -16,7 +16,10 @@ class AuthEpics {
 
   Epic<AppState> get epics => combineEpics(<Epic<AppState>>[
         TypedEpic<AppState, Login$>(_login),
+        TypedEpic<AppState, InitializeApp$>(_initializeApp),
         TypedEpic<AppState, SignUp$>(_signUp),
+        TypedEpic<AppState, SignOut$>(_signOut),
+        TypedEpic<AppState, ForgotPassword$>(_forgotPassword),
       ]);
 
   Stream<AppAction> _login(Stream<Login$> actions, EpicStore<AppState> store) {
@@ -35,6 +38,30 @@ class AuthEpics {
                 firstName: store.state.auth.info.firstName,
                 lastName: store.state.auth.info.lastName))
             .map((AppUser user) => SignUp.successful(user))
-            .onErrorReturnWith((dynamic error) => SignUp.error(error)));
+            .onErrorReturnWith((dynamic error) => SignUp.error(error))
+            .doOnData(action.response));
+  }
+
+  Stream<AppAction> _signOut(Stream<SignOut$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((SignOut$ action) => Stream<SignOut$>.value(action)
+            .asyncMap((_) => _api.signOut())
+            .mapTo(const SignOut.successful())
+            .onErrorReturnWith((dynamic error) => SignOut.error(error)));
+  }
+
+  Stream<AppAction> _initializeApp(Stream<InitializeApp$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((InitializeApp$ action) => Stream<InitializeApp$>.value(action)
+            .asyncMap((InitializeApp$ action) => _api.initializeApp())
+            .map((AppUser user) => InitializeApp.successful(user))
+            .onErrorReturnWith((dynamic error) => InitializeApp.error(error)));
+  }
+  Stream<AppAction> _forgotPassword(Stream<ForgotPassword$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((ForgotPassword$ action) => Stream<ForgotPassword$>.value(action)
+        .asyncMap((ForgotPassword$ action) => _api.forgotPassword(action.email))
+        .map((_) => const ForgotPassword.successful())
+        .onErrorReturnWith((dynamic error) => ForgotPassword.error(error)));
   }
 }

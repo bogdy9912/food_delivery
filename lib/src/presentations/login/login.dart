@@ -1,16 +1,19 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:food_delivery/src/actions/auth/index.dart';
+import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key key}) : super(key: key);
 
   @override
-  _LoginState createState() => _LoginState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginPageState extends State<LoginPage> {
   final TextEditingController _email = TextEditingController();
 
   final TextEditingController _password = TextEditingController();
@@ -65,7 +68,9 @@ class _LoginState extends State<Login> {
             ),
             RaisedButton(
               child: const Text('Login'),
-              onPressed: () {},
+              onPressed: () {
+                StoreProvider.of<AppState>(context).dispatch(Login(email: _email.text, password: _password.text));
+              },
             ),
             FlatButton(
               onPressed: () {},
