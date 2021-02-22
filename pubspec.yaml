@@ -20,6 +20,7 @@ dependencies:
 
 # flutter
   flutter_redux: ^0.7.0
+  cached_network_image: ^2.5.0
 
 # dart
   redux: ^4.0.0+3
@@ -44,3 +45,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/chef_placeholder.jpg

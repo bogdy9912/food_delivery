@@ -21,6 +21,9 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
       'auth',
       serializers.serialize(object.auth,
           specifiedType: const FullType(AuthState)),
+      'companyState',
+      serializers.serialize(object.companyState,
+          specifiedType: const FullType(CompanyState)),
     ];
 
     return result;
@@ -41,6 +44,10 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
           result.auth.replace(serializers.deserialize(value,
               specifiedType: const FullType(AuthState)) as AuthState);
           break;
+        case 'companyState':
+          result.companyState.replace(serializers.deserialize(value,
+              specifiedType: const FullType(CompanyState)) as CompanyState);
+          break;
       }
     }
 
@@ -51,13 +58,18 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
 class _$AppState extends AppState {
   @override
   final AuthState auth;
+  @override
+  final CompanyState companyState;
 
   factory _$AppState([void Function(AppStateBuilder) updates]) =>
       (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({this.auth}) : super._() {
+  _$AppState._({this.auth, this.companyState}) : super._() {
     if (auth == null) {
       throw new BuiltValueNullFieldError('AppState', 'auth');
+    }
+    if (companyState == null) {
+      throw new BuiltValueNullFieldError('AppState', 'companyState');
     }
   }
 
@@ -71,17 +83,21 @@ class _$AppState extends AppState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is AppState && auth == other.auth;
+    return other is AppState &&
+        auth == other.auth &&
+        companyState == other.companyState;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(0, auth.hashCode));
+    return $jf($jc($jc(0, auth.hashCode), companyState.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('AppState')..add('auth', auth))
+    return (newBuiltValueToStringHelper('AppState')
+          ..add('auth', auth)
+          ..add('companyState', companyState))
         .toString();
   }
 }
@@ -93,11 +109,18 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   AuthStateBuilder get auth => _$this._auth ??= new AuthStateBuilder();
   set auth(AuthStateBuilder auth) => _$this._auth = auth;
 
+  CompanyStateBuilder _companyState;
+  CompanyStateBuilder get companyState =>
+      _$this._companyState ??= new CompanyStateBuilder();
+  set companyState(CompanyStateBuilder companyState) =>
+      _$this._companyState = companyState;
+
   AppStateBuilder();
 
   AppStateBuilder get _$this {
     if (_$v != null) {
       _auth = _$v.auth?.toBuilder();
+      _companyState = _$v.companyState?.toBuilder();
       _$v = null;
     }
     return this;
@@ -120,12 +143,16 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   _$AppState build() {
     _$AppState _$result;
     try {
-      _$result = _$v ?? new _$AppState._(auth: auth.build());
+      _$result = _$v ??
+          new _$AppState._(
+              auth: auth.build(), companyState: companyState.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'auth';
         auth.build();
+        _$failedField = 'companyState';
+        companyState.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'AppState', _$failedField, e.toString());

@@ -27,6 +27,11 @@ class _FoodDeliveryState extends State<FoodDelivery> with InitMixin<FoodDelivery
               child: MaterialApp(
                 theme: ThemeData(
                   primaryColor: Colors.blue,
+
+                  cursorColor: Colors.white,
+                  indicatorColor: Colors.white,
+
+                  scaffoldBackgroundColor: Colors.white70,
                 ),
                 routes: AppRoutes.routes,
               ),

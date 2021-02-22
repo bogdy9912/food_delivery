@@ -1,3 +1,5 @@
+# Client App
+
 # food_delivery
  App used be local businesses for ordering food made in Flutter framework 
 
@@ -18,25 +20,21 @@
 
 
 ## HomePage (120')
-* [ ] search restaurants (15')
+* [ ] search restaurants (15') /
 * [ ] show all restaurants from city (25')
-* [ ] filter and sorting (35')
+* [ ] filter and sorting (35') /
 * [ ] presentation layout (list, grid, hero) (10')
 * [ ] reviews scor(20')
 
-## Product page (90')
-* [ ] add products to cart (10')
+## Restaurant page (90')
+* [ ] add products to cart (10') /
 * [ ] add to favorites restaurants(10')
 * [ ] reviews comment (20')
-Optional
-    * [ ] ask questions (20')
 
 ## Search + Categories (100')
 * [ ] search restaurants (15')
-* [ ] navigate in selected city (25')
 * [ ] recently viewed restaurants (15')
 * [ ] filter and sorting (35')
-* [ ] presentation layout (list, grid, hero) (10')
 
 
 ## Offers
@@ -49,7 +47,6 @@ Optional
 
 ## Favorites (30')
 * [ ] show list of favored restaurants (15')
-
 
 ## Checkout (45')
 * [ ] add address (20')

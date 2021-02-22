@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/actions/auth/index.dart';
 import 'package:food_delivery/src/models/index.dart';
+import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -18,6 +19,13 @@ class AppDrawer extends StatelessWidget {
           title: const Text('favorite'),
           leading: const Icon(Icons.logout),
           onTap: () {},
+        ),
+        ListTile(
+          title: const Text('add company'),
+          leading: const Icon(Icons.add),
+          onTap: () {
+            Navigator.pushNamed(context, AppRoutes.addCompany);
+          },
         ),
         ListTile(
           title: const Text('Iesire'),
