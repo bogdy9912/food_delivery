@@ -20,7 +20,7 @@
 
 
 ## HomePage (120')
-* [ ] search restaurants (15') /
+* [x] search restaurants (15') /
 * [ ] show all restaurants from city (25')
 * [ ] filter and sorting (35') /
 * [ ] presentation layout (list, grid, hero) (10')
