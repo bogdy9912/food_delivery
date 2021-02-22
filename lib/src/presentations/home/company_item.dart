@@ -15,6 +15,19 @@ class CompanyItem extends StatelessWidget {
     return Stack(
       alignment: AlignmentDirectional.bottomStart,
       children: <Widget>[
+        if (!company.image.contains('https://'))
+          Container(
+            height: size.height * 0.5,
+            width: size.width * 0.8,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+              image: DecorationImage(
+                image: AssetImage(localHolder),
+                fit: BoxFit.cover,
+              ),
+            ),
+          )
+        else
         Container(
           child: CachedNetworkImage(
             imageUrl: company.image,
@@ -24,18 +37,22 @@ class CompanyItem extends StatelessWidget {
               width: size.width * 0.8,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(12)),
-                image: DecorationImage(image: AssetImage(localHolder), fit: BoxFit.cover,),
+                image: DecorationImage(
+                  image: AssetImage(localHolder),
+                  fit: BoxFit.cover,
+                ),
               ),
-
             ),
             errorWidget: (BuildContext context, String url, dynamic error) => Container(
               height: size.height * 0.5,
               width: size.width * 0.8,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(12)),
-                image: DecorationImage(image: AssetImage(localHolder), fit: BoxFit.cover,),
+                image: DecorationImage(
+                  image: AssetImage(localHolder),
+                  fit: BoxFit.cover,
+                ),
               ),
-
             ),
           ),
         ),
