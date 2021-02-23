@@ -1374,3 +1374,569 @@ abstract class SearchCompaniesError implements SearchCompanies, ErrorAction {
   Object get error;
   $SearchCompaniesErrorCopyWith<SearchCompaniesError> get copyWith;
 }
+
+/// @nodoc
+class _$GetMeniuTearOff {
+  const _$GetMeniuTearOff();
+
+// ignore: unused_element
+  GetMeniu$ call({@required String companyId}) {
+    return GetMeniu$(
+      companyId: companyId,
+    );
+  }
+
+// ignore: unused_element
+  GetMeniuSuccessful successful(Meniu meniu) {
+    return GetMeniuSuccessful(
+      meniu,
+    );
+  }
+
+// ignore: unused_element
+  GetMeniuEvent event() {
+    return const GetMeniuEvent();
+  }
+
+// ignore: unused_element
+  GetMeniuError error(Object error) {
+    return GetMeniuError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $GetMeniu = _$GetMeniuTearOff();
+
+/// @nodoc
+mixin _$GetMeniu {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String companyId), {
+    @required Result successful(Meniu meniu),
+    @required Result event(),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String companyId), {
+    Result successful(Meniu meniu),
+    Result event(),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetMeniu$ value), {
+    @required Result successful(GetMeniuSuccessful value),
+    @required Result event(GetMeniuEvent value),
+    @required Result error(GetMeniuError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetMeniu$ value), {
+    Result successful(GetMeniuSuccessful value),
+    Result event(GetMeniuEvent value),
+    Result error(GetMeniuError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $GetMeniuCopyWith<$Res> {
+  factory $GetMeniuCopyWith(GetMeniu value, $Res Function(GetMeniu) then) =
+      _$GetMeniuCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetMeniuCopyWithImpl<$Res> implements $GetMeniuCopyWith<$Res> {
+  _$GetMeniuCopyWithImpl(this._value, this._then);
+
+  final GetMeniu _value;
+  // ignore: unused_field
+  final $Res Function(GetMeniu) _then;
+}
+
+/// @nodoc
+abstract class $GetMeniu$CopyWith<$Res> {
+  factory $GetMeniu$CopyWith(GetMeniu$ value, $Res Function(GetMeniu$) then) =
+      _$GetMeniu$CopyWithImpl<$Res>;
+  $Res call({String companyId});
+}
+
+/// @nodoc
+class _$GetMeniu$CopyWithImpl<$Res> extends _$GetMeniuCopyWithImpl<$Res>
+    implements $GetMeniu$CopyWith<$Res> {
+  _$GetMeniu$CopyWithImpl(GetMeniu$ _value, $Res Function(GetMeniu$) _then)
+      : super(_value, (v) => _then(v as GetMeniu$));
+
+  @override
+  GetMeniu$ get _value => super._value as GetMeniu$;
+
+  @override
+  $Res call({
+    Object companyId = freezed,
+  }) {
+    return _then(GetMeniu$(
+      companyId: companyId == freezed ? _value.companyId : companyId as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetMeniu$ implements GetMeniu$ {
+  const _$GetMeniu$({@required this.companyId}) : assert(companyId != null);
+
+  @override
+  final String companyId;
+
+  @override
+  String toString() {
+    return 'GetMeniu(companyId: $companyId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetMeniu$ &&
+            (identical(other.companyId, companyId) ||
+                const DeepCollectionEquality()
+                    .equals(other.companyId, companyId)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(companyId);
+
+  @override
+  $GetMeniu$CopyWith<GetMeniu$> get copyWith =>
+      _$GetMeniu$CopyWithImpl<GetMeniu$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String companyId), {
+    @required Result successful(Meniu meniu),
+    @required Result event(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(event != null);
+    assert(error != null);
+    return $default(companyId);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String companyId), {
+    Result successful(Meniu meniu),
+    Result event(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(companyId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetMeniu$ value), {
+    @required Result successful(GetMeniuSuccessful value),
+    @required Result event(GetMeniuEvent value),
+    @required Result error(GetMeniuError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(event != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetMeniu$ value), {
+    Result successful(GetMeniuSuccessful value),
+    Result event(GetMeniuEvent value),
+    Result error(GetMeniuError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetMeniu$ implements GetMeniu {
+  const factory GetMeniu$({@required String companyId}) = _$GetMeniu$;
+
+  String get companyId;
+  $GetMeniu$CopyWith<GetMeniu$> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetMeniuSuccessfulCopyWith<$Res> {
+  factory $GetMeniuSuccessfulCopyWith(
+          GetMeniuSuccessful value, $Res Function(GetMeniuSuccessful) then) =
+      _$GetMeniuSuccessfulCopyWithImpl<$Res>;
+  $Res call({Meniu meniu});
+}
+
+/// @nodoc
+class _$GetMeniuSuccessfulCopyWithImpl<$Res>
+    extends _$GetMeniuCopyWithImpl<$Res>
+    implements $GetMeniuSuccessfulCopyWith<$Res> {
+  _$GetMeniuSuccessfulCopyWithImpl(
+      GetMeniuSuccessful _value, $Res Function(GetMeniuSuccessful) _then)
+      : super(_value, (v) => _then(v as GetMeniuSuccessful));
+
+  @override
+  GetMeniuSuccessful get _value => super._value as GetMeniuSuccessful;
+
+  @override
+  $Res call({
+    Object meniu = freezed,
+  }) {
+    return _then(GetMeniuSuccessful(
+      meniu == freezed ? _value.meniu : meniu as Meniu,
+    ));
+  }
+}
+
+/// @nodoc
+class _$GetMeniuSuccessful implements GetMeniuSuccessful {
+  const _$GetMeniuSuccessful(this.meniu) : assert(meniu != null);
+
+  @override
+  final Meniu meniu;
+
+  @override
+  String toString() {
+    return 'GetMeniu.successful(meniu: $meniu)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetMeniuSuccessful &&
+            (identical(other.meniu, meniu) ||
+                const DeepCollectionEquality().equals(other.meniu, meniu)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(meniu);
+
+  @override
+  $GetMeniuSuccessfulCopyWith<GetMeniuSuccessful> get copyWith =>
+      _$GetMeniuSuccessfulCopyWithImpl<GetMeniuSuccessful>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String companyId), {
+    @required Result successful(Meniu meniu),
+    @required Result event(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(event != null);
+    assert(error != null);
+    return successful(meniu);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String companyId), {
+    Result successful(Meniu meniu),
+    Result event(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(meniu);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetMeniu$ value), {
+    @required Result successful(GetMeniuSuccessful value),
+    @required Result event(GetMeniuEvent value),
+    @required Result error(GetMeniuError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(event != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetMeniu$ value), {
+    Result successful(GetMeniuSuccessful value),
+    Result event(GetMeniuEvent value),
+    Result error(GetMeniuError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetMeniuSuccessful implements GetMeniu {
+  const factory GetMeniuSuccessful(Meniu meniu) = _$GetMeniuSuccessful;
+
+  Meniu get meniu;
+  $GetMeniuSuccessfulCopyWith<GetMeniuSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $GetMeniuEventCopyWith<$Res> {
+  factory $GetMeniuEventCopyWith(
+          GetMeniuEvent value, $Res Function(GetMeniuEvent) then) =
+      _$GetMeniuEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$GetMeniuEventCopyWithImpl<$Res> extends _$GetMeniuCopyWithImpl<$Res>
+    implements $GetMeniuEventCopyWith<$Res> {
+  _$GetMeniuEventCopyWithImpl(
+      GetMeniuEvent _value, $Res Function(GetMeniuEvent) _then)
+      : super(_value, (v) => _then(v as GetMeniuEvent));
+
+  @override
+  GetMeniuEvent get _value => super._value as GetMeniuEvent;
+}
+
+/// @nodoc
+class _$GetMeniuEvent implements GetMeniuEvent {
+  const _$GetMeniuEvent();
+
+  @override
+  String toString() {
+    return 'GetMeniu.event()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is GetMeniuEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String companyId), {
+    @required Result successful(Meniu meniu),
+    @required Result event(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(event != null);
+    assert(error != null);
+    return event();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String companyId), {
+    Result successful(Meniu meniu),
+    Result event(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (event != null) {
+      return event();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetMeniu$ value), {
+    @required Result successful(GetMeniuSuccessful value),
+    @required Result event(GetMeniuEvent value),
+    @required Result error(GetMeniuError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(event != null);
+    assert(error != null);
+    return event(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetMeniu$ value), {
+    Result successful(GetMeniuSuccessful value),
+    Result event(GetMeniuEvent value),
+    Result error(GetMeniuError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (event != null) {
+      return event(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetMeniuEvent implements GetMeniu {
+  const factory GetMeniuEvent() = _$GetMeniuEvent;
+}
+
+/// @nodoc
+abstract class $GetMeniuErrorCopyWith<$Res> {
+  factory $GetMeniuErrorCopyWith(
+          GetMeniuError value, $Res Function(GetMeniuError) then) =
+      _$GetMeniuErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$GetMeniuErrorCopyWithImpl<$Res> extends _$GetMeniuCopyWithImpl<$Res>
+    implements $GetMeniuErrorCopyWith<$Res> {
+  _$GetMeniuErrorCopyWithImpl(
+      GetMeniuError _value, $Res Function(GetMeniuError) _then)
+      : super(_value, (v) => _then(v as GetMeniuError));
+
+  @override
+  GetMeniuError get _value => super._value as GetMeniuError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(GetMeniuError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$GetMeniuError implements GetMeniuError {
+  const _$GetMeniuError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'GetMeniu.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is GetMeniuError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $GetMeniuErrorCopyWith<GetMeniuError> get copyWith =>
+      _$GetMeniuErrorCopyWithImpl<GetMeniuError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String companyId), {
+    @required Result successful(Meniu meniu),
+    @required Result event(),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(event != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String companyId), {
+    Result successful(Meniu meniu),
+    Result event(),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(GetMeniu$ value), {
+    @required Result successful(GetMeniuSuccessful value),
+    @required Result event(GetMeniuEvent value),
+    @required Result error(GetMeniuError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(event != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(GetMeniu$ value), {
+    Result successful(GetMeniuSuccessful value),
+    Result event(GetMeniuEvent value),
+    Result error(GetMeniuError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetMeniuError implements GetMeniu, ErrorAction {
+  const factory GetMeniuError(Object error) = _$GetMeniuError;
+
+  Object get error;
+  $GetMeniuErrorCopyWith<GetMeniuError> get copyWith;
+}

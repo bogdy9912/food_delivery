@@ -10,6 +10,9 @@ abstract class CompanyState implements Built<CompanyState, CompanyStateBuilder> 
 
   BuiltList<Company> get searchResult;
 
+  @nullable
+  Meniu get meniu;
+
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
   static Serializer<CompanyState> get serializer => _$companyStateSerializer;

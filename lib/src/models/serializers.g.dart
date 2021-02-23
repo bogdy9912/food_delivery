@@ -12,6 +12,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AuthState.serializer)
       ..add(Company.serializer)
       ..add(CompanyState.serializer)
+      ..add(Dish.serializer)
+      ..add(Meniu.serializer)
+      ..add(MeniuItem.serializer)
       ..add(RegistrationInfo.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Company)]),
@@ -19,6 +22,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Company)]),
           () => new ListBuilder<Company>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Dish)]),
+          () => new ListBuilder<Dish>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(MeniuItem)]),
+          () => new ListBuilder<MeniuItem>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>()))

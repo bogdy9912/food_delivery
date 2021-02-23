@@ -1,6 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:food_delivery/src/actions/company/index.dart';
 import 'package:food_delivery/src/models/company/index.dart';
+import 'package:food_delivery/src/models/index.dart';
+import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class CompanyItem extends StatelessWidget {
   const CompanyItem({Key key, @required this.company}) : super(key: key);
@@ -69,7 +73,10 @@ class CompanyItem extends StatelessWidget {
               ),
             ),
           ),
-          onTap: () {},
+          onTap: () {
+            StoreProvider.of<AppState>(context).dispatch(GetMeniu(companyId: company.id));
+            Navigator.pushNamed(context, AppRoutes.meniu);
+          },
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),

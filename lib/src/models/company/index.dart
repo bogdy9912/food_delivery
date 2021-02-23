@@ -9,3 +9,5 @@ import 'package:food_delivery/src/models/serializers.dart';
 part 'index.g.dart';
 part 'company.dart';
 part 'company_state.dart';
+part 'meniu.dart';
+part 'dish.dart';

@@ -8,3 +8,4 @@ part 'index.freezed.dart';
 part 'create_company.dart';
 part 'get_companies.dart';
 part 'search_companies.dart';
+part 'get_meniu.dart';

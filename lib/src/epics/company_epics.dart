@@ -17,6 +17,7 @@ class CompanyEpics {
         TypedEpic<AppState, CreateCompany$>(_createCompany),
         TypedEpic<AppState, GetCompanies$>(_getCompanies),
         TypedEpic<AppState, SearchCompanies$>(_searchCompanies),
+        TypedEpic<AppState, GetMeniu$>(_getMeniu),
       ]);
 
   Stream<AppAction> _createCompany(Stream<CreateCompany$> actions, EpicStore<AppState> store) {
@@ -49,5 +50,15 @@ class CompanyEpics {
             .asyncMap((SearchCompanies$ action) => _api.searchCompanies(action.query))
             .map((List<Company> companies) => SearchCompanies.successful(companies))
             .onErrorReturnWith((dynamic error) => SearchCompanies.error(error)));
+  }
+
+  Stream<AppAction> _getMeniu(Stream<GetMeniu$> actions, EpicStore<AppState> store) {
+    return actions //
+        .whereType<GetMeniu$>()
+        .flatMap((GetMeniu$ action) => Stream<GetMeniu$>.value(action)
+            .flatMap((GetMeniu$ action) => _api.getMeniu(action.companyId))
+            .map((Meniu meniu) => GetMeniu.successful(meniu))
+            .takeUntil(actions.whereType<GetMeniuEvent>())
+            .onErrorReturnWith((dynamic error) => GetMeniu.error(error)));
   }
 }

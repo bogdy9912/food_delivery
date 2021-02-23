@@ -32,7 +32,7 @@
 * [ ] reviews comment (20')
 
 ## Search + Categories (100')
-* [ ] search restaurants (15')
+* [x] search restaurants (15')
 * [ ] recently viewed restaurants (15')
 * [ ] filter and sorting (35')
 

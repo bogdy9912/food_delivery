@@ -6,6 +6,7 @@ import 'package:redux/redux.dart';
 Reducer<CompanyState> companyReducer = combineReducers(<Reducer<CompanyState>>[
   TypedReducer<CompanyState, GetCompaniesSuccessful>(_getCompaniesSuccessful),
   TypedReducer<CompanyState, SearchCompaniesSuccessful>(_searchCompaniesSuccessful),
+  TypedReducer<CompanyState, GetMeniuSuccessful>(_getMeniuSuccessful),
 ]);
 
 CompanyState _getCompaniesSuccessful(CompanyState state, GetCompaniesSuccessful action) {
@@ -14,4 +15,8 @@ CompanyState _getCompaniesSuccessful(CompanyState state, GetCompaniesSuccessful 
 
 CompanyState _searchCompaniesSuccessful(CompanyState state, SearchCompaniesSuccessful action) {
   return state.rebuild((CompanyStateBuilder b) => b.searchResult = ListBuilder<Company>(action.companies));
+}
+
+CompanyState _getMeniuSuccessful(CompanyState state, GetMeniuSuccessful action) {
+  return state.rebuild((CompanyStateBuilder b) => b.meniu = action.meniu.toBuilder());
 }

@@ -51,4 +51,13 @@ class CompanyApi {
     print(docs.map((QueryDocumentSnapshot e) => Company.fromJson(e.data())).toList());
     return docs.map((QueryDocumentSnapshot e) => Company.fromJson(e.data())).toList();
   }
+
+  Stream<Meniu> getMeniu(String companyId) {
+    return _firestore
+        .collection('companies/$companyId/meniu')
+        .where('date', isEqualTo: 'now')
+        .snapshots()
+        .map((QuerySnapshot snapshot) => Meniu.fromJson(snapshot.docs.first.data()));
+  }
+
 }
