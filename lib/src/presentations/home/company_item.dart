@@ -75,7 +75,7 @@ class CompanyItem extends StatelessWidget {
           ),
           onTap: () {
             StoreProvider.of<AppState>(context).dispatch(GetMeniu(companyId: company.id));
-            Navigator.pushNamed(context, AppRoutes.meniu);
+            Navigator.pushNamed(context, AppRoutes.meniu, arguments: company);
           },
         ),
         Padding(

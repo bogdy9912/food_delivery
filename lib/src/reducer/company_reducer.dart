@@ -7,6 +7,7 @@ Reducer<CompanyState> companyReducer = combineReducers(<Reducer<CompanyState>>[
   TypedReducer<CompanyState, GetCompaniesSuccessful>(_getCompaniesSuccessful),
   TypedReducer<CompanyState, SearchCompaniesSuccessful>(_searchCompaniesSuccessful),
   TypedReducer<CompanyState, GetMeniuSuccessful>(_getMeniuSuccessful),
+  TypedReducer<CompanyState, GetMeniuEvent>(_getMeniuEvent),
 ]);
 
 CompanyState _getCompaniesSuccessful(CompanyState state, GetCompaniesSuccessful action) {
@@ -19,4 +20,8 @@ CompanyState _searchCompaniesSuccessful(CompanyState state, SearchCompaniesSucce
 
 CompanyState _getMeniuSuccessful(CompanyState state, GetMeniuSuccessful action) {
   return state.rebuild((CompanyStateBuilder b) => b.meniu = action.meniu.toBuilder());
+}
+
+CompanyState _getMeniuEvent(CompanyState state, GetMeniuEvent action) {
+  return state.rebuild((CompanyStateBuilder b) => b.meniu = null);
 }

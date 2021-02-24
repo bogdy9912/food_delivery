@@ -182,14 +182,17 @@ class _$MeniuSerializer implements StructuredSerializer<Meniu> {
   Iterable<Object> serialize(Serializers serializers, Meniu object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'items',
       serializers.serialize(object.items,
           specifiedType:
               const FullType(BuiltList, const [const FullType(MeniuItem)])),
     ];
-
+    if (object.id != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(object.id,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -674,9 +677,6 @@ class _$Meniu extends Meniu {
       (new MeniuBuilder()..update(updates)).build();
 
   _$Meniu._({this.id, this.items}) : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('Meniu', 'id');
-    }
     if (items == null) {
       throw new BuiltValueNullFieldError('Meniu', 'items');
     }

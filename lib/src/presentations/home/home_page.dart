@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text('Calarasi', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14),),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.transparent,
+//        backgroundColor: Colors.transparent,
       ),
       drawer: Drawer(
         child: AppDrawer(),
@@ -44,8 +44,9 @@ class _HomePageState extends State<HomePage> {
                   Navigator.pushNamed(context, AppRoutes.search);
                 },
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:16.0),
-                  child: Material(color: Colors.white70,
+                  padding: const EdgeInsets.symmetric(horizontal:16.0, vertical: 8),
+                  child: Material(
+                    color: Colors.white,
                     elevation: 0,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                     child: Padding(

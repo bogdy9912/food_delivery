@@ -6,6 +6,7 @@ abstract class Meniu implements Built<Meniu, MeniuBuilder> {
 
   Meniu._();
 
+  @nullable
   String get id;
 
   BuiltList<MeniuItem> get items;

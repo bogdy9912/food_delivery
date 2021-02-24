@@ -30,8 +30,9 @@ class _FoodDeliveryState extends State<FoodDelivery> with InitMixin<FoodDelivery
 
                   cursorColor: Colors.white,
                   indicatorColor: Colors.white,
+                  scaffoldBackgroundColor: Color(0xFFf0efeb),
 
-                  scaffoldBackgroundColor: Colors.white70,
+                  appBarTheme: AppBarTheme(color: Colors.amber),
                 ),
                 routes: AppRoutes.routes,
               ),

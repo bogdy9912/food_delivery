@@ -53,6 +53,7 @@ class CompanyApi {
   }
 
   Stream<Meniu> getMeniu(String companyId) {
+    print('data: $companyId');
     return _firestore
         .collection('companies/$companyId/meniu')
         .where('date', isEqualTo: 'now')

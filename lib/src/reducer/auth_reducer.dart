@@ -7,6 +7,7 @@ Reducer<AuthState> authReducer = combineReducers(<Reducer<AuthState>>[
   TypedReducer<AuthState, InitializeAppSuccessful>(_initializeAppSuccessful),
   TypedReducer<AuthState, UpdateRegistrationInfo$>(_updateRegistrationInfo),
   TypedReducer<AuthState, SignUpSuccessful>(_signUpSuccessful),
+  TypedReducer<AuthState, UpdateCart$>(_updateCart),
 ]);
 
 AuthState _loginSuccessful(AuthState state, LoginSuccessful action) {
@@ -40,4 +41,40 @@ AuthState _signUpSuccessful(AuthState state, SignUpSuccessful action) {
 
 AuthState _initializeAppSuccessful(AuthState state, InitializeAppSuccessful action) {
   return state.rebuild((AuthStateBuilder b) => b.user = action.user.toBuilder());
+}
+
+
+AuthState _updateCart(AuthState state, UpdateCart$ action) {
+  print('reducer: ${action}');
+  final Cart cartState = state.cart ?? Cart();
+
+  return state.rebuild((AuthStateBuilder b) {
+    if (action.add != null) {
+      print('reducer: ${action.add}');
+      final int index = cartState.items.indexWhere((CartItem item) => item.id == action.add.id);
+
+      if (index == -1) {
+        b.cart.items.add(CartItem(id: action.add.id, quantity: 1, price: action.add.price, name: action.add.name));
+      } else {
+        b.cart.items[index] = b.cart.items[index].rebuild((CartItemBuilder b) => b.quantity = b.quantity + 1);
+      }
+    } else if (action.remove != null) {
+      final int index = cartState.items.indexWhere((CartItem item) => item.id == action.remove.id);
+      if (index == -1) {
+        // eroare
+        // ar trb sa fac si pt cazul in care ajunge quantity la 0? si sa fac clear la product? sau fac din UI sa fie minim 1bucs
+      } else {
+        if (b.cart.items[index].quantity > 0) {
+          b.cart.items[index] =
+              b.cart.items[index].rebuild((CartItemBuilder b) => b.quantity = b.quantity - 1);
+        } else {
+          b.cart.items.removeWhere((CartItem item) => item.id == action.remove.id);
+        }
+      }
+    } else if (action.clearItem != null) {
+      b.cart.items.removeWhere((CartItem item) => item.id == action.clearItem.id);
+    } else {
+      b.cart = Cart().toBuilder();
+    }
+  });
 }

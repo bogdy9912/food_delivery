@@ -10,12 +10,17 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AppState.serializer)
       ..add(AppUser.serializer)
       ..add(AuthState.serializer)
+      ..add(Cart.serializer)
+      ..add(CartItem.serializer)
       ..add(Company.serializer)
       ..add(CompanyState.serializer)
       ..add(Dish.serializer)
       ..add(Meniu.serializer)
       ..add(MeniuItem.serializer)
       ..add(RegistrationInfo.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(CartItem)]),
+          () => new ListBuilder<CartItem>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Company)]),
           () => new ListBuilder<Company>())

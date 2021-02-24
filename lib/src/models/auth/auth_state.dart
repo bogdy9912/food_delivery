@@ -16,5 +16,8 @@ abstract class AuthState implements Built<AuthState, AuthStateBuilder> {
 
   RegistrationInfo get info;
 
+  @nullable
+  Cart get cart;
+
   static Serializer<AuthState> get serializer => _$authStateSerializer;
 }

@@ -2282,3 +2282,148 @@ abstract class ForgotPasswordError implements ForgotPassword, ErrorAction {
   Object get error;
   $ForgotPasswordErrorCopyWith<ForgotPasswordError> get copyWith;
 }
+
+/// @nodoc
+class _$UpdateCartTearOff {
+  const _$UpdateCartTearOff();
+
+// ignore: unused_element
+  UpdateCart$ call({Dish add, Dish remove, Dish clearItem}) {
+    return UpdateCart$(
+      add: add,
+      remove: remove,
+      clearItem: clearItem,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $UpdateCart = _$UpdateCartTearOff();
+
+/// @nodoc
+mixin _$UpdateCart {
+  Dish get add;
+  Dish get remove;
+  Dish get clearItem;
+
+  $UpdateCartCopyWith<UpdateCart> get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateCartCopyWith<$Res> {
+  factory $UpdateCartCopyWith(
+          UpdateCart value, $Res Function(UpdateCart) then) =
+      _$UpdateCartCopyWithImpl<$Res>;
+  $Res call({Dish add, Dish remove, Dish clearItem});
+}
+
+/// @nodoc
+class _$UpdateCartCopyWithImpl<$Res> implements $UpdateCartCopyWith<$Res> {
+  _$UpdateCartCopyWithImpl(this._value, this._then);
+
+  final UpdateCart _value;
+  // ignore: unused_field
+  final $Res Function(UpdateCart) _then;
+
+  @override
+  $Res call({
+    Object add = freezed,
+    Object remove = freezed,
+    Object clearItem = freezed,
+  }) {
+    return _then(_value.copyWith(
+      add: add == freezed ? _value.add : add as Dish,
+      remove: remove == freezed ? _value.remove : remove as Dish,
+      clearItem: clearItem == freezed ? _value.clearItem : clearItem as Dish,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class $UpdateCart$CopyWith<$Res> implements $UpdateCartCopyWith<$Res> {
+  factory $UpdateCart$CopyWith(
+          UpdateCart$ value, $Res Function(UpdateCart$) then) =
+      _$UpdateCart$CopyWithImpl<$Res>;
+  @override
+  $Res call({Dish add, Dish remove, Dish clearItem});
+}
+
+/// @nodoc
+class _$UpdateCart$CopyWithImpl<$Res> extends _$UpdateCartCopyWithImpl<$Res>
+    implements $UpdateCart$CopyWith<$Res> {
+  _$UpdateCart$CopyWithImpl(
+      UpdateCart$ _value, $Res Function(UpdateCart$) _then)
+      : super(_value, (v) => _then(v as UpdateCart$));
+
+  @override
+  UpdateCart$ get _value => super._value as UpdateCart$;
+
+  @override
+  $Res call({
+    Object add = freezed,
+    Object remove = freezed,
+    Object clearItem = freezed,
+  }) {
+    return _then(UpdateCart$(
+      add: add == freezed ? _value.add : add as Dish,
+      remove: remove == freezed ? _value.remove : remove as Dish,
+      clearItem: clearItem == freezed ? _value.clearItem : clearItem as Dish,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateCart$ implements UpdateCart$ {
+  const _$UpdateCart$({this.add, this.remove, this.clearItem});
+
+  @override
+  final Dish add;
+  @override
+  final Dish remove;
+  @override
+  final Dish clearItem;
+
+  @override
+  String toString() {
+    return 'UpdateCart(add: $add, remove: $remove, clearItem: $clearItem)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateCart$ &&
+            (identical(other.add, add) ||
+                const DeepCollectionEquality().equals(other.add, add)) &&
+            (identical(other.remove, remove) ||
+                const DeepCollectionEquality().equals(other.remove, remove)) &&
+            (identical(other.clearItem, clearItem) ||
+                const DeepCollectionEquality()
+                    .equals(other.clearItem, clearItem)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(add) ^
+      const DeepCollectionEquality().hash(remove) ^
+      const DeepCollectionEquality().hash(clearItem);
+
+  @override
+  $UpdateCart$CopyWith<UpdateCart$> get copyWith =>
+      _$UpdateCart$CopyWithImpl<UpdateCart$>(this, _$identity);
+}
+
+abstract class UpdateCart$ implements UpdateCart {
+  const factory UpdateCart$({Dish add, Dish remove, Dish clearItem}) =
+      _$UpdateCart$;
+
+  @override
+  Dish get add;
+  @override
+  Dish get remove;
+  @override
+  Dish get clearItem;
+  @override
+  $UpdateCart$CopyWith<UpdateCart$> get copyWith;
+}
