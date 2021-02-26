@@ -20,6 +20,7 @@ class AuthEpics {
         TypedEpic<AppState, SignUp$>(_signUp),
         TypedEpic<AppState, SignOut$>(_signOut),
         TypedEpic<AppState, ForgotPassword$>(_forgotPassword),
+        TypedEpic<AppState, UpdateProfileInfo$>(_updateProfileInfo),
       ]);
 
   Stream<AppAction> _login(Stream<Login$> actions, EpicStore<AppState> store) {
@@ -57,11 +58,30 @@ class AuthEpics {
             .map((AppUser user) => InitializeApp.successful(user))
             .onErrorReturnWith((dynamic error) => InitializeApp.error(error)));
   }
+
   Stream<AppAction> _forgotPassword(Stream<ForgotPassword$> actions, EpicStore<AppState> store) {
     return actions //
         .flatMap((ForgotPassword$ action) => Stream<ForgotPassword$>.value(action)
-        .asyncMap((ForgotPassword$ action) => _api.forgotPassword(action.email))
-        .map((_) => const ForgotPassword.successful())
-        .onErrorReturnWith((dynamic error) => ForgotPassword.error(error)));
+            .asyncMap((ForgotPassword$ action) => _api.forgotPassword(action.email))
+            .map((_) => const ForgotPassword.successful())
+            .onErrorReturnWith((dynamic error) => ForgotPassword.error(error)));
+  }
+
+  Stream<AppAction> _updateProfileInfo(Stream<UpdateProfileInfo$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((UpdateProfileInfo$ action) => Stream<UpdateProfileInfo$>.value(action)
+            .asyncMap((UpdateProfileInfo$ action) {
+              return _api.updateProfile(
+                  uid: store.state.auth.user.uid,
+                  lastName: action.lastName,
+                  firstName: action.firstName,
+                  telephone: action.telephone);
+            })
+            .mapTo(UpdateProfileInfo.successful(
+              lastName: action.lastName,
+              firstName: action.firstName,
+              telephone: action.telephone,
+            ))
+            .onErrorReturnWith((dynamic error) => UpdateProfileInfo.error(error)));
   }
 }

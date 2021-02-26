@@ -16,6 +16,13 @@ class AppDrawer extends StatelessWidget {
           onTap: () {},
         ),
         ListTile(
+          title: const Text('profil'),
+          leading: const Icon(Icons.account_circle),
+          onTap: () {
+            Navigator.pushNamed(context, AppRoutes.profile);
+          },
+        ),
+        ListTile(
           title: const Text('favorite'),
           leading: const Icon(Icons.logout),
           onTap: () {},

@@ -3,7 +3,9 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/src/models/company/index.dart';
 import 'package:food_delivery/src/presentations/cart/cart_page.dart';
+import 'package:food_delivery/src/presentations/cart/lal.dart';
 import 'package:food_delivery/src/presentations/meniu/meniu_page.dart';
+import 'package:food_delivery/src/presentations/profile/profile_page.dart';
 import 'package:food_delivery/src/presentations/search/search_page.dart';
 import 'package:food_delivery/src/presentations/sign_up/set_name_page.dart';
 import 'package:food_delivery/src/presentations/sign_up/sign_up_page.dart';
@@ -20,6 +22,8 @@ class AppRoutes{
   static String search = '/search';
   static String meniu = '/meniu';
   static String cart = '/cart';
+  static String lala = '/lala';
+  static String profile = '/profile';
   static Map<String, WidgetBuilder> routes= <String, WidgetBuilder>{
     home: (BuildContext context) => const Home(),
     signUp: (BuildContext context) => const SignUpPage(),
@@ -31,5 +35,7 @@ class AppRoutes{
       return MeniuPage(company: arg);
     },
     cart: (BuildContext context) => const CartPage(),
+    lala: (BuildContext context) =>  Lala(),
+    profile: (BuildContext context) =>  const ProfilePage(),
   };
 }

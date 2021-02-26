@@ -23,7 +23,7 @@ class MeniuPage extends StatelessWidget {
             appBar: AppBar(
               title: Text(company.name),
               leading: IconButton(
-                icon: const Icon(Icons.add),
+                icon: const Icon(Icons.arrow_back),
                 onPressed: () {
                   Navigator.pop(context);
                   StoreProvider.of<AppState>(context).dispatch(const GetMeniu.event());

@@ -34,14 +34,12 @@ class AuthApi {
       @required String password,
       @required String firstName,
       @required String lastName}) async {
-    print('data: $email');
-    print('data: $password');
     final UserCredential response = await _auth.createUserWithEmailAndPassword(email: email, password: password);
 
-    print(response);
+
 
     final User user = response.user;
-    print('data: $user');
+
 
     final AppUser newUser = AppUser((AppUserBuilder b) {
       b
@@ -51,7 +49,6 @@ class AuthApi {
         ..firstName = firstName;
     });
 
-    print('data: $newUser');
     _firestore.doc('users/${user.uid}').set(newUser.json);
 
     return newUser;
@@ -64,7 +61,11 @@ class AuthApi {
 
   Future<void> forgotPassword(String email) async {
     await _auth.sendPasswordResetEmail(email: email);
-  } 
+  }
 
+
+  Future<void> updateProfile({@required String uid, @required String lastName, @required String firstName, @required String telephone}) async {
+    await _firestore.doc('users/$uid').update(<String, String>{'lastName': lastName,'firstName': firstName, 'telephone': telephone});
+  }
 
 }

@@ -30,9 +30,49 @@ class CartPage extends StatelessWidget {
                         },
                       ),
                     ),
-                    FlatButton(
-                      child: const Text('Continua'),
-                      onPressed: () {},
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16.0,
+                        vertical: 8,
+                      ),
+                      child: Stack(
+                        children: <Widget>[
+                          RaisedButton(
+                            color: Colors.blueAccent,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                            child: Container(
+                              width: double.infinity,
+                              child: const Center(
+                                child: Padding(
+                                  padding: EdgeInsets.all(12.0),
+                                  child: Text(
+                                    'Continua',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            onPressed: () {
+//                              Navigator.pushNamed(context, AppRoutes.checkoutPage);
+                            },
+                          ),
+                          Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.horizontal(left: Radius.circular(12)),
+                            ),
+                            height: 48,
+                            width: 30,
+                            child: const Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

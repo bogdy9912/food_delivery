@@ -2427,3 +2427,508 @@ abstract class UpdateCart$ implements UpdateCart {
   @override
   $UpdateCart$CopyWith<UpdateCart$> get copyWith;
 }
+
+/// @nodoc
+class _$UpdateProfileInfoTearOff {
+  const _$UpdateProfileInfoTearOff();
+
+// ignore: unused_element
+  UpdateProfileInfo$ call(
+      {String lastName, String firstName, String telephone}) {
+    return UpdateProfileInfo$(
+      lastName: lastName,
+      firstName: firstName,
+      telephone: telephone,
+    );
+  }
+
+// ignore: unused_element
+  UpdateProfileInfoSuccessful successful(
+      {String lastName, String firstName, String telephone}) {
+    return UpdateProfileInfoSuccessful(
+      lastName: lastName,
+      firstName: firstName,
+      telephone: telephone,
+    );
+  }
+
+// ignore: unused_element
+  UpdateProfileInfoError error(Object error) {
+    return UpdateProfileInfoError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $UpdateProfileInfo = _$UpdateProfileInfoTearOff();
+
+/// @nodoc
+mixin _$UpdateProfileInfo {
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String lastName, String firstName, String telephone), {
+    @required
+        Result successful(String lastName, String firstName, String telephone),
+    @required Result error(Object error),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String lastName, String firstName, String telephone), {
+    Result successful(String lastName, String firstName, String telephone),
+    Result error(Object error),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    @required Result successful(UpdateProfileInfoSuccessful value),
+    @required Result error(UpdateProfileInfoError value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    Result successful(UpdateProfileInfoSuccessful value),
+    Result error(UpdateProfileInfoError value),
+    @required Result orElse(),
+  });
+}
+
+/// @nodoc
+abstract class $UpdateProfileInfoCopyWith<$Res> {
+  factory $UpdateProfileInfoCopyWith(
+          UpdateProfileInfo value, $Res Function(UpdateProfileInfo) then) =
+      _$UpdateProfileInfoCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpdateProfileInfoCopyWithImpl<$Res>
+    implements $UpdateProfileInfoCopyWith<$Res> {
+  _$UpdateProfileInfoCopyWithImpl(this._value, this._then);
+
+  final UpdateProfileInfo _value;
+  // ignore: unused_field
+  final $Res Function(UpdateProfileInfo) _then;
+}
+
+/// @nodoc
+abstract class $UpdateProfileInfo$CopyWith<$Res> {
+  factory $UpdateProfileInfo$CopyWith(
+          UpdateProfileInfo$ value, $Res Function(UpdateProfileInfo$) then) =
+      _$UpdateProfileInfo$CopyWithImpl<$Res>;
+  $Res call({String lastName, String firstName, String telephone});
+}
+
+/// @nodoc
+class _$UpdateProfileInfo$CopyWithImpl<$Res>
+    extends _$UpdateProfileInfoCopyWithImpl<$Res>
+    implements $UpdateProfileInfo$CopyWith<$Res> {
+  _$UpdateProfileInfo$CopyWithImpl(
+      UpdateProfileInfo$ _value, $Res Function(UpdateProfileInfo$) _then)
+      : super(_value, (v) => _then(v as UpdateProfileInfo$));
+
+  @override
+  UpdateProfileInfo$ get _value => super._value as UpdateProfileInfo$;
+
+  @override
+  $Res call({
+    Object lastName = freezed,
+    Object firstName = freezed,
+    Object telephone = freezed,
+  }) {
+    return _then(UpdateProfileInfo$(
+      lastName: lastName == freezed ? _value.lastName : lastName as String,
+      firstName: firstName == freezed ? _value.firstName : firstName as String,
+      telephone: telephone == freezed ? _value.telephone : telephone as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateProfileInfo$ implements UpdateProfileInfo$ {
+  const _$UpdateProfileInfo$({this.lastName, this.firstName, this.telephone});
+
+  @override
+  final String lastName;
+  @override
+  final String firstName;
+  @override
+  final String telephone;
+
+  @override
+  String toString() {
+    return 'UpdateProfileInfo(lastName: $lastName, firstName: $firstName, telephone: $telephone)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateProfileInfo$ &&
+            (identical(other.lastName, lastName) ||
+                const DeepCollectionEquality()
+                    .equals(other.lastName, lastName)) &&
+            (identical(other.firstName, firstName) ||
+                const DeepCollectionEquality()
+                    .equals(other.firstName, firstName)) &&
+            (identical(other.telephone, telephone) ||
+                const DeepCollectionEquality()
+                    .equals(other.telephone, telephone)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(telephone);
+
+  @override
+  $UpdateProfileInfo$CopyWith<UpdateProfileInfo$> get copyWith =>
+      _$UpdateProfileInfo$CopyWithImpl<UpdateProfileInfo$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String lastName, String firstName, String telephone), {
+    @required
+        Result successful(String lastName, String firstName, String telephone),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(lastName, firstName, telephone);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String lastName, String firstName, String telephone), {
+    Result successful(String lastName, String firstName, String telephone),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(lastName, firstName, telephone);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    @required Result successful(UpdateProfileInfoSuccessful value),
+    @required Result error(UpdateProfileInfoError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    Result successful(UpdateProfileInfoSuccessful value),
+    Result error(UpdateProfileInfoError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfileInfo$ implements UpdateProfileInfo {
+  const factory UpdateProfileInfo$(
+      {String lastName,
+      String firstName,
+      String telephone}) = _$UpdateProfileInfo$;
+
+  String get lastName;
+  String get firstName;
+  String get telephone;
+  $UpdateProfileInfo$CopyWith<UpdateProfileInfo$> get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateProfileInfoSuccessfulCopyWith<$Res> {
+  factory $UpdateProfileInfoSuccessfulCopyWith(
+          UpdateProfileInfoSuccessful value,
+          $Res Function(UpdateProfileInfoSuccessful) then) =
+      _$UpdateProfileInfoSuccessfulCopyWithImpl<$Res>;
+  $Res call({String lastName, String firstName, String telephone});
+}
+
+/// @nodoc
+class _$UpdateProfileInfoSuccessfulCopyWithImpl<$Res>
+    extends _$UpdateProfileInfoCopyWithImpl<$Res>
+    implements $UpdateProfileInfoSuccessfulCopyWith<$Res> {
+  _$UpdateProfileInfoSuccessfulCopyWithImpl(UpdateProfileInfoSuccessful _value,
+      $Res Function(UpdateProfileInfoSuccessful) _then)
+      : super(_value, (v) => _then(v as UpdateProfileInfoSuccessful));
+
+  @override
+  UpdateProfileInfoSuccessful get _value =>
+      super._value as UpdateProfileInfoSuccessful;
+
+  @override
+  $Res call({
+    Object lastName = freezed,
+    Object firstName = freezed,
+    Object telephone = freezed,
+  }) {
+    return _then(UpdateProfileInfoSuccessful(
+      lastName: lastName == freezed ? _value.lastName : lastName as String,
+      firstName: firstName == freezed ? _value.firstName : firstName as String,
+      telephone: telephone == freezed ? _value.telephone : telephone as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateProfileInfoSuccessful implements UpdateProfileInfoSuccessful {
+  const _$UpdateProfileInfoSuccessful(
+      {this.lastName, this.firstName, this.telephone});
+
+  @override
+  final String lastName;
+  @override
+  final String firstName;
+  @override
+  final String telephone;
+
+  @override
+  String toString() {
+    return 'UpdateProfileInfo.successful(lastName: $lastName, firstName: $firstName, telephone: $telephone)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateProfileInfoSuccessful &&
+            (identical(other.lastName, lastName) ||
+                const DeepCollectionEquality()
+                    .equals(other.lastName, lastName)) &&
+            (identical(other.firstName, firstName) ||
+                const DeepCollectionEquality()
+                    .equals(other.firstName, firstName)) &&
+            (identical(other.telephone, telephone) ||
+                const DeepCollectionEquality()
+                    .equals(other.telephone, telephone)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(telephone);
+
+  @override
+  $UpdateProfileInfoSuccessfulCopyWith<UpdateProfileInfoSuccessful>
+      get copyWith => _$UpdateProfileInfoSuccessfulCopyWithImpl<
+          UpdateProfileInfoSuccessful>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String lastName, String firstName, String telephone), {
+    @required
+        Result successful(String lastName, String firstName, String telephone),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(lastName, firstName, telephone);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String lastName, String firstName, String telephone), {
+    Result successful(String lastName, String firstName, String telephone),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(lastName, firstName, telephone);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    @required Result successful(UpdateProfileInfoSuccessful value),
+    @required Result error(UpdateProfileInfoError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    Result successful(UpdateProfileInfoSuccessful value),
+    Result error(UpdateProfileInfoError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfileInfoSuccessful implements UpdateProfileInfo {
+  const factory UpdateProfileInfoSuccessful(
+      {String lastName,
+      String firstName,
+      String telephone}) = _$UpdateProfileInfoSuccessful;
+
+  String get lastName;
+  String get firstName;
+  String get telephone;
+  $UpdateProfileInfoSuccessfulCopyWith<UpdateProfileInfoSuccessful>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class $UpdateProfileInfoErrorCopyWith<$Res> {
+  factory $UpdateProfileInfoErrorCopyWith(UpdateProfileInfoError value,
+          $Res Function(UpdateProfileInfoError) then) =
+      _$UpdateProfileInfoErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$UpdateProfileInfoErrorCopyWithImpl<$Res>
+    extends _$UpdateProfileInfoCopyWithImpl<$Res>
+    implements $UpdateProfileInfoErrorCopyWith<$Res> {
+  _$UpdateProfileInfoErrorCopyWithImpl(UpdateProfileInfoError _value,
+      $Res Function(UpdateProfileInfoError) _then)
+      : super(_value, (v) => _then(v as UpdateProfileInfoError));
+
+  @override
+  UpdateProfileInfoError get _value => super._value as UpdateProfileInfoError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+  }) {
+    return _then(UpdateProfileInfoError(
+      error == freezed ? _value.error : error,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$UpdateProfileInfoError implements UpdateProfileInfoError {
+  const _$UpdateProfileInfoError(this.error) : assert(error != null);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'UpdateProfileInfo.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateProfileInfoError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @override
+  $UpdateProfileInfoErrorCopyWith<UpdateProfileInfoError> get copyWith =>
+      _$UpdateProfileInfoErrorCopyWithImpl<UpdateProfileInfoError>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>(
+    Result $default(String lastName, String firstName, String telephone), {
+    @required
+        Result successful(String lastName, String firstName, String telephone),
+    @required Result error(Object error),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>(
+    Result $default(String lastName, String firstName, String telephone), {
+    Result successful(String lastName, String firstName, String telephone),
+    Result error(Object error),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    @required Result successful(UpdateProfileInfoSuccessful value),
+    @required Result error(UpdateProfileInfoError value),
+  }) {
+    assert($default != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>(
+    Result $default(UpdateProfileInfo$ value), {
+    Result successful(UpdateProfileInfoSuccessful value),
+    Result error(UpdateProfileInfoError value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateProfileInfoError
+    implements UpdateProfileInfo, ErrorAction {
+  const factory UpdateProfileInfoError(Object error) = _$UpdateProfileInfoError;
+
+  Object get error;
+  $UpdateProfileInfoErrorCopyWith<UpdateProfileInfoError> get copyWith;
+}

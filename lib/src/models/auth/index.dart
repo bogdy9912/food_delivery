@@ -12,3 +12,4 @@ part 'auth_state.dart';
 part 'app_user.dart';
 part 'registration_info.dart';
 part 'cart.dart';
+part 'address_point.dart';

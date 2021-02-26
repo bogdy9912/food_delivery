@@ -17,6 +17,11 @@ abstract class AppUser implements Built<AppUser, AppUserBuilder> {
   @nullable
   String get lastName;
 
+  @nullable
+  String get telephone;
+
+  BuiltMap<String, AddressPoint> get addresses;
+
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
   static Serializer<AppUser> get serializer => _$appUserSerializer;
