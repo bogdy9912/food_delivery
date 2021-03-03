@@ -24,6 +24,9 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
       'companyState',
       serializers.serialize(object.companyState,
           specifiedType: const FullType(CompanyState)),
+      'ordersState',
+      serializers.serialize(object.ordersState,
+          specifiedType: const FullType(OrdersState)),
     ];
 
     return result;
@@ -48,6 +51,10 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
           result.companyState.replace(serializers.deserialize(value,
               specifiedType: const FullType(CompanyState)) as CompanyState);
           break;
+        case 'ordersState':
+          result.ordersState.replace(serializers.deserialize(value,
+              specifiedType: const FullType(OrdersState)) as OrdersState);
+          break;
       }
     }
 
@@ -60,16 +67,21 @@ class _$AppState extends AppState {
   final AuthState auth;
   @override
   final CompanyState companyState;
+  @override
+  final OrdersState ordersState;
 
   factory _$AppState([void Function(AppStateBuilder) updates]) =>
       (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({this.auth, this.companyState}) : super._() {
+  _$AppState._({this.auth, this.companyState, this.ordersState}) : super._() {
     if (auth == null) {
       throw new BuiltValueNullFieldError('AppState', 'auth');
     }
     if (companyState == null) {
       throw new BuiltValueNullFieldError('AppState', 'companyState');
+    }
+    if (ordersState == null) {
+      throw new BuiltValueNullFieldError('AppState', 'ordersState');
     }
   }
 
@@ -85,19 +97,22 @@ class _$AppState extends AppState {
     if (identical(other, this)) return true;
     return other is AppState &&
         auth == other.auth &&
-        companyState == other.companyState;
+        companyState == other.companyState &&
+        ordersState == other.ordersState;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, auth.hashCode), companyState.hashCode));
+    return $jf($jc($jc($jc(0, auth.hashCode), companyState.hashCode),
+        ordersState.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('AppState')
           ..add('auth', auth)
-          ..add('companyState', companyState))
+          ..add('companyState', companyState)
+          ..add('ordersState', ordersState))
         .toString();
   }
 }
@@ -115,12 +130,19 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   set companyState(CompanyStateBuilder companyState) =>
       _$this._companyState = companyState;
 
+  OrdersStateBuilder _ordersState;
+  OrdersStateBuilder get ordersState =>
+      _$this._ordersState ??= new OrdersStateBuilder();
+  set ordersState(OrdersStateBuilder ordersState) =>
+      _$this._ordersState = ordersState;
+
   AppStateBuilder();
 
   AppStateBuilder get _$this {
     if (_$v != null) {
       _auth = _$v.auth?.toBuilder();
       _companyState = _$v.companyState?.toBuilder();
+      _ordersState = _$v.ordersState?.toBuilder();
       _$v = null;
     }
     return this;
@@ -145,7 +167,9 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
     try {
       _$result = _$v ??
           new _$AppState._(
-              auth: auth.build(), companyState: companyState.build());
+              auth: auth.build(),
+              companyState: companyState.build(),
+              ordersState: ordersState.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -153,6 +177,8 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
         auth.build();
         _$failedField = 'companyState';
         companyState.build();
+        _$failedField = 'ordersState';
+        ordersState.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'AppState', _$failedField, e.toString());

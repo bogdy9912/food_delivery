@@ -308,7 +308,12 @@ class _$CartItemSerializer implements StructuredSerializer<CartItem> {
       serializers.serialize(object.price,
           specifiedType: const FullType(double)),
     ];
-
+    if (object.description != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(object.description,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -338,6 +343,10 @@ class _$CartItemSerializer implements StructuredSerializer<CartItem> {
         case 'price':
           result.price = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -937,11 +946,15 @@ class _$CartItem extends CartItem {
   final int quantity;
   @override
   final double price;
+  @override
+  final String description;
 
   factory _$CartItem([void Function(CartItemBuilder) updates]) =>
       (new CartItemBuilder()..update(updates)).build();
 
-  _$CartItem._({this.id, this.name, this.quantity, this.price}) : super._() {
+  _$CartItem._(
+      {this.id, this.name, this.quantity, this.price, this.description})
+      : super._() {
     if (id == null) {
       throw new BuiltValueNullFieldError('CartItem', 'id');
     }
@@ -970,14 +983,16 @@ class _$CartItem extends CartItem {
         id == other.id &&
         name == other.name &&
         quantity == other.quantity &&
-        price == other.price;
+        price == other.price &&
+        description == other.description;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, id.hashCode), name.hashCode), quantity.hashCode),
-        price.hashCode));
+        $jc($jc($jc($jc(0, id.hashCode), name.hashCode), quantity.hashCode),
+            price.hashCode),
+        description.hashCode));
   }
 
   @override
@@ -986,7 +1001,8 @@ class _$CartItem extends CartItem {
           ..add('id', id)
           ..add('name', name)
           ..add('quantity', quantity)
-          ..add('price', price))
+          ..add('price', price)
+          ..add('description', description))
         .toString();
   }
 }
@@ -1010,6 +1026,10 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
   double get price => _$this._price;
   set price(double price) => _$this._price = price;
 
+  String _description;
+  String get description => _$this._description;
+  set description(String description) => _$this._description = description;
+
   CartItemBuilder();
 
   CartItemBuilder get _$this {
@@ -1018,6 +1038,7 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
       _name = _$v.name;
       _quantity = _$v.quantity;
       _price = _$v.price;
+      _description = _$v.description;
       _$v = null;
     }
     return this;
@@ -1039,7 +1060,12 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
   @override
   _$CartItem build() {
     final _$result = _$v ??
-        new _$CartItem._(id: id, name: name, quantity: quantity, price: price);
+        new _$CartItem._(
+            id: id,
+            name: name,
+            quantity: quantity,
+            price: price,
+            description: description);
     replace(_$result);
     return _$result;
   }
