@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/actions/auth/index.dart';
@@ -61,154 +60,172 @@ class _PaymentPageState extends State<PaymentPage> {
                 elevation: 0,
                 iconTheme: const IconThemeData(color: Colors.blue),
                 title: const Text(
-                  'Payment',
+                  'Finalizare',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
               ),
-              body: Column(
-                children: <Widget>[
-                  const Text('Instructiuni pentru comanda'),
-                  TextField(
-                    controller: _intructions,
-                    decoration: const InputDecoration(hintText: 'alergii sau alte mentiuni asupra mancarii'),
-                  ),
-                  const Divider(),
-                  ListTile(
-                    title: const Text(
-                      'Credit/debit card',
-                      style: TextStyle(fontSize: 18),
+              body: SingleChildScrollView (
+                child: Column(
+                  children: <Widget>[
+                    const Text(
+                      'Instructiuni pentru comanda',
+                      style: TextStyle(fontSize: 20),
                     ),
-                    subtitle: Row(
-                      children: const <Widget>[
-                        Icon(
-                          Icons.credit_card,
-                          color: Colors.black,
-                        ),
-                        Icon(
-                          Icons.credit_card,
-                          color: Colors.red,
-                        ),
-                        Icon(
-                          Icons.credit_card,
-                          color: Colors.amber,
-                        ),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: TextField(
+                        controller: _intructions,
+                        maxLines: 5,
+                        decoration: const InputDecoration(hintText: 'alergii sau alte mentiuni asupra mancarii'),
+                      ),
                     ),
-                    leading: Radio<PaymentMethod>(
-                        value: PaymentMethod.card,
-                        groupValue: _method,
-                        onChanged: (PaymentMethod meth) {
-                          setState(() {
-                            _method = meth;
-                          });
-                        }),
-                  ),
-                  ListTile(
-                    title: const Text(
-                      'Cash',
-                      style: TextStyle(fontSize: 18),
+                    const Divider(),
+
+                    const Text(
+                      'Selecteaza modul de plata',
+                      style: TextStyle(fontSize: 20),
                     ),
-                    subtitle: Row(
-                      children: const <Widget>[
-                        Icon(
-                          Icons.money,
-                          color: Colors.green,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical:16.0),
+                      child: ListTile(
+                        title: const Text(
+                          'Credit/debit card',
+                          style: TextStyle(fontSize: 18),
                         ),
-                      ],
-                    ),
-                    leading: Radio<PaymentMethod>(
-                        value: PaymentMethod.cash,
-                        groupValue: _method,
-                        onChanged: (PaymentMethod meth) {
-                          setState(() {
-                            _method = meth;
-                          });
-                        }),
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      children: <Widget>[
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            'Order summary',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue,
+                        subtitle: Row(
+                          children: const <Widget>[
+                            Icon(
+                              Icons.credit_card,
+                              color: Colors.black,
                             ),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            const Text(
-                              'Total delivery:',
-                              style: TextStyle(
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            Icon(
+                              Icons.credit_card,
+                              color: Colors.red,
                             ),
-                            Text(
-                              info.total != null ? (info.total).toStringAsFixed(2) + ' lei' : '',
-                              style: const TextStyle(
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                              ),
+                            Icon(
+                              Icons.credit_card,
+                              color: Colors.amber,
                             ),
                           ],
                         ),
-                      ],
+                        leading: Radio<PaymentMethod>(
+                            value: PaymentMethod.card,
+                            groupValue: _method,
+                            onChanged: (PaymentMethod meth) {
+                              setState(() {
+                                _method = meth;
+                              });
+                            }),
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Stack(
-                      children: <Widget>[
-                        RaisedButton(
-                          color: Colors.blueAccent,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                          child: Container(
-                            width: double.infinity,
-                            child: const Center(
-                              child: Padding(
-                                padding: EdgeInsets.all(12.0),
-                                child: Text(
-                                  'FINISH',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
+                    ListTile(
+                      title: const Text(
+                        'Cash',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      subtitle: Row(
+                        children: const <Widget>[
+                          Icon(
+                            Icons.money,
+                            color: Colors.green,
+                          ),
+                        ],
+                      ),
+                      leading: Radio<PaymentMethod>(
+                          value: PaymentMethod.cash,
+                          groupValue: _method,
+                          onChanged: (PaymentMethod meth) {
+                            setState(() {
+                              _method = meth;
+                            });
+                          }),
+                    ),
+//                  const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        children: <Widget>[
+                          const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              'Order summary',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              const Text(
+                                'Total delivery:',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                info.total != null ? (info.total).toStringAsFixed(2) + ' lei' : '',
+                                style: const TextStyle(
+                                  color: Colors.red,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Stack(
+                        children: <Widget>[
+                          RaisedButton(
+                            color: Colors.blueAccent,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                            child: Container(
+                              width: double.infinity,
+                              child: const Center(
+                                child: Padding(
+                                  padding: EdgeInsets.all(12.0),
+                                  child: Text(
+                                    'FINISH',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
+                            onPressed: () {
+                              StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(methodOfPayment: _method));
+                              StoreProvider.of<AppState>(context)
+                                  .dispatch(UpdateOrderInfo(instructions: _intructions.text));
+                              StoreProvider.of<AppState>(context).dispatch(CreateOrder(response: _response));
+                            },
                           ),
-                          onPressed: () {
-                            StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(methodOfPayment: _method));
-                            StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(instructions: _intructions.text));
-                            StoreProvider.of<AppState>(context).dispatch(CreateOrder(response: _response));
-                          },
-                        ),
-                        Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.horizontal(left: Radius.circular(12)),
+                          Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.horizontal(left: Radius.circular(12)),
+                            ),
+                            height: 48,
+                            width: 30,
+                            child: const Icon(
+                              Icons.arrow_forward,
+                              color: Colors.white,
+                            ),
                           ),
-                          height: 48,
-                          width: 30,
-                          child: const Icon(
-                            Icons.arrow_forward,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             );
           },
