@@ -28,11 +28,11 @@ class _FoodDeliveryState extends State<FoodDelivery> with InitMixin<FoodDelivery
                 theme: ThemeData(
                   primaryColor: Colors.blue,
 
-//                  cursorColor: Colors.white,
-//                  indicatorColor: Colors.white,
-                  scaffoldBackgroundColor: const Color(0xFFf0efeb),
+                  cursorColor: Colors.white,
+                  indicatorColor: Colors.white,
+                  scaffoldBackgroundColor: Color(0xFFf0efeb),
 
-                  appBarTheme: const AppBarTheme(color: Colors.amber),
+                  appBarTheme: AppBarTheme(color: Colors.amber),
                 ),
                 routes: AppRoutes.routes,
               ),

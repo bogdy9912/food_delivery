@@ -13,8 +13,6 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   CompanyState get companyState;
 
-  OrdersState get ordersState;
-
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
   static Serializer<AppState> get serializer => _$appStateSerializer;

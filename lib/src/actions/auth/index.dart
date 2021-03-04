@@ -15,4 +15,3 @@ part 'initialize_app.dart';
 part 'forgot_password.dart';
 part 'update_cart.dart';
 part 'update_profile_info.dart';
-part 'update_addresses.dart';

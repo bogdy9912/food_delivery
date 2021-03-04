@@ -21,7 +21,6 @@ class AuthEpics {
         TypedEpic<AppState, SignOut$>(_signOut),
         TypedEpic<AppState, ForgotPassword$>(_forgotPassword),
         TypedEpic<AppState, UpdateProfileInfo$>(_updateProfileInfo),
-    TypedEpic<AppState, UpdateAddresses$>(_updateAddresses),
       ]);
 
   Stream<AppAction> _login(Stream<Login$> actions, EpicStore<AppState> store) {
@@ -85,18 +84,4 @@ class AuthEpics {
             ))
             .onErrorReturnWith((dynamic error) => UpdateProfileInfo.error(error)));
   }
-
-
-
-  Stream<AppAction> _updateAddresses(Stream<UpdateAddresses$> actions, EpicStore<AppState> store) {
-
-    return actions //
-        .flatMap((UpdateAddresses$ action) => Stream<UpdateAddresses$>.value(action)
-        .asyncMap((UpdateAddresses$ action) =>
-        _api.updateAddresses(uid: action.uid, add: action.add, remove: action.remove, edit: action.remove))
-        .mapTo(
-        UpdateAddresses.successful(uid: action.uid, add: action.add, remove: action.remove, edit: action.edit))
-        .onErrorReturnWith((dynamic error) => UpdateAddresses.error(error)));
-  }
-
 }

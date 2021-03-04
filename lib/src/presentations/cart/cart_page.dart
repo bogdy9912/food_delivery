@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/containers/auth/cart_container.dart';
 import 'package:food_delivery/src/models/auth/index.dart';
-import 'package:food_delivery/src/models/index.dart';
-import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key key}) : super(key: key);
@@ -60,8 +56,7 @@ class CartPage extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              Navigator.pushNamed(context, AppRoutes.checkout);
-
+//                              Navigator.pushNamed(context, AppRoutes.checkoutPage);
                             },
                           ),
                           Container(

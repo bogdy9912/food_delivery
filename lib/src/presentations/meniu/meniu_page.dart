@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/actions/company/index.dart';
-import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/containers/auth/cart_container.dart';
 import 'package:food_delivery/src/containers/company/meniu_container.dart';
 import 'package:food_delivery/src/models/company/index.dart';
@@ -58,8 +57,6 @@ class MeniuPage extends StatelessWidget {
                   child: Icon(cart == null ? Icons.shopping_basket_outlined : Icons.shopping_basket),
                   onPressed: () {
                     Navigator.pushNamed(context, AppRoutes.cart);
-                    StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(companyId: company.id));
-
                   },
                 ),
                 if (cart != null)
