@@ -4,11 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/src/models/company/index.dart';
 import 'package:food_delivery/src/presentations/cart/cart_page.dart';
 import 'package:food_delivery/src/presentations/cart/lal.dart';
+import 'package:food_delivery/src/presentations/checkout/checkout_page.dart';
+import 'package:food_delivery/src/presentations/checkout/payment_page.dart';
 import 'package:food_delivery/src/presentations/meniu/meniu_page.dart';
 import 'package:food_delivery/src/presentations/profile/profile_page.dart';
 import 'package:food_delivery/src/presentations/search/search_page.dart';
 import 'package:food_delivery/src/presentations/sign_up/set_name_page.dart';
 import 'package:food_delivery/src/presentations/sign_up/sign_up_page.dart';
+import 'package:food_delivery/src/presentations/widgets/add_address_page.dart';
+import 'package:food_delivery/src/presentations/widgets/select_address_page.dart';
 
 import 'home.dart';
 import 'others/add_company.dart';
@@ -24,6 +28,10 @@ class AppRoutes{
   static String cart = '/cart';
   static String lala = '/lala';
   static String profile = '/profile';
+  static String checkout = '/checkout';
+  static String addAddressPage = '/addAddressPage';
+  static String selectAddressPage = '/selectAddressPage';
+  static String paymentPage = '/paymentPage';
   static Map<String, WidgetBuilder> routes= <String, WidgetBuilder>{
     home: (BuildContext context) => const Home(),
     signUp: (BuildContext context) => const SignUpPage(),
@@ -37,5 +45,9 @@ class AppRoutes{
     cart: (BuildContext context) => const CartPage(),
     lala: (BuildContext context) =>  Lala(),
     profile: (BuildContext context) =>  const ProfilePage(),
+    checkout: (BuildContext context) =>  const CheckoutPage(),
+    addAddressPage: (BuildContext context) => const AddAddressPage(),
+    selectAddressPage: (BuildContext context) => const SelectAddressPage(),
+    paymentPage: (BuildContext context) => const PaymentPage(),
   };
 }

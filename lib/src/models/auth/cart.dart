@@ -25,13 +25,14 @@ abstract class Cart implements Built<Cart, CartBuilder> {
 }
 
 abstract class CartItem implements Built<CartItem, CartItemBuilder> {
-  factory CartItem({@required String id, @required String name, @required int quantity, @required double price}) {
+  factory CartItem({@required String id, @required String name, @required int quantity, @required double price, @required String description}) {
     return _$CartItem((CartItemBuilder b) {
       b
         ..id = id
         ..name = name
         ..quantity = quantity
-        ..price = price;
+        ..price = price
+      ..description = description;
     });
   }
 
@@ -46,6 +47,9 @@ abstract class CartItem implements Built<CartItem, CartItemBuilder> {
   int get quantity;
 
   double get price;
+
+  @nullable
+  String get description;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

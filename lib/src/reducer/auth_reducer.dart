@@ -10,6 +10,7 @@ Reducer<AuthState> authReducer = combineReducers(<Reducer<AuthState>>[
   TypedReducer<AuthState, UpdateCart$>(_updateCart),
   TypedReducer<AuthState, UpdateProfileInfo>(_updateProfileInfo),
   TypedReducer<AuthState, UpdateProfileInfoSuccessful>(_updateProfileInfoSuccessful),
+  TypedReducer<AuthState, UpdateAddressesSuccessful>(_updateAddressesSuccessful),
 ]);
 
 AuthState _loginSuccessful(AuthState state, LoginSuccessful action) {
@@ -53,7 +54,7 @@ AuthState _updateCart(AuthState state, UpdateCart$ action) {
       final int index = cartState.items.indexWhere((CartItem item) => item.id == action.add.id);
 
       if (index == -1) {
-        b.cart.items.add(CartItem(id: action.add.id, quantity: 1, price: action.add.price, name: action.add.name));
+        b.cart.items.add(CartItem(id: action.add.id, quantity: 1, price: action.add.price, name: action.add.name,description: action.add.description));
       } else {
         b.cart.items[index] = b.cart.items[index].rebuild((CartItemBuilder b) => b.quantity = b.quantity + 1);
       }
@@ -88,5 +89,18 @@ AuthState _updateProfileInfoSuccessful(AuthState state, UpdateProfileInfoSuccess
       ..user.telephone = action.telephone
       ..user.lastName = action.lastName
       ..user.firstName = action.firstName;
+  });
+}
+
+
+AuthState _updateAddressesSuccessful(AuthState state, UpdateAddressesSuccessful action) {
+  return state.rebuild((AuthStateBuilder b) {
+    if (action.add != null) {
+      b.user.addresses.addEntries([MapEntry<String, AddressPoint>(action.add.id, action.add)]);
+    } else if (action.remove != null) {
+      b.user.addresses.remove(action.remove.id);
+    } else if (action.edit != null) {
+      b.user.addresses.updateValue(action.edit.id, (_) => action.edit);
+    }
   });
 }

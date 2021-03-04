@@ -68,4 +68,35 @@ class AuthApi {
     await _firestore.doc('users/$uid').update(<String, String>{'lastName': lastName,'firstName': firstName, 'telephone': telephone});
   }
 
+  Future<void> updateAddresses({
+    @required String uid,
+    AddressPoint add,
+    AddressPoint remove,
+    AddressPoint edit,
+  }) async {
+    print('data');
+    print('uid: $uid');
+    print('add: $add');
+    print('remove: $remove');
+    print('edit: $edit');
+    if (add != null) {
+      print('add a intrat');
+      final DocumentReference ref = _firestore.collection('NOT USE').doc();
+      final AddressPoint newAdd = add.rebuild((AddressPointBuilder b) => b.id = ref.id);
+      print('add: $newAdd');
+      _firestore.doc('users/$uid').update(<String, dynamic>{
+        'addresses': <String, dynamic>{'${newAdd.id}': newAdd.json}
+      });
+      print('add a terminat');
+    } else if (remove != null) {
+      await _firestore.doc('users/$uid').update(<String, dynamic>{
+        'addresses': <String, dynamic>{'${remove.id}': FieldValue.delete()}
+      });
+    } else if (edit != null) {
+      await _firestore.doc('users/$uid').update(<String, dynamic>{
+        'addresses': <String, dynamic>{'${edit.id}': edit.json}
+      });
+    }
+  }
+
 }
