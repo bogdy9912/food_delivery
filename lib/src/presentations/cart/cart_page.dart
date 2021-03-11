@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/containers/auth/cart_container.dart';
 import 'package:food_delivery/src/models/auth/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class CartPage extends StatelessWidget {
-  const CartPage({Key key}) : super(key: key);
+  const CartPage({Key key, this.company}) : super(key: key);
+
+  final Company company;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +17,11 @@ class CartPage extends StatelessWidget {
           appBar: AppBar(
             title: const Text('cart'),
           ),
-          body: cart == null
-              ? const Center(child: Text('Nu ai produse in cos'))
-              : Column(
+          body:  Column(
                   children: <Widget>[
                     Expanded(
                       child: ListView.builder(
-                        itemCount: cart.items.length,
+                        itemCount: cart?.items?.length ?? 0,
                         itemBuilder: (BuildContext context, int index) {
                           final CartItem item = cart.items[index];
                           return ListTile(
@@ -59,8 +57,9 @@ class CartPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            onPressed: () {
-                              Navigator.pushNamed(context, AppRoutes.checkout);
+
+                            onPressed: cart?.items == null || cart.items.isEmpty ? null:() {
+                              Navigator.pushNamed(context, AppRoutes.checkout, arguments: company);
 
                             },
                           ),

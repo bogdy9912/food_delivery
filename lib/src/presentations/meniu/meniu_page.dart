@@ -31,10 +31,8 @@ class MeniuPage extends StatelessWidget {
                 },
               ),
             ),
-            body: meniu == null
-                ? const Center(child: Text('Nu exista un meniu'))
-                : ListView.builder(
-                    itemCount: meniu.items.length,
+            body:  ListView.builder(
+                    itemCount: meniu?.items?.length??0,
                     itemBuilder: (BuildContext context, int index) {
                       final MeniuItem item = meniu.items[index];
                       return Column(
@@ -57,7 +55,7 @@ class MeniuPage extends StatelessWidget {
                 FloatingActionButton(
                   child: Icon(cart == null ? Icons.shopping_basket_outlined : Icons.shopping_basket),
                   onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.cart);
+                    Navigator.pushNamed(context, AppRoutes.cart, arguments: company);
                     StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(companyId: company.id));
 
                   },

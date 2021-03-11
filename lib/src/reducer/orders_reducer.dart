@@ -27,6 +27,8 @@ OrdersState _updateOrderInfo(OrdersState state, UpdateOrderInfo$ action) {
       b.info.instructions = action.instructions;
     } else if (action.companyId != null) {
       b.info.companyId = action.companyId;
+    } else if (action.instructions != null) {
+      b.info.instructions = action.instructions;
     } else {
       b.info = OrderInfo().toBuilder();
     }

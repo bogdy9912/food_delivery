@@ -23,6 +23,21 @@ abstract class Company implements Built<Company, CompanyBuilder> {
 
   String get city;
 
+  BuiltList<PaymentMethod> get paymentMethods;
+
+  BuiltList<DeliveryOption> get deliveryOptions;
+
+  String get address;
+
+  @nullable
+  double get deliveryFee;
+
+  @nullable
+  double get deliveryThreshold;
+
+  @nullable
+  double get deliveryFeeThreshold;
+
   @nullable
   BuiltList<String> get searchIndex;
 

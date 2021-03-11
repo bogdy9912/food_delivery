@@ -14,7 +14,9 @@ class DishItem extends StatelessWidget {
         return Card(
           child: ListTile(
             title: Text(dishes[index].name[0].toUpperCase() + dishes[index].name.substring(1)),
-            trailing: DishItemButton(dish: dishes[index]),
+            trailing: SizedBox(
+                width: 30,
+                child: DishItemButton(dish: dishes[index])),
             subtitle: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[

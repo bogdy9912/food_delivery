@@ -13,7 +13,17 @@ class DishItemButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CartContainer(builder: (BuildContext context, Cart cart) {
-      final CartItem item = cart?.items?.where((CartItem e) => e.id == dish.id)?.first;
+//      final CartItem item2 = cart?.items?.where((CartItem e) => e?.id == dish.id)?.first;
+      print('dish_item_button: ${cart.items}');
+        CartItem item;
+
+      if (cart?.items?.isEmpty ?? false){
+         item = null;
+      }
+      else {
+         item = cart?.items?.firstWhere((CartItem e) => e.id == dish.id, orElse: () => null);
+      }
+
       return IconButton(
         icon: Icon(
           item == null ? Icons.add_circle : Icons.check_circle,
