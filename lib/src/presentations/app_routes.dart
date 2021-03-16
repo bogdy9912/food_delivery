@@ -3,7 +3,7 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/src/models/company/index.dart';
 import 'package:food_delivery/src/presentations/cart/cart_page.dart';
-
+import 'package:food_delivery/src/presentations/cart/lal.dart';
 import 'package:food_delivery/src/presentations/checkout/checkout_page.dart';
 import 'package:food_delivery/src/presentations/checkout/payment_page.dart';
 import 'package:food_delivery/src/presentations/meniu/meniu_page.dart';
@@ -42,15 +42,10 @@ class AppRoutes{
       final Company arg = ModalRoute.of(context).settings.arguments;
       return MeniuPage(company: arg);
     },
-    cart: (BuildContext context)  {
-      final Company arg = ModalRoute.of(context).settings.arguments;
-      return CartPage(company: arg);
-    },
+    cart: (BuildContext context) => const CartPage(),
+    lala: (BuildContext context) =>  Lala(),
     profile: (BuildContext context) =>  const ProfilePage(),
-    checkout: (BuildContext context) {
-      final Company arg = ModalRoute.of(context).settings.arguments;
-      return  CheckoutPage(company: arg);
-    },
+    checkout: (BuildContext context) =>  const CheckoutPage(),
     addAddressPage: (BuildContext context) => const AddAddressPage(),
     selectAddressPage: (BuildContext context) => const SelectAddressPage(),
     paymentPage: (BuildContext context) => const PaymentPage(),

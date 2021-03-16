@@ -30,7 +30,6 @@ class OrdersEpics {
   }
 
   Stream<AppAction> _createOrder(Stream<CreateOrder$> actions, EpicStore<AppState> store) {
-//    print('epic: ${store.state.ordersState.info.instructions}');
     return actions //
         .flatMap((CreateOrder$ action) => Stream<CreateOrder$>.value(action)
             .asyncMap(

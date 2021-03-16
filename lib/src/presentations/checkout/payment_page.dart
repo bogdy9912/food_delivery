@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/actions/auth/index.dart';
@@ -19,6 +20,7 @@ class PaymentPage extends StatefulWidget {
 
 class _PaymentPageState extends State<PaymentPage> {
   PaymentMethod _method = PaymentMethod.card;
+  final TextEditingController _intructions = TextEditingController();
 
   void _response(AppAction action) {
     if (action is CreateOrderError) {
@@ -68,6 +70,11 @@ class _PaymentPageState extends State<PaymentPage> {
               ),
               body: Column(
                 children: <Widget>[
+                  const Text('Instructiuni pentru comanda'),
+                  TextField(
+                    controller: _intructions,
+                    decoration: const InputDecoration(hintText: 'alergii sau alte mentiuni asupra mancarii'),
+                  ),
                   const Divider(),
                   ListTile(
                     title: const Text(
@@ -182,6 +189,7 @@ class _PaymentPageState extends State<PaymentPage> {
                           ),
                           onPressed: () {
                             StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(methodOfPayment: _method));
+                            StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(instructions: _intructions.text));
                             StoreProvider.of<AppState>(context).dispatch(CreateOrder(response: _response));
                           },
                         ),

@@ -29,7 +29,7 @@ class OrdersApi {
     @required String companyId,
   }) async {
     final DocumentReference ref = _firestore.collection('NOT USE').doc();
-print('data: $instructions');
+
     final Order order = Order((OrderBuilder b) {
       b
         ..uid = uid

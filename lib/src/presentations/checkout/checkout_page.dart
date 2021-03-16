@@ -1,16 +1,19 @@
+import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/containers/auth/cart_container.dart';
 import 'package:food_delivery/src/containers/orders/order_info_container.dart';
+
+
 import 'package:food_delivery/src/models/auth/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/models/orders/index.dart';
+import 'package:food_delivery/src/presentations/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/presentations/checkout/home_delivery_tab.dart';
 import 'package:food_delivery/src/presentations/checkout/personal_pickup_tab.dart';
 
 class CheckoutPage extends StatelessWidget {
-  const CheckoutPage({Key key, this.company}) : super(key: key);
-
-  final Company company;
+  const CheckoutPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,12 +56,12 @@ class CheckoutPage extends StatelessWidget {
                     Expanded(
                       child: TabBarView(
                         children: <Widget>[
-                          HomeDeliveryTab(company: company,),
-                          PersonalPickupTab(company: company),
+                          HomeDeliveryTab(),
+                          PersonalPickupTab(),
                         ],
                       ),
                     ),
-               /*     const Divider(),
+                    const Divider(),
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Column(
@@ -185,7 +188,7 @@ class CheckoutPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ),*/
+                    ),
                   ],
                 ),
               ),

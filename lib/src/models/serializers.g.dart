@@ -15,7 +15,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(CartItem.serializer)
       ..add(Company.serializer)
       ..add(CompanyState.serializer)
-      ..add(DeliveryOption.serializer)
       ..add(Dish.serializer)
       ..add(Meniu.serializer)
       ..add(MeniuItem.serializer)
@@ -48,12 +47,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Order)]),
           () => new ListBuilder<Order>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(PaymentMethod)]),
-          () => new ListBuilder<PaymentMethod>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DeliveryOption)]),
-          () => new ListBuilder<DeliveryOption>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
