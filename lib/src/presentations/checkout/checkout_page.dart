@@ -8,7 +8,7 @@ import 'package:food_delivery/src/presentations/checkout/home_delivery_tab.dart'
 import 'package:food_delivery/src/presentations/checkout/personal_pickup_tab.dart';
 
 class CheckoutPage extends StatelessWidget {
-  const CheckoutPage({Key key, this.company}) : super(key: key);
+  const CheckoutPage({@required this.company});
 
   final Company company;
 

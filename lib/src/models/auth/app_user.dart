@@ -3,21 +3,18 @@ part of auth_models;
 abstract class AppUser implements Built<AppUser, AppUserBuilder> {
   factory AppUser([void Function(AppUserBuilder b) updates]) = _$AppUser;
 
-  factory AppUser.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
-
   AppUser._();
+
+  static AppUser fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
 
   String get uid;
 
   String get email;
-
-  @nullable
+@nullable
   String get firstName;
-
-  @nullable
+@nullable
   String get lastName;
-
-  @nullable
+@nullable
   String get telephone;
 
   BuiltMap<String, AddressPoint> get addresses;

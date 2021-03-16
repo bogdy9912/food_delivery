@@ -11,7 +11,7 @@ import 'package:food_delivery/src/presentations/app_routes.dart';
 import 'package:food_delivery/src/presentations/widgets/next_button_widget.dart';
 
 class HomeDeliveryTab extends StatefulWidget {
-  const HomeDeliveryTab({Key key, this.company}): super(key: key);
+  const HomeDeliveryTab({@required this.company});
 
   final Company company;
 //  const AddressPoint companyAddress = AddressPoint((b) => b..)

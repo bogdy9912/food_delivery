@@ -6,21 +6,16 @@ abstract class OrderInfo implements Built<OrderInfo, OrderInfoBuilder> {
   factory OrderInfo.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
 
   OrderInfo._();
-
   @nullable
   AddressPoint get address;
 
   BuiltList<CartItem> get products;
-
   @nullable
   double get total;
-
-  @nullable
+@nullable
   PaymentMethod get methodOfPayment;
-
-  @nullable
+@nullable
   String get instructions;
-
   @nullable
   String get companyId;
 

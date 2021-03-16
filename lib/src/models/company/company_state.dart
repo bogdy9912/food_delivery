@@ -2,9 +2,10 @@ part of company_models;
 
 abstract class CompanyState implements Built<CompanyState, CompanyStateBuilder> {
   factory CompanyState([void Function(CompanyStateBuilder b) updates]) = _$CompanyState;
-  factory CompanyState.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
 
   CompanyState._();
+
+  static CompanyState fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
 
   BuiltList<Company> get companies;
 

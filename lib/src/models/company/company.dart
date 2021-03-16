@@ -3,18 +3,16 @@ part of company_models;
 abstract class Company implements Built<Company, CompanyBuilder> {
   factory Company([void Function(CompanyBuilder b) updates]) = _$Company;
 
-  factory Company.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
-
   Company._();
+
+  static Company fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
 
   String get id;
 
   String get name;
-
-  @nullable
+@nullable
   double get rating;
-
-  @nullable
+@nullable
   String get image;
 
   String get openHour;
@@ -28,17 +26,13 @@ abstract class Company implements Built<Company, CompanyBuilder> {
   BuiltList<DeliveryOption> get deliveryOptions;
 
   String get address;
-
-  @nullable
+@nullable
   double get deliveryFee;
-
-  @nullable
+@nullable
   double get deliveryThreshold;
-
-  @nullable
+@nullable
   double get deliveryFeeThreshold;
 
-  @nullable
   BuiltList<String> get searchIndex;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;

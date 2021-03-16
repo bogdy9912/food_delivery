@@ -3,9 +3,9 @@ part of auth_models;
 abstract class AddressPoint implements Built<AddressPoint, AddressPointBuilder> {
   factory AddressPoint([void Function(AddressPointBuilder b) updates]) = _$AddressPoint;
 
-  factory AddressPoint.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
-
   AddressPoint._();
+
+  static AddressPoint fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
 
   @nullable
   String get id;

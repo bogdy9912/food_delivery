@@ -11,7 +11,7 @@ import 'package:food_delivery/src/presentations/app_routes.dart';
 import 'package:food_delivery/src/presentations/widgets/next_button_widget.dart';
 
 class PersonalPickupTab extends StatefulWidget {
-  const PersonalPickupTab({Key key, this.company}): super(key: key);
+  const PersonalPickupTab({@required this.company});
 
   final Company company;
   @override

@@ -23,7 +23,6 @@ abstract class Order implements Built<Order, OrderBuilder> {
   PaymentMethod get methodOfPayment;
 
   String get date;
-
   @nullable
   String get instructions;
 

@@ -3,20 +3,16 @@ part of auth_models;
 abstract class RegistrationInfo implements Built<RegistrationInfo, RegistrationInfoBuilder> {
   factory RegistrationInfo([void Function(RegistrationInfoBuilder b) updates]) = _$RegistrationInfo;
 
-  factory RegistrationInfo.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
-
   RegistrationInfo._();
 
-  @nullable
+  static RegistrationInfo fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
+@nullable
   String get email;
-
-  @nullable
+@nullable
   String get firstName;
-
-  @nullable
+@nullable
   String get lastName;
-
-  @nullable
+@nullable
   String get password;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;

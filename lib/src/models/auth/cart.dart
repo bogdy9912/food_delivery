@@ -36,9 +36,9 @@ abstract class CartItem implements Built<CartItem, CartItemBuilder> {
     });
   }
 
-  factory CartItem.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
-
   CartItem._();
+
+  static CartItem fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
 
   String get id;
 
@@ -47,7 +47,6 @@ abstract class CartItem implements Built<CartItem, CartItemBuilder> {
   int get quantity;
 
   double get price;
-
   @nullable
   String get description;
 

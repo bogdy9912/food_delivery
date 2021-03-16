@@ -5,7 +5,7 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class CartPage extends StatelessWidget {
-  const CartPage({Key key, this.company}) : super(key: key);
+  const CartPage({@required this.company}) ;
 
   final Company company;
 

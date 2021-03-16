@@ -11,18 +11,35 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.0
+#  cached_network_image: ^2.5.1
+#  cupertino_icons: ^1.0.0
+#  cloud_firestore: ^1.0.1
+#  firebase_core: ^1.0.1
+#  built_value: ^8.0.2
+#  built_value_generator: ^8.0.2
+#  build_runner: ^1.11.5
+#  redux: ^4.0.0
+#  flutter_redux: ^0.7.0
+#  redux_epics: ^0.14.0
+#  freezed: ^0.14.0+1
+#  freezed_annotation: ^0.14.0
+#  analyzer: ^1.1.0
+#  rxdart: ^0.24.0
+#  intl: ^0.17.0
+#  http: ^0.13.0
+#  built_collection: ^5.0.0
+#  firebase_auth: ^1.0.1
 
-# firebase
+
+  # firebase
   firebase_core: ^0.5.3
   firebase_auth: ^0.18.4+1
-  cloud_firestore: any
+  cloud_firestore: ^0.14.4
 
-# flutter
+  # flutter
   flutter_redux: ^0.7.0
-  cached_network_image: ^2.5.0
 
-# dart
+  # dart
   redux: ^4.0.0+3
   redux_epics: ^0.14.0
   built_value: ^7.1.0
@@ -31,17 +48,17 @@ dependencies:
   rxdart: ^0.24.0
   http: ^0.12.2
   intl: ^0.16.1
-
+  cached_network_image: ^2.5.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+
   build_runner: any
   built_value_generator: any
   freezed: any
-  analyzer: any
-
-
+  analyzer: ^0.39.3
 
 flutter:
   uses-material-design: true

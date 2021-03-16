@@ -5,21 +5,21 @@ abstract class AuthState implements Built<AuthState, AuthStateBuilder> {
     return _$AuthState();
   }
 
-  factory AuthState.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
-
   AuthState._();
+
+  static AuthState fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
-  @nullable
+@nullable
   AppUser get user;
 
   RegistrationInfo get info;
 
-  @nullable
+@nullable
   bool get isLoading;
 
-  @nullable
+@nullable
   Cart get cart;
 
   static Serializer<AuthState> get serializer => _$authStateSerializer;

@@ -2,10 +2,10 @@ part of company_models;
 
 abstract class Meniu implements Built<Meniu, MeniuBuilder> {
   factory Meniu([void Function(MeniuBuilder b) updates]) = _$Meniu;
-  factory Meniu.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
 
   Meniu._();
 
+  static Meniu fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
   @nullable
   String get id;
 
@@ -20,9 +20,10 @@ abstract class Meniu implements Built<Meniu, MeniuBuilder> {
 
 abstract class MeniuItem implements Built<MeniuItem, MeniuItemBuilder> {
   factory MeniuItem([void Function(MeniuItemBuilder b) updates]) = _$MeniuItem;
-  factory MeniuItem.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
 
   MeniuItem._();
+
+  static MeniuItem fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
 
   String get category;
 
