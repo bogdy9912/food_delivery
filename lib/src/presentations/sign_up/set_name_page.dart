@@ -7,7 +7,7 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class SetNamePage extends StatefulWidget {
-  const SetNamePage({Key key}) : super(key: key);
+  const SetNamePage({Key? key}) : super(key: key);
 
   @override
   _SetNamePageState createState() => _SetNamePageState();
@@ -63,8 +63,8 @@ class _SetNamePageState extends State<SetNamePage> {
                               decoration: const InputDecoration(
                                 hintText: 'prenume',
                               ),
-                              validator: (String value) {
-                                if (value.isEmpty) {
+                              validator: (String? value) {
+                                if (value!.isEmpty) {
                                   return 'Acest camp este obligatoriu';
                                 }
                                 return null;
@@ -87,10 +87,10 @@ class _SetNamePageState extends State<SetNamePage> {
                         ],
                       ),
                       const SizedBox(),
-                      RaisedButton(
+                      ElevatedButton(
                         child: const Text('Salveaza'),
                         onPressed: () {
-                          final bool valid = Form.of(context).validate();
+                          final bool valid = Form.of(context)!.validate();
                           if (valid) {
                             StoreProvider.of<AppState>(context)
                                 .dispatch(UpdateRegistrationInfo(firstName: _firstName.text, lastName: _lastName.text));

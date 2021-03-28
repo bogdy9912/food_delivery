@@ -22,36 +22,40 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
   final String wireName = 'AuthState';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AuthState object,
+  Iterable<Object?> serialize(Serializers serializers, AuthState object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'info',
       serializers.serialize(object.info,
           specifiedType: const FullType(RegistrationInfo)),
     ];
-    if (object.user != null) {
+    Object? value;
+    value = object.user;
+    if (value != null) {
       result
         ..add('user')
-        ..add(serializers.serialize(object.user,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AppUser)));
     }
-    if (object.isLoading != null) {
+    value = object.isLoading;
+    if (value != null) {
       result
         ..add('isLoading')
-        ..add(serializers.serialize(object.isLoading,
-            specifiedType: const FullType(bool)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    if (object.cart != null) {
+    value = object.cart;
+    if (value != null) {
       result
         ..add('cart')
-        ..add(serializers.serialize(object.cart,
-            specifiedType: const FullType(Cart)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(Cart)));
     }
     return result;
   }
 
   @override
-  AuthState deserialize(Serializers serializers, Iterable<Object> serialized,
+  AuthState deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AuthStateBuilder();
 
@@ -59,15 +63,15 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'user':
           result.user.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AppUser)) as AppUser);
+              specifiedType: const FullType(AppUser))! as AppUser);
           break;
         case 'info':
           result.info.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(RegistrationInfo))
+                  specifiedType: const FullType(RegistrationInfo))!
               as RegistrationInfo);
           break;
         case 'isLoading':
@@ -76,7 +80,7 @@ class _$AuthStateSerializer implements StructuredSerializer<AuthState> {
           break;
         case 'cart':
           result.cart.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Cart)) as Cart);
+              specifiedType: const FullType(Cart))! as Cart);
           break;
       }
     }
@@ -92,42 +96,34 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
   final String wireName = 'AppUser';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AppUser object,
+  Iterable<Object?> serialize(Serializers serializers, AppUser object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'uid',
       serializers.serialize(object.uid, specifiedType: const FullType(String)),
       'email',
       serializers.serialize(object.email,
+          specifiedType: const FullType(String)),
+      'firstName',
+      serializers.serialize(object.firstName,
+          specifiedType: const FullType(String)),
+      'lastName',
+      serializers.serialize(object.lastName,
+          specifiedType: const FullType(String)),
+      'telephone',
+      serializers.serialize(object.telephone,
           specifiedType: const FullType(String)),
       'addresses',
       serializers.serialize(object.addresses,
           specifiedType: const FullType(BuiltMap,
               const [const FullType(String), const FullType(AddressPoint)])),
     ];
-    if (object.firstName != null) {
-      result
-        ..add('firstName')
-        ..add(serializers.serialize(object.firstName,
-            specifiedType: const FullType(String)));
-    }
-    if (object.lastName != null) {
-      result
-        ..add('lastName')
-        ..add(serializers.serialize(object.lastName,
-            specifiedType: const FullType(String)));
-    }
-    if (object.telephone != null) {
-      result
-        ..add('telephone')
-        ..add(serializers.serialize(object.telephone,
-            specifiedType: const FullType(String)));
-    }
+
     return result;
   }
 
   @override
-  AppUser deserialize(Serializers serializers, Iterable<Object> serialized,
+  AppUser deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AppUserBuilder();
 
@@ -135,7 +131,7 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'uid':
           result.uid = serializers.deserialize(value,
@@ -162,7 +158,7 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(String),
                 const FullType(AddressPoint)
-              ])));
+              ]))!);
           break;
       }
     }
@@ -179,31 +175,36 @@ class _$RegistrationInfoSerializer
   final String wireName = 'RegistrationInfo';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, RegistrationInfo object,
+  Iterable<Object?> serialize(Serializers serializers, RegistrationInfo object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[];
-    if (object.email != null) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.email;
+    if (value != null) {
       result
         ..add('email')
-        ..add(serializers.serialize(object.email,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.firstName != null) {
+    value = object.firstName;
+    if (value != null) {
       result
         ..add('firstName')
-        ..add(serializers.serialize(object.firstName,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.lastName != null) {
+    value = object.lastName;
+    if (value != null) {
       result
         ..add('lastName')
-        ..add(serializers.serialize(object.lastName,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.password != null) {
+    value = object.password;
+    if (value != null) {
       result
         ..add('password')
-        ..add(serializers.serialize(object.password,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
@@ -211,7 +212,7 @@ class _$RegistrationInfoSerializer
 
   @override
   RegistrationInfo deserialize(
-      Serializers serializers, Iterable<Object> serialized,
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new RegistrationInfoBuilder();
 
@@ -219,7 +220,7 @@ class _$RegistrationInfoSerializer
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'email':
           result.email = serializers.deserialize(value,
@@ -251,9 +252,9 @@ class _$CartSerializer implements StructuredSerializer<Cart> {
   final String wireName = 'Cart';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Cart object,
+  Iterable<Object?> serialize(Serializers serializers, Cart object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'items',
       serializers.serialize(object.items,
           specifiedType:
@@ -264,7 +265,7 @@ class _$CartSerializer implements StructuredSerializer<Cart> {
   }
 
   @override
-  Cart deserialize(Serializers serializers, Iterable<Object> serialized,
+  Cart deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new CartBuilder();
 
@@ -272,12 +273,12 @@ class _$CartSerializer implements StructuredSerializer<Cart> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'items':
           result.items.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(CartItem)]))
+                      BuiltList, const [const FullType(CartItem)]))!
               as BuiltList<Object>);
           break;
       }
@@ -294,9 +295,9 @@ class _$CartItemSerializer implements StructuredSerializer<CartItem> {
   final String wireName = 'CartItem';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, CartItem object,
+  Iterable<Object?> serialize(Serializers serializers, CartItem object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'name',
@@ -308,17 +309,19 @@ class _$CartItemSerializer implements StructuredSerializer<CartItem> {
       serializers.serialize(object.price,
           specifiedType: const FullType(double)),
     ];
-    if (object.description != null) {
+    Object? value;
+    value = object.description;
+    if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(object.description,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  CartItem deserialize(Serializers serializers, Iterable<Object> serialized,
+  CartItem deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new CartItemBuilder();
 
@@ -326,7 +329,7 @@ class _$CartItemSerializer implements StructuredSerializer<CartItem> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -362,9 +365,11 @@ class _$AddressPointSerializer implements StructuredSerializer<AddressPoint> {
   final String wireName = 'AddressPoint';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AddressPoint object,
+  Iterable<Object?> serialize(Serializers serializers, AddressPoint object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'contactName',
       serializers.serialize(object.contactName,
           specifiedType: const FullType(String)),
@@ -379,17 +384,13 @@ class _$AddressPointSerializer implements StructuredSerializer<AddressPoint> {
       'town',
       serializers.serialize(object.town, specifiedType: const FullType(String)),
     ];
-    if (object.id != null) {
-      result
-        ..add('id')
-        ..add(serializers.serialize(object.id,
-            specifiedType: const FullType(String)));
-    }
+
     return result;
   }
 
   @override
-  AddressPoint deserialize(Serializers serializers, Iterable<Object> serialized,
+  AddressPoint deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AddressPointBuilder();
 
@@ -397,7 +398,7 @@ class _$AddressPointSerializer implements StructuredSerializer<AddressPoint> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -432,21 +433,20 @@ class _$AddressPointSerializer implements StructuredSerializer<AddressPoint> {
 
 class _$AuthState extends AuthState {
   @override
-  final AppUser user;
+  final AppUser? user;
   @override
   final RegistrationInfo info;
   @override
-  final bool isLoading;
+  final bool? isLoading;
   @override
-  final Cart cart;
+  final Cart? cart;
 
-  factory _$AuthState([void Function(AuthStateBuilder) updates]) =>
+  factory _$AuthState([void Function(AuthStateBuilder)? updates]) =>
       (new AuthStateBuilder()..update(updates)).build();
 
-  _$AuthState._({this.user, this.info, this.isLoading, this.cart}) : super._() {
-    if (info == null) {
-      throw new BuiltValueNullFieldError('AuthState', 'info');
-    }
+  _$AuthState._({this.user, required this.info, this.isLoading, this.cart})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(info, 'AuthState', 'info');
   }
 
   @override
@@ -485,33 +485,34 @@ class _$AuthState extends AuthState {
 }
 
 class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
-  _$AuthState _$v;
+  _$AuthState? _$v;
 
-  AppUserBuilder _user;
+  AppUserBuilder? _user;
   AppUserBuilder get user => _$this._user ??= new AppUserBuilder();
-  set user(AppUserBuilder user) => _$this._user = user;
+  set user(AppUserBuilder? user) => _$this._user = user;
 
-  RegistrationInfoBuilder _info;
+  RegistrationInfoBuilder? _info;
   RegistrationInfoBuilder get info =>
       _$this._info ??= new RegistrationInfoBuilder();
-  set info(RegistrationInfoBuilder info) => _$this._info = info;
+  set info(RegistrationInfoBuilder? info) => _$this._info = info;
 
-  bool _isLoading;
-  bool get isLoading => _$this._isLoading;
-  set isLoading(bool isLoading) => _$this._isLoading = isLoading;
+  bool? _isLoading;
+  bool? get isLoading => _$this._isLoading;
+  set isLoading(bool? isLoading) => _$this._isLoading = isLoading;
 
-  CartBuilder _cart;
+  CartBuilder? _cart;
   CartBuilder get cart => _$this._cart ??= new CartBuilder();
-  set cart(CartBuilder cart) => _$this._cart = cart;
+  set cart(CartBuilder? cart) => _$this._cart = cart;
 
   AuthStateBuilder();
 
   AuthStateBuilder get _$this {
-    if (_$v != null) {
-      _user = _$v.user?.toBuilder();
-      _info = _$v.info?.toBuilder();
-      _isLoading = _$v.isLoading;
-      _cart = _$v.cart?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _user = $v.user?.toBuilder();
+      _info = $v.info.toBuilder();
+      _isLoading = $v.isLoading;
+      _cart = $v.cart?.toBuilder();
       _$v = null;
     }
     return this;
@@ -519,14 +520,12 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
 
   @override
   void replace(AuthState other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AuthState;
   }
 
   @override
-  void update(void Function(AuthStateBuilder) updates) {
+  void update(void Function(AuthStateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -541,7 +540,7 @@ class AuthStateBuilder implements Builder<AuthState, AuthStateBuilder> {
               isLoading: isLoading,
               cart: _cart?.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'user';
         _user?.build();
@@ -575,26 +574,23 @@ class _$AppUser extends AppUser {
   @override
   final BuiltMap<String, AddressPoint> addresses;
 
-  factory _$AppUser([void Function(AppUserBuilder) updates]) =>
+  factory _$AppUser([void Function(AppUserBuilder)? updates]) =>
       (new AppUserBuilder()..update(updates)).build();
 
   _$AppUser._(
-      {this.uid,
-      this.email,
-      this.firstName,
-      this.lastName,
-      this.telephone,
-      this.addresses})
+      {required this.uid,
+      required this.email,
+      required this.firstName,
+      required this.lastName,
+      required this.telephone,
+      required this.addresses})
       : super._() {
-    if (uid == null) {
-      throw new BuiltValueNullFieldError('AppUser', 'uid');
-    }
-    if (email == null) {
-      throw new BuiltValueNullFieldError('AppUser', 'email');
-    }
-    if (addresses == null) {
-      throw new BuiltValueNullFieldError('AppUser', 'addresses');
-    }
+    BuiltValueNullFieldError.checkNotNull(uid, 'AppUser', 'uid');
+    BuiltValueNullFieldError.checkNotNull(email, 'AppUser', 'email');
+    BuiltValueNullFieldError.checkNotNull(firstName, 'AppUser', 'firstName');
+    BuiltValueNullFieldError.checkNotNull(lastName, 'AppUser', 'lastName');
+    BuiltValueNullFieldError.checkNotNull(telephone, 'AppUser', 'telephone');
+    BuiltValueNullFieldError.checkNotNull(addresses, 'AppUser', 'addresses');
   }
 
   @override
@@ -642,44 +638,45 @@ class _$AppUser extends AppUser {
 }
 
 class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
-  _$AppUser _$v;
+  _$AppUser? _$v;
 
-  String _uid;
-  String get uid => _$this._uid;
-  set uid(String uid) => _$this._uid = uid;
+  String? _uid;
+  String? get uid => _$this._uid;
+  set uid(String? uid) => _$this._uid = uid;
 
-  String _email;
-  String get email => _$this._email;
-  set email(String email) => _$this._email = email;
+  String? _email;
+  String? get email => _$this._email;
+  set email(String? email) => _$this._email = email;
 
-  String _firstName;
-  String get firstName => _$this._firstName;
-  set firstName(String firstName) => _$this._firstName = firstName;
+  String? _firstName;
+  String? get firstName => _$this._firstName;
+  set firstName(String? firstName) => _$this._firstName = firstName;
 
-  String _lastName;
-  String get lastName => _$this._lastName;
-  set lastName(String lastName) => _$this._lastName = lastName;
+  String? _lastName;
+  String? get lastName => _$this._lastName;
+  set lastName(String? lastName) => _$this._lastName = lastName;
 
-  String _telephone;
-  String get telephone => _$this._telephone;
-  set telephone(String telephone) => _$this._telephone = telephone;
+  String? _telephone;
+  String? get telephone => _$this._telephone;
+  set telephone(String? telephone) => _$this._telephone = telephone;
 
-  MapBuilder<String, AddressPoint> _addresses;
+  MapBuilder<String, AddressPoint>? _addresses;
   MapBuilder<String, AddressPoint> get addresses =>
       _$this._addresses ??= new MapBuilder<String, AddressPoint>();
-  set addresses(MapBuilder<String, AddressPoint> addresses) =>
+  set addresses(MapBuilder<String, AddressPoint>? addresses) =>
       _$this._addresses = addresses;
 
   AppUserBuilder();
 
   AppUserBuilder get _$this {
-    if (_$v != null) {
-      _uid = _$v.uid;
-      _email = _$v.email;
-      _firstName = _$v.firstName;
-      _lastName = _$v.lastName;
-      _telephone = _$v.telephone;
-      _addresses = _$v.addresses?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _uid = $v.uid;
+      _email = $v.email;
+      _firstName = $v.firstName;
+      _lastName = $v.lastName;
+      _telephone = $v.telephone;
+      _addresses = $v.addresses.toBuilder();
       _$v = null;
     }
     return this;
@@ -687,14 +684,12 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
 
   @override
   void replace(AppUser other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AppUser;
   }
 
   @override
-  void update(void Function(AppUserBuilder) updates) {
+  void update(void Function(AppUserBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -704,14 +699,18 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
     try {
       _$result = _$v ??
           new _$AppUser._(
-              uid: uid,
-              email: email,
-              firstName: firstName,
-              lastName: lastName,
-              telephone: telephone,
+              uid: BuiltValueNullFieldError.checkNotNull(uid, 'AppUser', 'uid'),
+              email: BuiltValueNullFieldError.checkNotNull(
+                  email, 'AppUser', 'email'),
+              firstName: BuiltValueNullFieldError.checkNotNull(
+                  firstName, 'AppUser', 'firstName'),
+              lastName: BuiltValueNullFieldError.checkNotNull(
+                  lastName, 'AppUser', 'lastName'),
+              telephone: BuiltValueNullFieldError.checkNotNull(
+                  telephone, 'AppUser', 'telephone'),
               addresses: addresses.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'addresses';
         addresses.build();
@@ -728,16 +727,16 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
 
 class _$RegistrationInfo extends RegistrationInfo {
   @override
-  final String email;
+  final String? email;
   @override
-  final String firstName;
+  final String? firstName;
   @override
-  final String lastName;
+  final String? lastName;
   @override
-  final String password;
+  final String? password;
 
   factory _$RegistrationInfo(
-          [void Function(RegistrationInfoBuilder) updates]) =>
+          [void Function(RegistrationInfoBuilder)? updates]) =>
       (new RegistrationInfoBuilder()..update(updates)).build();
 
   _$RegistrationInfo._(
@@ -782,32 +781,33 @@ class _$RegistrationInfo extends RegistrationInfo {
 
 class RegistrationInfoBuilder
     implements Builder<RegistrationInfo, RegistrationInfoBuilder> {
-  _$RegistrationInfo _$v;
+  _$RegistrationInfo? _$v;
 
-  String _email;
-  String get email => _$this._email;
-  set email(String email) => _$this._email = email;
+  String? _email;
+  String? get email => _$this._email;
+  set email(String? email) => _$this._email = email;
 
-  String _firstName;
-  String get firstName => _$this._firstName;
-  set firstName(String firstName) => _$this._firstName = firstName;
+  String? _firstName;
+  String? get firstName => _$this._firstName;
+  set firstName(String? firstName) => _$this._firstName = firstName;
 
-  String _lastName;
-  String get lastName => _$this._lastName;
-  set lastName(String lastName) => _$this._lastName = lastName;
+  String? _lastName;
+  String? get lastName => _$this._lastName;
+  set lastName(String? lastName) => _$this._lastName = lastName;
 
-  String _password;
-  String get password => _$this._password;
-  set password(String password) => _$this._password = password;
+  String? _password;
+  String? get password => _$this._password;
+  set password(String? password) => _$this._password = password;
 
   RegistrationInfoBuilder();
 
   RegistrationInfoBuilder get _$this {
-    if (_$v != null) {
-      _email = _$v.email;
-      _firstName = _$v.firstName;
-      _lastName = _$v.lastName;
-      _password = _$v.password;
+    final $v = _$v;
+    if ($v != null) {
+      _email = $v.email;
+      _firstName = $v.firstName;
+      _lastName = $v.lastName;
+      _password = $v.password;
       _$v = null;
     }
     return this;
@@ -815,14 +815,12 @@ class RegistrationInfoBuilder
 
   @override
   void replace(RegistrationInfo other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RegistrationInfo;
   }
 
   @override
-  void update(void Function(RegistrationInfoBuilder) updates) {
+  void update(void Function(RegistrationInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -842,16 +840,14 @@ class RegistrationInfoBuilder
 class _$Cart extends Cart {
   @override
   final BuiltList<CartItem> items;
-  int __totalProducts;
-  double __totalAmount;
+  int? __totalProducts;
+  double? __totalAmount;
 
-  factory _$Cart([void Function(CartBuilder) updates]) =>
+  factory _$Cart([void Function(CartBuilder)? updates]) =>
       (new CartBuilder()..update(updates)).build();
 
-  _$Cart._({this.items}) : super._() {
-    if (items == null) {
-      throw new BuiltValueNullFieldError('Cart', 'items');
-    }
+  _$Cart._({required this.items}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(items, 'Cart', 'items');
   }
 
   @override
@@ -886,18 +882,19 @@ class _$Cart extends Cart {
 }
 
 class CartBuilder implements Builder<Cart, CartBuilder> {
-  _$Cart _$v;
+  _$Cart? _$v;
 
-  ListBuilder<CartItem> _items;
+  ListBuilder<CartItem>? _items;
   ListBuilder<CartItem> get items =>
       _$this._items ??= new ListBuilder<CartItem>();
-  set items(ListBuilder<CartItem> items) => _$this._items = items;
+  set items(ListBuilder<CartItem>? items) => _$this._items = items;
 
   CartBuilder();
 
   CartBuilder get _$this {
-    if (_$v != null) {
-      _items = _$v.items?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _items = $v.items.toBuilder();
       _$v = null;
     }
     return this;
@@ -905,14 +902,12 @@ class CartBuilder implements Builder<Cart, CartBuilder> {
 
   @override
   void replace(Cart other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Cart;
   }
 
   @override
-  void update(void Function(CartBuilder) updates) {
+  void update(void Function(CartBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -922,7 +917,7 @@ class CartBuilder implements Builder<Cart, CartBuilder> {
     try {
       _$result = _$v ?? new _$Cart._(items: items.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'items';
         items.build();
@@ -947,26 +942,22 @@ class _$CartItem extends CartItem {
   @override
   final double price;
   @override
-  final String description;
+  final String? description;
 
-  factory _$CartItem([void Function(CartItemBuilder) updates]) =>
+  factory _$CartItem([void Function(CartItemBuilder)? updates]) =>
       (new CartItemBuilder()..update(updates)).build();
 
   _$CartItem._(
-      {this.id, this.name, this.quantity, this.price, this.description})
+      {required this.id,
+      required this.name,
+      required this.quantity,
+      required this.price,
+      this.description})
       : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('CartItem', 'id');
-    }
-    if (name == null) {
-      throw new BuiltValueNullFieldError('CartItem', 'name');
-    }
-    if (quantity == null) {
-      throw new BuiltValueNullFieldError('CartItem', 'quantity');
-    }
-    if (price == null) {
-      throw new BuiltValueNullFieldError('CartItem', 'price');
-    }
+    BuiltValueNullFieldError.checkNotNull(id, 'CartItem', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, 'CartItem', 'name');
+    BuiltValueNullFieldError.checkNotNull(quantity, 'CartItem', 'quantity');
+    BuiltValueNullFieldError.checkNotNull(price, 'CartItem', 'price');
   }
 
   @override
@@ -1008,37 +999,38 @@ class _$CartItem extends CartItem {
 }
 
 class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
-  _$CartItem _$v;
+  _$CartItem? _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
-  String _name;
-  String get name => _$this._name;
-  set name(String name) => _$this._name = name;
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
 
-  int _quantity;
-  int get quantity => _$this._quantity;
-  set quantity(int quantity) => _$this._quantity = quantity;
+  int? _quantity;
+  int? get quantity => _$this._quantity;
+  set quantity(int? quantity) => _$this._quantity = quantity;
 
-  double _price;
-  double get price => _$this._price;
-  set price(double price) => _$this._price = price;
+  double? _price;
+  double? get price => _$this._price;
+  set price(double? price) => _$this._price = price;
 
-  String _description;
-  String get description => _$this._description;
-  set description(String description) => _$this._description = description;
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
 
   CartItemBuilder();
 
   CartItemBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _name = _$v.name;
-      _quantity = _$v.quantity;
-      _price = _$v.price;
-      _description = _$v.description;
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _name = $v.name;
+      _quantity = $v.quantity;
+      _price = $v.price;
+      _description = $v.description;
       _$v = null;
     }
     return this;
@@ -1046,14 +1038,12 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
 
   @override
   void replace(CartItem other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CartItem;
   }
 
   @override
-  void update(void Function(CartItemBuilder) updates) {
+  void update(void Function(CartItemBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -1061,10 +1051,13 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
   _$CartItem build() {
     final _$result = _$v ??
         new _$CartItem._(
-            id: id,
-            name: name,
-            quantity: quantity,
-            price: price,
+            id: BuiltValueNullFieldError.checkNotNull(id, 'CartItem', 'id'),
+            name:
+                BuiltValueNullFieldError.checkNotNull(name, 'CartItem', 'name'),
+            quantity: BuiltValueNullFieldError.checkNotNull(
+                quantity, 'CartItem', 'quantity'),
+            price: BuiltValueNullFieldError.checkNotNull(
+                price, 'CartItem', 'price'),
             description: description);
     replace(_$result);
     return _$result;
@@ -1085,32 +1078,25 @@ class _$AddressPoint extends AddressPoint {
   @override
   final String town;
 
-  factory _$AddressPoint([void Function(AddressPointBuilder) updates]) =>
+  factory _$AddressPoint([void Function(AddressPointBuilder)? updates]) =>
       (new AddressPointBuilder()..update(updates)).build();
 
   _$AddressPoint._(
-      {this.id,
-      this.contactName,
-      this.contactPhone,
-      this.address,
-      this.city,
-      this.town})
+      {required this.id,
+      required this.contactName,
+      required this.contactPhone,
+      required this.address,
+      required this.city,
+      required this.town})
       : super._() {
-    if (contactName == null) {
-      throw new BuiltValueNullFieldError('AddressPoint', 'contactName');
-    }
-    if (contactPhone == null) {
-      throw new BuiltValueNullFieldError('AddressPoint', 'contactPhone');
-    }
-    if (address == null) {
-      throw new BuiltValueNullFieldError('AddressPoint', 'address');
-    }
-    if (city == null) {
-      throw new BuiltValueNullFieldError('AddressPoint', 'city');
-    }
-    if (town == null) {
-      throw new BuiltValueNullFieldError('AddressPoint', 'town');
-    }
+    BuiltValueNullFieldError.checkNotNull(id, 'AddressPoint', 'id');
+    BuiltValueNullFieldError.checkNotNull(
+        contactName, 'AddressPoint', 'contactName');
+    BuiltValueNullFieldError.checkNotNull(
+        contactPhone, 'AddressPoint', 'contactPhone');
+    BuiltValueNullFieldError.checkNotNull(address, 'AddressPoint', 'address');
+    BuiltValueNullFieldError.checkNotNull(city, 'AddressPoint', 'city');
+    BuiltValueNullFieldError.checkNotNull(town, 'AddressPoint', 'town');
   }
 
   @override
@@ -1159,42 +1145,43 @@ class _$AddressPoint extends AddressPoint {
 
 class AddressPointBuilder
     implements Builder<AddressPoint, AddressPointBuilder> {
-  _$AddressPoint _$v;
+  _$AddressPoint? _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
-  String _contactName;
-  String get contactName => _$this._contactName;
-  set contactName(String contactName) => _$this._contactName = contactName;
+  String? _contactName;
+  String? get contactName => _$this._contactName;
+  set contactName(String? contactName) => _$this._contactName = contactName;
 
-  String _contactPhone;
-  String get contactPhone => _$this._contactPhone;
-  set contactPhone(String contactPhone) => _$this._contactPhone = contactPhone;
+  String? _contactPhone;
+  String? get contactPhone => _$this._contactPhone;
+  set contactPhone(String? contactPhone) => _$this._contactPhone = contactPhone;
 
-  String _address;
-  String get address => _$this._address;
-  set address(String address) => _$this._address = address;
+  String? _address;
+  String? get address => _$this._address;
+  set address(String? address) => _$this._address = address;
 
-  String _city;
-  String get city => _$this._city;
-  set city(String city) => _$this._city = city;
+  String? _city;
+  String? get city => _$this._city;
+  set city(String? city) => _$this._city = city;
 
-  String _town;
-  String get town => _$this._town;
-  set town(String town) => _$this._town = town;
+  String? _town;
+  String? get town => _$this._town;
+  set town(String? town) => _$this._town = town;
 
   AddressPointBuilder();
 
   AddressPointBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _contactName = _$v.contactName;
-      _contactPhone = _$v.contactPhone;
-      _address = _$v.address;
-      _city = _$v.city;
-      _town = _$v.town;
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _contactName = $v.contactName;
+      _contactPhone = $v.contactPhone;
+      _address = $v.address;
+      _city = $v.city;
+      _town = $v.town;
       _$v = null;
     }
     return this;
@@ -1202,14 +1189,12 @@ class AddressPointBuilder
 
   @override
   void replace(AddressPoint other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AddressPoint;
   }
 
   @override
-  void update(void Function(AddressPointBuilder) updates) {
+  void update(void Function(AddressPointBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -1217,12 +1202,17 @@ class AddressPointBuilder
   _$AddressPoint build() {
     final _$result = _$v ??
         new _$AddressPoint._(
-            id: id,
-            contactName: contactName,
-            contactPhone: contactPhone,
-            address: address,
-            city: city,
-            town: town);
+            id: BuiltValueNullFieldError.checkNotNull(id, 'AddressPoint', 'id'),
+            contactName: BuiltValueNullFieldError.checkNotNull(
+                contactName, 'AddressPoint', 'contactName'),
+            contactPhone: BuiltValueNullFieldError.checkNotNull(
+                contactPhone, 'AddressPoint', 'contactPhone'),
+            address: BuiltValueNullFieldError.checkNotNull(
+                address, 'AddressPoint', 'address'),
+            city: BuiltValueNullFieldError.checkNotNull(
+                city, 'AddressPoint', 'city'),
+            town: BuiltValueNullFieldError.checkNotNull(
+                town, 'AddressPoint', 'town'));
     replace(_$result);
     return _$result;
   }

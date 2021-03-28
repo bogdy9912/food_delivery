@@ -15,9 +15,9 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
   final String wireName = 'AppState';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AppState object,
+  Iterable<Object?> serialize(Serializers serializers, AppState object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'auth',
       serializers.serialize(object.auth,
           specifiedType: const FullType(AuthState)),
@@ -33,7 +33,7 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
   }
 
   @override
-  AppState deserialize(Serializers serializers, Iterable<Object> serialized,
+  AppState deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AppStateBuilder();
 
@@ -41,19 +41,19 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'auth':
           result.auth.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AuthState)) as AuthState);
+              specifiedType: const FullType(AuthState))! as AuthState);
           break;
         case 'companyState':
           result.companyState.replace(serializers.deserialize(value,
-              specifiedType: const FullType(CompanyState)) as CompanyState);
+              specifiedType: const FullType(CompanyState))! as CompanyState);
           break;
         case 'ordersState':
           result.ordersState.replace(serializers.deserialize(value,
-              specifiedType: const FullType(OrdersState)) as OrdersState);
+              specifiedType: const FullType(OrdersState))! as OrdersState);
           break;
       }
     }
@@ -70,19 +70,19 @@ class _$AppState extends AppState {
   @override
   final OrdersState ordersState;
 
-  factory _$AppState([void Function(AppStateBuilder) updates]) =>
+  factory _$AppState([void Function(AppStateBuilder)? updates]) =>
       (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({this.auth, this.companyState, this.ordersState}) : super._() {
-    if (auth == null) {
-      throw new BuiltValueNullFieldError('AppState', 'auth');
-    }
-    if (companyState == null) {
-      throw new BuiltValueNullFieldError('AppState', 'companyState');
-    }
-    if (ordersState == null) {
-      throw new BuiltValueNullFieldError('AppState', 'ordersState');
-    }
+  _$AppState._(
+      {required this.auth,
+      required this.companyState,
+      required this.ordersState})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(auth, 'AppState', 'auth');
+    BuiltValueNullFieldError.checkNotNull(
+        companyState, 'AppState', 'companyState');
+    BuiltValueNullFieldError.checkNotNull(
+        ordersState, 'AppState', 'ordersState');
   }
 
   @override
@@ -118,31 +118,32 @@ class _$AppState extends AppState {
 }
 
 class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
-  _$AppState _$v;
+  _$AppState? _$v;
 
-  AuthStateBuilder _auth;
+  AuthStateBuilder? _auth;
   AuthStateBuilder get auth => _$this._auth ??= new AuthStateBuilder();
-  set auth(AuthStateBuilder auth) => _$this._auth = auth;
+  set auth(AuthStateBuilder? auth) => _$this._auth = auth;
 
-  CompanyStateBuilder _companyState;
+  CompanyStateBuilder? _companyState;
   CompanyStateBuilder get companyState =>
       _$this._companyState ??= new CompanyStateBuilder();
-  set companyState(CompanyStateBuilder companyState) =>
+  set companyState(CompanyStateBuilder? companyState) =>
       _$this._companyState = companyState;
 
-  OrdersStateBuilder _ordersState;
+  OrdersStateBuilder? _ordersState;
   OrdersStateBuilder get ordersState =>
       _$this._ordersState ??= new OrdersStateBuilder();
-  set ordersState(OrdersStateBuilder ordersState) =>
+  set ordersState(OrdersStateBuilder? ordersState) =>
       _$this._ordersState = ordersState;
 
   AppStateBuilder();
 
   AppStateBuilder get _$this {
-    if (_$v != null) {
-      _auth = _$v.auth?.toBuilder();
-      _companyState = _$v.companyState?.toBuilder();
-      _ordersState = _$v.ordersState?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _auth = $v.auth.toBuilder();
+      _companyState = $v.companyState.toBuilder();
+      _ordersState = $v.ordersState.toBuilder();
       _$v = null;
     }
     return this;
@@ -150,14 +151,12 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
 
   @override
   void replace(AppState other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AppState;
   }
 
   @override
-  void update(void Function(AppStateBuilder) updates) {
+  void update(void Function(AppStateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -171,7 +170,7 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
               companyState: companyState.build(),
               ordersState: ordersState.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'auth';
         auth.build();

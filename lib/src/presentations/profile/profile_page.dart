@@ -7,7 +7,7 @@ import 'package:food_delivery/src/models/auth/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key key}) : super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -22,18 +22,18 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return UserContainer(
-      builder: (BuildContext context, AppUser currentUser) {
-        _lastName.text = currentUser.lastName;
+      builder: (BuildContext context, AppUser? currentUser) {
+        _lastName.text = currentUser!.lastName;
         _firstName.text = currentUser.firstName;
         _email.text = currentUser.email;
-        _telephone.text = currentUser.telephone ?? '';
+        _telephone.text = currentUser.telephone;
         return Scaffold(
           appBar: AppBar(
             elevation: 0,
             title: const Text('profil'),
             centerTitle: true,
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: const Text(
                   'SALVEAZA',
                   style: TextStyle(color: Colors.blue),

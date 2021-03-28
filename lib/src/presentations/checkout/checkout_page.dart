@@ -1,31 +1,31 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/containers/auth/cart_container.dart';
 import 'package:food_delivery/src/containers/orders/order_info_container.dart';
-
-
 import 'package:food_delivery/src/models/auth/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/models/orders/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/presentations/checkout/home_delivery_tab.dart';
 import 'package:food_delivery/src/presentations/checkout/personal_pickup_tab.dart';
 
 class CheckoutPage extends StatelessWidget {
-  const CheckoutPage({Key key}) : super(key: key);
+  const CheckoutPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CartContainer(
-      builder: (BuildContext context, Cart cart) {
+      builder: (BuildContext context, Cart? cart) {
         return OrderInfoContainer(
-          builder: (BuildContext context, OrderInfo info) {
+          builder: (BuildContext context, OrderInfo? info) {
             double total;
-            if (cart.totalAmount > 2000) {
+            if (cart != null && cart.totalAmount > 2000) {
               total = cart.totalAmount;
-            } else {
+            } else if (cart != null) {
               total = cart.totalAmount + 12.90;
+            } else {
+              total = 0;
             }
             return Scaffold(
               appBar: AppBar(
@@ -76,7 +76,7 @@ class CheckoutPage extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '${cart.totalAmount.toStringAsFixed(2)} lei',
+                                '${cart!.totalAmount.toStringAsFixed(2)} lei',
                                 style: const TextStyle(),
                               ),
                             ],
@@ -154,7 +154,6 @@ class CheckoutPage extends StatelessWidget {
                               if (info?.address != null) {
                                 Navigator.pushNamed(context, AppRoutes.paymentPage);
 
-
                                 StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(total: total));
                                 StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(products: cart.items));
                               } else {
@@ -163,7 +162,7 @@ class CheckoutPage extends StatelessWidget {
                                   builder: (BuildContext context) => AlertDialog(
                                     title: const Text('Please enter an address'),
                                     actions: <Widget>[
-                                      FlatButton(
+                                      TextButton(
                                           onPressed: () {
                                             Navigator.pop(context);
                                           },

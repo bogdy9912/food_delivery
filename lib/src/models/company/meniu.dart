@@ -1,12 +1,11 @@
 part of company_models;
 
 abstract class Meniu implements Built<Meniu, MeniuBuilder> {
-  factory Meniu([void Function(MeniuBuilder b) updates]) = _$Meniu;
-  factory Meniu.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
+  factory Meniu([void Function(MeniuBuilder b)? updates]) = _$Meniu;
+  factory Meniu.fromJson(dynamic json) => serializers.deserializeWith(serializer, json)!;
 
   Meniu._();
 
-  @nullable
   String get id;
 
   BuiltList<MeniuItem> get items;
@@ -19,8 +18,8 @@ abstract class Meniu implements Built<Meniu, MeniuBuilder> {
 }
 
 abstract class MeniuItem implements Built<MeniuItem, MeniuItemBuilder> {
-  factory MeniuItem([void Function(MeniuItemBuilder b) updates]) = _$MeniuItem;
-  factory MeniuItem.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
+  factory MeniuItem([void Function(MeniuItemBuilder b)? updates]) = _$MeniuItem;
+  factory MeniuItem.fromJson(dynamic json) => serializers.deserializeWith(serializer, json)!;
 
   MeniuItem._();
 

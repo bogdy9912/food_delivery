@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of company_actions;
 
@@ -9,18 +9,20 @@ part of company_actions;
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$CreateCompanyTearOff {
   const _$CreateCompanyTearOff();
 
-// ignore: unused_element
   CreateCompany$ call(
-      {@required String name,
-      @required double rating,
-      @required String image,
-      @required String openHour,
-      @required String closeHour,
-      @required String city}) {
+      {required String name,
+      required double rating,
+      required String image,
+      required String openHour,
+      required String closeHour,
+      required String city}) {
     return CreateCompany$(
       name: name,
       rating: rating,
@@ -31,12 +33,10 @@ class _$CreateCompanyTearOff {
     );
   }
 
-// ignore: unused_element
   CreateCompanySuccessful successful() {
     return const CreateCompanySuccessful();
   }
 
-// ignore: unused_element
   CreateCompanyError error(Object error) {
     return CreateCompanyError(
       error,
@@ -45,39 +45,44 @@ class _$CreateCompanyTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreateCompany = _$CreateCompanyTearOff();
 
 /// @nodoc
 mixin _$CreateCompany {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String name, double rating, String image, String openHour,
-        String closeHour, String city), {
-    @required Result successful(),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(String name, double rating, String image, String openHour,
+            String closeHour, String city)
+        $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String name, double rating, String image, String openHour,
-        String closeHour, String city), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String name, double rating, String image, String openHour,
+            String closeHour, String city)?
+        $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(CreateCompany$ value), {
-    @required Result successful(CreateCompanySuccessful value),
-    @required Result error(CreateCompanyError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(CreateCompany$ value) $default, {
+    required TResult Function(CreateCompanySuccessful value) successful,
+    required TResult Function(CreateCompanyError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(CreateCompany$ value), {
-    Result successful(CreateCompanySuccessful value),
-    Result error(CreateCompanyError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CreateCompany$ value)? $default, {
+    TResult Function(CreateCompanySuccessful value)? successful,
+    TResult Function(CreateCompanyError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -124,20 +129,38 @@ class _$CreateCompany$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object name = freezed,
-    Object rating = freezed,
-    Object image = freezed,
-    Object openHour = freezed,
-    Object closeHour = freezed,
-    Object city = freezed,
+    Object? name = freezed,
+    Object? rating = freezed,
+    Object? image = freezed,
+    Object? openHour = freezed,
+    Object? closeHour = freezed,
+    Object? city = freezed,
   }) {
     return _then(CreateCompany$(
-      name: name == freezed ? _value.name : name as String,
-      rating: rating == freezed ? _value.rating : rating as double,
-      image: image == freezed ? _value.image : image as String,
-      openHour: openHour == freezed ? _value.openHour : openHour as String,
-      closeHour: closeHour == freezed ? _value.closeHour : closeHour as String,
-      city: city == freezed ? _value.city : city as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+      image: image == freezed
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
+      openHour: openHour == freezed
+          ? _value.openHour
+          : openHour // ignore: cast_nullable_to_non_nullable
+              as String,
+      closeHour: closeHour == freezed
+          ? _value.closeHour
+          : closeHour // ignore: cast_nullable_to_non_nullable
+              as String,
+      city: city == freezed
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -145,18 +168,12 @@ class _$CreateCompany$CopyWithImpl<$Res>
 /// @nodoc
 class _$CreateCompany$ implements CreateCompany$ {
   const _$CreateCompany$(
-      {@required this.name,
-      @required this.rating,
-      @required this.image,
-      @required this.openHour,
-      @required this.closeHour,
-      @required this.city})
-      : assert(name != null),
-        assert(rating != null),
-        assert(image != null),
-        assert(openHour != null),
-        assert(closeHour != null),
-        assert(city != null);
+      {required this.name,
+      required this.rating,
+      required this.image,
+      required this.openHour,
+      required this.closeHour,
+      required this.city});
 
   @override
   final String name;
@@ -206,34 +223,33 @@ class _$CreateCompany$ implements CreateCompany$ {
       const DeepCollectionEquality().hash(closeHour) ^
       const DeepCollectionEquality().hash(city);
 
+  @JsonKey(ignore: true)
   @override
   $CreateCompany$CopyWith<CreateCompany$> get copyWith =>
       _$CreateCompany$CopyWithImpl<CreateCompany$>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String name, double rating, String image, String openHour,
-        String closeHour, String city), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String name, double rating, String image, String openHour,
+            String closeHour, String city)
+        $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(name, rating, image, openHour, closeHour, city);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String name, double rating, String image, String openHour,
-        String closeHour, String city), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String name, double rating, String image, String openHour,
+            String closeHour, String city)?
+        $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(name, rating, image, openHour, closeHour, city);
     }
@@ -242,26 +258,22 @@ class _$CreateCompany$ implements CreateCompany$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(CreateCompany$ value), {
-    @required Result successful(CreateCompanySuccessful value),
-    @required Result error(CreateCompanyError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(CreateCompany$ value) $default, {
+    required TResult Function(CreateCompanySuccessful value) successful,
+    required TResult Function(CreateCompanyError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(CreateCompany$ value), {
-    Result successful(CreateCompanySuccessful value),
-    Result error(CreateCompanyError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CreateCompany$ value)? $default, {
+    TResult Function(CreateCompanySuccessful value)? successful,
+    TResult Function(CreateCompanyError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -271,20 +283,22 @@ class _$CreateCompany$ implements CreateCompany$ {
 
 abstract class CreateCompany$ implements CreateCompany {
   const factory CreateCompany$(
-      {@required String name,
-      @required double rating,
-      @required String image,
-      @required String openHour,
-      @required String closeHour,
-      @required String city}) = _$CreateCompany$;
+      {required String name,
+      required double rating,
+      required String image,
+      required String openHour,
+      required String closeHour,
+      required String city}) = _$CreateCompany$;
 
-  String get name;
-  double get rating;
-  String get image;
-  String get openHour;
-  String get closeHour;
-  String get city;
-  $CreateCompany$CopyWith<CreateCompany$> get copyWith;
+  String get name => throw _privateConstructorUsedError;
+  double get rating => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
+  String get openHour => throw _privateConstructorUsedError;
+  String get closeHour => throw _privateConstructorUsedError;
+  String get city => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CreateCompany$CopyWith<CreateCompany$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -325,28 +339,26 @@ class _$CreateCompanySuccessful implements CreateCompanySuccessful {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String name, double rating, String image, String openHour,
-        String closeHour, String city), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String name, double rating, String image, String openHour,
+            String closeHour, String city)
+        $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String name, double rating, String image, String openHour,
-        String closeHour, String city), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String name, double rating, String image, String openHour,
+            String closeHour, String city)?
+        $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful();
     }
@@ -355,26 +367,22 @@ class _$CreateCompanySuccessful implements CreateCompanySuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(CreateCompany$ value), {
-    @required Result successful(CreateCompanySuccessful value),
-    @required Result error(CreateCompanyError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(CreateCompany$ value) $default, {
+    required TResult Function(CreateCompanySuccessful value) successful,
+    required TResult Function(CreateCompanyError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(CreateCompany$ value), {
-    Result successful(CreateCompanySuccessful value),
-    Result error(CreateCompanyError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CreateCompany$ value)? $default, {
+    TResult Function(CreateCompanySuccessful value)? successful,
+    TResult Function(CreateCompanyError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -407,10 +415,13 @@ class _$CreateCompanyErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(CreateCompanyError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -419,7 +430,7 @@ class _$CreateCompanyErrorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$CreateCompanyError implements CreateCompanyError {
-  const _$CreateCompanyError(this.error) : assert(error != null);
+  const _$CreateCompanyError(this.error);
 
   @override
   final Object error;
@@ -441,34 +452,33 @@ class _$CreateCompanyError implements CreateCompanyError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $CreateCompanyErrorCopyWith<CreateCompanyError> get copyWith =>
       _$CreateCompanyErrorCopyWithImpl<CreateCompanyError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String name, double rating, String image, String openHour,
-        String closeHour, String city), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String name, double rating, String image, String openHour,
+            String closeHour, String city)
+        $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String name, double rating, String image, String openHour,
-        String closeHour, String city), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String name, double rating, String image, String openHour,
+            String closeHour, String city)?
+        $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -477,26 +487,22 @@ class _$CreateCompanyError implements CreateCompanyError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(CreateCompany$ value), {
-    @required Result successful(CreateCompanySuccessful value),
-    @required Result error(CreateCompanyError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(CreateCompany$ value) $default, {
+    required TResult Function(CreateCompanySuccessful value) successful,
+    required TResult Function(CreateCompanyError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(CreateCompany$ value), {
-    Result successful(CreateCompanySuccessful value),
-    Result error(CreateCompanyError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CreateCompany$ value)? $default, {
+    TResult Function(CreateCompanySuccessful value)? successful,
+    TResult Function(CreateCompanyError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -507,27 +513,26 @@ class _$CreateCompanyError implements CreateCompanyError {
 abstract class CreateCompanyError implements CreateCompany, ErrorAction {
   const factory CreateCompanyError(Object error) = _$CreateCompanyError;
 
-  Object get error;
-  $CreateCompanyErrorCopyWith<CreateCompanyError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CreateCompanyErrorCopyWith<CreateCompanyError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$GetCompaniesTearOff {
   const _$GetCompaniesTearOff();
 
-// ignore: unused_element
   GetCompanies$ call() {
     return const GetCompanies$();
   }
 
-// ignore: unused_element
   GetCompaniesSuccessful successful(List<Company> companies) {
     return GetCompaniesSuccessful(
       companies,
     );
   }
 
-// ignore: unused_element
   GetCompaniesError error(Object error) {
     return GetCompaniesError(
       error,
@@ -536,37 +541,40 @@ class _$GetCompaniesTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $GetCompanies = _$GetCompaniesTearOff();
 
 /// @nodoc
 mixin _$GetCompanies {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(List<Company> companies),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<Company> companies) successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(List<Company> companies),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<Company> companies)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetCompanies$ value), {
-    @required Result successful(GetCompaniesSuccessful value),
-    @required Result error(GetCompaniesError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(GetCompanies$ value) $default, {
+    required TResult Function(GetCompaniesSuccessful value) successful,
+    required TResult Function(GetCompaniesError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetCompanies$ value), {
-    Result successful(GetCompaniesSuccessful value),
-    Result error(GetCompaniesError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetCompanies$ value)? $default, {
+    TResult Function(GetCompaniesSuccessful value)? successful,
+    TResult Function(GetCompaniesError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -622,26 +630,22 @@ class _$GetCompanies$ implements GetCompanies$ {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(List<Company> companies),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<Company> companies) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(List<Company> companies),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<Company> companies)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default();
     }
@@ -650,26 +654,22 @@ class _$GetCompanies$ implements GetCompanies$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetCompanies$ value), {
-    @required Result successful(GetCompaniesSuccessful value),
-    @required Result error(GetCompaniesError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(GetCompanies$ value) $default, {
+    required TResult Function(GetCompaniesSuccessful value) successful,
+    required TResult Function(GetCompaniesError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetCompanies$ value), {
-    Result successful(GetCompaniesSuccessful value),
-    Result error(GetCompaniesError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetCompanies$ value)? $default, {
+    TResult Function(GetCompaniesSuccessful value)? successful,
+    TResult Function(GetCompaniesError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -702,17 +702,20 @@ class _$GetCompaniesSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object companies = freezed,
+    Object? companies = freezed,
   }) {
     return _then(GetCompaniesSuccessful(
-      companies == freezed ? _value.companies : companies as List<Company>,
+      companies == freezed
+          ? _value.companies
+          : companies // ignore: cast_nullable_to_non_nullable
+              as List<Company>,
     ));
   }
 }
 
 /// @nodoc
 class _$GetCompaniesSuccessful implements GetCompaniesSuccessful {
-  const _$GetCompaniesSuccessful(this.companies) : assert(companies != null);
+  const _$GetCompaniesSuccessful(this.companies);
 
   @override
   final List<Company> companies;
@@ -735,6 +738,7 @@ class _$GetCompaniesSuccessful implements GetCompaniesSuccessful {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(companies);
 
+  @JsonKey(ignore: true)
   @override
   $GetCompaniesSuccessfulCopyWith<GetCompaniesSuccessful> get copyWith =>
       _$GetCompaniesSuccessfulCopyWithImpl<GetCompaniesSuccessful>(
@@ -742,26 +746,22 @@ class _$GetCompaniesSuccessful implements GetCompaniesSuccessful {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(List<Company> companies),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<Company> companies) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(companies);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(List<Company> companies),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<Company> companies)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(companies);
     }
@@ -770,26 +770,22 @@ class _$GetCompaniesSuccessful implements GetCompaniesSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetCompanies$ value), {
-    @required Result successful(GetCompaniesSuccessful value),
-    @required Result error(GetCompaniesError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(GetCompanies$ value) $default, {
+    required TResult Function(GetCompaniesSuccessful value) successful,
+    required TResult Function(GetCompaniesError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetCompanies$ value), {
-    Result successful(GetCompaniesSuccessful value),
-    Result error(GetCompaniesError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetCompanies$ value)? $default, {
+    TResult Function(GetCompaniesSuccessful value)? successful,
+    TResult Function(GetCompaniesError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -801,8 +797,10 @@ abstract class GetCompaniesSuccessful implements GetCompanies {
   const factory GetCompaniesSuccessful(List<Company> companies) =
       _$GetCompaniesSuccessful;
 
-  List<Company> get companies;
-  $GetCompaniesSuccessfulCopyWith<GetCompaniesSuccessful> get copyWith;
+  List<Company> get companies => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetCompaniesSuccessfulCopyWith<GetCompaniesSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -826,10 +824,13 @@ class _$GetCompaniesErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(GetCompaniesError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -838,7 +839,7 @@ class _$GetCompaniesErrorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$GetCompaniesError implements GetCompaniesError {
-  const _$GetCompaniesError(this.error) : assert(error != null);
+  const _$GetCompaniesError(this.error);
 
   @override
   final Object error;
@@ -860,32 +861,29 @@ class _$GetCompaniesError implements GetCompaniesError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $GetCompaniesErrorCopyWith<GetCompaniesError> get copyWith =>
       _$GetCompaniesErrorCopyWithImpl<GetCompaniesError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(List<Company> companies),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<Company> companies) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(List<Company> companies),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<Company> companies)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -894,26 +892,22 @@ class _$GetCompaniesError implements GetCompaniesError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetCompanies$ value), {
-    @required Result successful(GetCompaniesSuccessful value),
-    @required Result error(GetCompaniesError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(GetCompanies$ value) $default, {
+    required TResult Function(GetCompaniesSuccessful value) successful,
+    required TResult Function(GetCompaniesError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetCompanies$ value), {
-    Result successful(GetCompaniesSuccessful value),
-    Result error(GetCompaniesError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetCompanies$ value)? $default, {
+    TResult Function(GetCompaniesSuccessful value)? successful,
+    TResult Function(GetCompaniesError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -924,29 +918,28 @@ class _$GetCompaniesError implements GetCompaniesError {
 abstract class GetCompaniesError implements GetCompanies, ErrorAction {
   const factory GetCompaniesError(Object error) = _$GetCompaniesError;
 
-  Object get error;
-  $GetCompaniesErrorCopyWith<GetCompaniesError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetCompaniesErrorCopyWith<GetCompaniesError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$SearchCompaniesTearOff {
   const _$SearchCompaniesTearOff();
 
-// ignore: unused_element
   SearchCompanies$ call(String query) {
     return SearchCompanies$(
       query,
     );
   }
 
-// ignore: unused_element
   SearchCompaniesSuccessful successful(List<Company> companies) {
     return SearchCompaniesSuccessful(
       companies,
     );
   }
 
-// ignore: unused_element
   SearchCompaniesError error(Object error) {
     return SearchCompaniesError(
       error,
@@ -955,37 +948,40 @@ class _$SearchCompaniesTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SearchCompanies = _$SearchCompaniesTearOff();
 
 /// @nodoc
 mixin _$SearchCompanies {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String query), {
-    @required Result successful(List<Company> companies),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(String query) $default, {
+    required TResult Function(List<Company> companies) successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String query), {
-    Result successful(List<Company> companies),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String query)? $default, {
+    TResult Function(List<Company> companies)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SearchCompanies$ value), {
-    @required Result successful(SearchCompaniesSuccessful value),
-    @required Result error(SearchCompaniesError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(SearchCompanies$ value) $default, {
+    required TResult Function(SearchCompaniesSuccessful value) successful,
+    required TResult Function(SearchCompaniesError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SearchCompanies$ value), {
-    Result successful(SearchCompaniesSuccessful value),
-    Result error(SearchCompaniesError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SearchCompanies$ value)? $default, {
+    TResult Function(SearchCompaniesSuccessful value)? successful,
+    TResult Function(SearchCompaniesError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1026,17 +1022,20 @@ class _$SearchCompanies$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object query = freezed,
+    Object? query = freezed,
   }) {
     return _then(SearchCompanies$(
-      query == freezed ? _value.query : query as String,
+      query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 class _$SearchCompanies$ implements SearchCompanies$ {
-  const _$SearchCompanies$(this.query) : assert(query != null);
+  const _$SearchCompanies$(this.query);
 
   @override
   final String query;
@@ -1058,32 +1057,29 @@ class _$SearchCompanies$ implements SearchCompanies$ {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(query);
 
+  @JsonKey(ignore: true)
   @override
   $SearchCompanies$CopyWith<SearchCompanies$> get copyWith =>
       _$SearchCompanies$CopyWithImpl<SearchCompanies$>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String query), {
-    @required Result successful(List<Company> companies),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String query) $default, {
+    required TResult Function(List<Company> companies) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(query);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String query), {
-    Result successful(List<Company> companies),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String query)? $default, {
+    TResult Function(List<Company> companies)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(query);
     }
@@ -1092,26 +1088,22 @@ class _$SearchCompanies$ implements SearchCompanies$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SearchCompanies$ value), {
-    @required Result successful(SearchCompaniesSuccessful value),
-    @required Result error(SearchCompaniesError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SearchCompanies$ value) $default, {
+    required TResult Function(SearchCompaniesSuccessful value) successful,
+    required TResult Function(SearchCompaniesError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SearchCompanies$ value), {
-    Result successful(SearchCompaniesSuccessful value),
-    Result error(SearchCompaniesError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SearchCompanies$ value)? $default, {
+    TResult Function(SearchCompaniesSuccessful value)? successful,
+    TResult Function(SearchCompaniesError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -1122,8 +1114,10 @@ class _$SearchCompanies$ implements SearchCompanies$ {
 abstract class SearchCompanies$ implements SearchCompanies {
   const factory SearchCompanies$(String query) = _$SearchCompanies$;
 
-  String get query;
-  $SearchCompanies$CopyWith<SearchCompanies$> get copyWith;
+  String get query => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SearchCompanies$CopyWith<SearchCompanies$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1148,17 +1142,20 @@ class _$SearchCompaniesSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object companies = freezed,
+    Object? companies = freezed,
   }) {
     return _then(SearchCompaniesSuccessful(
-      companies == freezed ? _value.companies : companies as List<Company>,
+      companies == freezed
+          ? _value.companies
+          : companies // ignore: cast_nullable_to_non_nullable
+              as List<Company>,
     ));
   }
 }
 
 /// @nodoc
 class _$SearchCompaniesSuccessful implements SearchCompaniesSuccessful {
-  const _$SearchCompaniesSuccessful(this.companies) : assert(companies != null);
+  const _$SearchCompaniesSuccessful(this.companies);
 
   @override
   final List<Company> companies;
@@ -1181,6 +1178,7 @@ class _$SearchCompaniesSuccessful implements SearchCompaniesSuccessful {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(companies);
 
+  @JsonKey(ignore: true)
   @override
   $SearchCompaniesSuccessfulCopyWith<SearchCompaniesSuccessful> get copyWith =>
       _$SearchCompaniesSuccessfulCopyWithImpl<SearchCompaniesSuccessful>(
@@ -1188,26 +1186,22 @@ class _$SearchCompaniesSuccessful implements SearchCompaniesSuccessful {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String query), {
-    @required Result successful(List<Company> companies),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String query) $default, {
+    required TResult Function(List<Company> companies) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(companies);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String query), {
-    Result successful(List<Company> companies),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String query)? $default, {
+    TResult Function(List<Company> companies)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(companies);
     }
@@ -1216,26 +1210,22 @@ class _$SearchCompaniesSuccessful implements SearchCompaniesSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SearchCompanies$ value), {
-    @required Result successful(SearchCompaniesSuccessful value),
-    @required Result error(SearchCompaniesError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SearchCompanies$ value) $default, {
+    required TResult Function(SearchCompaniesSuccessful value) successful,
+    required TResult Function(SearchCompaniesError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SearchCompanies$ value), {
-    Result successful(SearchCompaniesSuccessful value),
-    Result error(SearchCompaniesError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SearchCompanies$ value)? $default, {
+    TResult Function(SearchCompaniesSuccessful value)? successful,
+    TResult Function(SearchCompaniesError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -1247,8 +1237,10 @@ abstract class SearchCompaniesSuccessful implements SearchCompanies {
   const factory SearchCompaniesSuccessful(List<Company> companies) =
       _$SearchCompaniesSuccessful;
 
-  List<Company> get companies;
-  $SearchCompaniesSuccessfulCopyWith<SearchCompaniesSuccessful> get copyWith;
+  List<Company> get companies => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SearchCompaniesSuccessfulCopyWith<SearchCompaniesSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1272,10 +1264,13 @@ class _$SearchCompaniesErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(SearchCompaniesError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -1284,7 +1279,7 @@ class _$SearchCompaniesErrorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$SearchCompaniesError implements SearchCompaniesError {
-  const _$SearchCompaniesError(this.error) : assert(error != null);
+  const _$SearchCompaniesError(this.error);
 
   @override
   final Object error;
@@ -1306,6 +1301,7 @@ class _$SearchCompaniesError implements SearchCompaniesError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $SearchCompaniesErrorCopyWith<SearchCompaniesError> get copyWith =>
       _$SearchCompaniesErrorCopyWithImpl<SearchCompaniesError>(
@@ -1313,26 +1309,22 @@ class _$SearchCompaniesError implements SearchCompaniesError {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String query), {
-    @required Result successful(List<Company> companies),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String query) $default, {
+    required TResult Function(List<Company> companies) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String query), {
-    Result successful(List<Company> companies),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String query)? $default, {
+    TResult Function(List<Company> companies)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -1341,26 +1333,22 @@ class _$SearchCompaniesError implements SearchCompaniesError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SearchCompanies$ value), {
-    @required Result successful(SearchCompaniesSuccessful value),
-    @required Result error(SearchCompaniesError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SearchCompanies$ value) $default, {
+    required TResult Function(SearchCompaniesSuccessful value) successful,
+    required TResult Function(SearchCompaniesError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SearchCompanies$ value), {
-    Result successful(SearchCompaniesSuccessful value),
-    Result error(SearchCompaniesError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SearchCompanies$ value)? $default, {
+    TResult Function(SearchCompaniesSuccessful value)? successful,
+    TResult Function(SearchCompaniesError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -1371,34 +1359,32 @@ class _$SearchCompaniesError implements SearchCompaniesError {
 abstract class SearchCompaniesError implements SearchCompanies, ErrorAction {
   const factory SearchCompaniesError(Object error) = _$SearchCompaniesError;
 
-  Object get error;
-  $SearchCompaniesErrorCopyWith<SearchCompaniesError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SearchCompaniesErrorCopyWith<SearchCompaniesError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$GetMeniuTearOff {
   const _$GetMeniuTearOff();
 
-// ignore: unused_element
-  GetMeniu$ call({@required String companyId}) {
+  GetMeniu$ call({required String companyId}) {
     return GetMeniu$(
       companyId: companyId,
     );
   }
 
-// ignore: unused_element
   GetMeniuSuccessful successful(Meniu meniu) {
     return GetMeniuSuccessful(
       meniu,
     );
   }
 
-// ignore: unused_element
   GetMeniuEvent event() {
     return const GetMeniuEvent();
   }
 
-// ignore: unused_element
   GetMeniuError error(Object error) {
     return GetMeniuError(
       error,
@@ -1407,41 +1393,44 @@ class _$GetMeniuTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $GetMeniu = _$GetMeniuTearOff();
 
 /// @nodoc
 mixin _$GetMeniu {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String companyId), {
-    @required Result successful(Meniu meniu),
-    @required Result event(),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(String companyId) $default, {
+    required TResult Function(Meniu meniu) successful,
+    required TResult Function() event,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String companyId), {
-    Result successful(Meniu meniu),
-    Result event(),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String companyId)? $default, {
+    TResult Function(Meniu meniu)? successful,
+    TResult Function()? event,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetMeniu$ value), {
-    @required Result successful(GetMeniuSuccessful value),
-    @required Result event(GetMeniuEvent value),
-    @required Result error(GetMeniuError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(GetMeniu$ value) $default, {
+    required TResult Function(GetMeniuSuccessful value) successful,
+    required TResult Function(GetMeniuEvent value) event,
+    required TResult Function(GetMeniuError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetMeniu$ value), {
-    Result successful(GetMeniuSuccessful value),
-    Result event(GetMeniuEvent value),
-    Result error(GetMeniuError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetMeniu$ value)? $default, {
+    TResult Function(GetMeniuSuccessful value)? successful,
+    TResult Function(GetMeniuEvent value)? event,
+    TResult Function(GetMeniuError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1477,17 +1466,20 @@ class _$GetMeniu$CopyWithImpl<$Res> extends _$GetMeniuCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object companyId = freezed,
+    Object? companyId = freezed,
   }) {
     return _then(GetMeniu$(
-      companyId: companyId == freezed ? _value.companyId : companyId as String,
+      companyId: companyId == freezed
+          ? _value.companyId
+          : companyId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 class _$GetMeniu$ implements GetMeniu$ {
-  const _$GetMeniu$({@required this.companyId}) : assert(companyId != null);
+  const _$GetMeniu$({required this.companyId});
 
   @override
   final String companyId;
@@ -1510,35 +1502,31 @@ class _$GetMeniu$ implements GetMeniu$ {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(companyId);
 
+  @JsonKey(ignore: true)
   @override
   $GetMeniu$CopyWith<GetMeniu$> get copyWith =>
       _$GetMeniu$CopyWithImpl<GetMeniu$>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String companyId), {
-    @required Result successful(Meniu meniu),
-    @required Result event(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String companyId) $default, {
+    required TResult Function(Meniu meniu) successful,
+    required TResult Function() event,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(event != null);
-    assert(error != null);
     return $default(companyId);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String companyId), {
-    Result successful(Meniu meniu),
-    Result event(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String companyId)? $default, {
+    TResult Function(Meniu meniu)? successful,
+    TResult Function()? event,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(companyId);
     }
@@ -1547,29 +1535,24 @@ class _$GetMeniu$ implements GetMeniu$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetMeniu$ value), {
-    @required Result successful(GetMeniuSuccessful value),
-    @required Result event(GetMeniuEvent value),
-    @required Result error(GetMeniuError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(GetMeniu$ value) $default, {
+    required TResult Function(GetMeniuSuccessful value) successful,
+    required TResult Function(GetMeniuEvent value) event,
+    required TResult Function(GetMeniuError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(event != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetMeniu$ value), {
-    Result successful(GetMeniuSuccessful value),
-    Result event(GetMeniuEvent value),
-    Result error(GetMeniuError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetMeniu$ value)? $default, {
+    TResult Function(GetMeniuSuccessful value)? successful,
+    TResult Function(GetMeniuEvent value)? event,
+    TResult Function(GetMeniuError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -1578,10 +1561,12 @@ class _$GetMeniu$ implements GetMeniu$ {
 }
 
 abstract class GetMeniu$ implements GetMeniu {
-  const factory GetMeniu$({@required String companyId}) = _$GetMeniu$;
+  const factory GetMeniu$({required String companyId}) = _$GetMeniu$;
 
-  String get companyId;
-  $GetMeniu$CopyWith<GetMeniu$> get copyWith;
+  String get companyId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetMeniu$CopyWith<GetMeniu$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1605,17 +1590,20 @@ class _$GetMeniuSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object meniu = freezed,
+    Object? meniu = freezed,
   }) {
     return _then(GetMeniuSuccessful(
-      meniu == freezed ? _value.meniu : meniu as Meniu,
+      meniu == freezed
+          ? _value.meniu
+          : meniu // ignore: cast_nullable_to_non_nullable
+              as Meniu,
     ));
   }
 }
 
 /// @nodoc
 class _$GetMeniuSuccessful implements GetMeniuSuccessful {
-  const _$GetMeniuSuccessful(this.meniu) : assert(meniu != null);
+  const _$GetMeniuSuccessful(this.meniu);
 
   @override
   final Meniu meniu;
@@ -1637,35 +1625,31 @@ class _$GetMeniuSuccessful implements GetMeniuSuccessful {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(meniu);
 
+  @JsonKey(ignore: true)
   @override
   $GetMeniuSuccessfulCopyWith<GetMeniuSuccessful> get copyWith =>
       _$GetMeniuSuccessfulCopyWithImpl<GetMeniuSuccessful>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String companyId), {
-    @required Result successful(Meniu meniu),
-    @required Result event(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String companyId) $default, {
+    required TResult Function(Meniu meniu) successful,
+    required TResult Function() event,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(event != null);
-    assert(error != null);
     return successful(meniu);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String companyId), {
-    Result successful(Meniu meniu),
-    Result event(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String companyId)? $default, {
+    TResult Function(Meniu meniu)? successful,
+    TResult Function()? event,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(meniu);
     }
@@ -1674,29 +1658,24 @@ class _$GetMeniuSuccessful implements GetMeniuSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetMeniu$ value), {
-    @required Result successful(GetMeniuSuccessful value),
-    @required Result event(GetMeniuEvent value),
-    @required Result error(GetMeniuError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(GetMeniu$ value) $default, {
+    required TResult Function(GetMeniuSuccessful value) successful,
+    required TResult Function(GetMeniuEvent value) event,
+    required TResult Function(GetMeniuError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(event != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetMeniu$ value), {
-    Result successful(GetMeniuSuccessful value),
-    Result event(GetMeniuEvent value),
-    Result error(GetMeniuError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetMeniu$ value)? $default, {
+    TResult Function(GetMeniuSuccessful value)? successful,
+    TResult Function(GetMeniuEvent value)? event,
+    TResult Function(GetMeniuError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -1707,8 +1686,10 @@ class _$GetMeniuSuccessful implements GetMeniuSuccessful {
 abstract class GetMeniuSuccessful implements GetMeniu {
   const factory GetMeniuSuccessful(Meniu meniu) = _$GetMeniuSuccessful;
 
-  Meniu get meniu;
-  $GetMeniuSuccessfulCopyWith<GetMeniuSuccessful> get copyWith;
+  Meniu get meniu => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetMeniuSuccessfulCopyWith<GetMeniuSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1748,29 +1729,24 @@ class _$GetMeniuEvent implements GetMeniuEvent {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String companyId), {
-    @required Result successful(Meniu meniu),
-    @required Result event(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String companyId) $default, {
+    required TResult Function(Meniu meniu) successful,
+    required TResult Function() event,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(event != null);
-    assert(error != null);
     return event();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String companyId), {
-    Result successful(Meniu meniu),
-    Result event(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String companyId)? $default, {
+    TResult Function(Meniu meniu)? successful,
+    TResult Function()? event,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (event != null) {
       return event();
     }
@@ -1779,29 +1755,24 @@ class _$GetMeniuEvent implements GetMeniuEvent {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetMeniu$ value), {
-    @required Result successful(GetMeniuSuccessful value),
-    @required Result event(GetMeniuEvent value),
-    @required Result error(GetMeniuError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(GetMeniu$ value) $default, {
+    required TResult Function(GetMeniuSuccessful value) successful,
+    required TResult Function(GetMeniuEvent value) event,
+    required TResult Function(GetMeniuError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(event != null);
-    assert(error != null);
     return event(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetMeniu$ value), {
-    Result successful(GetMeniuSuccessful value),
-    Result event(GetMeniuEvent value),
-    Result error(GetMeniuError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetMeniu$ value)? $default, {
+    TResult Function(GetMeniuSuccessful value)? successful,
+    TResult Function(GetMeniuEvent value)? event,
+    TResult Function(GetMeniuError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (event != null) {
       return event(this);
     }
@@ -1833,10 +1804,13 @@ class _$GetMeniuErrorCopyWithImpl<$Res> extends _$GetMeniuCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(GetMeniuError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -1845,7 +1819,7 @@ class _$GetMeniuErrorCopyWithImpl<$Res> extends _$GetMeniuCopyWithImpl<$Res>
 
 /// @nodoc
 class _$GetMeniuError implements GetMeniuError {
-  const _$GetMeniuError(this.error) : assert(error != null);
+  const _$GetMeniuError(this.error);
 
   @override
   final Object error;
@@ -1867,35 +1841,31 @@ class _$GetMeniuError implements GetMeniuError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $GetMeniuErrorCopyWith<GetMeniuError> get copyWith =>
       _$GetMeniuErrorCopyWithImpl<GetMeniuError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String companyId), {
-    @required Result successful(Meniu meniu),
-    @required Result event(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String companyId) $default, {
+    required TResult Function(Meniu meniu) successful,
+    required TResult Function() event,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(event != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String companyId), {
-    Result successful(Meniu meniu),
-    Result event(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String companyId)? $default, {
+    TResult Function(Meniu meniu)? successful,
+    TResult Function()? event,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -1904,29 +1874,24 @@ class _$GetMeniuError implements GetMeniuError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetMeniu$ value), {
-    @required Result successful(GetMeniuSuccessful value),
-    @required Result event(GetMeniuEvent value),
-    @required Result error(GetMeniuError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(GetMeniu$ value) $default, {
+    required TResult Function(GetMeniuSuccessful value) successful,
+    required TResult Function(GetMeniuEvent value) event,
+    required TResult Function(GetMeniuError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(event != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetMeniu$ value), {
-    Result successful(GetMeniuSuccessful value),
-    Result event(GetMeniuEvent value),
-    Result error(GetMeniuError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetMeniu$ value)? $default, {
+    TResult Function(GetMeniuSuccessful value)? successful,
+    TResult Function(GetMeniuEvent value)? event,
+    TResult Function(GetMeniuError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -1937,6 +1902,8 @@ class _$GetMeniuError implements GetMeniuError {
 abstract class GetMeniuError implements GetMeniu, ErrorAction {
   const factory GetMeniuError(Object error) = _$GetMeniuError;
 
-  Object get error;
-  $GetMeniuErrorCopyWith<GetMeniuError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetMeniuErrorCopyWith<GetMeniuError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

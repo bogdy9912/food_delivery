@@ -6,7 +6,7 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key key}) : super(key: key);
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -38,8 +38,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     hintText: 'email',
                   ),
                   keyboardType: TextInputType.emailAddress,
-                  validator: (String value) {
-                    if (!value.contains('@') || !value.contains('.')) {
+                  validator: (String? value) {
+                    if (!value!.contains('@') || !value.contains('.')) {
                       return 'Adresa de email nu este valida';
                     }
                     return null;
@@ -52,8 +52,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     hintText: 'parola',
                   ),
                   keyboardType: TextInputType.visiblePassword,
-                  validator: (String value) {
-                    if (value.length < 6) {
+                  validator: (String? value) {
+                    if (value!.length < 6) {
                       return 'Parola prea scurta(min 6 caractere)';
                     }
                     return null;
@@ -66,7 +66,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     hintText: 'confirma parola',
                   ),
                   keyboardType: TextInputType.visiblePassword,
-                  validator: (String value) {
+                  validator: (String? value) {
                     if (value != _password.text) {
                       return 'Parolele nu coincid';
                     }
@@ -75,17 +75,17 @@ class _SignUpPageState extends State<SignUpPage> {
                   textInputAction: TextInputAction.done,
                   obscureText: true,
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: const Text('Inregistrare'),
                   onPressed: () {
-                    final bool valid = Form.of(context).validate();
+                    final bool valid = Form.of(context)!.validate();
                     if (valid) {
                       StoreProvider.of<AppState>(context).dispatch(UpdateRegistrationInfo(email: _email.text, password: _password.text));
                       Navigator.pushReplacementNamed(context, AppRoutes.setName);
                     }
                   },
                 ),
-                FlatButton(
+                TextButton(
                   onPressed: () {},
                   child: Text.rich(
                     TextSpan(

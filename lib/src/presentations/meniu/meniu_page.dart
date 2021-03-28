@@ -11,18 +11,18 @@ import 'package:food_delivery/src/presentations/app_routes.dart';
 import 'package:food_delivery/src/presentations/meniu/dish_item.dart';
 
 class MeniuPage extends StatelessWidget {
-  const MeniuPage({Key key, this.company}) : super(key: key);
+  const MeniuPage({Key? key, this.company}) : super(key: key);
 
-  final Company company;
+  final Company? company;
 
   @override
   Widget build(BuildContext context) {
     return CartContainer(
-      builder: (BuildContext context, Cart cart) {
+      builder: (BuildContext context, Cart? cart) {
         return MeniuContainer(
-          builder: (BuildContext context, Meniu meniu) => Scaffold(
+          builder: (BuildContext context, Meniu? meniu) => Scaffold(
             appBar: AppBar(
-              title: Text(company.name),
+              title: Text(company!.name),
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back),
                 onPressed: () {
@@ -58,7 +58,7 @@ class MeniuPage extends StatelessWidget {
                   child: Icon(cart == null ? Icons.shopping_basket_outlined : Icons.shopping_basket),
                   onPressed: () {
                     Navigator.pushNamed(context, AppRoutes.cart);
-                    StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(companyId: company.id));
+                    StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(companyId: company!.id));
 
                   },
                 ),

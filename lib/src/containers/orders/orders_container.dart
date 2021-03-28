@@ -5,7 +5,7 @@ import 'package:food_delivery/src/models/orders/index.dart';
 import 'package:redux/redux.dart';
 
 class OrdersContainer extends StatelessWidget {
-  const OrdersContainer({Key key, @required this.builder}) : super(key: key);
+  const OrdersContainer({required this.builder}) ;
 
   final ViewModelBuilder<List<Order>> builder;
 

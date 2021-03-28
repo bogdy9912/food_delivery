@@ -3,7 +3,7 @@ import 'package:food_delivery/src/models/company/index.dart';
 import 'package:food_delivery/src/presentations/meniu/dish_item_button.dart';
 
 class DishItem extends StatelessWidget {
-  const DishItem({Key key, @required this.dishes}) : super(key: key);
+  const DishItem({Key? key, required this.dishes}) : super(key: key);
 
   final List<Dish> dishes;
 
@@ -21,7 +21,7 @@ class DishItem extends StatelessWidget {
                 Container(
                     width: 150,
                     child: Text(
-                      dishes[index].description,
+                      dishes[index].description!,
                       softWrap: false,
                     )),
                 Chip(

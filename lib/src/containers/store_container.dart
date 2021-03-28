@@ -5,7 +5,7 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:redux/redux.dart';
 
 class StoreContainer extends StatelessWidget {
-  const StoreContainer({@required this.builder});
+  const StoreContainer({required this.builder});
 
   final ViewModelBuilder<AuthState> builder;
 

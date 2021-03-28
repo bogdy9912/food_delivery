@@ -5,7 +5,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
     return _$AppState();
   }
 
-  factory AppState.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
+  factory AppState.fromJson(dynamic json) => serializers.deserializeWith(serializer, json)!;
 
   AppState._();
 

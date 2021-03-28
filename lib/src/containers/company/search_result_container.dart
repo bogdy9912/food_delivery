@@ -5,7 +5,7 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:redux/redux.dart';
 
 class SearchResultContainer extends StatelessWidget {
-  const SearchResultContainer({Key key, @required this.builder}) : super(key: key);
+  const SearchResultContainer({required this.builder});
 
   final ViewModelBuilder<List<Company>> builder;
 

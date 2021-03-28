@@ -12,14 +12,14 @@ import 'package:food_delivery/src/models/orders/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class PaymentPage extends StatefulWidget {
-  const PaymentPage({Key key}) : super(key: key);
+  const PaymentPage({Key? key}) : super(key: key);
 
   @override
   _PaymentPageState createState() => _PaymentPageState();
 }
 
 class _PaymentPageState extends State<PaymentPage> {
-  PaymentMethod _method = PaymentMethod.card;
+  PaymentMethod? _method = PaymentMethod.card;
   final TextEditingController _intructions = TextEditingController();
 
   void _response(AppAction action) {
@@ -29,7 +29,7 @@ class _PaymentPageState extends State<PaymentPage> {
         builder: (BuildContext context) => AlertDialog(
           title: const Text('Server error'),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -52,9 +52,9 @@ class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return OrderInfoContainer(
-      builder: (BuildContext context, OrderInfo info) {
+      builder: (BuildContext context, OrderInfo? info) {
         return CartContainer(
-          builder: (BuildContext context, Cart cart) {
+          builder: (BuildContext context, Cart? cart) {
             return Scaffold(
               appBar: AppBar(
                 backgroundColor: Colors.transparent,
@@ -100,7 +100,7 @@ class _PaymentPageState extends State<PaymentPage> {
                     leading: Radio<PaymentMethod>(
                         value: PaymentMethod.card,
                         groupValue: _method,
-                        onChanged: (PaymentMethod meth) {
+                        onChanged: (PaymentMethod? meth) {
                           setState(() {
                             _method = meth;
                           });
@@ -122,7 +122,7 @@ class _PaymentPageState extends State<PaymentPage> {
                     leading: Radio<PaymentMethod>(
                         value: PaymentMethod.cash,
                         groupValue: _method,
-                        onChanged: (PaymentMethod meth) {
+                        onChanged: (PaymentMethod? meth) {
                           setState(() {
                             _method = meth;
                           });
@@ -154,7 +154,7 @@ class _PaymentPageState extends State<PaymentPage> {
                               ),
                             ),
                             Text(
-                              info.total != null ? (info.total).toStringAsFixed(2) + ' lei' : '',
+                              info?.total != null ? info!.total!.toStringAsFixed(2) + ' lei' : '',
                               style: const TextStyle(
                                 color: Colors.red,
                                 fontWeight: FontWeight.bold,

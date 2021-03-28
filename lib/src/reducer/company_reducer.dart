@@ -4,10 +4,10 @@ import 'package:food_delivery/src/models/company/index.dart';
 import 'package:redux/redux.dart';
 
 Reducer<CompanyState> companyReducer = combineReducers(<Reducer<CompanyState>>[
-  TypedReducer<CompanyState, GetCompaniesSuccessful>(_getCompaniesSuccessful),
-  TypedReducer<CompanyState, SearchCompaniesSuccessful>(_searchCompaniesSuccessful),
-  TypedReducer<CompanyState, GetMeniuSuccessful>(_getMeniuSuccessful),
-  TypedReducer<CompanyState, GetMeniuEvent>(_getMeniuEvent),
+  TypedReducer<CompanyState, GetCompaniesSuccessful>(_getCompaniesSuccessful) ,
+  TypedReducer<CompanyState, SearchCompaniesSuccessful>(_searchCompaniesSuccessful) ,
+  TypedReducer<CompanyState, GetMeniuSuccessful>(_getMeniuSuccessful) ,
+  TypedReducer<CompanyState, GetMeniuEvent>(_getMeniuEvent) ,
 ]);
 
 CompanyState _getCompaniesSuccessful(CompanyState state, GetCompaniesSuccessful action) {

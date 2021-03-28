@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of orders_actions;
 
@@ -9,23 +9,23 @@ part of orders_actions;
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$GetOrdersTearOff {
   const _$GetOrdersTearOff();
 
-// ignore: unused_element
   GetOrders$ call() {
     return const GetOrders$();
   }
 
-// ignore: unused_element
   GetOrdersSuccessful successful(List<Order> orders) {
     return GetOrdersSuccessful(
       orders,
     );
   }
 
-// ignore: unused_element
   GetOrdersError error(Object error) {
     return GetOrdersError(
       error,
@@ -34,37 +34,40 @@ class _$GetOrdersTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $GetOrders = _$GetOrdersTearOff();
 
 /// @nodoc
 mixin _$GetOrders {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(List<Order> orders),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<Order> orders) successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(List<Order> orders),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<Order> orders)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetOrders$ value), {
-    @required Result successful(GetOrdersSuccessful value),
-    @required Result error(GetOrdersError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(GetOrders$ value) $default, {
+    required TResult Function(GetOrdersSuccessful value) successful,
+    required TResult Function(GetOrdersError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetOrders$ value), {
-    Result successful(GetOrdersSuccessful value),
-    Result error(GetOrdersError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetOrders$ value)? $default, {
+    TResult Function(GetOrdersSuccessful value)? successful,
+    TResult Function(GetOrdersError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -118,26 +121,22 @@ class _$GetOrders$ implements GetOrders$ {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(List<Order> orders),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<Order> orders) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(List<Order> orders),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<Order> orders)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default();
     }
@@ -146,26 +145,22 @@ class _$GetOrders$ implements GetOrders$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetOrders$ value), {
-    @required Result successful(GetOrdersSuccessful value),
-    @required Result error(GetOrdersError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(GetOrders$ value) $default, {
+    required TResult Function(GetOrdersSuccessful value) successful,
+    required TResult Function(GetOrdersError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetOrders$ value), {
-    Result successful(GetOrdersSuccessful value),
-    Result error(GetOrdersError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetOrders$ value)? $default, {
+    TResult Function(GetOrdersSuccessful value)? successful,
+    TResult Function(GetOrdersError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -198,17 +193,20 @@ class _$GetOrdersSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object orders = freezed,
+    Object? orders = freezed,
   }) {
     return _then(GetOrdersSuccessful(
-      orders == freezed ? _value.orders : orders as List<Order>,
+      orders == freezed
+          ? _value.orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as List<Order>,
     ));
   }
 }
 
 /// @nodoc
 class _$GetOrdersSuccessful implements GetOrdersSuccessful {
-  const _$GetOrdersSuccessful(this.orders) : assert(orders != null);
+  const _$GetOrdersSuccessful(this.orders);
 
   @override
   final List<Order> orders;
@@ -230,32 +228,29 @@ class _$GetOrdersSuccessful implements GetOrdersSuccessful {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(orders);
 
+  @JsonKey(ignore: true)
   @override
   $GetOrdersSuccessfulCopyWith<GetOrdersSuccessful> get copyWith =>
       _$GetOrdersSuccessfulCopyWithImpl<GetOrdersSuccessful>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(List<Order> orders),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<Order> orders) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(orders);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(List<Order> orders),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<Order> orders)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(orders);
     }
@@ -264,26 +259,22 @@ class _$GetOrdersSuccessful implements GetOrdersSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetOrders$ value), {
-    @required Result successful(GetOrdersSuccessful value),
-    @required Result error(GetOrdersError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(GetOrders$ value) $default, {
+    required TResult Function(GetOrdersSuccessful value) successful,
+    required TResult Function(GetOrdersError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetOrders$ value), {
-    Result successful(GetOrdersSuccessful value),
-    Result error(GetOrdersError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetOrders$ value)? $default, {
+    TResult Function(GetOrdersSuccessful value)? successful,
+    TResult Function(GetOrdersError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -294,8 +285,10 @@ class _$GetOrdersSuccessful implements GetOrdersSuccessful {
 abstract class GetOrdersSuccessful implements GetOrders {
   const factory GetOrdersSuccessful(List<Order> orders) = _$GetOrdersSuccessful;
 
-  List<Order> get orders;
-  $GetOrdersSuccessfulCopyWith<GetOrdersSuccessful> get copyWith;
+  List<Order> get orders => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetOrdersSuccessfulCopyWith<GetOrdersSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -318,10 +311,13 @@ class _$GetOrdersErrorCopyWithImpl<$Res> extends _$GetOrdersCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(GetOrdersError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -330,7 +326,7 @@ class _$GetOrdersErrorCopyWithImpl<$Res> extends _$GetOrdersCopyWithImpl<$Res>
 
 /// @nodoc
 class _$GetOrdersError implements GetOrdersError {
-  const _$GetOrdersError(this.error) : assert(error != null);
+  const _$GetOrdersError(this.error);
 
   @override
   final Object error;
@@ -352,32 +348,29 @@ class _$GetOrdersError implements GetOrdersError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $GetOrdersErrorCopyWith<GetOrdersError> get copyWith =>
       _$GetOrdersErrorCopyWithImpl<GetOrdersError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(List<Order> orders),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(List<Order> orders) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(List<Order> orders),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(List<Order> orders)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -386,26 +379,22 @@ class _$GetOrdersError implements GetOrdersError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(GetOrders$ value), {
-    @required Result successful(GetOrdersSuccessful value),
-    @required Result error(GetOrdersError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(GetOrders$ value) $default, {
+    required TResult Function(GetOrdersSuccessful value) successful,
+    required TResult Function(GetOrdersError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(GetOrders$ value), {
-    Result successful(GetOrdersSuccessful value),
-    Result error(GetOrdersError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(GetOrders$ value)? $default, {
+    TResult Function(GetOrdersSuccessful value)? successful,
+    TResult Function(GetOrdersError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -416,22 +405,23 @@ class _$GetOrdersError implements GetOrdersError {
 abstract class GetOrdersError implements GetOrders, ErrorAction {
   const factory GetOrdersError(Object error) = _$GetOrdersError;
 
-  Object get error;
-  $GetOrdersErrorCopyWith<GetOrdersError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetOrdersErrorCopyWith<GetOrdersError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$UpdateOrderInfoTearOff {
   const _$UpdateOrderInfoTearOff();
 
-// ignore: unused_element
   UpdateOrderInfo$ call(
-      {AddressPoint address,
-      BuiltList<CartItem> products,
-      double total,
-      PaymentMethod methodOfPayment,
-      String companyId,
-      String instructions}) {
+      {AddressPoint? address,
+      BuiltList<CartItem>? products,
+      double? total,
+      PaymentMethod? methodOfPayment,
+      String? companyId,
+      String? instructions}) {
     return UpdateOrderInfo$(
       address: address,
       products: products,
@@ -444,19 +434,20 @@ class _$UpdateOrderInfoTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UpdateOrderInfo = _$UpdateOrderInfoTearOff();
 
 /// @nodoc
 mixin _$UpdateOrderInfo {
-  AddressPoint get address;
-  BuiltList<CartItem> get products;
-  double get total;
-  PaymentMethod get methodOfPayment;
-  String get companyId;
-  String get instructions;
+  AddressPoint? get address => throw _privateConstructorUsedError;
+  BuiltList<CartItem>? get products => throw _privateConstructorUsedError;
+  double? get total => throw _privateConstructorUsedError;
+  PaymentMethod? get methodOfPayment => throw _privateConstructorUsedError;
+  String? get companyId => throw _privateConstructorUsedError;
+  String? get instructions => throw _privateConstructorUsedError;
 
-  $UpdateOrderInfoCopyWith<UpdateOrderInfo> get copyWith;
+  @JsonKey(ignore: true)
+  $UpdateOrderInfoCopyWith<UpdateOrderInfo> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -465,12 +456,12 @@ abstract class $UpdateOrderInfoCopyWith<$Res> {
           UpdateOrderInfo value, $Res Function(UpdateOrderInfo) then) =
       _$UpdateOrderInfoCopyWithImpl<$Res>;
   $Res call(
-      {AddressPoint address,
-      BuiltList<CartItem> products,
-      double total,
-      PaymentMethod methodOfPayment,
-      String companyId,
-      String instructions});
+      {AddressPoint? address,
+      BuiltList<CartItem>? products,
+      double? total,
+      PaymentMethod? methodOfPayment,
+      String? companyId,
+      String? instructions});
 }
 
 /// @nodoc
@@ -484,26 +475,38 @@ class _$UpdateOrderInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object address = freezed,
-    Object products = freezed,
-    Object total = freezed,
-    Object methodOfPayment = freezed,
-    Object companyId = freezed,
-    Object instructions = freezed,
+    Object? address = freezed,
+    Object? products = freezed,
+    Object? total = freezed,
+    Object? methodOfPayment = freezed,
+    Object? companyId = freezed,
+    Object? instructions = freezed,
   }) {
     return _then(_value.copyWith(
-      address: address == freezed ? _value.address : address as AddressPoint,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as AddressPoint?,
       products: products == freezed
           ? _value.products
-          : products as BuiltList<CartItem>,
-      total: total == freezed ? _value.total : total as double,
+          : products // ignore: cast_nullable_to_non_nullable
+              as BuiltList<CartItem>?,
+      total: total == freezed
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as double?,
       methodOfPayment: methodOfPayment == freezed
           ? _value.methodOfPayment
-          : methodOfPayment as PaymentMethod,
-      companyId: companyId == freezed ? _value.companyId : companyId as String,
+          : methodOfPayment // ignore: cast_nullable_to_non_nullable
+              as PaymentMethod?,
+      companyId: companyId == freezed
+          ? _value.companyId
+          : companyId // ignore: cast_nullable_to_non_nullable
+              as String?,
       instructions: instructions == freezed
           ? _value.instructions
-          : instructions as String,
+          : instructions // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -516,12 +519,12 @@ abstract class $UpdateOrderInfo$CopyWith<$Res>
       _$UpdateOrderInfo$CopyWithImpl<$Res>;
   @override
   $Res call(
-      {AddressPoint address,
-      BuiltList<CartItem> products,
-      double total,
-      PaymentMethod methodOfPayment,
-      String companyId,
-      String instructions});
+      {AddressPoint? address,
+      BuiltList<CartItem>? products,
+      double? total,
+      PaymentMethod? methodOfPayment,
+      String? companyId,
+      String? instructions});
 }
 
 /// @nodoc
@@ -537,26 +540,38 @@ class _$UpdateOrderInfo$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object address = freezed,
-    Object products = freezed,
-    Object total = freezed,
-    Object methodOfPayment = freezed,
-    Object companyId = freezed,
-    Object instructions = freezed,
+    Object? address = freezed,
+    Object? products = freezed,
+    Object? total = freezed,
+    Object? methodOfPayment = freezed,
+    Object? companyId = freezed,
+    Object? instructions = freezed,
   }) {
     return _then(UpdateOrderInfo$(
-      address: address == freezed ? _value.address : address as AddressPoint,
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as AddressPoint?,
       products: products == freezed
           ? _value.products
-          : products as BuiltList<CartItem>,
-      total: total == freezed ? _value.total : total as double,
+          : products // ignore: cast_nullable_to_non_nullable
+              as BuiltList<CartItem>?,
+      total: total == freezed
+          ? _value.total
+          : total // ignore: cast_nullable_to_non_nullable
+              as double?,
       methodOfPayment: methodOfPayment == freezed
           ? _value.methodOfPayment
-          : methodOfPayment as PaymentMethod,
-      companyId: companyId == freezed ? _value.companyId : companyId as String,
+          : methodOfPayment // ignore: cast_nullable_to_non_nullable
+              as PaymentMethod?,
+      companyId: companyId == freezed
+          ? _value.companyId
+          : companyId // ignore: cast_nullable_to_non_nullable
+              as String?,
       instructions: instructions == freezed
           ? _value.instructions
-          : instructions as String,
+          : instructions // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -572,17 +587,17 @@ class _$UpdateOrderInfo$ implements UpdateOrderInfo$ {
       this.instructions});
 
   @override
-  final AddressPoint address;
+  final AddressPoint? address;
   @override
-  final BuiltList<CartItem> products;
+  final BuiltList<CartItem>? products;
   @override
-  final double total;
+  final double? total;
   @override
-  final PaymentMethod methodOfPayment;
+  final PaymentMethod? methodOfPayment;
   @override
-  final String companyId;
+  final String? companyId;
   @override
-  final String instructions;
+  final String? instructions;
 
   @override
   String toString() {
@@ -622,6 +637,7 @@ class _$UpdateOrderInfo$ implements UpdateOrderInfo$ {
       const DeepCollectionEquality().hash(companyId) ^
       const DeepCollectionEquality().hash(instructions);
 
+  @JsonKey(ignore: true)
   @override
   $UpdateOrderInfo$CopyWith<UpdateOrderInfo$> get copyWith =>
       _$UpdateOrderInfo$CopyWithImpl<UpdateOrderInfo$>(this, _$identity);
@@ -629,46 +645,45 @@ class _$UpdateOrderInfo$ implements UpdateOrderInfo$ {
 
 abstract class UpdateOrderInfo$ implements UpdateOrderInfo {
   const factory UpdateOrderInfo$(
-      {AddressPoint address,
-      BuiltList<CartItem> products,
-      double total,
-      PaymentMethod methodOfPayment,
-      String companyId,
-      String instructions}) = _$UpdateOrderInfo$;
+      {AddressPoint? address,
+      BuiltList<CartItem>? products,
+      double? total,
+      PaymentMethod? methodOfPayment,
+      String? companyId,
+      String? instructions}) = _$UpdateOrderInfo$;
 
   @override
-  AddressPoint get address;
+  AddressPoint? get address => throw _privateConstructorUsedError;
   @override
-  BuiltList<CartItem> get products;
+  BuiltList<CartItem>? get products => throw _privateConstructorUsedError;
   @override
-  double get total;
+  double? get total => throw _privateConstructorUsedError;
   @override
-  PaymentMethod get methodOfPayment;
+  PaymentMethod? get methodOfPayment => throw _privateConstructorUsedError;
   @override
-  String get companyId;
+  String? get companyId => throw _privateConstructorUsedError;
   @override
-  String get instructions;
+  String? get instructions => throw _privateConstructorUsedError;
   @override
-  $UpdateOrderInfo$CopyWith<UpdateOrderInfo$> get copyWith;
+  @JsonKey(ignore: true)
+  $UpdateOrderInfo$CopyWith<UpdateOrderInfo$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$CreateOrderTearOff {
   const _$CreateOrderTearOff();
 
-// ignore: unused_element
-  CreateOrder$ call({@required void Function(AppAction) response}) {
+  CreateOrder$ call({required void Function(AppAction) response}) {
     return CreateOrder$(
       response: response,
     );
   }
 
-// ignore: unused_element
   CreateOrderSuccessful successful() {
     return const CreateOrderSuccessful();
   }
 
-// ignore: unused_element
   CreateOrderError error(Object error) {
     return CreateOrderError(
       error,
@@ -677,37 +692,40 @@ class _$CreateOrderTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $CreateOrder = _$CreateOrderTearOff();
 
 /// @nodoc
 mixin _$CreateOrder {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    @required Result successful(),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response) $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response)? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(CreateOrder$ value), {
-    @required Result successful(CreateOrderSuccessful value),
-    @required Result error(CreateOrderError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(CreateOrder$ value) $default, {
+    required TResult Function(CreateOrderSuccessful value) successful,
+    required TResult Function(CreateOrderError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(CreateOrder$ value), {
-    Result successful(CreateOrderSuccessful value),
-    Result error(CreateOrderError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CreateOrder$ value)? $default, {
+    TResult Function(CreateOrderSuccessful value)? successful,
+    TResult Function(CreateOrderError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -746,19 +764,20 @@ class _$CreateOrder$CopyWithImpl<$Res> extends _$CreateOrderCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object response = freezed,
+    Object? response = freezed,
   }) {
     return _then(CreateOrder$(
       response: response == freezed
           ? _value.response
-          : response as void Function(AppAction),
+          : response // ignore: cast_nullable_to_non_nullable
+              as void Function(AppAction),
     ));
   }
 }
 
 /// @nodoc
 class _$CreateOrder$ implements CreateOrder$ {
-  const _$CreateOrder$({@required this.response}) : assert(response != null);
+  const _$CreateOrder$({required this.response});
 
   @override
   final void Function(AppAction) response;
@@ -781,32 +800,29 @@ class _$CreateOrder$ implements CreateOrder$ {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(response);
 
+  @JsonKey(ignore: true)
   @override
   $CreateOrder$CopyWith<CreateOrder$> get copyWith =>
       _$CreateOrder$CopyWithImpl<CreateOrder$>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response) $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(response);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response)? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(response);
     }
@@ -815,26 +831,22 @@ class _$CreateOrder$ implements CreateOrder$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(CreateOrder$ value), {
-    @required Result successful(CreateOrderSuccessful value),
-    @required Result error(CreateOrderError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(CreateOrder$ value) $default, {
+    required TResult Function(CreateOrderSuccessful value) successful,
+    required TResult Function(CreateOrderError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(CreateOrder$ value), {
-    Result successful(CreateOrderSuccessful value),
-    Result error(CreateOrderError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CreateOrder$ value)? $default, {
+    TResult Function(CreateOrderSuccessful value)? successful,
+    TResult Function(CreateOrderError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -843,11 +855,13 @@ class _$CreateOrder$ implements CreateOrder$ {
 }
 
 abstract class CreateOrder$ implements CreateOrder {
-  const factory CreateOrder$({@required void Function(AppAction) response}) =
+  const factory CreateOrder$({required void Function(AppAction) response}) =
       _$CreateOrder$;
 
-  void Function(AppAction) get response;
-  $CreateOrder$CopyWith<CreateOrder$> get copyWith;
+  void Function(AppAction) get response => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CreateOrder$CopyWith<CreateOrder$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -888,26 +902,22 @@ class _$CreateOrderSuccessful implements CreateOrderSuccessful {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response) $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response)? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful();
     }
@@ -916,26 +926,22 @@ class _$CreateOrderSuccessful implements CreateOrderSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(CreateOrder$ value), {
-    @required Result successful(CreateOrderSuccessful value),
-    @required Result error(CreateOrderError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(CreateOrder$ value) $default, {
+    required TResult Function(CreateOrderSuccessful value) successful,
+    required TResult Function(CreateOrderError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(CreateOrder$ value), {
-    Result successful(CreateOrderSuccessful value),
-    Result error(CreateOrderError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CreateOrder$ value)? $default, {
+    TResult Function(CreateOrderSuccessful value)? successful,
+    TResult Function(CreateOrderError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -968,10 +974,13 @@ class _$CreateOrderErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(CreateOrderError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -980,7 +989,7 @@ class _$CreateOrderErrorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$CreateOrderError implements CreateOrderError {
-  const _$CreateOrderError(this.error) : assert(error != null);
+  const _$CreateOrderError(this.error);
 
   @override
   final Object error;
@@ -1002,32 +1011,29 @@ class _$CreateOrderError implements CreateOrderError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $CreateOrderErrorCopyWith<CreateOrderError> get copyWith =>
       _$CreateOrderErrorCopyWithImpl<CreateOrderError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response) $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response)? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -1036,26 +1042,22 @@ class _$CreateOrderError implements CreateOrderError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(CreateOrder$ value), {
-    @required Result successful(CreateOrderSuccessful value),
-    @required Result error(CreateOrderError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(CreateOrder$ value) $default, {
+    required TResult Function(CreateOrderSuccessful value) successful,
+    required TResult Function(CreateOrderError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(CreateOrder$ value), {
-    Result successful(CreateOrderSuccessful value),
-    Result error(CreateOrderError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(CreateOrder$ value)? $default, {
+    TResult Function(CreateOrderSuccessful value)? successful,
+    TResult Function(CreateOrderError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -1066,6 +1068,8 @@ class _$CreateOrderError implements CreateOrderError {
 abstract class CreateOrderError implements CreateOrder, ErrorAction {
   const factory CreateOrderError(Object error) = _$CreateOrderError;
 
-  Object get error;
-  $CreateOrderErrorCopyWith<CreateOrderError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CreateOrderErrorCopyWith<CreateOrderError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

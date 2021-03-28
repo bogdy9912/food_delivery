@@ -39,9 +39,11 @@ class _$OrderSerializer implements StructuredSerializer<Order> {
   final String wireName = 'Order';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Order object,
+  Iterable<Object?> serialize(Serializers serializers, Order object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'uid',
       serializers.serialize(object.uid, specifiedType: const FullType(String)),
       'companyId',
@@ -63,23 +65,19 @@ class _$OrderSerializer implements StructuredSerializer<Order> {
       'date',
       serializers.serialize(object.date, specifiedType: const FullType(String)),
     ];
-    if (object.id != null) {
-      result
-        ..add('id')
-        ..add(serializers.serialize(object.id,
-            specifiedType: const FullType(String)));
-    }
-    if (object.instructions != null) {
+    Object? value;
+    value = object.instructions;
+    if (value != null) {
       result
         ..add('instructions')
-        ..add(serializers.serialize(object.instructions,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  Order deserialize(Serializers serializers, Iterable<Object> serialized,
+  Order deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new OrderBuilder();
 
@@ -87,7 +85,7 @@ class _$OrderSerializer implements StructuredSerializer<Order> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -103,12 +101,12 @@ class _$OrderSerializer implements StructuredSerializer<Order> {
           break;
         case 'address':
           result.address.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AddressPoint)) as AddressPoint);
+              specifiedType: const FullType(AddressPoint))! as AddressPoint);
           break;
         case 'products':
           result.products.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(CartItem)]))
+                      BuiltList, const [const FullType(CartItem)]))!
               as BuiltList<Object>);
           break;
         case 'total':
@@ -141,25 +139,23 @@ class _$OrdersStateSerializer implements StructuredSerializer<OrdersState> {
   final String wireName = 'OrdersState';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, OrdersState object,
+  Iterable<Object?> serialize(Serializers serializers, OrdersState object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'order',
       serializers.serialize(object.order,
           specifiedType:
               const FullType(BuiltList, const [const FullType(Order)])),
+      'info',
+      serializers.serialize(object.info,
+          specifiedType: const FullType(OrderInfo)),
     ];
-    if (object.info != null) {
-      result
-        ..add('info')
-        ..add(serializers.serialize(object.info,
-            specifiedType: const FullType(OrderInfo)));
-    }
+
     return result;
   }
 
   @override
-  OrdersState deserialize(Serializers serializers, Iterable<Object> serialized,
+  OrdersState deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new OrdersStateBuilder();
 
@@ -167,17 +163,17 @@ class _$OrdersStateSerializer implements StructuredSerializer<OrdersState> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'order':
           result.order.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(Order)]))
+                      const FullType(BuiltList, const [const FullType(Order)]))!
               as BuiltList<Object>);
           break;
         case 'info':
           result.info.replace(serializers.deserialize(value,
-              specifiedType: const FullType(OrderInfo)) as OrderInfo);
+              specifiedType: const FullType(OrderInfo))! as OrderInfo);
           break;
       }
     }
@@ -193,49 +189,55 @@ class _$OrderInfoSerializer implements StructuredSerializer<OrderInfo> {
   final String wireName = 'OrderInfo';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, OrderInfo object,
+  Iterable<Object?> serialize(Serializers serializers, OrderInfo object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'products',
       serializers.serialize(object.products,
           specifiedType:
               const FullType(BuiltList, const [const FullType(CartItem)])),
     ];
-    if (object.address != null) {
+    Object? value;
+    value = object.address;
+    if (value != null) {
       result
         ..add('address')
-        ..add(serializers.serialize(object.address,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(AddressPoint)));
     }
-    if (object.total != null) {
+    value = object.total;
+    if (value != null) {
       result
         ..add('total')
-        ..add(serializers.serialize(object.total,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
-    if (object.methodOfPayment != null) {
+    value = object.methodOfPayment;
+    if (value != null) {
       result
         ..add('methodOfPayment')
-        ..add(serializers.serialize(object.methodOfPayment,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(PaymentMethod)));
     }
-    if (object.instructions != null) {
+    value = object.instructions;
+    if (value != null) {
       result
         ..add('instructions')
-        ..add(serializers.serialize(object.instructions,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    if (object.companyId != null) {
+    value = object.companyId;
+    if (value != null) {
       result
         ..add('companyId')
-        ..add(serializers.serialize(object.companyId,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  OrderInfo deserialize(Serializers serializers, Iterable<Object> serialized,
+  OrderInfo deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new OrderInfoBuilder();
 
@@ -243,16 +245,16 @@ class _$OrderInfoSerializer implements StructuredSerializer<OrderInfo> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'address':
           result.address.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AddressPoint)) as AddressPoint);
+              specifiedType: const FullType(AddressPoint))! as AddressPoint);
           break;
         case 'products':
           result.products.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(CartItem)]))
+                      BuiltList, const [const FullType(CartItem)]))!
               as BuiltList<Object>);
           break;
         case 'total':
@@ -313,43 +315,31 @@ class _$Order extends Order {
   @override
   final String date;
   @override
-  final String instructions;
+  final String? instructions;
 
-  factory _$Order([void Function(OrderBuilder) updates]) =>
+  factory _$Order([void Function(OrderBuilder)? updates]) =>
       (new OrderBuilder()..update(updates)).build();
 
   _$Order._(
-      {this.id,
-      this.uid,
-      this.companyId,
-      this.address,
-      this.products,
-      this.total,
-      this.methodOfPayment,
-      this.date,
+      {required this.id,
+      required this.uid,
+      required this.companyId,
+      required this.address,
+      required this.products,
+      required this.total,
+      required this.methodOfPayment,
+      required this.date,
       this.instructions})
       : super._() {
-    if (uid == null) {
-      throw new BuiltValueNullFieldError('Order', 'uid');
-    }
-    if (companyId == null) {
-      throw new BuiltValueNullFieldError('Order', 'companyId');
-    }
-    if (address == null) {
-      throw new BuiltValueNullFieldError('Order', 'address');
-    }
-    if (products == null) {
-      throw new BuiltValueNullFieldError('Order', 'products');
-    }
-    if (total == null) {
-      throw new BuiltValueNullFieldError('Order', 'total');
-    }
-    if (methodOfPayment == null) {
-      throw new BuiltValueNullFieldError('Order', 'methodOfPayment');
-    }
-    if (date == null) {
-      throw new BuiltValueNullFieldError('Order', 'date');
-    }
+    BuiltValueNullFieldError.checkNotNull(id, 'Order', 'id');
+    BuiltValueNullFieldError.checkNotNull(uid, 'Order', 'uid');
+    BuiltValueNullFieldError.checkNotNull(companyId, 'Order', 'companyId');
+    BuiltValueNullFieldError.checkNotNull(address, 'Order', 'address');
+    BuiltValueNullFieldError.checkNotNull(products, 'Order', 'products');
+    BuiltValueNullFieldError.checkNotNull(total, 'Order', 'total');
+    BuiltValueNullFieldError.checkNotNull(
+        methodOfPayment, 'Order', 'methodOfPayment');
+    BuiltValueNullFieldError.checkNotNull(date, 'Order', 'date');
   }
 
   @override
@@ -409,60 +399,61 @@ class _$Order extends Order {
 }
 
 class OrderBuilder implements Builder<Order, OrderBuilder> {
-  _$Order _$v;
+  _$Order? _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
-  String _uid;
-  String get uid => _$this._uid;
-  set uid(String uid) => _$this._uid = uid;
+  String? _uid;
+  String? get uid => _$this._uid;
+  set uid(String? uid) => _$this._uid = uid;
 
-  String _companyId;
-  String get companyId => _$this._companyId;
-  set companyId(String companyId) => _$this._companyId = companyId;
+  String? _companyId;
+  String? get companyId => _$this._companyId;
+  set companyId(String? companyId) => _$this._companyId = companyId;
 
-  AddressPointBuilder _address;
+  AddressPointBuilder? _address;
   AddressPointBuilder get address =>
       _$this._address ??= new AddressPointBuilder();
-  set address(AddressPointBuilder address) => _$this._address = address;
+  set address(AddressPointBuilder? address) => _$this._address = address;
 
-  ListBuilder<CartItem> _products;
+  ListBuilder<CartItem>? _products;
   ListBuilder<CartItem> get products =>
       _$this._products ??= new ListBuilder<CartItem>();
-  set products(ListBuilder<CartItem> products) => _$this._products = products;
+  set products(ListBuilder<CartItem>? products) => _$this._products = products;
 
-  double _total;
-  double get total => _$this._total;
-  set total(double total) => _$this._total = total;
+  double? _total;
+  double? get total => _$this._total;
+  set total(double? total) => _$this._total = total;
 
-  PaymentMethod _methodOfPayment;
-  PaymentMethod get methodOfPayment => _$this._methodOfPayment;
-  set methodOfPayment(PaymentMethod methodOfPayment) =>
+  PaymentMethod? _methodOfPayment;
+  PaymentMethod? get methodOfPayment => _$this._methodOfPayment;
+  set methodOfPayment(PaymentMethod? methodOfPayment) =>
       _$this._methodOfPayment = methodOfPayment;
 
-  String _date;
-  String get date => _$this._date;
-  set date(String date) => _$this._date = date;
+  String? _date;
+  String? get date => _$this._date;
+  set date(String? date) => _$this._date = date;
 
-  String _instructions;
-  String get instructions => _$this._instructions;
-  set instructions(String instructions) => _$this._instructions = instructions;
+  String? _instructions;
+  String? get instructions => _$this._instructions;
+  set instructions(String? instructions) => _$this._instructions = instructions;
 
   OrderBuilder();
 
   OrderBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _uid = _$v.uid;
-      _companyId = _$v.companyId;
-      _address = _$v.address?.toBuilder();
-      _products = _$v.products?.toBuilder();
-      _total = _$v.total;
-      _methodOfPayment = _$v.methodOfPayment;
-      _date = _$v.date;
-      _instructions = _$v.instructions;
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _uid = $v.uid;
+      _companyId = $v.companyId;
+      _address = $v.address.toBuilder();
+      _products = $v.products.toBuilder();
+      _total = $v.total;
+      _methodOfPayment = $v.methodOfPayment;
+      _date = $v.date;
+      _instructions = $v.instructions;
       _$v = null;
     }
     return this;
@@ -470,14 +461,12 @@ class OrderBuilder implements Builder<Order, OrderBuilder> {
 
   @override
   void replace(Order other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Order;
   }
 
   @override
-  void update(void Function(OrderBuilder) updates) {
+  void update(void Function(OrderBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -487,17 +476,21 @@ class OrderBuilder implements Builder<Order, OrderBuilder> {
     try {
       _$result = _$v ??
           new _$Order._(
-              id: id,
-              uid: uid,
-              companyId: companyId,
+              id: BuiltValueNullFieldError.checkNotNull(id, 'Order', 'id'),
+              uid: BuiltValueNullFieldError.checkNotNull(uid, 'Order', 'uid'),
+              companyId: BuiltValueNullFieldError.checkNotNull(
+                  companyId, 'Order', 'companyId'),
               address: address.build(),
               products: products.build(),
-              total: total,
-              methodOfPayment: methodOfPayment,
-              date: date,
+              total: BuiltValueNullFieldError.checkNotNull(
+                  total, 'Order', 'total'),
+              methodOfPayment: BuiltValueNullFieldError.checkNotNull(
+                  methodOfPayment, 'Order', 'methodOfPayment'),
+              date:
+                  BuiltValueNullFieldError.checkNotNull(date, 'Order', 'date'),
               instructions: instructions);
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'address';
         address.build();
@@ -520,13 +513,12 @@ class _$OrdersState extends OrdersState {
   @override
   final OrderInfo info;
 
-  factory _$OrdersState([void Function(OrdersStateBuilder) updates]) =>
+  factory _$OrdersState([void Function(OrdersStateBuilder)? updates]) =>
       (new OrdersStateBuilder()..update(updates)).build();
 
-  _$OrdersState._({this.order, this.info}) : super._() {
-    if (order == null) {
-      throw new BuiltValueNullFieldError('OrdersState', 'order');
-    }
+  _$OrdersState._({required this.order, required this.info}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(order, 'OrdersState', 'order');
+    BuiltValueNullFieldError.checkNotNull(info, 'OrdersState', 'info');
   }
 
   @override
@@ -557,22 +549,23 @@ class _$OrdersState extends OrdersState {
 }
 
 class OrdersStateBuilder implements Builder<OrdersState, OrdersStateBuilder> {
-  _$OrdersState _$v;
+  _$OrdersState? _$v;
 
-  ListBuilder<Order> _order;
+  ListBuilder<Order>? _order;
   ListBuilder<Order> get order => _$this._order ??= new ListBuilder<Order>();
-  set order(ListBuilder<Order> order) => _$this._order = order;
+  set order(ListBuilder<Order>? order) => _$this._order = order;
 
-  OrderInfoBuilder _info;
+  OrderInfoBuilder? _info;
   OrderInfoBuilder get info => _$this._info ??= new OrderInfoBuilder();
-  set info(OrderInfoBuilder info) => _$this._info = info;
+  set info(OrderInfoBuilder? info) => _$this._info = info;
 
   OrdersStateBuilder();
 
   OrdersStateBuilder get _$this {
-    if (_$v != null) {
-      _order = _$v.order?.toBuilder();
-      _info = _$v.info?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _order = $v.order.toBuilder();
+      _info = $v.info.toBuilder();
       _$v = null;
     }
     return this;
@@ -580,14 +573,12 @@ class OrdersStateBuilder implements Builder<OrdersState, OrdersStateBuilder> {
 
   @override
   void replace(OrdersState other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OrdersState;
   }
 
   @override
-  void update(void Function(OrdersStateBuilder) updates) {
+  void update(void Function(OrdersStateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -595,15 +586,15 @@ class OrdersStateBuilder implements Builder<OrdersState, OrdersStateBuilder> {
   _$OrdersState build() {
     _$OrdersState _$result;
     try {
-      _$result = _$v ??
-          new _$OrdersState._(order: order.build(), info: _info?.build());
+      _$result =
+          _$v ?? new _$OrdersState._(order: order.build(), info: info.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'order';
         order.build();
         _$failedField = 'info';
-        _info?.build();
+        info.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'OrdersState', _$failedField, e.toString());
@@ -617,32 +608,30 @@ class OrdersStateBuilder implements Builder<OrdersState, OrdersStateBuilder> {
 
 class _$OrderInfo extends OrderInfo {
   @override
-  final AddressPoint address;
+  final AddressPoint? address;
   @override
   final BuiltList<CartItem> products;
   @override
-  final double total;
+  final double? total;
   @override
-  final PaymentMethod methodOfPayment;
+  final PaymentMethod? methodOfPayment;
   @override
-  final String instructions;
+  final String? instructions;
   @override
-  final String companyId;
+  final String? companyId;
 
-  factory _$OrderInfo([void Function(OrderInfoBuilder) updates]) =>
+  factory _$OrderInfo([void Function(OrderInfoBuilder)? updates]) =>
       (new OrderInfoBuilder()..update(updates)).build();
 
   _$OrderInfo._(
       {this.address,
-      this.products,
+      required this.products,
       this.total,
       this.methodOfPayment,
       this.instructions,
       this.companyId})
       : super._() {
-    if (products == null) {
-      throw new BuiltValueNullFieldError('OrderInfo', 'products');
-    }
+    BuiltValueNullFieldError.checkNotNull(products, 'OrderInfo', 'products');
   }
 
   @override
@@ -690,45 +679,46 @@ class _$OrderInfo extends OrderInfo {
 }
 
 class OrderInfoBuilder implements Builder<OrderInfo, OrderInfoBuilder> {
-  _$OrderInfo _$v;
+  _$OrderInfo? _$v;
 
-  AddressPointBuilder _address;
+  AddressPointBuilder? _address;
   AddressPointBuilder get address =>
       _$this._address ??= new AddressPointBuilder();
-  set address(AddressPointBuilder address) => _$this._address = address;
+  set address(AddressPointBuilder? address) => _$this._address = address;
 
-  ListBuilder<CartItem> _products;
+  ListBuilder<CartItem>? _products;
   ListBuilder<CartItem> get products =>
       _$this._products ??= new ListBuilder<CartItem>();
-  set products(ListBuilder<CartItem> products) => _$this._products = products;
+  set products(ListBuilder<CartItem>? products) => _$this._products = products;
 
-  double _total;
-  double get total => _$this._total;
-  set total(double total) => _$this._total = total;
+  double? _total;
+  double? get total => _$this._total;
+  set total(double? total) => _$this._total = total;
 
-  PaymentMethod _methodOfPayment;
-  PaymentMethod get methodOfPayment => _$this._methodOfPayment;
-  set methodOfPayment(PaymentMethod methodOfPayment) =>
+  PaymentMethod? _methodOfPayment;
+  PaymentMethod? get methodOfPayment => _$this._methodOfPayment;
+  set methodOfPayment(PaymentMethod? methodOfPayment) =>
       _$this._methodOfPayment = methodOfPayment;
 
-  String _instructions;
-  String get instructions => _$this._instructions;
-  set instructions(String instructions) => _$this._instructions = instructions;
+  String? _instructions;
+  String? get instructions => _$this._instructions;
+  set instructions(String? instructions) => _$this._instructions = instructions;
 
-  String _companyId;
-  String get companyId => _$this._companyId;
-  set companyId(String companyId) => _$this._companyId = companyId;
+  String? _companyId;
+  String? get companyId => _$this._companyId;
+  set companyId(String? companyId) => _$this._companyId = companyId;
 
   OrderInfoBuilder();
 
   OrderInfoBuilder get _$this {
-    if (_$v != null) {
-      _address = _$v.address?.toBuilder();
-      _products = _$v.products?.toBuilder();
-      _total = _$v.total;
-      _methodOfPayment = _$v.methodOfPayment;
-      _instructions = _$v.instructions;
-      _companyId = _$v.companyId;
+    final $v = _$v;
+    if ($v != null) {
+      _address = $v.address?.toBuilder();
+      _products = $v.products.toBuilder();
+      _total = $v.total;
+      _methodOfPayment = $v.methodOfPayment;
+      _instructions = $v.instructions;
+      _companyId = $v.companyId;
       _$v = null;
     }
     return this;
@@ -736,14 +726,12 @@ class OrderInfoBuilder implements Builder<OrderInfo, OrderInfoBuilder> {
 
   @override
   void replace(OrderInfo other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OrderInfo;
   }
 
   @override
-  void update(void Function(OrderInfoBuilder) updates) {
+  void update(void Function(OrderInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -760,7 +748,7 @@ class OrderInfoBuilder implements Builder<OrderInfo, OrderInfoBuilder> {
               instructions: instructions,
               companyId: companyId);
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'address';
         _address?.build();

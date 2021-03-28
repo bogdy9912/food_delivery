@@ -39,7 +39,7 @@ class AppRoutes{
     addCompany: (BuildContext context) => const AddCompany(),
     search: (BuildContext context) => const SearchPage(),
     meniu: (BuildContext context) {
-      final Company arg = ModalRoute.of(context).settings.arguments;
+      final Company? arg = ModalRoute.of(context)!.settings.arguments as Company?;
       return MeniuPage(company: arg);
     },
     cart: (BuildContext context) => const CartPage(),

@@ -7,7 +7,7 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class CompanyItem extends StatelessWidget {
-  const CompanyItem({Key key, @required this.company}) : super(key: key);
+  const CompanyItem({Key? key, required this.company}) : super(key: key);
 
   final Company company;
 
@@ -19,7 +19,7 @@ class CompanyItem extends StatelessWidget {
     return Stack(
       alignment: AlignmentDirectional.bottomStart,
       children: <Widget>[
-        if (!company.image.contains('https://'))
+        if (!company.image!.contains('https://'))
           Container(
             height: size.height * 0.5,
             width: size.width * 0.8,
@@ -34,7 +34,7 @@ class CompanyItem extends StatelessWidget {
         else
         Container(
           child: CachedNetworkImage(
-            imageUrl: company.image,
+            imageUrl: company.image!,
             imageBuilder: (BuildContext context, ImageProvider<Object> imageProvider) => Container(),
             placeholder: (BuildContext context, String url) => Container(
               height: size.height * 0.5,

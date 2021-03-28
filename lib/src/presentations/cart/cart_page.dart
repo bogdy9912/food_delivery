@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/containers/auth/cart_container.dart';
 import 'package:food_delivery/src/models/auth/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class CartPage extends StatelessWidget {
-  const CartPage({Key key}) : super(key: key);
+  const CartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CartContainer(
-      builder: (BuildContext context, Cart cart) {
+      builder: (BuildContext context, Cart? cart) {
         return Scaffold(
           appBar: AppBar(
             title: const Text('cart'),
