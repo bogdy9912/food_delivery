@@ -6,7 +6,7 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/home/company_item.dart';
 
 class SearchPage extends StatelessWidget {
-  const SearchPage({Key key}) : super(key: key);
+  const SearchPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

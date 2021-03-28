@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of auth_actions;
 
@@ -9,26 +9,26 @@ part of auth_actions;
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$LoginTearOff {
   const _$LoginTearOff();
 
-// ignore: unused_element
-  Login$ call({@required String email, @required String password}) {
+  Login$ call({required String email, required String password}) {
     return Login$(
       email: email,
       password: password,
     );
   }
 
-// ignore: unused_element
   LoginSuccessful successful(AppUser user) {
     return LoginSuccessful(
       user,
     );
   }
 
-// ignore: unused_element
   LoginError error(Object error) {
     return LoginError(
       error,
@@ -37,37 +37,40 @@ class _$LoginTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Login = _$LoginTearOff();
 
 /// @nodoc
 mixin _$Login {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String email, String password), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(String email, String password) $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String email, String password), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String email, String password)? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(Login$ value), {
-    @required Result successful(LoginSuccessful value),
-    @required Result error(LoginError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(Login$ value) $default, {
+    required TResult Function(LoginSuccessful value) successful,
+    required TResult Function(LoginError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(Login$ value), {
-    Result successful(LoginSuccessful value),
-    Result error(LoginError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(Login$ value)? $default, {
+    TResult Function(LoginSuccessful value)? successful,
+    TResult Function(LoginError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -103,21 +106,25 @@ class _$Login$CopyWithImpl<$Res> extends _$LoginCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object email = freezed,
-    Object password = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
   }) {
     return _then(Login$(
-      email: email == freezed ? _value.email : email as String,
-      password: password == freezed ? _value.password : password as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 class _$Login$ implements Login$ {
-  _$Login$({@required this.email, @required this.password})
-      : assert(email != null),
-        assert(password != null);
+  _$Login$({required this.email, required this.password});
 
   @override
   final String email;
@@ -146,32 +153,29 @@ class _$Login$ implements Login$ {
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(password);
 
+  @JsonKey(ignore: true)
   @override
   $Login$CopyWith<Login$> get copyWith =>
       _$Login$CopyWithImpl<Login$>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String email, String password), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String email, String password) $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(email, password);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String email, String password), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String email, String password)? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(email, password);
     }
@@ -180,26 +184,22 @@ class _$Login$ implements Login$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(Login$ value), {
-    @required Result successful(LoginSuccessful value),
-    @required Result error(LoginError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(Login$ value) $default, {
+    required TResult Function(LoginSuccessful value) successful,
+    required TResult Function(LoginError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(Login$ value), {
-    Result successful(LoginSuccessful value),
-    Result error(LoginError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(Login$ value)? $default, {
+    TResult Function(LoginSuccessful value)? successful,
+    TResult Function(LoginError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -208,12 +208,12 @@ class _$Login$ implements Login$ {
 }
 
 abstract class Login$ implements Login {
-  factory Login$({@required String email, @required String password}) =
-      _$Login$;
+  factory Login$({required String email, required String password}) = _$Login$;
 
-  String get email;
-  String get password;
-  $Login$CopyWith<Login$> get copyWith;
+  String get email => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $Login$CopyWith<Login$> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -236,17 +236,20 @@ class _$LoginSuccessfulCopyWithImpl<$Res> extends _$LoginCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object user = freezed,
+    Object? user = freezed,
   }) {
     return _then(LoginSuccessful(
-      user == freezed ? _value.user : user as AppUser,
+      user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as AppUser,
     ));
   }
 }
 
 /// @nodoc
 class _$LoginSuccessful implements LoginSuccessful {
-  _$LoginSuccessful(this.user) : assert(user != null);
+  _$LoginSuccessful(this.user);
 
   @override
   final AppUser user;
@@ -268,32 +271,29 @@ class _$LoginSuccessful implements LoginSuccessful {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
 
+  @JsonKey(ignore: true)
   @override
   $LoginSuccessfulCopyWith<LoginSuccessful> get copyWith =>
       _$LoginSuccessfulCopyWithImpl<LoginSuccessful>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String email, String password), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String email, String password) $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(user);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String email, String password), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String email, String password)? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(user);
     }
@@ -302,26 +302,22 @@ class _$LoginSuccessful implements LoginSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(Login$ value), {
-    @required Result successful(LoginSuccessful value),
-    @required Result error(LoginError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(Login$ value) $default, {
+    required TResult Function(LoginSuccessful value) successful,
+    required TResult Function(LoginError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(Login$ value), {
-    Result successful(LoginSuccessful value),
-    Result error(LoginError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(Login$ value)? $default, {
+    TResult Function(LoginSuccessful value)? successful,
+    TResult Function(LoginError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -332,8 +328,10 @@ class _$LoginSuccessful implements LoginSuccessful {
 abstract class LoginSuccessful implements Login {
   factory LoginSuccessful(AppUser user) = _$LoginSuccessful;
 
-  AppUser get user;
-  $LoginSuccessfulCopyWith<LoginSuccessful> get copyWith;
+  AppUser get user => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LoginSuccessfulCopyWith<LoginSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -355,10 +353,13 @@ class _$LoginErrorCopyWithImpl<$Res> extends _$LoginCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(LoginError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -367,7 +368,7 @@ class _$LoginErrorCopyWithImpl<$Res> extends _$LoginCopyWithImpl<$Res>
 
 /// @nodoc
 class _$LoginError implements LoginError {
-  _$LoginError(this.error) : assert(error != null);
+  _$LoginError(this.error);
 
   @override
   final Object error;
@@ -389,32 +390,29 @@ class _$LoginError implements LoginError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $LoginErrorCopyWith<LoginError> get copyWith =>
       _$LoginErrorCopyWithImpl<LoginError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String email, String password), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String email, String password) $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String email, String password), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String email, String password)? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -423,26 +421,22 @@ class _$LoginError implements LoginError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(Login$ value), {
-    @required Result successful(LoginSuccessful value),
-    @required Result error(LoginError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(Login$ value) $default, {
+    required TResult Function(LoginSuccessful value) successful,
+    required TResult Function(LoginError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(Login$ value), {
-    Result successful(LoginSuccessful value),
-    Result error(LoginError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(Login$ value)? $default, {
+    TResult Function(LoginSuccessful value)? successful,
+    TResult Function(LoginError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -453,29 +447,28 @@ class _$LoginError implements LoginError {
 abstract class LoginError implements Login, ErrorAction {
   factory LoginError(Object error) = _$LoginError;
 
-  Object get error;
-  $LoginErrorCopyWith<LoginError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $LoginErrorCopyWith<LoginError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$SignUpTearOff {
   const _$SignUpTearOff();
 
-// ignore: unused_element
-  SignUp$ call({@required void Function(AppAction) response}) {
+  SignUp$ call({required void Function(AppAction) response}) {
     return SignUp$(
       response: response,
     );
   }
 
-// ignore: unused_element
   SignUpSuccessful successful(AppUser user) {
     return SignUpSuccessful(
       user,
     );
   }
 
-// ignore: unused_element
   SignUpError error(Object error) {
     return SignUpError(
       error,
@@ -484,37 +477,40 @@ class _$SignUpTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SignUp = _$SignUpTearOff();
 
 /// @nodoc
 mixin _$SignUp {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response) $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response)? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SignUp$ value), {
-    @required Result successful(SignUpSuccessful value),
-    @required Result error(SignUpError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(SignUp$ value) $default, {
+    required TResult Function(SignUpSuccessful value) successful,
+    required TResult Function(SignUpError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SignUp$ value), {
-    Result successful(SignUpSuccessful value),
-    Result error(SignUpError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignUp$ value)? $default, {
+    TResult Function(SignUpSuccessful value)? successful,
+    TResult Function(SignUpError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -550,19 +546,20 @@ class _$SignUp$CopyWithImpl<$Res> extends _$SignUpCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object response = freezed,
+    Object? response = freezed,
   }) {
     return _then(SignUp$(
       response: response == freezed
           ? _value.response
-          : response as void Function(AppAction),
+          : response // ignore: cast_nullable_to_non_nullable
+              as void Function(AppAction),
     ));
   }
 }
 
 /// @nodoc
 class _$SignUp$ implements SignUp$ {
-  const _$SignUp$({@required this.response}) : assert(response != null);
+  const _$SignUp$({required this.response});
 
   @override
   final void Function(AppAction) response;
@@ -585,32 +582,29 @@ class _$SignUp$ implements SignUp$ {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(response);
 
+  @JsonKey(ignore: true)
   @override
   $SignUp$CopyWith<SignUp$> get copyWith =>
       _$SignUp$CopyWithImpl<SignUp$>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response) $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(response);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response)? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(response);
     }
@@ -619,26 +613,22 @@ class _$SignUp$ implements SignUp$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SignUp$ value), {
-    @required Result successful(SignUpSuccessful value),
-    @required Result error(SignUpError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SignUp$ value) $default, {
+    required TResult Function(SignUpSuccessful value) successful,
+    required TResult Function(SignUpError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SignUp$ value), {
-    Result successful(SignUpSuccessful value),
-    Result error(SignUpError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignUp$ value)? $default, {
+    TResult Function(SignUpSuccessful value)? successful,
+    TResult Function(SignUpError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -647,11 +637,12 @@ class _$SignUp$ implements SignUp$ {
 }
 
 abstract class SignUp$ implements SignUp {
-  const factory SignUp$({@required void Function(AppAction) response}) =
+  const factory SignUp$({required void Function(AppAction) response}) =
       _$SignUp$;
 
-  void Function(AppAction) get response;
-  $SignUp$CopyWith<SignUp$> get copyWith;
+  void Function(AppAction) get response => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SignUp$CopyWith<SignUp$> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -674,17 +665,20 @@ class _$SignUpSuccessfulCopyWithImpl<$Res> extends _$SignUpCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object user = freezed,
+    Object? user = freezed,
   }) {
     return _then(SignUpSuccessful(
-      user == freezed ? _value.user : user as AppUser,
+      user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as AppUser,
     ));
   }
 }
 
 /// @nodoc
 class _$SignUpSuccessful implements SignUpSuccessful {
-  const _$SignUpSuccessful(this.user) : assert(user != null);
+  const _$SignUpSuccessful(this.user);
 
   @override
   final AppUser user;
@@ -706,32 +700,29 @@ class _$SignUpSuccessful implements SignUpSuccessful {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
 
+  @JsonKey(ignore: true)
   @override
   $SignUpSuccessfulCopyWith<SignUpSuccessful> get copyWith =>
       _$SignUpSuccessfulCopyWithImpl<SignUpSuccessful>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response) $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(user);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response)? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(user);
     }
@@ -740,26 +731,22 @@ class _$SignUpSuccessful implements SignUpSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SignUp$ value), {
-    @required Result successful(SignUpSuccessful value),
-    @required Result error(SignUpError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SignUp$ value) $default, {
+    required TResult Function(SignUpSuccessful value) successful,
+    required TResult Function(SignUpError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SignUp$ value), {
-    Result successful(SignUpSuccessful value),
-    Result error(SignUpError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignUp$ value)? $default, {
+    TResult Function(SignUpSuccessful value)? successful,
+    TResult Function(SignUpError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -770,8 +757,10 @@ class _$SignUpSuccessful implements SignUpSuccessful {
 abstract class SignUpSuccessful implements SignUp {
   const factory SignUpSuccessful(AppUser user) = _$SignUpSuccessful;
 
-  AppUser get user;
-  $SignUpSuccessfulCopyWith<SignUpSuccessful> get copyWith;
+  AppUser get user => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SignUpSuccessfulCopyWith<SignUpSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -794,10 +783,13 @@ class _$SignUpErrorCopyWithImpl<$Res> extends _$SignUpCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(SignUpError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -806,7 +798,7 @@ class _$SignUpErrorCopyWithImpl<$Res> extends _$SignUpCopyWithImpl<$Res>
 
 /// @nodoc
 class _$SignUpError implements SignUpError {
-  const _$SignUpError(this.error) : assert(error != null);
+  const _$SignUpError(this.error);
 
   @override
   final Object error;
@@ -828,32 +820,29 @@ class _$SignUpError implements SignUpError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $SignUpErrorCopyWith<SignUpError> get copyWith =>
       _$SignUpErrorCopyWithImpl<SignUpError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response) $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(void Function(AppAction) response), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(void Function(AppAction) response)? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -862,26 +851,22 @@ class _$SignUpError implements SignUpError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SignUp$ value), {
-    @required Result successful(SignUpSuccessful value),
-    @required Result error(SignUpError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SignUp$ value) $default, {
+    required TResult Function(SignUpSuccessful value) successful,
+    required TResult Function(SignUpError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SignUp$ value), {
-    Result successful(SignUpSuccessful value),
-    Result error(SignUpError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignUp$ value)? $default, {
+    TResult Function(SignUpSuccessful value)? successful,
+    TResult Function(SignUpError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -892,17 +877,18 @@ class _$SignUpError implements SignUpError {
 abstract class SignUpError implements SignUp, ErrorAction {
   const factory SignUpError(Object error) = _$SignUpError;
 
-  Object get error;
-  $SignUpErrorCopyWith<SignUpError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SignUpErrorCopyWith<SignUpError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$UpdateRegistrationInfoTearOff {
   const _$UpdateRegistrationInfoTearOff();
 
-// ignore: unused_element
   UpdateRegistrationInfo$ call(
-      {String email, String password, String firstName, String lastName}) {
+      {String? email, String? password, String? firstName, String? lastName}) {
     return UpdateRegistrationInfo$(
       email: email,
       password: password,
@@ -913,17 +899,18 @@ class _$UpdateRegistrationInfoTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UpdateRegistrationInfo = _$UpdateRegistrationInfoTearOff();
 
 /// @nodoc
 mixin _$UpdateRegistrationInfo {
-  String get email;
-  String get password;
-  String get firstName;
-  String get lastName;
+  String? get email => throw _privateConstructorUsedError;
+  String? get password => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get lastName => throw _privateConstructorUsedError;
 
-  $UpdateRegistrationInfoCopyWith<UpdateRegistrationInfo> get copyWith;
+  @JsonKey(ignore: true)
+  $UpdateRegistrationInfoCopyWith<UpdateRegistrationInfo> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -931,7 +918,8 @@ abstract class $UpdateRegistrationInfoCopyWith<$Res> {
   factory $UpdateRegistrationInfoCopyWith(UpdateRegistrationInfo value,
           $Res Function(UpdateRegistrationInfo) then) =
       _$UpdateRegistrationInfoCopyWithImpl<$Res>;
-  $Res call({String email, String password, String firstName, String lastName});
+  $Res call(
+      {String? email, String? password, String? firstName, String? lastName});
 }
 
 /// @nodoc
@@ -945,16 +933,28 @@ class _$UpdateRegistrationInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object email = freezed,
-    Object password = freezed,
-    Object firstName = freezed,
-    Object lastName = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
   }) {
     return _then(_value.copyWith(
-      email: email == freezed ? _value.email : email as String,
-      password: password == freezed ? _value.password : password as String,
-      firstName: firstName == freezed ? _value.firstName : firstName as String,
-      lastName: lastName == freezed ? _value.lastName : lastName as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -966,7 +966,8 @@ abstract class $UpdateRegistrationInfo$CopyWith<$Res>
           $Res Function(UpdateRegistrationInfo$) then) =
       _$UpdateRegistrationInfo$CopyWithImpl<$Res>;
   @override
-  $Res call({String email, String password, String firstName, String lastName});
+  $Res call(
+      {String? email, String? password, String? firstName, String? lastName});
 }
 
 /// @nodoc
@@ -982,16 +983,28 @@ class _$UpdateRegistrationInfo$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object email = freezed,
-    Object password = freezed,
-    Object firstName = freezed,
-    Object lastName = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
   }) {
     return _then(UpdateRegistrationInfo$(
-      email: email == freezed ? _value.email : email as String,
-      password: password == freezed ? _value.password : password as String,
-      firstName: firstName == freezed ? _value.firstName : firstName as String,
-      lastName: lastName == freezed ? _value.lastName : lastName as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String?,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1002,13 +1015,13 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
       {this.email, this.password, this.firstName, this.lastName});
 
   @override
-  final String email;
+  final String? email;
   @override
-  final String password;
+  final String? password;
   @override
-  final String firstName;
+  final String? firstName;
   @override
-  final String lastName;
+  final String? lastName;
 
   @override
   String toString() {
@@ -1040,6 +1053,7 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
       const DeepCollectionEquality().hash(firstName) ^
       const DeepCollectionEquality().hash(lastName);
 
+  @JsonKey(ignore: true)
   @override
   $UpdateRegistrationInfo$CopyWith<UpdateRegistrationInfo$> get copyWith =>
       _$UpdateRegistrationInfo$CopyWithImpl<UpdateRegistrationInfo$>(
@@ -1048,38 +1062,37 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
 
 abstract class UpdateRegistrationInfo$ implements UpdateRegistrationInfo {
   const factory UpdateRegistrationInfo$(
-      {String email,
-      String password,
-      String firstName,
-      String lastName}) = _$UpdateRegistrationInfo$;
+      {String? email,
+      String? password,
+      String? firstName,
+      String? lastName}) = _$UpdateRegistrationInfo$;
 
   @override
-  String get email;
+  String? get email => throw _privateConstructorUsedError;
   @override
-  String get password;
+  String? get password => throw _privateConstructorUsedError;
   @override
-  String get firstName;
+  String? get firstName => throw _privateConstructorUsedError;
   @override
-  String get lastName;
+  String? get lastName => throw _privateConstructorUsedError;
   @override
-  $UpdateRegistrationInfo$CopyWith<UpdateRegistrationInfo$> get copyWith;
+  @JsonKey(ignore: true)
+  $UpdateRegistrationInfo$CopyWith<UpdateRegistrationInfo$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$SignOutTearOff {
   const _$SignOutTearOff();
 
-// ignore: unused_element
   SignOut$ call() {
     return const SignOut$();
   }
 
-// ignore: unused_element
   SignOutSuccessful successful() {
     return const SignOutSuccessful();
   }
 
-// ignore: unused_element
   SignOutError error(Object error) {
     return SignOutError(
       error,
@@ -1088,37 +1101,40 @@ class _$SignOutTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SignOut = _$SignOutTearOff();
 
 /// @nodoc
 mixin _$SignOut {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SignOut$ value), {
-    @required Result successful(SignOutSuccessful value),
-    @required Result error(SignOutError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(SignOut$ value) $default, {
+    required TResult Function(SignOutSuccessful value) successful,
+    required TResult Function(SignOutError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SignOut$ value), {
-    Result successful(SignOutSuccessful value),
-    Result error(SignOutError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1171,26 +1187,22 @@ class _$SignOut$ implements SignOut$ {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default();
     }
@@ -1199,26 +1211,22 @@ class _$SignOut$ implements SignOut$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SignOut$ value), {
-    @required Result successful(SignOutSuccessful value),
-    @required Result error(SignOutError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SignOut$ value) $default, {
+    required TResult Function(SignOutSuccessful value) successful,
+    required TResult Function(SignOutError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SignOut$ value), {
-    Result successful(SignOutSuccessful value),
-    Result error(SignOutError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -1267,26 +1275,22 @@ class _$SignOutSuccessful implements SignOutSuccessful {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful();
     }
@@ -1295,26 +1299,22 @@ class _$SignOutSuccessful implements SignOutSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SignOut$ value), {
-    @required Result successful(SignOutSuccessful value),
-    @required Result error(SignOutError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SignOut$ value) $default, {
+    required TResult Function(SignOutSuccessful value) successful,
+    required TResult Function(SignOutError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SignOut$ value), {
-    Result successful(SignOutSuccessful value),
-    Result error(SignOutError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -1346,10 +1346,13 @@ class _$SignOutErrorCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(SignOutError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -1358,7 +1361,7 @@ class _$SignOutErrorCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
 
 /// @nodoc
 class _$SignOutError implements SignOutError {
-  const _$SignOutError(this.error) : assert(error != null);
+  const _$SignOutError(this.error);
 
   @override
   final Object error;
@@ -1380,32 +1383,29 @@ class _$SignOutError implements SignOutError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $SignOutErrorCopyWith<SignOutError> get copyWith =>
       _$SignOutErrorCopyWithImpl<SignOutError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -1414,26 +1414,22 @@ class _$SignOutError implements SignOutError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(SignOut$ value), {
-    @required Result successful(SignOutSuccessful value),
-    @required Result error(SignOutError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SignOut$ value) $default, {
+    required TResult Function(SignOutSuccessful value) successful,
+    required TResult Function(SignOutError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(SignOut$ value), {
-    Result successful(SignOutSuccessful value),
-    Result error(SignOutError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -1444,27 +1440,26 @@ class _$SignOutError implements SignOutError {
 abstract class SignOutError implements SignOut, ErrorAction {
   const factory SignOutError(Object error) = _$SignOutError;
 
-  Object get error;
-  $SignOutErrorCopyWith<SignOutError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SignOutErrorCopyWith<SignOutError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$InitializeAppTearOff {
   const _$InitializeAppTearOff();
 
-// ignore: unused_element
   InitializeApp$ call() {
     return const InitializeApp$();
   }
 
-// ignore: unused_element
   InitializeAppSuccessful successful(AppUser user) {
     return InitializeAppSuccessful(
       user,
     );
   }
 
-// ignore: unused_element
   InitializeAppError error(Object error) {
     return InitializeAppError(
       error,
@@ -1473,37 +1468,40 @@ class _$InitializeAppTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $InitializeApp = _$InitializeAppTearOff();
 
 /// @nodoc
 mixin _$InitializeApp {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(InitializeApp$ value), {
-    @required Result successful(InitializeAppSuccessful value),
-    @required Result error(InitializeAppError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(InitializeApp$ value) $default, {
+    required TResult Function(InitializeAppSuccessful value) successful,
+    required TResult Function(InitializeAppError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(InitializeApp$ value), {
-    Result successful(InitializeAppSuccessful value),
-    Result error(InitializeAppError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(InitializeApp$ value)? $default, {
+    TResult Function(InitializeAppSuccessful value)? successful,
+    TResult Function(InitializeAppError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1561,26 +1559,22 @@ class _$InitializeApp$ implements InitializeApp$ {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default();
     }
@@ -1589,26 +1583,22 @@ class _$InitializeApp$ implements InitializeApp$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(InitializeApp$ value), {
-    @required Result successful(InitializeAppSuccessful value),
-    @required Result error(InitializeAppError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(InitializeApp$ value) $default, {
+    required TResult Function(InitializeAppSuccessful value) successful,
+    required TResult Function(InitializeAppError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(InitializeApp$ value), {
-    Result successful(InitializeAppSuccessful value),
-    Result error(InitializeAppError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(InitializeApp$ value)? $default, {
+    TResult Function(InitializeAppSuccessful value)? successful,
+    TResult Function(InitializeAppError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -1641,17 +1631,20 @@ class _$InitializeAppSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object user = freezed,
+    Object? user = freezed,
   }) {
     return _then(InitializeAppSuccessful(
-      user == freezed ? _value.user : user as AppUser,
+      user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as AppUser,
     ));
   }
 }
 
 /// @nodoc
 class _$InitializeAppSuccessful implements InitializeAppSuccessful {
-  const _$InitializeAppSuccessful(this.user) : assert(user != null);
+  const _$InitializeAppSuccessful(this.user);
 
   @override
   final AppUser user;
@@ -1673,6 +1666,7 @@ class _$InitializeAppSuccessful implements InitializeAppSuccessful {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
 
+  @JsonKey(ignore: true)
   @override
   $InitializeAppSuccessfulCopyWith<InitializeAppSuccessful> get copyWith =>
       _$InitializeAppSuccessfulCopyWithImpl<InitializeAppSuccessful>(
@@ -1680,26 +1674,22 @@ class _$InitializeAppSuccessful implements InitializeAppSuccessful {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(user);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(user);
     }
@@ -1708,26 +1698,22 @@ class _$InitializeAppSuccessful implements InitializeAppSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(InitializeApp$ value), {
-    @required Result successful(InitializeAppSuccessful value),
-    @required Result error(InitializeAppError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(InitializeApp$ value) $default, {
+    required TResult Function(InitializeAppSuccessful value) successful,
+    required TResult Function(InitializeAppError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(InitializeApp$ value), {
-    Result successful(InitializeAppSuccessful value),
-    Result error(InitializeAppError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(InitializeApp$ value)? $default, {
+    TResult Function(InitializeAppSuccessful value)? successful,
+    TResult Function(InitializeAppError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -1739,8 +1725,10 @@ abstract class InitializeAppSuccessful implements InitializeApp {
   const factory InitializeAppSuccessful(AppUser user) =
       _$InitializeAppSuccessful;
 
-  AppUser get user;
-  $InitializeAppSuccessfulCopyWith<InitializeAppSuccessful> get copyWith;
+  AppUser get user => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $InitializeAppSuccessfulCopyWith<InitializeAppSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1764,10 +1752,13 @@ class _$InitializeAppErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(InitializeAppError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -1776,7 +1767,7 @@ class _$InitializeAppErrorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$InitializeAppError implements InitializeAppError {
-  const _$InitializeAppError(this.error) : assert(error != null);
+  const _$InitializeAppError(this.error);
 
   @override
   final Object error;
@@ -1798,32 +1789,29 @@ class _$InitializeAppError implements InitializeAppError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $InitializeAppErrorCopyWith<InitializeAppError> get copyWith =>
       _$InitializeAppErrorCopyWithImpl<InitializeAppError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(), {
-    @required Result successful(AppUser user),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function(AppUser user) successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(), {
-    Result successful(AppUser user),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function(AppUser user)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -1832,26 +1820,22 @@ class _$InitializeAppError implements InitializeAppError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(InitializeApp$ value), {
-    @required Result successful(InitializeAppSuccessful value),
-    @required Result error(InitializeAppError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(InitializeApp$ value) $default, {
+    required TResult Function(InitializeAppSuccessful value) successful,
+    required TResult Function(InitializeAppError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(InitializeApp$ value), {
-    Result successful(InitializeAppSuccessful value),
-    Result error(InitializeAppError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(InitializeApp$ value)? $default, {
+    TResult Function(InitializeAppSuccessful value)? successful,
+    TResult Function(InitializeAppError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -1862,27 +1846,26 @@ class _$InitializeAppError implements InitializeAppError {
 abstract class InitializeAppError implements InitializeApp, ErrorAction {
   const factory InitializeAppError(Object error) = _$InitializeAppError;
 
-  Object get error;
-  $InitializeAppErrorCopyWith<InitializeAppError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $InitializeAppErrorCopyWith<InitializeAppError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$ForgotPasswordTearOff {
   const _$ForgotPasswordTearOff();
 
-// ignore: unused_element
   ForgotPassword$ call(String email) {
     return ForgotPassword$(
       email,
     );
   }
 
-// ignore: unused_element
   ForgotPasswordSuccessful successful() {
     return const ForgotPasswordSuccessful();
   }
 
-// ignore: unused_element
   ForgotPasswordError error(Object error) {
     return ForgotPasswordError(
       error,
@@ -1891,37 +1874,40 @@ class _$ForgotPasswordTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ForgotPassword = _$ForgotPasswordTearOff();
 
 /// @nodoc
 mixin _$ForgotPassword {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String email), {
-    @required Result successful(),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(String email) $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String email), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String email)? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(ForgotPassword$ value), {
-    @required Result successful(ForgotPasswordSuccessful value),
-    @required Result error(ForgotPasswordError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(ForgotPassword$ value) $default, {
+    required TResult Function(ForgotPasswordSuccessful value) successful,
+    required TResult Function(ForgotPasswordError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(ForgotPassword$ value), {
-    Result successful(ForgotPasswordSuccessful value),
-    Result error(ForgotPasswordError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(ForgotPassword$ value)? $default, {
+    TResult Function(ForgotPasswordSuccessful value)? successful,
+    TResult Function(ForgotPasswordError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1962,17 +1948,20 @@ class _$ForgotPassword$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object email = freezed,
+    Object? email = freezed,
   }) {
     return _then(ForgotPassword$(
-      email == freezed ? _value.email : email as String,
+      email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
 class _$ForgotPassword$ implements ForgotPassword$ {
-  const _$ForgotPassword$(this.email) : assert(email != null);
+  const _$ForgotPassword$(this.email);
 
   @override
   final String email;
@@ -1994,32 +1983,29 @@ class _$ForgotPassword$ implements ForgotPassword$ {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(email);
 
+  @JsonKey(ignore: true)
   @override
   $ForgotPassword$CopyWith<ForgotPassword$> get copyWith =>
       _$ForgotPassword$CopyWithImpl<ForgotPassword$>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String email), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String email) $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(email);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String email), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String email)? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(email);
     }
@@ -2028,26 +2014,22 @@ class _$ForgotPassword$ implements ForgotPassword$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(ForgotPassword$ value), {
-    @required Result successful(ForgotPasswordSuccessful value),
-    @required Result error(ForgotPasswordError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(ForgotPassword$ value) $default, {
+    required TResult Function(ForgotPasswordSuccessful value) successful,
+    required TResult Function(ForgotPasswordError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(ForgotPassword$ value), {
-    Result successful(ForgotPasswordSuccessful value),
-    Result error(ForgotPasswordError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(ForgotPassword$ value)? $default, {
+    TResult Function(ForgotPasswordSuccessful value)? successful,
+    TResult Function(ForgotPasswordError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -2058,8 +2040,10 @@ class _$ForgotPassword$ implements ForgotPassword$ {
 abstract class ForgotPassword$ implements ForgotPassword {
   const factory ForgotPassword$(String email) = _$ForgotPassword$;
 
-  String get email;
-  $ForgotPassword$CopyWith<ForgotPassword$> get copyWith;
+  String get email => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ForgotPassword$CopyWith<ForgotPassword$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2101,26 +2085,22 @@ class _$ForgotPasswordSuccessful implements ForgotPasswordSuccessful {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String email), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String email) $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String email), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String email)? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful();
     }
@@ -2129,26 +2109,22 @@ class _$ForgotPasswordSuccessful implements ForgotPasswordSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(ForgotPassword$ value), {
-    @required Result successful(ForgotPasswordSuccessful value),
-    @required Result error(ForgotPasswordError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(ForgotPassword$ value) $default, {
+    required TResult Function(ForgotPasswordSuccessful value) successful,
+    required TResult Function(ForgotPasswordError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(ForgotPassword$ value), {
-    Result successful(ForgotPasswordSuccessful value),
-    Result error(ForgotPasswordError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(ForgotPassword$ value)? $default, {
+    TResult Function(ForgotPasswordSuccessful value)? successful,
+    TResult Function(ForgotPasswordError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -2181,10 +2157,13 @@ class _$ForgotPasswordErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(ForgotPasswordError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -2193,7 +2172,7 @@ class _$ForgotPasswordErrorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$ForgotPasswordError implements ForgotPasswordError {
-  const _$ForgotPasswordError(this.error) : assert(error != null);
+  const _$ForgotPasswordError(this.error);
 
   @override
   final Object error;
@@ -2215,32 +2194,29 @@ class _$ForgotPasswordError implements ForgotPasswordError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $ForgotPasswordErrorCopyWith<ForgotPasswordError> get copyWith =>
       _$ForgotPasswordErrorCopyWithImpl<ForgotPasswordError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String email), {
-    @required Result successful(),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String email) $default, {
+    required TResult Function() successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String email), {
-    Result successful(),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String email)? $default, {
+    TResult Function()? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -2249,26 +2225,22 @@ class _$ForgotPasswordError implements ForgotPasswordError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(ForgotPassword$ value), {
-    @required Result successful(ForgotPasswordSuccessful value),
-    @required Result error(ForgotPasswordError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(ForgotPassword$ value) $default, {
+    required TResult Function(ForgotPasswordSuccessful value) successful,
+    required TResult Function(ForgotPasswordError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(ForgotPassword$ value), {
-    Result successful(ForgotPasswordSuccessful value),
-    Result error(ForgotPasswordError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(ForgotPassword$ value)? $default, {
+    TResult Function(ForgotPasswordSuccessful value)? successful,
+    TResult Function(ForgotPasswordError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -2279,16 +2251,17 @@ class _$ForgotPasswordError implements ForgotPasswordError {
 abstract class ForgotPasswordError implements ForgotPassword, ErrorAction {
   const factory ForgotPasswordError(Object error) = _$ForgotPasswordError;
 
-  Object get error;
-  $ForgotPasswordErrorCopyWith<ForgotPasswordError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ForgotPasswordErrorCopyWith<ForgotPasswordError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$UpdateCartTearOff {
   const _$UpdateCartTearOff();
 
-// ignore: unused_element
-  UpdateCart$ call({Dish add, Dish remove, Dish clearItem}) {
+  UpdateCart$ call({Dish? add, Dish? remove, Dish? clearItem}) {
     return UpdateCart$(
       add: add,
       remove: remove,
@@ -2298,16 +2271,17 @@ class _$UpdateCartTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UpdateCart = _$UpdateCartTearOff();
 
 /// @nodoc
 mixin _$UpdateCart {
-  Dish get add;
-  Dish get remove;
-  Dish get clearItem;
+  Dish? get add => throw _privateConstructorUsedError;
+  Dish? get remove => throw _privateConstructorUsedError;
+  Dish? get clearItem => throw _privateConstructorUsedError;
 
-  $UpdateCartCopyWith<UpdateCart> get copyWith;
+  @JsonKey(ignore: true)
+  $UpdateCartCopyWith<UpdateCart> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2315,7 +2289,7 @@ abstract class $UpdateCartCopyWith<$Res> {
   factory $UpdateCartCopyWith(
           UpdateCart value, $Res Function(UpdateCart) then) =
       _$UpdateCartCopyWithImpl<$Res>;
-  $Res call({Dish add, Dish remove, Dish clearItem});
+  $Res call({Dish? add, Dish? remove, Dish? clearItem});
 }
 
 /// @nodoc
@@ -2328,14 +2302,23 @@ class _$UpdateCartCopyWithImpl<$Res> implements $UpdateCartCopyWith<$Res> {
 
   @override
   $Res call({
-    Object add = freezed,
-    Object remove = freezed,
-    Object clearItem = freezed,
+    Object? add = freezed,
+    Object? remove = freezed,
+    Object? clearItem = freezed,
   }) {
     return _then(_value.copyWith(
-      add: add == freezed ? _value.add : add as Dish,
-      remove: remove == freezed ? _value.remove : remove as Dish,
-      clearItem: clearItem == freezed ? _value.clearItem : clearItem as Dish,
+      add: add == freezed
+          ? _value.add
+          : add // ignore: cast_nullable_to_non_nullable
+              as Dish?,
+      remove: remove == freezed
+          ? _value.remove
+          : remove // ignore: cast_nullable_to_non_nullable
+              as Dish?,
+      clearItem: clearItem == freezed
+          ? _value.clearItem
+          : clearItem // ignore: cast_nullable_to_non_nullable
+              as Dish?,
     ));
   }
 }
@@ -2346,7 +2329,7 @@ abstract class $UpdateCart$CopyWith<$Res> implements $UpdateCartCopyWith<$Res> {
           UpdateCart$ value, $Res Function(UpdateCart$) then) =
       _$UpdateCart$CopyWithImpl<$Res>;
   @override
-  $Res call({Dish add, Dish remove, Dish clearItem});
+  $Res call({Dish? add, Dish? remove, Dish? clearItem});
 }
 
 /// @nodoc
@@ -2361,14 +2344,23 @@ class _$UpdateCart$CopyWithImpl<$Res> extends _$UpdateCartCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object add = freezed,
-    Object remove = freezed,
-    Object clearItem = freezed,
+    Object? add = freezed,
+    Object? remove = freezed,
+    Object? clearItem = freezed,
   }) {
     return _then(UpdateCart$(
-      add: add == freezed ? _value.add : add as Dish,
-      remove: remove == freezed ? _value.remove : remove as Dish,
-      clearItem: clearItem == freezed ? _value.clearItem : clearItem as Dish,
+      add: add == freezed
+          ? _value.add
+          : add // ignore: cast_nullable_to_non_nullable
+              as Dish?,
+      remove: remove == freezed
+          ? _value.remove
+          : remove // ignore: cast_nullable_to_non_nullable
+              as Dish?,
+      clearItem: clearItem == freezed
+          ? _value.clearItem
+          : clearItem // ignore: cast_nullable_to_non_nullable
+              as Dish?,
     ));
   }
 }
@@ -2378,11 +2370,11 @@ class _$UpdateCart$ implements UpdateCart$ {
   const _$UpdateCart$({this.add, this.remove, this.clearItem});
 
   @override
-  final Dish add;
+  final Dish? add;
   @override
-  final Dish remove;
+  final Dish? remove;
   @override
-  final Dish clearItem;
+  final Dish? clearItem;
 
   @override
   String toString() {
@@ -2409,32 +2401,34 @@ class _$UpdateCart$ implements UpdateCart$ {
       const DeepCollectionEquality().hash(remove) ^
       const DeepCollectionEquality().hash(clearItem);
 
+  @JsonKey(ignore: true)
   @override
   $UpdateCart$CopyWith<UpdateCart$> get copyWith =>
       _$UpdateCart$CopyWithImpl<UpdateCart$>(this, _$identity);
 }
 
 abstract class UpdateCart$ implements UpdateCart {
-  const factory UpdateCart$({Dish add, Dish remove, Dish clearItem}) =
+  const factory UpdateCart$({Dish? add, Dish? remove, Dish? clearItem}) =
       _$UpdateCart$;
 
   @override
-  Dish get add;
+  Dish? get add => throw _privateConstructorUsedError;
   @override
-  Dish get remove;
+  Dish? get remove => throw _privateConstructorUsedError;
   @override
-  Dish get clearItem;
+  Dish? get clearItem => throw _privateConstructorUsedError;
   @override
-  $UpdateCart$CopyWith<UpdateCart$> get copyWith;
+  @JsonKey(ignore: true)
+  $UpdateCart$CopyWith<UpdateCart$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$UpdateProfileInfoTearOff {
   const _$UpdateProfileInfoTearOff();
 
-// ignore: unused_element
   UpdateProfileInfo$ call(
-      {String lastName, String firstName, String telephone}) {
+      {String? lastName, String? firstName, String? telephone}) {
     return UpdateProfileInfo$(
       lastName: lastName,
       firstName: firstName,
@@ -2442,9 +2436,8 @@ class _$UpdateProfileInfoTearOff {
     );
   }
 
-// ignore: unused_element
   UpdateProfileInfoSuccessful successful(
-      {String lastName, String firstName, String telephone}) {
+      {String? lastName, String? firstName, String? telephone}) {
     return UpdateProfileInfoSuccessful(
       lastName: lastName,
       firstName: firstName,
@@ -2452,7 +2445,6 @@ class _$UpdateProfileInfoTearOff {
     );
   }
 
-// ignore: unused_element
   UpdateProfileInfoError error(Object error) {
     return UpdateProfileInfoError(
       error,
@@ -2461,38 +2453,45 @@ class _$UpdateProfileInfoTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UpdateProfileInfo = _$UpdateProfileInfoTearOff();
 
 /// @nodoc
 mixin _$UpdateProfileInfo {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String lastName, String firstName, String telephone), {
-    @required
-        Result successful(String lastName, String firstName, String telephone),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(String? lastName, String? firstName, String? telephone)
+        $default, {
+    required TResult Function(
+            String? lastName, String? firstName, String? telephone)
+        successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String lastName, String firstName, String telephone), {
-    Result successful(String lastName, String firstName, String telephone),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? lastName, String? firstName, String? telephone)?
+        $default, {
+    TResult Function(String? lastName, String? firstName, String? telephone)?
+        successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(UpdateProfileInfo$ value), {
-    @required Result successful(UpdateProfileInfoSuccessful value),
-    @required Result error(UpdateProfileInfoError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(UpdateProfileInfo$ value) $default, {
+    required TResult Function(UpdateProfileInfoSuccessful value) successful,
+    required TResult Function(UpdateProfileInfoError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(UpdateProfileInfo$ value), {
-    Result successful(UpdateProfileInfoSuccessful value),
-    Result error(UpdateProfileInfoError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UpdateProfileInfo$ value)? $default, {
+    TResult Function(UpdateProfileInfoSuccessful value)? successful,
+    TResult Function(UpdateProfileInfoError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2517,7 +2516,7 @@ abstract class $UpdateProfileInfo$CopyWith<$Res> {
   factory $UpdateProfileInfo$CopyWith(
           UpdateProfileInfo$ value, $Res Function(UpdateProfileInfo$) then) =
       _$UpdateProfileInfo$CopyWithImpl<$Res>;
-  $Res call({String lastName, String firstName, String telephone});
+  $Res call({String? lastName, String? firstName, String? telephone});
 }
 
 /// @nodoc
@@ -2533,14 +2532,23 @@ class _$UpdateProfileInfo$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object lastName = freezed,
-    Object firstName = freezed,
-    Object telephone = freezed,
+    Object? lastName = freezed,
+    Object? firstName = freezed,
+    Object? telephone = freezed,
   }) {
     return _then(UpdateProfileInfo$(
-      lastName: lastName == freezed ? _value.lastName : lastName as String,
-      firstName: firstName == freezed ? _value.firstName : firstName as String,
-      telephone: telephone == freezed ? _value.telephone : telephone as String,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      telephone: telephone == freezed
+          ? _value.telephone
+          : telephone // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2550,11 +2558,11 @@ class _$UpdateProfileInfo$ implements UpdateProfileInfo$ {
   const _$UpdateProfileInfo$({this.lastName, this.firstName, this.telephone});
 
   @override
-  final String lastName;
+  final String? lastName;
   @override
-  final String firstName;
+  final String? firstName;
   @override
-  final String telephone;
+  final String? telephone;
 
   @override
   String toString() {
@@ -2583,33 +2591,34 @@ class _$UpdateProfileInfo$ implements UpdateProfileInfo$ {
       const DeepCollectionEquality().hash(firstName) ^
       const DeepCollectionEquality().hash(telephone);
 
+  @JsonKey(ignore: true)
   @override
   $UpdateProfileInfo$CopyWith<UpdateProfileInfo$> get copyWith =>
       _$UpdateProfileInfo$CopyWithImpl<UpdateProfileInfo$>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String lastName, String firstName, String telephone), {
-    @required
-        Result successful(String lastName, String firstName, String telephone),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String? lastName, String? firstName, String? telephone)
+        $default, {
+    required TResult Function(
+            String? lastName, String? firstName, String? telephone)
+        successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(lastName, firstName, telephone);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String lastName, String firstName, String telephone), {
-    Result successful(String lastName, String firstName, String telephone),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? lastName, String? firstName, String? telephone)?
+        $default, {
+    TResult Function(String? lastName, String? firstName, String? telephone)?
+        successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(lastName, firstName, telephone);
     }
@@ -2618,26 +2627,22 @@ class _$UpdateProfileInfo$ implements UpdateProfileInfo$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(UpdateProfileInfo$ value), {
-    @required Result successful(UpdateProfileInfoSuccessful value),
-    @required Result error(UpdateProfileInfoError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(UpdateProfileInfo$ value) $default, {
+    required TResult Function(UpdateProfileInfoSuccessful value) successful,
+    required TResult Function(UpdateProfileInfoError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(UpdateProfileInfo$ value), {
-    Result successful(UpdateProfileInfoSuccessful value),
-    Result error(UpdateProfileInfoError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UpdateProfileInfo$ value)? $default, {
+    TResult Function(UpdateProfileInfoSuccessful value)? successful,
+    TResult Function(UpdateProfileInfoError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -2647,14 +2652,16 @@ class _$UpdateProfileInfo$ implements UpdateProfileInfo$ {
 
 abstract class UpdateProfileInfo$ implements UpdateProfileInfo {
   const factory UpdateProfileInfo$(
-      {String lastName,
-      String firstName,
-      String telephone}) = _$UpdateProfileInfo$;
+      {String? lastName,
+      String? firstName,
+      String? telephone}) = _$UpdateProfileInfo$;
 
-  String get lastName;
-  String get firstName;
-  String get telephone;
-  $UpdateProfileInfo$CopyWith<UpdateProfileInfo$> get copyWith;
+  String? get lastName => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get telephone => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UpdateProfileInfo$CopyWith<UpdateProfileInfo$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2663,7 +2670,7 @@ abstract class $UpdateProfileInfoSuccessfulCopyWith<$Res> {
           UpdateProfileInfoSuccessful value,
           $Res Function(UpdateProfileInfoSuccessful) then) =
       _$UpdateProfileInfoSuccessfulCopyWithImpl<$Res>;
-  $Res call({String lastName, String firstName, String telephone});
+  $Res call({String? lastName, String? firstName, String? telephone});
 }
 
 /// @nodoc
@@ -2680,14 +2687,23 @@ class _$UpdateProfileInfoSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object lastName = freezed,
-    Object firstName = freezed,
-    Object telephone = freezed,
+    Object? lastName = freezed,
+    Object? firstName = freezed,
+    Object? telephone = freezed,
   }) {
     return _then(UpdateProfileInfoSuccessful(
-      lastName: lastName == freezed ? _value.lastName : lastName as String,
-      firstName: firstName == freezed ? _value.firstName : firstName as String,
-      telephone: telephone == freezed ? _value.telephone : telephone as String,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      telephone: telephone == freezed
+          ? _value.telephone
+          : telephone // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2698,11 +2714,11 @@ class _$UpdateProfileInfoSuccessful implements UpdateProfileInfoSuccessful {
       {this.lastName, this.firstName, this.telephone});
 
   @override
-  final String lastName;
+  final String? lastName;
   @override
-  final String firstName;
+  final String? firstName;
   @override
-  final String telephone;
+  final String? telephone;
 
   @override
   String toString() {
@@ -2731,6 +2747,7 @@ class _$UpdateProfileInfoSuccessful implements UpdateProfileInfoSuccessful {
       const DeepCollectionEquality().hash(firstName) ^
       const DeepCollectionEquality().hash(telephone);
 
+  @JsonKey(ignore: true)
   @override
   $UpdateProfileInfoSuccessfulCopyWith<UpdateProfileInfoSuccessful>
       get copyWith => _$UpdateProfileInfoSuccessfulCopyWithImpl<
@@ -2738,27 +2755,27 @@ class _$UpdateProfileInfoSuccessful implements UpdateProfileInfoSuccessful {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String lastName, String firstName, String telephone), {
-    @required
-        Result successful(String lastName, String firstName, String telephone),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String? lastName, String? firstName, String? telephone)
+        $default, {
+    required TResult Function(
+            String? lastName, String? firstName, String? telephone)
+        successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(lastName, firstName, telephone);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String lastName, String firstName, String telephone), {
-    Result successful(String lastName, String firstName, String telephone),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? lastName, String? firstName, String? telephone)?
+        $default, {
+    TResult Function(String? lastName, String? firstName, String? telephone)?
+        successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(lastName, firstName, telephone);
     }
@@ -2767,26 +2784,22 @@ class _$UpdateProfileInfoSuccessful implements UpdateProfileInfoSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(UpdateProfileInfo$ value), {
-    @required Result successful(UpdateProfileInfoSuccessful value),
-    @required Result error(UpdateProfileInfoError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(UpdateProfileInfo$ value) $default, {
+    required TResult Function(UpdateProfileInfoSuccessful value) successful,
+    required TResult Function(UpdateProfileInfoError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(UpdateProfileInfo$ value), {
-    Result successful(UpdateProfileInfoSuccessful value),
-    Result error(UpdateProfileInfoError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UpdateProfileInfo$ value)? $default, {
+    TResult Function(UpdateProfileInfoSuccessful value)? successful,
+    TResult Function(UpdateProfileInfoError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -2796,15 +2809,16 @@ class _$UpdateProfileInfoSuccessful implements UpdateProfileInfoSuccessful {
 
 abstract class UpdateProfileInfoSuccessful implements UpdateProfileInfo {
   const factory UpdateProfileInfoSuccessful(
-      {String lastName,
-      String firstName,
-      String telephone}) = _$UpdateProfileInfoSuccessful;
+      {String? lastName,
+      String? firstName,
+      String? telephone}) = _$UpdateProfileInfoSuccessful;
 
-  String get lastName;
-  String get firstName;
-  String get telephone;
+  String? get lastName => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get telephone => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   $UpdateProfileInfoSuccessfulCopyWith<UpdateProfileInfoSuccessful>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2828,10 +2842,13 @@ class _$UpdateProfileInfoErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(UpdateProfileInfoError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -2840,7 +2857,7 @@ class _$UpdateProfileInfoErrorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$UpdateProfileInfoError implements UpdateProfileInfoError {
-  const _$UpdateProfileInfoError(this.error) : assert(error != null);
+  const _$UpdateProfileInfoError(this.error);
 
   @override
   final Object error;
@@ -2862,6 +2879,7 @@ class _$UpdateProfileInfoError implements UpdateProfileInfoError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $UpdateProfileInfoErrorCopyWith<UpdateProfileInfoError> get copyWith =>
       _$UpdateProfileInfoErrorCopyWithImpl<UpdateProfileInfoError>(
@@ -2869,27 +2887,27 @@ class _$UpdateProfileInfoError implements UpdateProfileInfoError {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(String lastName, String firstName, String telephone), {
-    @required
-        Result successful(String lastName, String firstName, String telephone),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String? lastName, String? firstName, String? telephone)
+        $default, {
+    required TResult Function(
+            String? lastName, String? firstName, String? telephone)
+        successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(String lastName, String firstName, String telephone), {
-    Result successful(String lastName, String firstName, String telephone),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? lastName, String? firstName, String? telephone)?
+        $default, {
+    TResult Function(String? lastName, String? firstName, String? telephone)?
+        successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -2898,26 +2916,22 @@ class _$UpdateProfileInfoError implements UpdateProfileInfoError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(UpdateProfileInfo$ value), {
-    @required Result successful(UpdateProfileInfoSuccessful value),
-    @required Result error(UpdateProfileInfoError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(UpdateProfileInfo$ value) $default, {
+    required TResult Function(UpdateProfileInfoSuccessful value) successful,
+    required TResult Function(UpdateProfileInfoError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(UpdateProfileInfo$ value), {
-    Result successful(UpdateProfileInfoSuccessful value),
-    Result error(UpdateProfileInfoError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UpdateProfileInfo$ value)? $default, {
+    TResult Function(UpdateProfileInfoSuccessful value)? successful,
+    TResult Function(UpdateProfileInfoError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -2929,17 +2943,21 @@ abstract class UpdateProfileInfoError
     implements UpdateProfileInfo, ErrorAction {
   const factory UpdateProfileInfoError(Object error) = _$UpdateProfileInfoError;
 
-  Object get error;
-  $UpdateProfileInfoErrorCopyWith<UpdateProfileInfoError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UpdateProfileInfoErrorCopyWith<UpdateProfileInfoError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$UpdateAddressesTearOff {
   const _$UpdateAddressesTearOff();
 
-// ignore: unused_element
   UpdateAddresses$ call(
-      {String uid, AddressPoint add, AddressPoint remove, AddressPoint edit}) {
+      {String? uid,
+      AddressPoint? add,
+      AddressPoint? remove,
+      AddressPoint? edit}) {
     return UpdateAddresses$(
       uid: uid,
       add: add,
@@ -2948,9 +2966,11 @@ class _$UpdateAddressesTearOff {
     );
   }
 
-// ignore: unused_element
   UpdateAddressesSuccessful successful(
-      {String uid, AddressPoint add, AddressPoint remove, AddressPoint edit}) {
+      {String? uid,
+      AddressPoint? add,
+      AddressPoint? remove,
+      AddressPoint? edit}) {
     return UpdateAddressesSuccessful(
       uid: uid,
       add: add,
@@ -2959,7 +2979,6 @@ class _$UpdateAddressesTearOff {
     );
   }
 
-// ignore: unused_element
   UpdateAddressesError error(Object error) {
     return UpdateAddressesError(
       error,
@@ -2968,42 +2987,48 @@ class _$UpdateAddressesTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UpdateAddresses = _$UpdateAddressesTearOff();
 
 /// @nodoc
 mixin _$UpdateAddresses {
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit), {
-    @required
-        Result successful(String uid, AddressPoint add, AddressPoint remove,
-            AddressPoint edit),
-    @required Result error(Object error),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)
+        $default, {
+    required TResult Function(String? uid, AddressPoint? add,
+            AddressPoint? remove, AddressPoint? edit)
+        successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit), {
-    Result successful(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit),
-    Result error(Object error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)?
+        $default, {
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)?
+        successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(UpdateAddresses$ value), {
-    @required Result successful(UpdateAddressesSuccessful value),
-    @required Result error(UpdateAddressesError value),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(UpdateAddresses$ value) $default, {
+    required TResult Function(UpdateAddressesSuccessful value) successful,
+    required TResult Function(UpdateAddressesError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(UpdateAddresses$ value), {
-    Result successful(UpdateAddressesSuccessful value),
-    Result error(UpdateAddressesError value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UpdateAddresses$ value)? $default, {
+    TResult Function(UpdateAddressesSuccessful value)? successful,
+    TResult Function(UpdateAddressesError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3029,7 +3054,10 @@ abstract class $UpdateAddresses$CopyWith<$Res> {
           UpdateAddresses$ value, $Res Function(UpdateAddresses$) then) =
       _$UpdateAddresses$CopyWithImpl<$Res>;
   $Res call(
-      {String uid, AddressPoint add, AddressPoint remove, AddressPoint edit});
+      {String? uid,
+      AddressPoint? add,
+      AddressPoint? remove,
+      AddressPoint? edit});
 }
 
 /// @nodoc
@@ -3045,16 +3073,28 @@ class _$UpdateAddresses$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object uid = freezed,
-    Object add = freezed,
-    Object remove = freezed,
-    Object edit = freezed,
+    Object? uid = freezed,
+    Object? add = freezed,
+    Object? remove = freezed,
+    Object? edit = freezed,
   }) {
     return _then(UpdateAddresses$(
-      uid: uid == freezed ? _value.uid : uid as String,
-      add: add == freezed ? _value.add : add as AddressPoint,
-      remove: remove == freezed ? _value.remove : remove as AddressPoint,
-      edit: edit == freezed ? _value.edit : edit as AddressPoint,
+      uid: uid == freezed
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      add: add == freezed
+          ? _value.add
+          : add // ignore: cast_nullable_to_non_nullable
+              as AddressPoint?,
+      remove: remove == freezed
+          ? _value.remove
+          : remove // ignore: cast_nullable_to_non_nullable
+              as AddressPoint?,
+      edit: edit == freezed
+          ? _value.edit
+          : edit // ignore: cast_nullable_to_non_nullable
+              as AddressPoint?,
     ));
   }
 }
@@ -3064,13 +3104,13 @@ class _$UpdateAddresses$ implements UpdateAddresses$ {
   const _$UpdateAddresses$({this.uid, this.add, this.remove, this.edit});
 
   @override
-  final String uid;
+  final String? uid;
   @override
-  final AddressPoint add;
+  final AddressPoint? add;
   @override
-  final AddressPoint remove;
+  final AddressPoint? remove;
   @override
-  final AddressPoint edit;
+  final AddressPoint? edit;
 
   @override
   String toString() {
@@ -3099,37 +3139,37 @@ class _$UpdateAddresses$ implements UpdateAddresses$ {
       const DeepCollectionEquality().hash(remove) ^
       const DeepCollectionEquality().hash(edit);
 
+  @JsonKey(ignore: true)
   @override
   $UpdateAddresses$CopyWith<UpdateAddresses$> get copyWith =>
       _$UpdateAddresses$CopyWithImpl<UpdateAddresses$>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit), {
-    @required
-        Result successful(String uid, AddressPoint add, AddressPoint remove,
-            AddressPoint edit),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)
+        $default, {
+    required TResult Function(String? uid, AddressPoint? add,
+            AddressPoint? remove, AddressPoint? edit)
+        successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(uid, add, remove, edit);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit), {
-    Result successful(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)?
+        $default, {
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)?
+        successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(uid, add, remove, edit);
     }
@@ -3138,26 +3178,22 @@ class _$UpdateAddresses$ implements UpdateAddresses$ {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(UpdateAddresses$ value), {
-    @required Result successful(UpdateAddressesSuccessful value),
-    @required Result error(UpdateAddressesError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(UpdateAddresses$ value) $default, {
+    required TResult Function(UpdateAddressesSuccessful value) successful,
+    required TResult Function(UpdateAddressesError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(UpdateAddresses$ value), {
-    Result successful(UpdateAddressesSuccessful value),
-    Result error(UpdateAddressesError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UpdateAddresses$ value)? $default, {
+    TResult Function(UpdateAddressesSuccessful value)? successful,
+    TResult Function(UpdateAddressesError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if ($default != null) {
       return $default(this);
     }
@@ -3167,16 +3203,18 @@ class _$UpdateAddresses$ implements UpdateAddresses$ {
 
 abstract class UpdateAddresses$ implements UpdateAddresses {
   const factory UpdateAddresses$(
-      {String uid,
-      AddressPoint add,
-      AddressPoint remove,
-      AddressPoint edit}) = _$UpdateAddresses$;
+      {String? uid,
+      AddressPoint? add,
+      AddressPoint? remove,
+      AddressPoint? edit}) = _$UpdateAddresses$;
 
-  String get uid;
-  AddressPoint get add;
-  AddressPoint get remove;
-  AddressPoint get edit;
-  $UpdateAddresses$CopyWith<UpdateAddresses$> get copyWith;
+  String? get uid => throw _privateConstructorUsedError;
+  AddressPoint? get add => throw _privateConstructorUsedError;
+  AddressPoint? get remove => throw _privateConstructorUsedError;
+  AddressPoint? get edit => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UpdateAddresses$CopyWith<UpdateAddresses$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3185,7 +3223,10 @@ abstract class $UpdateAddressesSuccessfulCopyWith<$Res> {
           $Res Function(UpdateAddressesSuccessful) then) =
       _$UpdateAddressesSuccessfulCopyWithImpl<$Res>;
   $Res call(
-      {String uid, AddressPoint add, AddressPoint remove, AddressPoint edit});
+      {String? uid,
+      AddressPoint? add,
+      AddressPoint? remove,
+      AddressPoint? edit});
 }
 
 /// @nodoc
@@ -3202,16 +3243,28 @@ class _$UpdateAddressesSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object uid = freezed,
-    Object add = freezed,
-    Object remove = freezed,
-    Object edit = freezed,
+    Object? uid = freezed,
+    Object? add = freezed,
+    Object? remove = freezed,
+    Object? edit = freezed,
   }) {
     return _then(UpdateAddressesSuccessful(
-      uid: uid == freezed ? _value.uid : uid as String,
-      add: add == freezed ? _value.add : add as AddressPoint,
-      remove: remove == freezed ? _value.remove : remove as AddressPoint,
-      edit: edit == freezed ? _value.edit : edit as AddressPoint,
+      uid: uid == freezed
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String?,
+      add: add == freezed
+          ? _value.add
+          : add // ignore: cast_nullable_to_non_nullable
+              as AddressPoint?,
+      remove: remove == freezed
+          ? _value.remove
+          : remove // ignore: cast_nullable_to_non_nullable
+              as AddressPoint?,
+      edit: edit == freezed
+          ? _value.edit
+          : edit // ignore: cast_nullable_to_non_nullable
+              as AddressPoint?,
     ));
   }
 }
@@ -3222,13 +3275,13 @@ class _$UpdateAddressesSuccessful implements UpdateAddressesSuccessful {
       {this.uid, this.add, this.remove, this.edit});
 
   @override
-  final String uid;
+  final String? uid;
   @override
-  final AddressPoint add;
+  final AddressPoint? add;
   @override
-  final AddressPoint remove;
+  final AddressPoint? remove;
   @override
-  final AddressPoint edit;
+  final AddressPoint? edit;
 
   @override
   String toString() {
@@ -3257,6 +3310,7 @@ class _$UpdateAddressesSuccessful implements UpdateAddressesSuccessful {
       const DeepCollectionEquality().hash(remove) ^
       const DeepCollectionEquality().hash(edit);
 
+  @JsonKey(ignore: true)
   @override
   $UpdateAddressesSuccessfulCopyWith<UpdateAddressesSuccessful> get copyWith =>
       _$UpdateAddressesSuccessfulCopyWithImpl<UpdateAddressesSuccessful>(
@@ -3264,31 +3318,30 @@ class _$UpdateAddressesSuccessful implements UpdateAddressesSuccessful {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit), {
-    @required
-        Result successful(String uid, AddressPoint add, AddressPoint remove,
-            AddressPoint edit),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)
+        $default, {
+    required TResult Function(String? uid, AddressPoint? add,
+            AddressPoint? remove, AddressPoint? edit)
+        successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(uid, add, remove, edit);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit), {
-    Result successful(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)?
+        $default, {
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)?
+        successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(uid, add, remove, edit);
     }
@@ -3297,26 +3350,22 @@ class _$UpdateAddressesSuccessful implements UpdateAddressesSuccessful {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(UpdateAddresses$ value), {
-    @required Result successful(UpdateAddressesSuccessful value),
-    @required Result error(UpdateAddressesError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(UpdateAddresses$ value) $default, {
+    required TResult Function(UpdateAddressesSuccessful value) successful,
+    required TResult Function(UpdateAddressesError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(UpdateAddresses$ value), {
-    Result successful(UpdateAddressesSuccessful value),
-    Result error(UpdateAddressesError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UpdateAddresses$ value)? $default, {
+    TResult Function(UpdateAddressesSuccessful value)? successful,
+    TResult Function(UpdateAddressesError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (successful != null) {
       return successful(this);
     }
@@ -3326,16 +3375,18 @@ class _$UpdateAddressesSuccessful implements UpdateAddressesSuccessful {
 
 abstract class UpdateAddressesSuccessful implements UpdateAddresses {
   const factory UpdateAddressesSuccessful(
-      {String uid,
-      AddressPoint add,
-      AddressPoint remove,
-      AddressPoint edit}) = _$UpdateAddressesSuccessful;
+      {String? uid,
+      AddressPoint? add,
+      AddressPoint? remove,
+      AddressPoint? edit}) = _$UpdateAddressesSuccessful;
 
-  String get uid;
-  AddressPoint get add;
-  AddressPoint get remove;
-  AddressPoint get edit;
-  $UpdateAddressesSuccessfulCopyWith<UpdateAddressesSuccessful> get copyWith;
+  String? get uid => throw _privateConstructorUsedError;
+  AddressPoint? get add => throw _privateConstructorUsedError;
+  AddressPoint? get remove => throw _privateConstructorUsedError;
+  AddressPoint? get edit => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UpdateAddressesSuccessfulCopyWith<UpdateAddressesSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3359,10 +3410,13 @@ class _$UpdateAddressesErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(UpdateAddressesError(
-      error == freezed ? _value.error : error,
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
     ));
   }
 }
@@ -3371,7 +3425,7 @@ class _$UpdateAddressesErrorCopyWithImpl<$Res>
 
 /// @nodoc
 class _$UpdateAddressesError implements UpdateAddressesError {
-  const _$UpdateAddressesError(this.error) : assert(error != null);
+  const _$UpdateAddressesError(this.error);
 
   @override
   final Object error;
@@ -3393,6 +3447,7 @@ class _$UpdateAddressesError implements UpdateAddressesError {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $UpdateAddressesErrorCopyWith<UpdateAddressesError> get copyWith =>
       _$UpdateAddressesErrorCopyWithImpl<UpdateAddressesError>(
@@ -3400,31 +3455,30 @@ class _$UpdateAddressesError implements UpdateAddressesError {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>(
-    Result $default(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit), {
-    @required
-        Result successful(String uid, AddressPoint add, AddressPoint remove,
-            AddressPoint edit),
-    @required Result error(Object error),
+  TResult when<TResult extends Object?>(
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)
+        $default, {
+    required TResult Function(String? uid, AddressPoint? add,
+            AddressPoint? remove, AddressPoint? edit)
+        successful,
+    required TResult Function(Object error) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>(
-    Result $default(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit), {
-    Result successful(
-        String uid, AddressPoint add, AddressPoint remove, AddressPoint edit),
-    Result error(Object error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)?
+        $default, {
+    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
+            AddressPoint? edit)?
+        successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this.error);
     }
@@ -3433,26 +3487,22 @@ class _$UpdateAddressesError implements UpdateAddressesError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>(
-    Result $default(UpdateAddresses$ value), {
-    @required Result successful(UpdateAddressesSuccessful value),
-    @required Result error(UpdateAddressesError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(UpdateAddresses$ value) $default, {
+    required TResult Function(UpdateAddressesSuccessful value) successful,
+    required TResult Function(UpdateAddressesError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>(
-    Result $default(UpdateAddresses$ value), {
-    Result successful(UpdateAddressesSuccessful value),
-    Result error(UpdateAddressesError value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(UpdateAddresses$ value)? $default, {
+    TResult Function(UpdateAddressesSuccessful value)? successful,
+    TResult Function(UpdateAddressesError value)? error,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (error != null) {
       return error(this);
     }
@@ -3463,6 +3513,8 @@ class _$UpdateAddressesError implements UpdateAddressesError {
 abstract class UpdateAddressesError implements UpdateAddresses, ErrorAction {
   const factory UpdateAddressesError(Object error) = _$UpdateAddressesError;
 
-  Object get error;
-  $UpdateAddressesErrorCopyWith<UpdateAddressesError> get copyWith;
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $UpdateAddressesErrorCopyWith<UpdateAddressesError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

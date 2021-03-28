@@ -21,7 +21,7 @@ class _FoodDeliveryState extends State<FoodDelivery> with InitMixin<FoodDelivery
         future: future,
         builder: (BuildContext context, AsyncSnapshot<Store<AppState>> snapshot) {
           if (snapshot.hasData) {
-            final Store<AppState> store = snapshot.data;
+            final Store<AppState> store = snapshot.data!;
             return StoreProvider<AppState>(
               store: store,
               child: MaterialApp(
@@ -39,7 +39,7 @@ class _FoodDeliveryState extends State<FoodDelivery> with InitMixin<FoodDelivery
             );
           }
           if (snapshot.hasError) {
-            throw snapshot.error;
+            throw snapshot.error!;
           }
           return MaterialApp(
             theme: ThemeData.dark(),

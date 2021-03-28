@@ -4,7 +4,7 @@ import 'package:food_delivery/src/actions/company/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 
 class AddCompany extends StatefulWidget {
-  const AddCompany({Key key}) : super(key: key);
+  const AddCompany({Key? key}) : super(key: key);
 
   @override
   _AddCompanyState createState() => _AddCompanyState();
@@ -59,7 +59,7 @@ class _AddCompanyState extends State<AddCompany> {
             decoration: const InputDecoration(hintText: 'city'),
             textInputAction: TextInputAction.next,
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               print('la');
               StoreProvider.of<AppState>(context).dispatch(CreateCompany(

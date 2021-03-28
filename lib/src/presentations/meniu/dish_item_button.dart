@@ -6,14 +6,14 @@ import 'package:food_delivery/src/models/auth/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 
 class DishItemButton extends StatelessWidget {
-  const DishItemButton({Key key, this.dish}) : super(key: key);
+  const DishItemButton({Key? key, this.dish}) : super(key: key);
 
-  final Dish dish;
+  final Dish? dish;
 
   @override
   Widget build(BuildContext context) {
-    return CartContainer(builder: (BuildContext context, Cart cart) {
-      final CartItem item = cart?.items?.where((CartItem e) => e.id == dish.id)?.first;
+    return CartContainer(builder: (BuildContext context, Cart? cart) {
+      final CartItem? item = cart?.items.where((CartItem e) => e.id == dish!.id).first;
       return IconButton(
         icon: Icon(
           item == null ? Icons.add_circle : Icons.check_circle,

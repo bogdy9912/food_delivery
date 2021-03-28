@@ -20,13 +20,16 @@ class _$CompanySerializer implements StructuredSerializer<Company> {
   final String wireName = 'Company';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Company object,
+  Iterable<Object?> serialize(Serializers serializers, Company object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'rating',
+      serializers.serialize(object.rating,
+          specifiedType: const FullType(double)),
       'openHour',
       serializers.serialize(object.openHour,
           specifiedType: const FullType(String)),
@@ -35,31 +38,24 @@ class _$CompanySerializer implements StructuredSerializer<Company> {
           specifiedType: const FullType(String)),
       'city',
       serializers.serialize(object.city, specifiedType: const FullType(String)),
+      'searchIndex',
+      serializers.serialize(object.searchIndex,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(String)])),
     ];
-    if (object.rating != null) {
-      result
-        ..add('rating')
-        ..add(serializers.serialize(object.rating,
-            specifiedType: const FullType(double)));
-    }
-    if (object.image != null) {
+    Object? value;
+    value = object.image;
+    if (value != null) {
       result
         ..add('image')
-        ..add(serializers.serialize(object.image,
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
-    }
-    if (object.searchIndex != null) {
-      result
-        ..add('searchIndex')
-        ..add(serializers.serialize(object.searchIndex,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(String)])));
     }
     return result;
   }
 
   @override
-  Company deserialize(Serializers serializers, Iterable<Object> serialized,
+  Company deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new CompanyBuilder();
 
@@ -67,7 +63,7 @@ class _$CompanySerializer implements StructuredSerializer<Company> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -99,8 +95,8 @@ class _$CompanySerializer implements StructuredSerializer<Company> {
           break;
         case 'searchIndex':
           result.searchIndex.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(String)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
               as BuiltList<Object>);
           break;
       }
@@ -117,9 +113,9 @@ class _$CompanyStateSerializer implements StructuredSerializer<CompanyState> {
   final String wireName = 'CompanyState';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, CompanyState object,
+  Iterable<Object?> serialize(Serializers serializers, CompanyState object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'companies',
       serializers.serialize(object.companies,
           specifiedType:
@@ -129,17 +125,20 @@ class _$CompanyStateSerializer implements StructuredSerializer<CompanyState> {
           specifiedType:
               const FullType(BuiltList, const [const FullType(Company)])),
     ];
-    if (object.meniu != null) {
+    Object? value;
+    value = object.meniu;
+    if (value != null) {
       result
         ..add('meniu')
-        ..add(serializers.serialize(object.meniu,
-            specifiedType: const FullType(Meniu)));
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(Meniu)));
     }
     return result;
   }
 
   @override
-  CompanyState deserialize(Serializers serializers, Iterable<Object> serialized,
+  CompanyState deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new CompanyStateBuilder();
 
@@ -147,23 +146,23 @@ class _$CompanyStateSerializer implements StructuredSerializer<CompanyState> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'companies':
           result.companies.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(Company)]))
+                      BuiltList, const [const FullType(Company)]))!
               as BuiltList<Object>);
           break;
         case 'searchResult':
           result.searchResult.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(Company)]))
+                      BuiltList, const [const FullType(Company)]))!
               as BuiltList<Object>);
           break;
         case 'meniu':
           result.meniu.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Meniu)) as Meniu);
+              specifiedType: const FullType(Meniu))! as Meniu);
           break;
       }
     }
@@ -179,25 +178,22 @@ class _$MeniuSerializer implements StructuredSerializer<Meniu> {
   final String wireName = 'Meniu';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Meniu object,
+  Iterable<Object?> serialize(Serializers serializers, Meniu object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'items',
       serializers.serialize(object.items,
           specifiedType:
               const FullType(BuiltList, const [const FullType(MeniuItem)])),
     ];
-    if (object.id != null) {
-      result
-        ..add('id')
-        ..add(serializers.serialize(object.id,
-            specifiedType: const FullType(String)));
-    }
+
     return result;
   }
 
   @override
-  Meniu deserialize(Serializers serializers, Iterable<Object> serialized,
+  Meniu deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new MeniuBuilder();
 
@@ -205,7 +201,7 @@ class _$MeniuSerializer implements StructuredSerializer<Meniu> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -214,7 +210,7 @@ class _$MeniuSerializer implements StructuredSerializer<Meniu> {
         case 'items':
           result.items.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(MeniuItem)]))
+                      BuiltList, const [const FullType(MeniuItem)]))!
               as BuiltList<Object>);
           break;
       }
@@ -231,9 +227,9 @@ class _$MeniuItemSerializer implements StructuredSerializer<MeniuItem> {
   final String wireName = 'MeniuItem';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, MeniuItem object,
+  Iterable<Object?> serialize(Serializers serializers, MeniuItem object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'category',
       serializers.serialize(object.category,
           specifiedType: const FullType(String)),
@@ -247,7 +243,7 @@ class _$MeniuItemSerializer implements StructuredSerializer<MeniuItem> {
   }
 
   @override
-  MeniuItem deserialize(Serializers serializers, Iterable<Object> serialized,
+  MeniuItem deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new MeniuItemBuilder();
 
@@ -255,7 +251,7 @@ class _$MeniuItemSerializer implements StructuredSerializer<MeniuItem> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'category':
           result.category = serializers.deserialize(value,
@@ -264,7 +260,7 @@ class _$MeniuItemSerializer implements StructuredSerializer<MeniuItem> {
         case 'dishes':
           result.dishes.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(Dish)]))
+                      const FullType(BuiltList, const [const FullType(Dish)]))!
               as BuiltList<Object>);
           break;
       }
@@ -281,14 +277,13 @@ class _$DishSerializer implements StructuredSerializer<Dish> {
   final String wireName = 'Dish';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Dish object,
+  Iterable<Object?> serialize(Serializers serializers, Dish object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'description',
-      serializers.serialize(object.description,
-          specifiedType: const FullType(String)),
       'price',
       serializers.serialize(object.price,
           specifiedType: const FullType(double)),
@@ -296,17 +291,19 @@ class _$DishSerializer implements StructuredSerializer<Dish> {
       serializers.serialize(object.quantity,
           specifiedType: const FullType(int)),
     ];
-    if (object.id != null) {
+    Object? value;
+    value = object.description;
+    if (value != null) {
       result
-        ..add('id')
-        ..add(serializers.serialize(object.id,
+        ..add('description')
+        ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
     return result;
   }
 
   @override
-  Dish deserialize(Serializers serializers, Iterable<Object> serialized,
+  Dish deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new DishBuilder();
 
@@ -314,7 +311,7 @@ class _$DishSerializer implements StructuredSerializer<Dish> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final dynamic value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'id':
           result.id = serializers.deserialize(value,
@@ -351,7 +348,7 @@ class _$Company extends Company {
   @override
   final double rating;
   @override
-  final String image;
+  final String? image;
   @override
   final String openHour;
   @override
@@ -361,34 +358,27 @@ class _$Company extends Company {
   @override
   final BuiltList<String> searchIndex;
 
-  factory _$Company([void Function(CompanyBuilder) updates]) =>
+  factory _$Company([void Function(CompanyBuilder)? updates]) =>
       (new CompanyBuilder()..update(updates)).build();
 
   _$Company._(
-      {this.id,
-      this.name,
-      this.rating,
+      {required this.id,
+      required this.name,
+      required this.rating,
       this.image,
-      this.openHour,
-      this.closeHour,
-      this.city,
-      this.searchIndex})
+      required this.openHour,
+      required this.closeHour,
+      required this.city,
+      required this.searchIndex})
       : super._() {
-    if (id == null) {
-      throw new BuiltValueNullFieldError('Company', 'id');
-    }
-    if (name == null) {
-      throw new BuiltValueNullFieldError('Company', 'name');
-    }
-    if (openHour == null) {
-      throw new BuiltValueNullFieldError('Company', 'openHour');
-    }
-    if (closeHour == null) {
-      throw new BuiltValueNullFieldError('Company', 'closeHour');
-    }
-    if (city == null) {
-      throw new BuiltValueNullFieldError('Company', 'city');
-    }
+    BuiltValueNullFieldError.checkNotNull(id, 'Company', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, 'Company', 'name');
+    BuiltValueNullFieldError.checkNotNull(rating, 'Company', 'rating');
+    BuiltValueNullFieldError.checkNotNull(openHour, 'Company', 'openHour');
+    BuiltValueNullFieldError.checkNotNull(closeHour, 'Company', 'closeHour');
+    BuiltValueNullFieldError.checkNotNull(city, 'Company', 'city');
+    BuiltValueNullFieldError.checkNotNull(
+        searchIndex, 'Company', 'searchIndex');
   }
 
   @override
@@ -444,54 +434,55 @@ class _$Company extends Company {
 }
 
 class CompanyBuilder implements Builder<Company, CompanyBuilder> {
-  _$Company _$v;
+  _$Company? _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
-  String _name;
-  String get name => _$this._name;
-  set name(String name) => _$this._name = name;
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
 
-  double _rating;
-  double get rating => _$this._rating;
-  set rating(double rating) => _$this._rating = rating;
+  double? _rating;
+  double? get rating => _$this._rating;
+  set rating(double? rating) => _$this._rating = rating;
 
-  String _image;
-  String get image => _$this._image;
-  set image(String image) => _$this._image = image;
+  String? _image;
+  String? get image => _$this._image;
+  set image(String? image) => _$this._image = image;
 
-  String _openHour;
-  String get openHour => _$this._openHour;
-  set openHour(String openHour) => _$this._openHour = openHour;
+  String? _openHour;
+  String? get openHour => _$this._openHour;
+  set openHour(String? openHour) => _$this._openHour = openHour;
 
-  String _closeHour;
-  String get closeHour => _$this._closeHour;
-  set closeHour(String closeHour) => _$this._closeHour = closeHour;
+  String? _closeHour;
+  String? get closeHour => _$this._closeHour;
+  set closeHour(String? closeHour) => _$this._closeHour = closeHour;
 
-  String _city;
-  String get city => _$this._city;
-  set city(String city) => _$this._city = city;
+  String? _city;
+  String? get city => _$this._city;
+  set city(String? city) => _$this._city = city;
 
-  ListBuilder<String> _searchIndex;
+  ListBuilder<String>? _searchIndex;
   ListBuilder<String> get searchIndex =>
       _$this._searchIndex ??= new ListBuilder<String>();
-  set searchIndex(ListBuilder<String> searchIndex) =>
+  set searchIndex(ListBuilder<String>? searchIndex) =>
       _$this._searchIndex = searchIndex;
 
   CompanyBuilder();
 
   CompanyBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _name = _$v.name;
-      _rating = _$v.rating;
-      _image = _$v.image;
-      _openHour = _$v.openHour;
-      _closeHour = _$v.closeHour;
-      _city = _$v.city;
-      _searchIndex = _$v.searchIndex?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _name = $v.name;
+      _rating = $v.rating;
+      _image = $v.image;
+      _openHour = $v.openHour;
+      _closeHour = $v.closeHour;
+      _city = $v.city;
+      _searchIndex = $v.searchIndex.toBuilder();
       _$v = null;
     }
     return this;
@@ -499,14 +490,12 @@ class CompanyBuilder implements Builder<Company, CompanyBuilder> {
 
   @override
   void replace(Company other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Company;
   }
 
   @override
-  void update(void Function(CompanyBuilder) updates) {
+  void update(void Function(CompanyBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -516,19 +505,24 @@ class CompanyBuilder implements Builder<Company, CompanyBuilder> {
     try {
       _$result = _$v ??
           new _$Company._(
-              id: id,
-              name: name,
-              rating: rating,
+              id: BuiltValueNullFieldError.checkNotNull(id, 'Company', 'id'),
+              name: BuiltValueNullFieldError.checkNotNull(
+                  name, 'Company', 'name'),
+              rating: BuiltValueNullFieldError.checkNotNull(
+                  rating, 'Company', 'rating'),
               image: image,
-              openHour: openHour,
-              closeHour: closeHour,
-              city: city,
-              searchIndex: _searchIndex?.build());
+              openHour: BuiltValueNullFieldError.checkNotNull(
+                  openHour, 'Company', 'openHour'),
+              closeHour: BuiltValueNullFieldError.checkNotNull(
+                  closeHour, 'Company', 'closeHour'),
+              city: BuiltValueNullFieldError.checkNotNull(
+                  city, 'Company', 'city'),
+              searchIndex: searchIndex.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'searchIndex';
-        _searchIndex?.build();
+        searchIndex.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'Company', _$failedField, e.toString());
@@ -546,19 +540,18 @@ class _$CompanyState extends CompanyState {
   @override
   final BuiltList<Company> searchResult;
   @override
-  final Meniu meniu;
+  final Meniu? meniu;
 
-  factory _$CompanyState([void Function(CompanyStateBuilder) updates]) =>
+  factory _$CompanyState([void Function(CompanyStateBuilder)? updates]) =>
       (new CompanyStateBuilder()..update(updates)).build();
 
-  _$CompanyState._({this.companies, this.searchResult, this.meniu})
+  _$CompanyState._(
+      {required this.companies, required this.searchResult, this.meniu})
       : super._() {
-    if (companies == null) {
-      throw new BuiltValueNullFieldError('CompanyState', 'companies');
-    }
-    if (searchResult == null) {
-      throw new BuiltValueNullFieldError('CompanyState', 'searchResult');
-    }
+    BuiltValueNullFieldError.checkNotNull(
+        companies, 'CompanyState', 'companies');
+    BuiltValueNullFieldError.checkNotNull(
+        searchResult, 'CompanyState', 'searchResult');
   }
 
   @override
@@ -595,31 +588,32 @@ class _$CompanyState extends CompanyState {
 
 class CompanyStateBuilder
     implements Builder<CompanyState, CompanyStateBuilder> {
-  _$CompanyState _$v;
+  _$CompanyState? _$v;
 
-  ListBuilder<Company> _companies;
+  ListBuilder<Company>? _companies;
   ListBuilder<Company> get companies =>
       _$this._companies ??= new ListBuilder<Company>();
-  set companies(ListBuilder<Company> companies) =>
+  set companies(ListBuilder<Company>? companies) =>
       _$this._companies = companies;
 
-  ListBuilder<Company> _searchResult;
+  ListBuilder<Company>? _searchResult;
   ListBuilder<Company> get searchResult =>
       _$this._searchResult ??= new ListBuilder<Company>();
-  set searchResult(ListBuilder<Company> searchResult) =>
+  set searchResult(ListBuilder<Company>? searchResult) =>
       _$this._searchResult = searchResult;
 
-  MeniuBuilder _meniu;
+  MeniuBuilder? _meniu;
   MeniuBuilder get meniu => _$this._meniu ??= new MeniuBuilder();
-  set meniu(MeniuBuilder meniu) => _$this._meniu = meniu;
+  set meniu(MeniuBuilder? meniu) => _$this._meniu = meniu;
 
   CompanyStateBuilder();
 
   CompanyStateBuilder get _$this {
-    if (_$v != null) {
-      _companies = _$v.companies?.toBuilder();
-      _searchResult = _$v.searchResult?.toBuilder();
-      _meniu = _$v.meniu?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _companies = $v.companies.toBuilder();
+      _searchResult = $v.searchResult.toBuilder();
+      _meniu = $v.meniu?.toBuilder();
       _$v = null;
     }
     return this;
@@ -627,14 +621,12 @@ class CompanyStateBuilder
 
   @override
   void replace(CompanyState other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CompanyState;
   }
 
   @override
-  void update(void Function(CompanyStateBuilder) updates) {
+  void update(void Function(CompanyStateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -648,7 +640,7 @@ class CompanyStateBuilder
               searchResult: searchResult.build(),
               meniu: _meniu?.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'companies';
         companies.build();
@@ -673,13 +665,12 @@ class _$Meniu extends Meniu {
   @override
   final BuiltList<MeniuItem> items;
 
-  factory _$Meniu([void Function(MeniuBuilder) updates]) =>
+  factory _$Meniu([void Function(MeniuBuilder)? updates]) =>
       (new MeniuBuilder()..update(updates)).build();
 
-  _$Meniu._({this.id, this.items}) : super._() {
-    if (items == null) {
-      throw new BuiltValueNullFieldError('Meniu', 'items');
-    }
+  _$Meniu._({required this.id, required this.items}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, 'Meniu', 'id');
+    BuiltValueNullFieldError.checkNotNull(items, 'Meniu', 'items');
   }
 
   @override
@@ -710,23 +701,24 @@ class _$Meniu extends Meniu {
 }
 
 class MeniuBuilder implements Builder<Meniu, MeniuBuilder> {
-  _$Meniu _$v;
+  _$Meniu? _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
-  ListBuilder<MeniuItem> _items;
+  ListBuilder<MeniuItem>? _items;
   ListBuilder<MeniuItem> get items =>
       _$this._items ??= new ListBuilder<MeniuItem>();
-  set items(ListBuilder<MeniuItem> items) => _$this._items = items;
+  set items(ListBuilder<MeniuItem>? items) => _$this._items = items;
 
   MeniuBuilder();
 
   MeniuBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _items = _$v.items?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _items = $v.items.toBuilder();
       _$v = null;
     }
     return this;
@@ -734,14 +726,12 @@ class MeniuBuilder implements Builder<Meniu, MeniuBuilder> {
 
   @override
   void replace(Meniu other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Meniu;
   }
 
   @override
-  void update(void Function(MeniuBuilder) updates) {
+  void update(void Function(MeniuBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -749,9 +739,12 @@ class MeniuBuilder implements Builder<Meniu, MeniuBuilder> {
   _$Meniu build() {
     _$Meniu _$result;
     try {
-      _$result = _$v ?? new _$Meniu._(id: id, items: items.build());
+      _$result = _$v ??
+          new _$Meniu._(
+              id: BuiltValueNullFieldError.checkNotNull(id, 'Meniu', 'id'),
+              items: items.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'items';
         items.build();
@@ -772,16 +765,12 @@ class _$MeniuItem extends MeniuItem {
   @override
   final BuiltList<Dish> dishes;
 
-  factory _$MeniuItem([void Function(MeniuItemBuilder) updates]) =>
+  factory _$MeniuItem([void Function(MeniuItemBuilder)? updates]) =>
       (new MeniuItemBuilder()..update(updates)).build();
 
-  _$MeniuItem._({this.category, this.dishes}) : super._() {
-    if (category == null) {
-      throw new BuiltValueNullFieldError('MeniuItem', 'category');
-    }
-    if (dishes == null) {
-      throw new BuiltValueNullFieldError('MeniuItem', 'dishes');
-    }
+  _$MeniuItem._({required this.category, required this.dishes}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(category, 'MeniuItem', 'category');
+    BuiltValueNullFieldError.checkNotNull(dishes, 'MeniuItem', 'dishes');
   }
 
   @override
@@ -814,22 +803,23 @@ class _$MeniuItem extends MeniuItem {
 }
 
 class MeniuItemBuilder implements Builder<MeniuItem, MeniuItemBuilder> {
-  _$MeniuItem _$v;
+  _$MeniuItem? _$v;
 
-  String _category;
-  String get category => _$this._category;
-  set category(String category) => _$this._category = category;
+  String? _category;
+  String? get category => _$this._category;
+  set category(String? category) => _$this._category = category;
 
-  ListBuilder<Dish> _dishes;
+  ListBuilder<Dish>? _dishes;
   ListBuilder<Dish> get dishes => _$this._dishes ??= new ListBuilder<Dish>();
-  set dishes(ListBuilder<Dish> dishes) => _$this._dishes = dishes;
+  set dishes(ListBuilder<Dish>? dishes) => _$this._dishes = dishes;
 
   MeniuItemBuilder();
 
   MeniuItemBuilder get _$this {
-    if (_$v != null) {
-      _category = _$v.category;
-      _dishes = _$v.dishes?.toBuilder();
+    final $v = _$v;
+    if ($v != null) {
+      _category = $v.category;
+      _dishes = $v.dishes.toBuilder();
       _$v = null;
     }
     return this;
@@ -837,14 +827,12 @@ class MeniuItemBuilder implements Builder<MeniuItem, MeniuItemBuilder> {
 
   @override
   void replace(MeniuItem other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MeniuItem;
   }
 
   @override
-  void update(void Function(MeniuItemBuilder) updates) {
+  void update(void Function(MeniuItemBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -852,10 +840,13 @@ class MeniuItemBuilder implements Builder<MeniuItem, MeniuItemBuilder> {
   _$MeniuItem build() {
     _$MeniuItem _$result;
     try {
-      _$result =
-          _$v ?? new _$MeniuItem._(category: category, dishes: dishes.build());
+      _$result = _$v ??
+          new _$MeniuItem._(
+              category: BuiltValueNullFieldError.checkNotNull(
+                  category, 'MeniuItem', 'category'),
+              dishes: dishes.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'dishes';
         dishes.build();
@@ -876,29 +867,26 @@ class _$Dish extends Dish {
   @override
   final String name;
   @override
-  final String description;
+  final String? description;
   @override
   final double price;
   @override
   final int quantity;
 
-  factory _$Dish([void Function(DishBuilder) updates]) =>
+  factory _$Dish([void Function(DishBuilder)? updates]) =>
       (new DishBuilder()..update(updates)).build();
 
-  _$Dish._({this.id, this.name, this.description, this.price, this.quantity})
+  _$Dish._(
+      {required this.id,
+      required this.name,
+      this.description,
+      required this.price,
+      required this.quantity})
       : super._() {
-    if (name == null) {
-      throw new BuiltValueNullFieldError('Dish', 'name');
-    }
-    if (description == null) {
-      throw new BuiltValueNullFieldError('Dish', 'description');
-    }
-    if (price == null) {
-      throw new BuiltValueNullFieldError('Dish', 'price');
-    }
-    if (quantity == null) {
-      throw new BuiltValueNullFieldError('Dish', 'quantity');
-    }
+    BuiltValueNullFieldError.checkNotNull(id, 'Dish', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, 'Dish', 'name');
+    BuiltValueNullFieldError.checkNotNull(price, 'Dish', 'price');
+    BuiltValueNullFieldError.checkNotNull(quantity, 'Dish', 'quantity');
   }
 
   @override
@@ -940,37 +928,38 @@ class _$Dish extends Dish {
 }
 
 class DishBuilder implements Builder<Dish, DishBuilder> {
-  _$Dish _$v;
+  _$Dish? _$v;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
-  String _name;
-  String get name => _$this._name;
-  set name(String name) => _$this._name = name;
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
 
-  String _description;
-  String get description => _$this._description;
-  set description(String description) => _$this._description = description;
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
 
-  double _price;
-  double get price => _$this._price;
-  set price(double price) => _$this._price = price;
+  double? _price;
+  double? get price => _$this._price;
+  set price(double? price) => _$this._price = price;
 
-  int _quantity;
-  int get quantity => _$this._quantity;
-  set quantity(int quantity) => _$this._quantity = quantity;
+  int? _quantity;
+  int? get quantity => _$this._quantity;
+  set quantity(int? quantity) => _$this._quantity = quantity;
 
   DishBuilder();
 
   DishBuilder get _$this {
-    if (_$v != null) {
-      _id = _$v.id;
-      _name = _$v.name;
-      _description = _$v.description;
-      _price = _$v.price;
-      _quantity = _$v.quantity;
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _name = $v.name;
+      _description = $v.description;
+      _price = $v.price;
+      _quantity = $v.quantity;
       _$v = null;
     }
     return this;
@@ -978,14 +967,12 @@ class DishBuilder implements Builder<Dish, DishBuilder> {
 
   @override
   void replace(Dish other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
+    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Dish;
   }
 
   @override
-  void update(void Function(DishBuilder) updates) {
+  void update(void Function(DishBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -993,11 +980,13 @@ class DishBuilder implements Builder<Dish, DishBuilder> {
   _$Dish build() {
     final _$result = _$v ??
         new _$Dish._(
-            id: id,
-            name: name,
+            id: BuiltValueNullFieldError.checkNotNull(id, 'Dish', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(name, 'Dish', 'name'),
             description: description,
-            price: price,
-            quantity: quantity);
+            price:
+                BuiltValueNullFieldError.checkNotNull(price, 'Dish', 'price'),
+            quantity: BuiltValueNullFieldError.checkNotNull(
+                quantity, 'Dish', 'quantity'));
     replace(_$result);
     return _$result;
   }

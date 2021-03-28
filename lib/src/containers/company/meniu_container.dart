@@ -5,13 +5,13 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:redux/redux.dart';
 
 class MeniuContainer extends StatelessWidget {
-  const MeniuContainer({Key key, @required this.builder}) : super(key: key);
+  const MeniuContainer({required this.builder});
 
-  final ViewModelBuilder<Meniu> builder;
+  final ViewModelBuilder<Meniu?> builder;
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, Meniu>(
+    return StoreConnector<AppState, Meniu?>(
       builder: builder,
       converter: (Store<AppState> store) => store.state.companyState.meniu,
     );

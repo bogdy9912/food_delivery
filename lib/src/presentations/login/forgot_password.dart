@@ -4,7 +4,7 @@ import 'package:food_delivery/src/actions/auth/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 
 class ResetPasswordPage extends StatefulWidget {
-  const ResetPasswordPage({Key key}) : super(key: key);
+  const ResetPasswordPage({Key? key}) : super(key: key);
 
   @override
   _ResetPasswordPageState createState() => _ResetPasswordPageState();
@@ -32,15 +32,15 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       controller: _email,
                       decoration: const InputDecoration(hintText: 'email'),
                       keyboardType: TextInputType.emailAddress,
-                      validator: (String value) {
-                        if (!value.contains('@') || !value.contains('.')) {
+                      validator: (String? value) {
+                        if (!value!.contains('@') || !value.contains('.')) {
                           return 'Please enter a valid email';
                         }
                         return null;
                       },
                     ),
                     const Spacer(),
-                    FlatButton(
+                    TextButton(
                       onPressed: () {
                         StoreProvider.of<AppState>(context).dispatch(ForgotPassword(_email.text));
                       },

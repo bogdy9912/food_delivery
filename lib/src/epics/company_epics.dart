@@ -2,22 +2,20 @@ import 'package:food_delivery/src/actions/company/index.dart';
 import 'package:food_delivery/src/actions/index.dart';
 import 'package:food_delivery/src/data/company_api.dart';
 import 'package:food_delivery/src/models/index.dart';
-import 'package:meta/meta.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
 class CompanyEpics {
-  CompanyEpics({@required CompanyApi api})
-      : assert(api != null),
-        _api = api;
+  CompanyEpics({required CompanyApi api})
+      : _api = api;
 
   final CompanyApi _api;
 
   Epic<AppState> get epics => combineEpics(<Epic<AppState>>[
-        TypedEpic<AppState, CreateCompany$>(_createCompany),
-        TypedEpic<AppState, GetCompanies$>(_getCompanies),
-        TypedEpic<AppState, SearchCompanies$>(_searchCompanies),
-        TypedEpic<AppState, GetMeniu$>(_getMeniu),
+        TypedEpic<AppState, CreateCompany$>(_createCompany) ,
+        TypedEpic<AppState, GetCompanies$>(_getCompanies) ,
+        TypedEpic<AppState, SearchCompanies$>(_searchCompanies) ,
+        TypedEpic<AppState, GetMeniu$>(_getMeniu) ,
       ]);
 
   Stream<AppAction> _createCompany(Stream<CreateCompany$> actions, EpicStore<AppState> store) {

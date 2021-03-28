@@ -1,6 +1,6 @@
 extension SearchIndex on List<String> {
   List<String> get searchIndex {
-    return where((String item) => item != null && item.isNotEmpty)
+    return where((String item) => item.isNotEmpty)
         .expand((String item) => item.split(' ').map((String value) => value.replaceFirst(',', '')))
         .toSet()
         .expand((String element) sync* {

@@ -3,16 +3,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:food_delivery/src/models/auth/index.dart';
 import 'package:food_delivery/src/models/orders/index.dart';
 import 'package:intl/intl.dart';
-import 'package:meta/meta.dart';
 
 class OrdersApi {
-  const OrdersApi({@required FirebaseFirestore firestore})
-      : assert(firestore != null),
-        _firestore = firestore;
+  const OrdersApi({required FirebaseFirestore firestore})
+      : _firestore = firestore;
 
   final FirebaseFirestore _firestore;
 
-  Future<List<Order>> getOrders(String uid) async {
+  Future<List<Order>> getOrders(String? uid) async {
     final QuerySnapshot result = await _firestore.collection('users/$uid/orders').get();
     final List<QueryDocumentSnapshot> docs = result.docs;
 
@@ -20,13 +18,13 @@ class OrdersApi {
   }
 
   Future<void> createOrder({
-    @required String uid,
-    @required PaymentMethod methodOfPayment,
-    @required double total, //
-    @required AddressPoint addressPoint,
-    @required List<CartItem> products,
-    @required String instructions,
-    @required String companyId,
+    required String? uid,
+    required PaymentMethod? methodOfPayment,
+    required double? total, //
+    required AddressPoint? addressPoint,
+    required List<CartItem> products,
+    required String? instructions,
+    required String? companyId,
   }) async {
     final DocumentReference ref = _firestore.collection('NOT USE').doc();
 
@@ -37,7 +35,7 @@ class OrdersApi {
         ..companyId = companyId
         ..methodOfPayment = methodOfPayment
         ..total = total
-        ..address = addressPoint.toBuilder()
+        ..address = addressPoint!.toBuilder()
         ..products = ListBuilder<CartItem>(products)
         ..instructions = instructions
         ..date = DateFormat('yyyy-MM-dd - kk:mm:ss').format(DateTime.now());

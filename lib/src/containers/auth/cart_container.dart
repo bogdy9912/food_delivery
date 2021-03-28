@@ -5,13 +5,13 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:redux/redux.dart';
 
 class CartContainer extends StatelessWidget {
-  const CartContainer({Key key, this.builder}) : super(key: key);
+  const CartContainer({required this.builder});
 
-  final ViewModelBuilder<Cart> builder;
+  final ViewModelBuilder<Cart?> builder;
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, Cart>(
+    return StoreConnector<AppState, Cart?>(
       builder: builder,
       converter: (Store<AppState> store) => store.state.auth.cart,
     );

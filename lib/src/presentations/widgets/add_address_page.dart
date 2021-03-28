@@ -8,9 +8,9 @@ import 'package:food_delivery/src/models/auth/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 
 class AddAddressPage extends StatefulWidget {
-  const AddAddressPage({Key key, this.isEditing}) : super(key: key);
+  const AddAddressPage({Key? key, this.isEditing}) : super(key: key);
 
-  final AddressPoint isEditing;
+  final AddressPoint? isEditing;
 
   @override
   _AddAddressPageState createState() => _AddAddressPageState();
@@ -27,26 +27,26 @@ class _AddAddressPageState extends State<AddAddressPage> {
 
   final TextEditingController _town = TextEditingController();*/
 
-  String _name;
-  String _telephone;
-  String _address;
-  String _city;
-  String _town;
+  String? _name;
+  String? _telephone;
+  String? _address;
+  String? _city;
+  String? _town;
 
   @override
   Widget build(BuildContext context) {
     return UserContainer(
-      builder: (BuildContext context, AppUser user) {
+      builder: (BuildContext context, AppUser? user) {
         if (widget.isEditing != null) {
-          _name = widget.isEditing.contactName;
-          _telephone = widget.isEditing.contactPhone;
-          _address = widget.isEditing.address;
-          _city = widget.isEditing.city;
-          _town = widget.isEditing.town;
+          _name = widget.isEditing!.contactName;
+          _telephone = widget.isEditing!.contactPhone;
+          _address = widget.isEditing!.address;
+          _city = widget.isEditing!.city;
+          _town = widget.isEditing!.town;
         } else {
-          _name =  user.lastName + user.firstName;
+          _name =  user!.lastName + user.firstName;
 
-          _telephone = user.telephone ?? '';
+          _telephone = user.telephone ;
         }
         return Form(
           child: Scaffold(
@@ -62,12 +62,12 @@ class _AddAddressPageState extends State<AddAddressPage> {
               backgroundColor: Colors.white,
               actions: <Widget>[
                 Builder(
-                  builder: (BuildContext context) => FlatButton(
+                  builder: (BuildContext context) => TextButton(
                     child: const Text('SAVE', style: TextStyle(color: Colors.blue)),
                     onPressed: () {
-                      final bool valid = Form.of(context).validate();
+                      final bool valid = Form.of(context)!.validate();
                       if (valid) {
-                        Form.of(context).save();
+                        Form.of(context)!.save();
                         final AddressPoint add = AddressPoint((AddressPointBuilder b) {
                           b
                             ..contactName = _name
@@ -76,7 +76,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                             ..city = _city
                             ..town = _town;
                         });
-                        StoreProvider.of<AppState>(context).dispatch(UpdateAddresses(uid: user.uid, add: add));
+                        StoreProvider.of<AppState>(context).dispatch(UpdateAddresses(uid: user!.uid, add: add));
                         Navigator.pop(context);
                       }
                     },
@@ -111,13 +111,13 @@ class _AddAddressPageState extends State<AddAddressPage> {
                             TextFormField(
                               initialValue: _name,
                               keyboardType: TextInputType.name,
-                              validator: (String value) {
-                                if (value.isEmpty) {
+                              validator: (String? value) {
+                                if (value!.isEmpty) {
                                   return 'Please enter a name';
                                 }
                                 return null;
                               },
-                              onSaved: (String value) {
+                              onSaved: (String? value) {
                                 _name = value;
                               },
                               decoration: const InputDecoration(
@@ -127,13 +127,13 @@ class _AddAddressPageState extends State<AddAddressPage> {
                             TextFormField(
                               initialValue: _telephone,
                               keyboardType: TextInputType.phone,
-                              validator: (String value) {
-                                if (value.isEmpty || value.length != 10 || value[0] != '0') {
+                              validator: (String? value) {
+                                if (value!.isEmpty || value.length != 10 || value[0] != '0') {
                                   return 'Please enter a valid number';
                                 }
                                 return null;
                               },
-                              onSaved: (String value) {
+                              onSaved: (String? value) {
                                 _telephone = value;
                               },
                               decoration: const InputDecoration(
@@ -167,13 +167,13 @@ class _AddAddressPageState extends State<AddAddressPage> {
                             TextFormField(
                               initialValue: _address,
                               keyboardType: TextInputType.streetAddress,
-                              validator: (String value) {
-                                if (value.isEmpty) {
+                              validator: (String? value) {
+                                if (value!.isEmpty) {
                                   return 'Please enter an address';
                                 }
                                 return null;
                               },
-                              onSaved: (String value) {
+                              onSaved: (String? value) {
                                 _address = value;
                               },
                               decoration: const InputDecoration(
@@ -183,13 +183,13 @@ class _AddAddressPageState extends State<AddAddressPage> {
                             TextFormField(
                               initialValue: _city,
                               keyboardType: TextInputType.name,
-                              validator: (String value) {
-                                if (value.isEmpty) {
+                              validator: (String? value) {
+                                if (value!.isEmpty) {
                                   return 'Please enter a city';
                                 }
                                 return null;
                               },
-                              onSaved: (String value) {
+                              onSaved: (String? value) {
                                 _city = value;
                               },
                               decoration: const InputDecoration(
@@ -199,13 +199,13 @@ class _AddAddressPageState extends State<AddAddressPage> {
                             TextFormField(
                               initialValue: _town,
                               keyboardType: TextInputType.name,
-                              validator: (String value) {
-                                if (value.isEmpty) {
+                              validator: (String? value) {
+                                if (value!.isEmpty) {
                                   return 'Please enter a town';
                                 }
                                 return null;
                               },
-                              onSaved: (String value) {
+                              onSaved: (String? value) {
                                 _town = value;
                               },
                               decoration: const InputDecoration(

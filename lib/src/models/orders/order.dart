@@ -1,13 +1,13 @@
 part of orders_models;
 
 abstract class Order implements Built<Order, OrderBuilder> {
-  factory Order([void Function(OrderBuilder b) updates]) = _$Order;
+  factory Order([void Function(OrderBuilder b)? updates]) = _$Order;
 
-  factory Order.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
+  factory Order.fromJson(dynamic json) => serializers.deserializeWith(serializer, json)!;
 
   Order._();
 
-  @nullable
+
   String get id;
 
   String get uid;
@@ -24,8 +24,8 @@ abstract class Order implements Built<Order, OrderBuilder> {
 
   String get date;
 
-  @nullable
-  String get instructions;
+
+  String? get instructions;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

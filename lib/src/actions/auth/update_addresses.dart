@@ -2,10 +2,10 @@ part of auth_actions;
 
 @freezed
 abstract class UpdateAddresses with _$UpdateAddresses implements AppAction {
-  const factory UpdateAddresses({String uid, AddressPoint add, AddressPoint remove, AddressPoint edit}) =
+  const factory UpdateAddresses({String? uid, AddressPoint? add, AddressPoint? remove, AddressPoint? edit}) =
       UpdateAddresses$;
 
-  const factory UpdateAddresses.successful({String uid, AddressPoint add, AddressPoint remove, AddressPoint edit}) =
+  const factory UpdateAddresses.successful({String? uid, AddressPoint? add, AddressPoint? remove, AddressPoint? edit}) =
       UpdateAddressesSuccessful;
 
   @Implements(ErrorAction)

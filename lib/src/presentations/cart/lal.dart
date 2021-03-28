@@ -5,10 +5,10 @@ class Lala extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('lala'),
+        title: const Text('lala'),
       ),
       body: Column(
-        children: [
+        children: <Widget>[
           Expanded(
             child: ListView.builder(
               itemCount: 10,

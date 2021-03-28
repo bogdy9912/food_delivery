@@ -11,7 +11,7 @@ mixin DialogMixin {
             title: Text(title),
             content: Text('$error'),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: const Text('OK'),
                 onPressed: () {
                   Navigator.pop(context);

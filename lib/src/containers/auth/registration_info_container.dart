@@ -5,7 +5,7 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:redux/redux.dart';
 
 class RegistrationInfoContainer extends StatelessWidget {
-  const RegistrationInfoContainer({Key key, @required this.builder}) : super(key: key);
+  const RegistrationInfoContainer({required this.builder});
 
   final ViewModelBuilder<RegistrationInfo> builder;
 

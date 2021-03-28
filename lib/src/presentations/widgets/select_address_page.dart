@@ -8,12 +8,12 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class SelectAddressPage extends StatelessWidget {
-  const SelectAddressPage({Key key}) : super(key: key);
+  const SelectAddressPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return UserContainer(
-      builder: (BuildContext context, AppUser user) {
+      builder: (BuildContext context, AppUser? user) {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
@@ -23,7 +23,7 @@ class SelectAddressPage extends StatelessWidget {
               style: TextStyle(color: Colors.black),
             ),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 onPressed: () {},
                 child: const Text(
                   'SAVE',
@@ -60,7 +60,7 @@ class SelectAddressPage extends StatelessWidget {
                 ),
                 Expanded(
                   child: ListView.builder(
-                    itemCount: user.addresses.length,
+                    itemCount: user!.addresses.length,
                     itemBuilder: (BuildContext context, int index) {
                       final AddressPoint address = user.addresses.values.toList()[index];
                       return ListTile(

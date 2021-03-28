@@ -10,10 +10,10 @@ class HomeDeliveryTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OrderInfoContainer(
-      builder: (BuildContext context, OrderInfo info) {
+      builder: (BuildContext context, OrderInfo? info) {
         return UserContainer(
-          builder: (BuildContext context, AppUser user) {
-            if (user.addresses.isEmpty) {
+          builder: (BuildContext context, AppUser? user) {
+            if (user!.addresses.isEmpty) {
               return Column(
                 children: <Widget>[
                   Padding(
@@ -39,7 +39,7 @@ class HomeDeliveryTab extends StatelessWidget {
                         ),
                         const Divider(),
                         Center(
-                          child: FlatButton(
+                          child: TextButton(
                             onPressed: () {
                               Navigator.pushNamed(context, AppRoutes.addAddressPage);
                             },
@@ -73,14 +73,14 @@ class HomeDeliveryTab extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Text('${info.address.contactName} - ${info.address.contactPhone}'),
-                        Text('${info.address.address} - ${info.address.city}, ${info.address.town}'),
+                        Text('${info!.address!.contactName} - ${info.address!.contactPhone}'),
+                        Text('${info.address!.address} - ${info.address!.city}, ${info.address!.town}'),
                       ],
                     ),
                   ),
                   const Divider(),
                   Center(
-                    child: FlatButton(
+                    child: TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, AppRoutes.selectAddressPage);
                       },
@@ -119,7 +119,7 @@ class HomeDeliveryTab extends StatelessWidget {
                         ),
                         const Divider(),
                         Center(
-                          child: FlatButton(
+                          child: TextButton(
                             onPressed: () {
                               Navigator.pushNamed(context, AppRoutes.selectAddressPage);
                             },

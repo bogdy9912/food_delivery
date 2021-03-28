@@ -1,9 +1,9 @@
 part of auth_models;
 
 abstract class Cart implements Built<Cart, CartBuilder> {
-  factory Cart([void Function(CartBuilder b) updates]) = _$Cart;
+  factory Cart([void Function(CartBuilder b)? updates]) = _$Cart;
 
-  factory Cart.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
+  factory Cart.fromJson(dynamic json) => serializers.deserializeWith(serializer, json)!;
 
   Cart._();
 
@@ -16,7 +16,7 @@ abstract class Cart implements Built<Cart, CartBuilder> {
 
   @memoized
   double get totalAmount {
-    return items.fold(0, (double sum, CartItem current) => sum + current.quantity * current.price ?? 0);
+    return items.fold(0, (double sum, CartItem current) => sum + current.quantity * current.price);
   }
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
@@ -25,7 +25,7 @@ abstract class Cart implements Built<Cart, CartBuilder> {
 }
 
 abstract class CartItem implements Built<CartItem, CartItemBuilder> {
-  factory CartItem({@required String id, @required String name, @required int quantity, @required double price, @required String description}) {
+  factory CartItem({required String id, required String name, required int quantity, required double price, required String? description}) {
     return _$CartItem((CartItemBuilder b) {
       b
         ..id = id
@@ -36,7 +36,7 @@ abstract class CartItem implements Built<CartItem, CartItemBuilder> {
     });
   }
 
-  factory CartItem.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
+  factory CartItem.fromJson(dynamic json) => serializers.deserializeWith(serializer, json)!;
 
   CartItem._();
 
@@ -48,10 +48,9 @@ abstract class CartItem implements Built<CartItem, CartItemBuilder> {
 
   double get price;
 
-  @nullable
-  String get description;
+  String? get description;
 
-  Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
+  Map<String, dynamic>? get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>?;
 
   static Serializer<CartItem> get serializer => _$cartItemSerializer;
 }

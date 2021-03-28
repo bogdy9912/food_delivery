@@ -7,7 +7,7 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key key}) : super(key: key);
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -34,8 +34,8 @@ class _LoginPageState extends State<LoginPage> {
                 hintText: 'email',
               ),
               keyboardType: TextInputType.emailAddress,
-              validator: (String value) {
-                if (!value.contains('@') || !value.contains('.')) {
+              validator: (String? value) {
+                if (!value!.contains('@') || !value.contains('.')) {
                   return 'Adresa de email nu este valida';
                 }
                 return null;
@@ -48,8 +48,8 @@ class _LoginPageState extends State<LoginPage> {
                 hintText: 'password',
               ),
               keyboardType: TextInputType.visiblePassword,
-              validator: (String value) {
-                if (value.length<6) {
+              validator: (String? value) {
+                if (value!.length<6) {
                   return 'Parola prea scurta';
                 }
                 return null;
@@ -60,19 +60,19 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               children: <Widget>[
                 const Spacer(),
-                FlatButton(
+                TextButton(
                   child: const Text('Ai uitat parola?'),
                   onPressed: () {},
                 ),
               ],
             ),
-            RaisedButton(
+            ElevatedButton(
               child: const Text('Login'),
               onPressed: () {
                 StoreProvider.of<AppState>(context).dispatch(Login(email: _email.text, password: _password.text));
               },
             ),
-            FlatButton(
+            TextButton(
               onPressed: () {},
               child: Text.rich(
                 TextSpan(
