@@ -10,8 +10,7 @@ class AuthApi {
   final FirebaseAuth _auth;
   final FirebaseFirestore _firestore;
 
-
-  Future<AppUser> initializeApp()async{
+  Future<AppUser> initializeApp() async {
     final User user = _auth.currentUser!;
     final DocumentSnapshot result = await _firestore.doc('users/${user.uid}').get();
     return AppUser.fromJson(result.data());
@@ -27,16 +26,10 @@ class AuthApi {
   }
 
   Future<AppUser> signUp(
-      {required String email,
-      required String password,
-      required String? firstName,
-      required String? lastName}) async {
+      {required String email, required String password, required String? firstName, required String? lastName}) async {
     final UserCredential response = await _auth.createUserWithEmailAndPassword(email: email, password: password);
 
-
-
     final User user = response.user!;
-
 
     final AppUser newUser = AppUser((AppUserBuilder b) {
       b
@@ -51,8 +44,7 @@ class AuthApi {
     return newUser;
   }
 
-
-  Future<void> signOut ()async{
+  Future<void> signOut() async {
     await _auth.signOut();
   }
 
@@ -60,9 +52,11 @@ class AuthApi {
     await _auth.sendPasswordResetEmail(email: email);
   }
 
-
-  Future<void> updateProfile({required String? uid, required String? lastName, required String? firstName, required String? telephone}) async {
-    await _firestore.doc('users/$uid').update(<String, String?>{'lastName': lastName,'firstName': firstName, 'telephone': telephone});
+  Future<void> updateProfile(
+      {required String? uid, required String? lastName, required String? firstName, required String? telephone}) async {
+    await _firestore
+        .doc('users/$uid')
+        .update(<String, String?>{'lastName': lastName, 'firstName': firstName, 'telephone': telephone});
   }
 
   Future<void> updateAddresses({
@@ -71,20 +65,13 @@ class AuthApi {
     AddressPoint? remove,
     AddressPoint? edit,
   }) async {
-    print('data');
-    print('uid: $uid');
-    print('add: $add');
-    print('remove: $remove');
-    print('edit: $edit');
     if (add != null) {
-      print('add a intrat');
-      final DocumentReference ref = _firestore.collection('NOT USE').doc();
-      final AddressPoint newAdd = add.rebuild((AddressPointBuilder b) => b.id = ref.id);
-      print('add: $newAdd');
+//      final DocumentReference ref = _firestore.collection('NOT USE').doc();
+//      final AddressPoint newAdd = add.rebuild((AddressPointBuilder b) => b.id = ref.id);
+
       _firestore.doc('users/$uid').update(<String, dynamic>{
-        'addresses': <String, dynamic>{'${newAdd.id}': newAdd.json}
+        'addresses.${add.id}':  add.json
       });
-      print('add a terminat');
     } else if (remove != null) {
       await _firestore.doc('users/$uid').update(<String, dynamic>{
         'addresses': <String, dynamic>{'${remove.id}': FieldValue.delete()}
@@ -95,5 +82,4 @@ class AuthApi {
       });
     }
   }
-
 }

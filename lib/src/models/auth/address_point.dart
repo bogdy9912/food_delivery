@@ -8,7 +8,7 @@ abstract class AddressPoint implements Built<AddressPoint, AddressPointBuilder> 
   AddressPoint._();
 
 
-  String get id;
+  String? get id;
 
   String get contactName;
 

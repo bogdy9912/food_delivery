@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/src/models/company/index.dart';
 import 'package:food_delivery/src/presentations/cart/cart_page.dart';
 import 'package:food_delivery/src/presentations/cart/lal.dart';
+import 'package:food_delivery/src/presentations/cart/part2/cart_page2.dart';
 import 'package:food_delivery/src/presentations/checkout/checkout_page.dart';
 import 'package:food_delivery/src/presentations/checkout/payment_page.dart';
 import 'package:food_delivery/src/presentations/meniu/meniu_page.dart';
@@ -13,6 +14,7 @@ import 'package:food_delivery/src/presentations/sign_up/set_name_page.dart';
 import 'package:food_delivery/src/presentations/sign_up/sign_up_page.dart';
 import 'package:food_delivery/src/presentations/widgets/add_address_page.dart';
 import 'package:food_delivery/src/presentations/widgets/select_address_page.dart';
+import 'package:food_delivery/src/presentations/widgets/select_address_page2.dart';
 
 import 'home.dart';
 import 'others/add_company.dart';
@@ -30,8 +32,10 @@ class AppRoutes{
   static String profile = '/profile';
   static String checkout = '/checkout';
   static String addAddressPage = '/addAddressPage';
+  static String selectAddressPage2 = '/selectAddressPage2';
   static String selectAddressPage = '/selectAddressPage';
   static String paymentPage = '/paymentPage';
+  static String cart2 = '/cart2';
   static Map<String, WidgetBuilder> routes= <String, WidgetBuilder>{
     home: (BuildContext context) => const Home(),
     signUp: (BuildContext context) => const SignUpPage(),
@@ -47,7 +51,10 @@ class AppRoutes{
     profile: (BuildContext context) =>  const ProfilePage(),
     checkout: (BuildContext context) =>  const CheckoutPage(),
     addAddressPage: (BuildContext context) => const AddAddressPage(),
+
     selectAddressPage: (BuildContext context) => const SelectAddressPage(),
+//    selectAddressPage2: (BuildContext context) => const SelectAddressPage2(),
     paymentPage: (BuildContext context) => const PaymentPage(),
+    cart2: (BuildContext context) => const CartPage2(),
   };
 }

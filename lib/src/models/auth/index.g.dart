@@ -118,7 +118,14 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
           specifiedType: const FullType(BuiltMap,
               const [const FullType(String), const FullType(AddressPoint)])),
     ];
-
+    Object? value;
+    value = object.defaultAddress;
+    if (value != null) {
+      result
+        ..add('defaultAddress')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(AddressPoint)));
+    }
     return result;
   }
 
@@ -159,6 +166,10 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
                 const FullType(String),
                 const FullType(AddressPoint)
               ]))!);
+          break;
+        case 'defaultAddress':
+          result.defaultAddress.replace(serializers.deserialize(value,
+              specifiedType: const FullType(AddressPoint))! as AddressPoint);
           break;
       }
     }
@@ -317,6 +328,13 @@ class _$CartItemSerializer implements StructuredSerializer<CartItem> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.mentions;
+    if (value != null) {
+      result
+        ..add('mentions')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -351,6 +369,10 @@ class _$CartItemSerializer implements StructuredSerializer<CartItem> {
           result.description = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'mentions':
+          result.mentions = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
       }
     }
 
@@ -368,8 +390,6 @@ class _$AddressPointSerializer implements StructuredSerializer<AddressPoint> {
   Iterable<Object?> serialize(Serializers serializers, AddressPoint object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'contactName',
       serializers.serialize(object.contactName,
           specifiedType: const FullType(String)),
@@ -384,7 +404,14 @@ class _$AddressPointSerializer implements StructuredSerializer<AddressPoint> {
       'town',
       serializers.serialize(object.town, specifiedType: const FullType(String)),
     ];
-
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -573,6 +600,8 @@ class _$AppUser extends AppUser {
   final String telephone;
   @override
   final BuiltMap<String, AddressPoint> addresses;
+  @override
+  final AddressPoint? defaultAddress;
 
   factory _$AppUser([void Function(AppUserBuilder)? updates]) =>
       (new AppUserBuilder()..update(updates)).build();
@@ -583,7 +612,8 @@ class _$AppUser extends AppUser {
       required this.firstName,
       required this.lastName,
       required this.telephone,
-      required this.addresses})
+      required this.addresses,
+      this.defaultAddress})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(uid, 'AppUser', 'uid');
     BuiltValueNullFieldError.checkNotNull(email, 'AppUser', 'email');
@@ -609,7 +639,8 @@ class _$AppUser extends AppUser {
         firstName == other.firstName &&
         lastName == other.lastName &&
         telephone == other.telephone &&
-        addresses == other.addresses;
+        addresses == other.addresses &&
+        defaultAddress == other.defaultAddress;
   }
 
   @override
@@ -617,11 +648,13 @@ class _$AppUser extends AppUser {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, uid.hashCode), email.hashCode),
-                    firstName.hashCode),
-                lastName.hashCode),
-            telephone.hashCode),
-        addresses.hashCode));
+                $jc(
+                    $jc($jc($jc(0, uid.hashCode), email.hashCode),
+                        firstName.hashCode),
+                    lastName.hashCode),
+                telephone.hashCode),
+            addresses.hashCode),
+        defaultAddress.hashCode));
   }
 
   @override
@@ -632,7 +665,8 @@ class _$AppUser extends AppUser {
           ..add('firstName', firstName)
           ..add('lastName', lastName)
           ..add('telephone', telephone)
-          ..add('addresses', addresses))
+          ..add('addresses', addresses)
+          ..add('defaultAddress', defaultAddress))
         .toString();
   }
 }
@@ -666,6 +700,12 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
   set addresses(MapBuilder<String, AddressPoint>? addresses) =>
       _$this._addresses = addresses;
 
+  AddressPointBuilder? _defaultAddress;
+  AddressPointBuilder get defaultAddress =>
+      _$this._defaultAddress ??= new AddressPointBuilder();
+  set defaultAddress(AddressPointBuilder? defaultAddress) =>
+      _$this._defaultAddress = defaultAddress;
+
   AppUserBuilder();
 
   AppUserBuilder get _$this {
@@ -677,6 +717,7 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
       _lastName = $v.lastName;
       _telephone = $v.telephone;
       _addresses = $v.addresses.toBuilder();
+      _defaultAddress = $v.defaultAddress?.toBuilder();
       _$v = null;
     }
     return this;
@@ -708,12 +749,15 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
                   lastName, 'AppUser', 'lastName'),
               telephone: BuiltValueNullFieldError.checkNotNull(
                   telephone, 'AppUser', 'telephone'),
-              addresses: addresses.build());
+              addresses: addresses.build(),
+              defaultAddress: _defaultAddress?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'addresses';
         addresses.build();
+        _$failedField = 'defaultAddress';
+        _defaultAddress?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'AppUser', _$failedField, e.toString());
@@ -943,6 +987,8 @@ class _$CartItem extends CartItem {
   final double price;
   @override
   final String? description;
+  @override
+  final String? mentions;
 
   factory _$CartItem([void Function(CartItemBuilder)? updates]) =>
       (new CartItemBuilder()..update(updates)).build();
@@ -952,7 +998,8 @@ class _$CartItem extends CartItem {
       required this.name,
       required this.quantity,
       required this.price,
-      this.description})
+      this.description,
+      this.mentions})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, 'CartItem', 'id');
     BuiltValueNullFieldError.checkNotNull(name, 'CartItem', 'name');
@@ -975,15 +1022,18 @@ class _$CartItem extends CartItem {
         name == other.name &&
         quantity == other.quantity &&
         price == other.price &&
-        description == other.description;
+        description == other.description &&
+        mentions == other.mentions;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc($jc(0, id.hashCode), name.hashCode), quantity.hashCode),
-            price.hashCode),
-        description.hashCode));
+        $jc(
+            $jc($jc($jc($jc(0, id.hashCode), name.hashCode), quantity.hashCode),
+                price.hashCode),
+            description.hashCode),
+        mentions.hashCode));
   }
 
   @override
@@ -993,7 +1043,8 @@ class _$CartItem extends CartItem {
           ..add('name', name)
           ..add('quantity', quantity)
           ..add('price', price)
-          ..add('description', description))
+          ..add('description', description)
+          ..add('mentions', mentions))
         .toString();
   }
 }
@@ -1021,6 +1072,10 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
   String? get description => _$this._description;
   set description(String? description) => _$this._description = description;
 
+  String? _mentions;
+  String? get mentions => _$this._mentions;
+  set mentions(String? mentions) => _$this._mentions = mentions;
+
   CartItemBuilder();
 
   CartItemBuilder get _$this {
@@ -1031,6 +1086,7 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
       _quantity = $v.quantity;
       _price = $v.price;
       _description = $v.description;
+      _mentions = $v.mentions;
       _$v = null;
     }
     return this;
@@ -1058,7 +1114,8 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
                 quantity, 'CartItem', 'quantity'),
             price: BuiltValueNullFieldError.checkNotNull(
                 price, 'CartItem', 'price'),
-            description: description);
+            description: description,
+            mentions: mentions);
     replace(_$result);
     return _$result;
   }
@@ -1066,7 +1123,7 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
 
 class _$AddressPoint extends AddressPoint {
   @override
-  final String id;
+  final String? id;
   @override
   final String contactName;
   @override
@@ -1082,14 +1139,13 @@ class _$AddressPoint extends AddressPoint {
       (new AddressPointBuilder()..update(updates)).build();
 
   _$AddressPoint._(
-      {required this.id,
+      {this.id,
       required this.contactName,
       required this.contactPhone,
       required this.address,
       required this.city,
       required this.town})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, 'AddressPoint', 'id');
     BuiltValueNullFieldError.checkNotNull(
         contactName, 'AddressPoint', 'contactName');
     BuiltValueNullFieldError.checkNotNull(
@@ -1202,7 +1258,7 @@ class AddressPointBuilder
   _$AddressPoint build() {
     final _$result = _$v ??
         new _$AddressPoint._(
-            id: BuiltValueNullFieldError.checkNotNull(id, 'AddressPoint', 'id'),
+            id: id,
             contactName: BuiltValueNullFieldError.checkNotNull(
                 contactName, 'AddressPoint', 'contactName'),
             contactPhone: BuiltValueNullFieldError.checkNotNull(

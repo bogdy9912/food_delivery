@@ -12,10 +12,12 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
-  cached_network_image: ^3.0.0-nullsafety
+  cached_network_image: ^3.0.0
 
-  cloud_firestore: ^1.0.1
-  firebase_core: ^1.0.1
+  cloud_firestore: ^1.0.3
+  firebase_core: ^1.0.2
+  firebase_auth: ^1.0.1
+
   built_value: ^8.0.2
   built_value_generator: ^8.0.2
   build_runner: ^1.11.5
@@ -29,7 +31,6 @@ dependencies:
   intl: ^0.17.0
   http: ^0.13.0
   built_collection: ^5.0.0
-  firebase_auth: ^1.0.1
 
 
 dev_dependencies:

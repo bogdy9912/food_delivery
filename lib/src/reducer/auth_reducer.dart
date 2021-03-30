@@ -96,12 +96,13 @@ AuthState _updateProfileInfoSuccessful(AuthState state, UpdateProfileInfoSuccess
 AuthState _updateAddressesSuccessful(AuthState state, UpdateAddressesSuccessful action) {
   return state.rebuild((AuthStateBuilder b) {
     if (action.add != null) {
-//      b.user.addresses.addEntries([MapEntry<String, AddressPoint>(action.add!.id, action.add!)]);
-      b.user.addresses.addAll(<String, AddressPoint>{action.add!.id: action.add!});
+      b.user.addresses.addEntries(<MapEntry<String, AddressPoint>>[MapEntry<String, AddressPoint>(action.add!.id!, action.add!)]);
+
+//      b.user.addresses.addAll(<String, AddressPoint>{action.add!.id!: action.add!});
     } else if (action.remove != null) {
       b.user.addresses.remove(action.remove!.id);
     } else if (action.edit != null) {
-      b.user.addresses.updateValue(action.edit!.id, (_) => action.edit!);
+      b.user.addresses.updateValue(action.edit!.id!, (_) => action.edit!);
     }
   });
 }

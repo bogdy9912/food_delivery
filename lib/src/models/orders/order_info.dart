@@ -12,12 +12,9 @@ abstract class OrderInfo implements Built<OrderInfo, OrderInfoBuilder> {
 
   BuiltList<CartItem> get products;
 
-
   double? get total;
 
-
   PaymentMethod? get methodOfPayment;
-
 
   String? get instructions;
 

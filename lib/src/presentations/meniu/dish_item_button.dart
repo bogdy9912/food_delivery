@@ -14,12 +14,12 @@ class DishItemButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CartContainer(builder: (BuildContext context, Cart? cart) {
       final CartItem? item = cart?.items.where((CartItem e) => e.id == dish!.id).first;
-      return IconButton(
-        icon: Icon(
+      return InkWell(
+        child: Icon(
           item == null ? Icons.add_circle : Icons.check_circle,
           color: Colors.green,
         ),
-        onPressed: () {
+        onTap: () {
           StoreProvider.of<AppState>(context).dispatch(UpdateCart(add: dish));
         },
       );

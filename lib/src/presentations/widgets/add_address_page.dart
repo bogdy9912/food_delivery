@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/actions/auth/index.dart';
@@ -44,9 +45,9 @@ class _AddAddressPageState extends State<AddAddressPage> {
           _city = widget.isEditing!.city;
           _town = widget.isEditing!.town;
         } else {
-          _name =  user!.lastName + user.firstName;
+          _name = user!.lastName + user.firstName;
 
-          _telephone = user.telephone ;
+          _telephone = user.telephone;
         }
         return Form(
           child: Scaffold(
@@ -68,8 +69,10 @@ class _AddAddressPageState extends State<AddAddressPage> {
                       final bool valid = Form.of(context)!.validate();
                       if (valid) {
                         Form.of(context)!.save();
+                        final DocumentReference ref = FirebaseFirestore.instance.collection('NOT USE').doc();
                         final AddressPoint add = AddressPoint((AddressPointBuilder b) {
                           b
+                            ..id = ref.id
                             ..contactName = _name
                             ..contactPhone = _telephone
                             ..address = _address
