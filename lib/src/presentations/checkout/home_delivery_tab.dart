@@ -74,7 +74,7 @@ class HomeDeliveryTab extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Text('${info!.address!.contactName} - ${info.address!.contactPhone}'),
-                        Text('${info.address!.address} - ${info.address!.city}, ${info.address!.town}'),
+                        Text('${info.address!.address} - ${info.address!.city}'),
                       ],
                     ),
                   ),

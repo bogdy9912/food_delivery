@@ -3518,3 +3518,472 @@ abstract class UpdateAddressesError implements UpdateAddresses, ErrorAction {
   $UpdateAddressesErrorCopyWith<UpdateAddressesError> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+class _$SetDefaultAddressTearOff {
+  const _$SetDefaultAddressTearOff();
+
+  SetDefaultAddress$ call(
+      {required AddressPoint address,
+      required void Function(AppAction) response}) {
+    return SetDefaultAddress$(
+      address: address,
+      response: response,
+    );
+  }
+
+  SetDefaultAddressSuccessful successful({required AddressPoint address}) {
+    return SetDefaultAddressSuccessful(
+      address: address,
+    );
+  }
+
+  SetDefaultAddressError error(Object error) {
+    return SetDefaultAddressError(
+      error,
+    );
+  }
+}
+
+/// @nodoc
+const $SetDefaultAddress = _$SetDefaultAddressTearOff();
+
+/// @nodoc
+mixin _$SetDefaultAddress {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(AddressPoint address, void Function(AppAction) response)
+        $default, {
+    required TResult Function(AddressPoint address) successful,
+    required TResult Function(Object error) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(AddressPoint address, void Function(AppAction) response)?
+        $default, {
+    TResult Function(AddressPoint address)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(SetDefaultAddress$ value) $default, {
+    required TResult Function(SetDefaultAddressSuccessful value) successful,
+    required TResult Function(SetDefaultAddressError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SetDefaultAddress$ value)? $default, {
+    TResult Function(SetDefaultAddressSuccessful value)? successful,
+    TResult Function(SetDefaultAddressError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SetDefaultAddressCopyWith<$Res> {
+  factory $SetDefaultAddressCopyWith(
+          SetDefaultAddress value, $Res Function(SetDefaultAddress) then) =
+      _$SetDefaultAddressCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SetDefaultAddressCopyWithImpl<$Res>
+    implements $SetDefaultAddressCopyWith<$Res> {
+  _$SetDefaultAddressCopyWithImpl(this._value, this._then);
+
+  final SetDefaultAddress _value;
+  // ignore: unused_field
+  final $Res Function(SetDefaultAddress) _then;
+}
+
+/// @nodoc
+abstract class $SetDefaultAddress$CopyWith<$Res> {
+  factory $SetDefaultAddress$CopyWith(
+          SetDefaultAddress$ value, $Res Function(SetDefaultAddress$) then) =
+      _$SetDefaultAddress$CopyWithImpl<$Res>;
+  $Res call({AddressPoint address, void Function(AppAction) response});
+}
+
+/// @nodoc
+class _$SetDefaultAddress$CopyWithImpl<$Res>
+    extends _$SetDefaultAddressCopyWithImpl<$Res>
+    implements $SetDefaultAddress$CopyWith<$Res> {
+  _$SetDefaultAddress$CopyWithImpl(
+      SetDefaultAddress$ _value, $Res Function(SetDefaultAddress$) _then)
+      : super(_value, (v) => _then(v as SetDefaultAddress$));
+
+  @override
+  SetDefaultAddress$ get _value => super._value as SetDefaultAddress$;
+
+  @override
+  $Res call({
+    Object? address = freezed,
+    Object? response = freezed,
+  }) {
+    return _then(SetDefaultAddress$(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as AddressPoint,
+      response: response == freezed
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as void Function(AppAction),
+    ));
+  }
+}
+
+/// @nodoc
+class _$SetDefaultAddress$ implements SetDefaultAddress$ {
+  const _$SetDefaultAddress$({required this.address, required this.response});
+
+  @override
+  final AddressPoint address;
+  @override
+  final void Function(AppAction) response;
+
+  @override
+  String toString() {
+    return 'SetDefaultAddress(address: $address, response: $response)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SetDefaultAddress$ &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality()
+                    .equals(other.address, address)) &&
+            (identical(other.response, response) ||
+                const DeepCollectionEquality()
+                    .equals(other.response, response)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(address) ^
+      const DeepCollectionEquality().hash(response);
+
+  @JsonKey(ignore: true)
+  @override
+  $SetDefaultAddress$CopyWith<SetDefaultAddress$> get copyWith =>
+      _$SetDefaultAddress$CopyWithImpl<SetDefaultAddress$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(AddressPoint address, void Function(AppAction) response)
+        $default, {
+    required TResult Function(AddressPoint address) successful,
+    required TResult Function(Object error) error,
+  }) {
+    return $default(address, response);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(AddressPoint address, void Function(AppAction) response)?
+        $default, {
+    TResult Function(AddressPoint address)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(address, response);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(SetDefaultAddress$ value) $default, {
+    required TResult Function(SetDefaultAddressSuccessful value) successful,
+    required TResult Function(SetDefaultAddressError value) error,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SetDefaultAddress$ value)? $default, {
+    TResult Function(SetDefaultAddressSuccessful value)? successful,
+    TResult Function(SetDefaultAddressError value)? error,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetDefaultAddress$ implements SetDefaultAddress {
+  const factory SetDefaultAddress$(
+      {required AddressPoint address,
+      required void Function(AppAction) response}) = _$SetDefaultAddress$;
+
+  AddressPoint get address => throw _privateConstructorUsedError;
+  void Function(AppAction) get response => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SetDefaultAddress$CopyWith<SetDefaultAddress$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SetDefaultAddressSuccessfulCopyWith<$Res> {
+  factory $SetDefaultAddressSuccessfulCopyWith(
+          SetDefaultAddressSuccessful value,
+          $Res Function(SetDefaultAddressSuccessful) then) =
+      _$SetDefaultAddressSuccessfulCopyWithImpl<$Res>;
+  $Res call({AddressPoint address});
+}
+
+/// @nodoc
+class _$SetDefaultAddressSuccessfulCopyWithImpl<$Res>
+    extends _$SetDefaultAddressCopyWithImpl<$Res>
+    implements $SetDefaultAddressSuccessfulCopyWith<$Res> {
+  _$SetDefaultAddressSuccessfulCopyWithImpl(SetDefaultAddressSuccessful _value,
+      $Res Function(SetDefaultAddressSuccessful) _then)
+      : super(_value, (v) => _then(v as SetDefaultAddressSuccessful));
+
+  @override
+  SetDefaultAddressSuccessful get _value =>
+      super._value as SetDefaultAddressSuccessful;
+
+  @override
+  $Res call({
+    Object? address = freezed,
+  }) {
+    return _then(SetDefaultAddressSuccessful(
+      address: address == freezed
+          ? _value.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as AddressPoint,
+    ));
+  }
+}
+
+/// @nodoc
+class _$SetDefaultAddressSuccessful implements SetDefaultAddressSuccessful {
+  const _$SetDefaultAddressSuccessful({required this.address});
+
+  @override
+  final AddressPoint address;
+
+  @override
+  String toString() {
+    return 'SetDefaultAddress.successful(address: $address)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SetDefaultAddressSuccessful &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality().equals(other.address, address)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(address);
+
+  @JsonKey(ignore: true)
+  @override
+  $SetDefaultAddressSuccessfulCopyWith<SetDefaultAddressSuccessful>
+      get copyWith => _$SetDefaultAddressSuccessfulCopyWithImpl<
+          SetDefaultAddressSuccessful>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(AddressPoint address, void Function(AppAction) response)
+        $default, {
+    required TResult Function(AddressPoint address) successful,
+    required TResult Function(Object error) error,
+  }) {
+    return successful(address);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(AddressPoint address, void Function(AppAction) response)?
+        $default, {
+    TResult Function(AddressPoint address)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) {
+    if (successful != null) {
+      return successful(address);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(SetDefaultAddress$ value) $default, {
+    required TResult Function(SetDefaultAddressSuccessful value) successful,
+    required TResult Function(SetDefaultAddressError value) error,
+  }) {
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SetDefaultAddress$ value)? $default, {
+    TResult Function(SetDefaultAddressSuccessful value)? successful,
+    TResult Function(SetDefaultAddressError value)? error,
+    required TResult orElse(),
+  }) {
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetDefaultAddressSuccessful implements SetDefaultAddress {
+  const factory SetDefaultAddressSuccessful({required AddressPoint address}) =
+      _$SetDefaultAddressSuccessful;
+
+  AddressPoint get address => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SetDefaultAddressSuccessfulCopyWith<SetDefaultAddressSuccessful>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SetDefaultAddressErrorCopyWith<$Res> {
+  factory $SetDefaultAddressErrorCopyWith(SetDefaultAddressError value,
+          $Res Function(SetDefaultAddressError) then) =
+      _$SetDefaultAddressErrorCopyWithImpl<$Res>;
+  $Res call({Object error});
+}
+
+/// @nodoc
+class _$SetDefaultAddressErrorCopyWithImpl<$Res>
+    extends _$SetDefaultAddressCopyWithImpl<$Res>
+    implements $SetDefaultAddressErrorCopyWith<$Res> {
+  _$SetDefaultAddressErrorCopyWithImpl(SetDefaultAddressError _value,
+      $Res Function(SetDefaultAddressError) _then)
+      : super(_value, (v) => _then(v as SetDefaultAddressError));
+
+  @override
+  SetDefaultAddressError get _value => super._value as SetDefaultAddressError;
+
+  @override
+  $Res call({
+    Object? error = freezed,
+  }) {
+    return _then(SetDefaultAddressError(
+      error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Object,
+    ));
+  }
+}
+
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$SetDefaultAddressError implements SetDefaultAddressError {
+  const _$SetDefaultAddressError(this.error);
+
+  @override
+  final Object error;
+
+  @override
+  String toString() {
+    return 'SetDefaultAddress.error(error: $error)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SetDefaultAddressError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
+
+  @JsonKey(ignore: true)
+  @override
+  $SetDefaultAddressErrorCopyWith<SetDefaultAddressError> get copyWith =>
+      _$SetDefaultAddressErrorCopyWithImpl<SetDefaultAddressError>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(AddressPoint address, void Function(AppAction) response)
+        $default, {
+    required TResult Function(AddressPoint address) successful,
+    required TResult Function(Object error) error,
+  }) {
+    return error(this.error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(AddressPoint address, void Function(AppAction) response)?
+        $default, {
+    TResult Function(AddressPoint address)? successful,
+    TResult Function(Object error)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this.error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(SetDefaultAddress$ value) $default, {
+    required TResult Function(SetDefaultAddressSuccessful value) successful,
+    required TResult Function(SetDefaultAddressError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SetDefaultAddress$ value)? $default, {
+    TResult Function(SetDefaultAddressSuccessful value)? successful,
+    TResult Function(SetDefaultAddressError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SetDefaultAddressError
+    implements SetDefaultAddress, ErrorAction {
+  const factory SetDefaultAddressError(Object error) = _$SetDefaultAddressError;
+
+  Object get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SetDefaultAddressErrorCopyWith<SetDefaultAddressError> get copyWith =>
+      throw _privateConstructorUsedError;
+}

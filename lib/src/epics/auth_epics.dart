@@ -7,19 +7,19 @@ import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
 class AuthEpics {
-  AuthEpics({required AuthApi api})
-      : _api = api;
+  AuthEpics({required AuthApi api}) : _api = api;
 
   final AuthApi _api;
 
   Epic<AppState> get epics => combineEpics(<Epic<AppState>>[
-        TypedEpic<AppState, Login$>(_login) ,
-        TypedEpic<AppState, InitializeApp$>(_initializeApp) ,
-        TypedEpic<AppState, SignUp$>(_signUp) ,
-        TypedEpic<AppState, SignOut$>(_signOut) ,
-        TypedEpic<AppState, ForgotPassword$>(_forgotPassword) ,
-        TypedEpic<AppState, UpdateProfileInfo$>(_updateProfileInfo) ,
-    TypedEpic<AppState, UpdateAddresses$>(_updateAddresses) ,
+        TypedEpic<AppState, Login$>(_login),
+        TypedEpic<AppState, InitializeApp$>(_initializeApp),
+        TypedEpic<AppState, SignUp$>(_signUp),
+        TypedEpic<AppState, SignOut$>(_signOut),
+        TypedEpic<AppState, ForgotPassword$>(_forgotPassword),
+        TypedEpic<AppState, UpdateProfileInfo$>(_updateProfileInfo),
+        TypedEpic<AppState, UpdateAddresses$>(_updateAddresses),
+        TypedEpic<AppState, SetDefaultAddress$>(_setDefaultAddress),
       ]);
 
   Stream<AppAction> _login(Stream<Login$> actions, EpicStore<AppState> store) {
@@ -84,17 +84,22 @@ class AuthEpics {
             .onErrorReturnWith((dynamic error) => UpdateProfileInfo.error(error)));
   }
 
-
-
   Stream<AppAction> _updateAddresses(Stream<UpdateAddresses$> actions, EpicStore<AppState> store) {
-
     return actions //
         .flatMap((UpdateAddresses$ action) => Stream<UpdateAddresses$>.value(action)
-        .asyncMap((UpdateAddresses$ action) =>
-        _api.updateAddresses(uid: action.uid, add: action.add, remove: action.remove, edit: action.remove))
-        .mapTo(
-        UpdateAddresses.successful(uid: action.uid, add: action.add, remove: action.remove, edit: action.edit))
-        .onErrorReturnWith((dynamic error) => UpdateAddresses.error(error)));
+            .asyncMap((UpdateAddresses$ action) =>
+                _api.updateAddresses(uid: action.uid, add: action.add, remove: action.remove, edit: action.remove))
+            .mapTo(
+                UpdateAddresses.successful(uid: action.uid, add: action.add, remove: action.remove, edit: action.edit))
+            .onErrorReturnWith((dynamic error) => UpdateAddresses.error(error)));
   }
 
+  Stream<AppAction> _setDefaultAddress(Stream<SetDefaultAddress$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((SetDefaultAddress$ action) => Stream<SetDefaultAddress$>.value(action)
+            .asyncMap((SetDefaultAddress$ action) =>
+                _api.updateDefaultAddress(uid: store.state.auth.user!.uid, address: action.address))
+            .mapTo(SetDefaultAddress.successful(address: action.address))
+            .onErrorReturnWith((dynamic error) => SetDefaultAddress.error(error)).doOnData(action.response));
+  }
 }

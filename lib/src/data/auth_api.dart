@@ -74,12 +74,16 @@ class AuthApi {
       });
     } else if (remove != null) {
       await _firestore.doc('users/$uid').update(<String, dynamic>{
-        'addresses': <String, dynamic>{'${remove.id}': FieldValue.delete()}
+        'addresses.${remove.id}': FieldValue.delete()
       });
     } else if (edit != null) {
       await _firestore.doc('users/$uid').update(<String, dynamic>{
-        'addresses': <String, dynamic>{'${edit.id}': edit.json}
+        'addresses.${edit.id}': edit.json
       });
     }
+  }
+
+  Future<void> updateDefaultAddress({required String uid, required AddressPoint address})async{
+    await _firestore.doc('users/$uid').update(<String, dynamic>{'defaultAddress': address.json});
   }
 }

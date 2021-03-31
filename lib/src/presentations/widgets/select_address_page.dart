@@ -65,7 +65,7 @@ class SelectAddressPage extends StatelessWidget {
                       final AddressPoint address = user.addresses.values.toList()[index];
                       return ListTile(
                         title: Text('${address.contactName} - ${address.contactPhone}'),
-                        subtitle: Text('${address.address}, ${address.city}, ${address.town}'),
+                        subtitle: Text('${address.address}, ${address.city}'),
                         trailing: IconButton(
                           icon: const Icon(Icons.more_vert),
                           onPressed: () {},

@@ -3,14 +3,17 @@ import 'package:food_delivery/src/models/auth/index.dart';
 import 'package:redux/redux.dart';
 
 Reducer<AuthState> authReducer = combineReducers(<Reducer<AuthState>>[
-  TypedReducer<AuthState, LoginSuccessful>(_loginSuccessful) ,
-  TypedReducer<AuthState, InitializeAppSuccessful>(_initializeAppSuccessful) ,
-  TypedReducer<AuthState, UpdateRegistrationInfo$>(_updateRegistrationInfo) ,
-  TypedReducer<AuthState, SignUpSuccessful>(_signUpSuccessful) ,
-  TypedReducer<AuthState, UpdateCart$>(_updateCart) ,
-  TypedReducer<AuthState, UpdateProfileInfo>(_updateProfileInfo) ,
-  TypedReducer<AuthState, UpdateProfileInfoSuccessful>(_updateProfileInfoSuccessful) ,
-  TypedReducer<AuthState, UpdateAddressesSuccessful>(_updateAddressesSuccessful) ,
+  TypedReducer<AuthState, LoginSuccessful>(_loginSuccessful),
+  TypedReducer<AuthState, InitializeAppSuccessful>(_initializeAppSuccessful),
+  TypedReducer<AuthState, UpdateRegistrationInfo$>(_updateRegistrationInfo),
+  TypedReducer<AuthState, SignUpSuccessful>(_signUpSuccessful),
+  TypedReducer<AuthState, UpdateCart$>(_updateCart),
+  TypedReducer<AuthState, UpdateProfileInfo>(_updateProfileInfo),
+  TypedReducer<AuthState, UpdateProfileInfoSuccessful>(_updateProfileInfoSuccessful),
+  TypedReducer<AuthState, UpdateAddressesSuccessful>(_updateAddressesSuccessful),
+  TypedReducer<AuthState, SetDefaultAddressSuccessful>(_setDefaultAddressSuccessful),
+//  TypedReducer<AuthState, SetDefaultAddressError>(_SetDefaultAddressError),
+//  TypedReducer<AuthState, SetDefaultAddress$>(_setDefaultAddress$),
 ]);
 
 AuthState _loginSuccessful(AuthState state, LoginSuccessful action) {
@@ -54,7 +57,12 @@ AuthState _updateCart(AuthState state, UpdateCart$ action) {
       final int index = cartState.items.indexWhere((CartItem item) => item.id == action.add!.id);
 
       if (index == -1) {
-        b.cart.items.add(CartItem(id: action.add!.id, quantity: 1, price: action.add!.price, name: action.add!.name,description: action.add!.description));
+        b.cart.items.add(CartItem(
+            id: action.add!.id,
+            quantity: 1,
+            price: action.add!.price,
+            name: action.add!.name,
+            description: action.add!.description));
       } else {
         b.cart.items[index] = b.cart.items[index].rebuild((CartItemBuilder b) => b.quantity = b.quantity! + 1);
       }
@@ -92,11 +100,11 @@ AuthState _updateProfileInfoSuccessful(AuthState state, UpdateProfileInfoSuccess
   });
 }
 
-
 AuthState _updateAddressesSuccessful(AuthState state, UpdateAddressesSuccessful action) {
   return state.rebuild((AuthStateBuilder b) {
     if (action.add != null) {
-      b.user.addresses.addEntries(<MapEntry<String, AddressPoint>>[MapEntry<String, AddressPoint>(action.add!.id!, action.add!)]);
+      b.user.addresses
+          .addEntries(<MapEntry<String, AddressPoint>>[MapEntry<String, AddressPoint>(action.add!.id!, action.add!)]);
 
 //      b.user.addresses.addAll(<String, AddressPoint>{action.add!.id!: action.add!});
     } else if (action.remove != null) {
@@ -106,3 +114,15 @@ AuthState _updateAddressesSuccessful(AuthState state, UpdateAddressesSuccessful 
     }
   });
 }
+
+AuthState _setDefaultAddressSuccessful(AuthState state, SetDefaultAddressSuccessful action) {
+  return state.rebuild((AuthStateBuilder b) => b.user.defaultAddress = action.address.toBuilder());
+}
+
+//AuthState _setDefaultAddressError(AuthState state, SetDefaultAddressSuccessful action) {
+//  return state.rebuild((AuthStateBuilder b) => b.user.defaultAddress = null);
+//}
+//AuthState _setDefaultAddress$(AuthState state, SetDefaultAddressSuccessful action) {
+//  return state.rebuild((AuthStateBuilder b) => b.user.defaultAddress = action.address.toBuilder());
+//}
+

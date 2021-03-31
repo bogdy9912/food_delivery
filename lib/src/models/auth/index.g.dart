@@ -401,8 +401,6 @@ class _$AddressPointSerializer implements StructuredSerializer<AddressPoint> {
           specifiedType: const FullType(String)),
       'city',
       serializers.serialize(object.city, specifiedType: const FullType(String)),
-      'town',
-      serializers.serialize(object.town, specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.id;
@@ -445,10 +443,6 @@ class _$AddressPointSerializer implements StructuredSerializer<AddressPoint> {
           break;
         case 'city':
           result.city = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'town':
-          result.town = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -1132,8 +1126,6 @@ class _$AddressPoint extends AddressPoint {
   final String address;
   @override
   final String city;
-  @override
-  final String town;
 
   factory _$AddressPoint([void Function(AddressPointBuilder)? updates]) =>
       (new AddressPointBuilder()..update(updates)).build();
@@ -1143,8 +1135,7 @@ class _$AddressPoint extends AddressPoint {
       required this.contactName,
       required this.contactPhone,
       required this.address,
-      required this.city,
-      required this.town})
+      required this.city})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         contactName, 'AddressPoint', 'contactName');
@@ -1152,7 +1143,6 @@ class _$AddressPoint extends AddressPoint {
         contactPhone, 'AddressPoint', 'contactPhone');
     BuiltValueNullFieldError.checkNotNull(address, 'AddressPoint', 'address');
     BuiltValueNullFieldError.checkNotNull(city, 'AddressPoint', 'city');
-    BuiltValueNullFieldError.checkNotNull(town, 'AddressPoint', 'town');
   }
 
   @override
@@ -1170,20 +1160,17 @@ class _$AddressPoint extends AddressPoint {
         contactName == other.contactName &&
         contactPhone == other.contactPhone &&
         address == other.address &&
-        city == other.city &&
-        town == other.town;
+        city == other.city;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc(
-                $jc($jc($jc(0, id.hashCode), contactName.hashCode),
-                    contactPhone.hashCode),
-                address.hashCode),
-            city.hashCode),
-        town.hashCode));
+            $jc($jc($jc(0, id.hashCode), contactName.hashCode),
+                contactPhone.hashCode),
+            address.hashCode),
+        city.hashCode));
   }
 
   @override
@@ -1193,8 +1180,7 @@ class _$AddressPoint extends AddressPoint {
           ..add('contactName', contactName)
           ..add('contactPhone', contactPhone)
           ..add('address', address)
-          ..add('city', city)
-          ..add('town', town))
+          ..add('city', city))
         .toString();
   }
 }
@@ -1223,10 +1209,6 @@ class AddressPointBuilder
   String? get city => _$this._city;
   set city(String? city) => _$this._city = city;
 
-  String? _town;
-  String? get town => _$this._town;
-  set town(String? town) => _$this._town = town;
-
   AddressPointBuilder();
 
   AddressPointBuilder get _$this {
@@ -1237,7 +1219,6 @@ class AddressPointBuilder
       _contactPhone = $v.contactPhone;
       _address = $v.address;
       _city = $v.city;
-      _town = $v.town;
       _$v = null;
     }
     return this;
@@ -1266,9 +1247,7 @@ class AddressPointBuilder
             address: BuiltValueNullFieldError.checkNotNull(
                 address, 'AddressPoint', 'address'),
             city: BuiltValueNullFieldError.checkNotNull(
-                city, 'AddressPoint', 'city'),
-            town: BuiltValueNullFieldError.checkNotNull(
-                town, 'AddressPoint', 'town'));
+                city, 'AddressPoint', 'city'));
     replace(_$result);
     return _$result;
   }

@@ -55,6 +55,6 @@ class AppRoutes{
     selectAddressPage: (BuildContext context) => const SelectAddressPage(),
 //    selectAddressPage2: (BuildContext context) => const SelectAddressPage2(),
     paymentPage: (BuildContext context) => const PaymentPage(),
-    cart2: (BuildContext context) => const CartPage2(),
+    cart2: (BuildContext context) => CartPage2(),
   };
 }

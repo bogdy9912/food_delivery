@@ -43,7 +43,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
           _telephone = widget.isEditing!.contactPhone;
           _address = widget.isEditing!.address;
           _city = widget.isEditing!.city;
-          _town = widget.isEditing!.town;
+
         } else {
           _name = user!.lastName + user.firstName;
 
@@ -77,7 +77,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                             ..contactPhone = _telephone
                             ..address = _address
                             ..city = _city
-                            ..town = _town;
+                            ;
                         });
                         StoreProvider.of<AppState>(context).dispatch(UpdateAddresses(uid: user!.uid, add: add));
                         Navigator.pop(context);

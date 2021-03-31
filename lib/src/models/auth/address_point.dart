@@ -18,7 +18,6 @@ abstract class AddressPoint implements Built<AddressPoint, AddressPointBuilder> 
 
   String get city;
 
-  String get town;
 
   Map<String, dynamic>? get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>?;
 

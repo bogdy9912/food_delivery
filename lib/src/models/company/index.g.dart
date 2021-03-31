@@ -6,12 +6,34 @@ part of company_models;
 // BuiltValueGenerator
 // **************************************************************************
 
+const DeliveryOption _$home = const DeliveryOption._('home');
+const DeliveryOption _$pickup = const DeliveryOption._('pickup');
+
+DeliveryOption _$valueOf(String name) {
+  switch (name) {
+    case 'home':
+      return _$home;
+    case 'pickup':
+      return _$pickup;
+    default:
+      throw new ArgumentError(name);
+  }
+}
+
+final BuiltSet<DeliveryOption> _$values =
+    new BuiltSet<DeliveryOption>(const <DeliveryOption>[
+  _$home,
+  _$pickup,
+]);
+
 Serializer<Company> _$companySerializer = new _$CompanySerializer();
 Serializer<CompanyState> _$companyStateSerializer =
     new _$CompanyStateSerializer();
 Serializer<Meniu> _$meniuSerializer = new _$MeniuSerializer();
 Serializer<MeniuItem> _$meniuItemSerializer = new _$MeniuItemSerializer();
 Serializer<Dish> _$dishSerializer = new _$DishSerializer();
+Serializer<DeliveryOption> _$deliveryOptionSerializer =
+    new _$DeliveryOptionSerializer();
 
 class _$CompanySerializer implements StructuredSerializer<Company> {
   @override
@@ -38,6 +60,17 @@ class _$CompanySerializer implements StructuredSerializer<Company> {
           specifiedType: const FullType(String)),
       'city',
       serializers.serialize(object.city, specifiedType: const FullType(String)),
+      'paymentMethods',
+      serializers.serialize(object.paymentMethods,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(PaymentMethod)])),
+      'deliveryOptions',
+      serializers.serialize(object.deliveryOptions,
+          specifiedType: const FullType(
+              BuiltList, const [const FullType(DeliveryOption)])),
+      'address',
+      serializers.serialize(object.address,
+          specifiedType: const FullType(String)),
       'searchIndex',
       serializers.serialize(object.searchIndex,
           specifiedType:
@@ -50,6 +83,27 @@ class _$CompanySerializer implements StructuredSerializer<Company> {
         ..add('image')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
+    }
+    value = object.deliveryFee;
+    if (value != null) {
+      result
+        ..add('deliveryFee')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
+    }
+    value = object.deliveryThreshold;
+    if (value != null) {
+      result
+        ..add('deliveryThreshold')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
+    }
+    value = object.deliveryFeeThreshold;
+    if (value != null) {
+      result
+        ..add('deliveryFeeThreshold')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
     }
     return result;
   }
@@ -92,6 +146,34 @@ class _$CompanySerializer implements StructuredSerializer<Company> {
         case 'city':
           result.city = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
+          break;
+        case 'paymentMethods':
+          result.paymentMethods.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(PaymentMethod)]))!
+              as BuiltList<Object>);
+          break;
+        case 'deliveryOptions':
+          result.deliveryOptions.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(DeliveryOption)]))!
+              as BuiltList<Object>);
+          break;
+        case 'address':
+          result.address = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'deliveryFee':
+          result.deliveryFee = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double;
+          break;
+        case 'deliveryThreshold':
+          result.deliveryThreshold = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double;
+          break;
+        case 'deliveryFeeThreshold':
+          result.deliveryFeeThreshold = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double;
           break;
         case 'searchIndex':
           result.searchIndex.replace(serializers.deserialize(value,
@@ -340,6 +422,24 @@ class _$DishSerializer implements StructuredSerializer<Dish> {
   }
 }
 
+class _$DeliveryOptionSerializer
+    implements PrimitiveSerializer<DeliveryOption> {
+  @override
+  final Iterable<Type> types = const <Type>[DeliveryOption];
+  @override
+  final String wireName = 'DeliveryOption';
+
+  @override
+  Object serialize(Serializers serializers, DeliveryOption object,
+          {FullType specifiedType = FullType.unspecified}) =>
+      object.name;
+
+  @override
+  DeliveryOption deserialize(Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      DeliveryOption.valueOf(serialized as String);
+}
+
 class _$Company extends Company {
   @override
   final String id;
@@ -356,6 +456,18 @@ class _$Company extends Company {
   @override
   final String city;
   @override
+  final BuiltList<PaymentMethod> paymentMethods;
+  @override
+  final BuiltList<DeliveryOption> deliveryOptions;
+  @override
+  final String address;
+  @override
+  final double? deliveryFee;
+  @override
+  final double? deliveryThreshold;
+  @override
+  final double? deliveryFeeThreshold;
+  @override
   final BuiltList<String> searchIndex;
 
   factory _$Company([void Function(CompanyBuilder)? updates]) =>
@@ -369,6 +481,12 @@ class _$Company extends Company {
       required this.openHour,
       required this.closeHour,
       required this.city,
+      required this.paymentMethods,
+      required this.deliveryOptions,
+      required this.address,
+      this.deliveryFee,
+      this.deliveryThreshold,
+      this.deliveryFeeThreshold,
       required this.searchIndex})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, 'Company', 'id');
@@ -377,6 +495,11 @@ class _$Company extends Company {
     BuiltValueNullFieldError.checkNotNull(openHour, 'Company', 'openHour');
     BuiltValueNullFieldError.checkNotNull(closeHour, 'Company', 'closeHour');
     BuiltValueNullFieldError.checkNotNull(city, 'Company', 'city');
+    BuiltValueNullFieldError.checkNotNull(
+        paymentMethods, 'Company', 'paymentMethods');
+    BuiltValueNullFieldError.checkNotNull(
+        deliveryOptions, 'Company', 'deliveryOptions');
+    BuiltValueNullFieldError.checkNotNull(address, 'Company', 'address');
     BuiltValueNullFieldError.checkNotNull(
         searchIndex, 'Company', 'searchIndex');
   }
@@ -399,6 +522,12 @@ class _$Company extends Company {
         openHour == other.openHour &&
         closeHour == other.closeHour &&
         city == other.city &&
+        paymentMethods == other.paymentMethods &&
+        deliveryOptions == other.deliveryOptions &&
+        address == other.address &&
+        deliveryFee == other.deliveryFee &&
+        deliveryThreshold == other.deliveryThreshold &&
+        deliveryFeeThreshold == other.deliveryFeeThreshold &&
         searchIndex == other.searchIndex;
   }
 
@@ -409,12 +538,26 @@ class _$Company extends Company {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, id.hashCode), name.hashCode),
-                            rating.hashCode),
-                        image.hashCode),
-                    openHour.hashCode),
-                closeHour.hashCode),
-            city.hashCode),
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc(
+                                            $jc(
+                                                $jc(
+                                                    $jc($jc(0, id.hashCode),
+                                                        name.hashCode),
+                                                    rating.hashCode),
+                                                image.hashCode),
+                                            openHour.hashCode),
+                                        closeHour.hashCode),
+                                    city.hashCode),
+                                paymentMethods.hashCode),
+                            deliveryOptions.hashCode),
+                        address.hashCode),
+                    deliveryFee.hashCode),
+                deliveryThreshold.hashCode),
+            deliveryFeeThreshold.hashCode),
         searchIndex.hashCode));
   }
 
@@ -428,6 +571,12 @@ class _$Company extends Company {
           ..add('openHour', openHour)
           ..add('closeHour', closeHour)
           ..add('city', city)
+          ..add('paymentMethods', paymentMethods)
+          ..add('deliveryOptions', deliveryOptions)
+          ..add('address', address)
+          ..add('deliveryFee', deliveryFee)
+          ..add('deliveryThreshold', deliveryThreshold)
+          ..add('deliveryFeeThreshold', deliveryFeeThreshold)
           ..add('searchIndex', searchIndex))
         .toString();
   }
@@ -464,6 +613,36 @@ class CompanyBuilder implements Builder<Company, CompanyBuilder> {
   String? get city => _$this._city;
   set city(String? city) => _$this._city = city;
 
+  ListBuilder<PaymentMethod>? _paymentMethods;
+  ListBuilder<PaymentMethod> get paymentMethods =>
+      _$this._paymentMethods ??= new ListBuilder<PaymentMethod>();
+  set paymentMethods(ListBuilder<PaymentMethod>? paymentMethods) =>
+      _$this._paymentMethods = paymentMethods;
+
+  ListBuilder<DeliveryOption>? _deliveryOptions;
+  ListBuilder<DeliveryOption> get deliveryOptions =>
+      _$this._deliveryOptions ??= new ListBuilder<DeliveryOption>();
+  set deliveryOptions(ListBuilder<DeliveryOption>? deliveryOptions) =>
+      _$this._deliveryOptions = deliveryOptions;
+
+  String? _address;
+  String? get address => _$this._address;
+  set address(String? address) => _$this._address = address;
+
+  double? _deliveryFee;
+  double? get deliveryFee => _$this._deliveryFee;
+  set deliveryFee(double? deliveryFee) => _$this._deliveryFee = deliveryFee;
+
+  double? _deliveryThreshold;
+  double? get deliveryThreshold => _$this._deliveryThreshold;
+  set deliveryThreshold(double? deliveryThreshold) =>
+      _$this._deliveryThreshold = deliveryThreshold;
+
+  double? _deliveryFeeThreshold;
+  double? get deliveryFeeThreshold => _$this._deliveryFeeThreshold;
+  set deliveryFeeThreshold(double? deliveryFeeThreshold) =>
+      _$this._deliveryFeeThreshold = deliveryFeeThreshold;
+
   ListBuilder<String>? _searchIndex;
   ListBuilder<String> get searchIndex =>
       _$this._searchIndex ??= new ListBuilder<String>();
@@ -482,6 +661,12 @@ class CompanyBuilder implements Builder<Company, CompanyBuilder> {
       _openHour = $v.openHour;
       _closeHour = $v.closeHour;
       _city = $v.city;
+      _paymentMethods = $v.paymentMethods.toBuilder();
+      _deliveryOptions = $v.deliveryOptions.toBuilder();
+      _address = $v.address;
+      _deliveryFee = $v.deliveryFee;
+      _deliveryThreshold = $v.deliveryThreshold;
+      _deliveryFeeThreshold = $v.deliveryFeeThreshold;
       _searchIndex = $v.searchIndex.toBuilder();
       _$v = null;
     }
@@ -517,10 +702,22 @@ class CompanyBuilder implements Builder<Company, CompanyBuilder> {
                   closeHour, 'Company', 'closeHour'),
               city: BuiltValueNullFieldError.checkNotNull(
                   city, 'Company', 'city'),
+              paymentMethods: paymentMethods.build(),
+              deliveryOptions: deliveryOptions.build(),
+              address: BuiltValueNullFieldError.checkNotNull(
+                  address, 'Company', 'address'),
+              deliveryFee: deliveryFee,
+              deliveryThreshold: deliveryThreshold,
+              deliveryFeeThreshold: deliveryFeeThreshold,
               searchIndex: searchIndex.build());
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'paymentMethods';
+        paymentMethods.build();
+        _$failedField = 'deliveryOptions';
+        deliveryOptions.build();
+
         _$failedField = 'searchIndex';
         searchIndex.build();
       } catch (e) {
