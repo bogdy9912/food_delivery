@@ -72,9 +72,9 @@ AuthState _updateCart(AuthState state, UpdateCart$ action) {
         // eroare
         // ar trb sa fac si pt cazul in care ajunge quantity la 0? si sa fac clear la product? sau fac din UI sa fie minim 1bucs
       } else {
-        if (b.cart.items[index].quantity > 0) {
+        if (b.cart.items[index].quantity > 1) {
           b.cart.items[index] = b.cart.items[index].rebuild((CartItemBuilder b) => b.quantity = b.quantity! - 1);
-        } else {
+        } else{
           b.cart.items.removeWhere((CartItem item) => item.id == action.remove!.id);
         }
       }

@@ -153,8 +153,8 @@ class _SelectAddressPage2State extends State<SelectAddressPage2> {
                         padding: const EdgeInsets.symmetric(horizontal: 8),
                         child: TextFormField(
                           initialValue: _name,
-                          decoration: const InputDecoration(
-                            labelStyle: TextStyle(color: Colors.brown, fontWeight: FontWeight.bold),
+                          decoration: InputDecoration(
+                            labelStyle: TextStyle(color: Theme.of(context).accentColor, fontWeight: FontWeight.bold),
                             labelText: 'Persoana contact',
                             hintText: 'Nume Prenume',
 //                      fillColor: Color(0xffecebeb),
@@ -183,8 +183,8 @@ class _SelectAddressPage2State extends State<SelectAddressPage2> {
                         padding: const EdgeInsets.symmetric(horizontal: 8),
                         child: TextFormField(
                           initialValue: _telephone,
-                          decoration: const InputDecoration(
-                            labelStyle: TextStyle(color: Colors.brown, fontWeight: FontWeight.bold),
+                          decoration: InputDecoration(
+                            labelStyle: TextStyle(color: Theme.of(context).accentColor, fontWeight: FontWeight.bold),
                             labelText: 'Telefon',
                             hintText: '',
 //                      fillColor: Color(0xffecebeb),
@@ -214,8 +214,8 @@ class _SelectAddressPage2State extends State<SelectAddressPage2> {
                         padding: const EdgeInsets.symmetric(horizontal: 8),
                         child: TextFormField(
                           initialValue: _address,
-                          decoration: const InputDecoration(
-                            labelStyle: TextStyle(color: Colors.brown, fontWeight: FontWeight.bold),
+                          decoration: InputDecoration(
+                            labelStyle: TextStyle(color: Theme.of(context).accentColor, fontWeight: FontWeight.bold),
                             labelText: 'Adresa livrare',
                             hintText: '',
 //                      fillColor: Color(0xffecebeb),

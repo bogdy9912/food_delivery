@@ -19,7 +19,7 @@ class MeniuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return UserContainer(
-      builder:(BuildContext context, AppUser? currentUser) => CartContainer(
+      builder: (BuildContext context, AppUser? currentUser) => CartContainer(
         builder: (BuildContext context, Cart? cart) {
           return MeniuContainer(
             builder: (BuildContext context, Meniu? meniu) => Scaffold(
@@ -61,12 +61,13 @@ class MeniuPage extends StatelessWidget {
                   FloatingActionButton(
                     child: Icon(cart == null ? Icons.shopping_basket_outlined : Icons.shopping_basket),
                     onPressed: () {
-                      Navigator.pushNamed(context, AppRoutes.cart2);
                       StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(companyId: company!.id));
-                      StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(address: currentUser!.defaultAddress));
+                      StoreProvider.of<AppState>(context)
+                          .dispatch(UpdateOrderInfo(address: currentUser!.defaultAddress));
+                      Navigator.pushNamed(context, AppRoutes.cart2, arguments: company);
                     },
                   ),
-                  if (cart != null)
+                  if (cart != null && cart.totalProducts > 0)
                     Container(
                       child: Text(
                         '${cart.totalProducts}',

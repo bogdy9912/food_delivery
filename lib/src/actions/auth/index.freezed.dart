@@ -2261,7 +2261,7 @@ abstract class ForgotPasswordError implements ForgotPassword, ErrorAction {
 class _$UpdateCartTearOff {
   const _$UpdateCartTearOff();
 
-  UpdateCart$ call({Dish? add, Dish? remove, Dish? clearItem}) {
+  UpdateCart$ call({CartItem? add, CartItem? remove, CartItem? clearItem}) {
     return UpdateCart$(
       add: add,
       remove: remove,
@@ -2275,9 +2275,9 @@ const $UpdateCart = _$UpdateCartTearOff();
 
 /// @nodoc
 mixin _$UpdateCart {
-  Dish? get add => throw _privateConstructorUsedError;
-  Dish? get remove => throw _privateConstructorUsedError;
-  Dish? get clearItem => throw _privateConstructorUsedError;
+  CartItem? get add => throw _privateConstructorUsedError;
+  CartItem? get remove => throw _privateConstructorUsedError;
+  CartItem? get clearItem => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UpdateCartCopyWith<UpdateCart> get copyWith =>
@@ -2289,7 +2289,7 @@ abstract class $UpdateCartCopyWith<$Res> {
   factory $UpdateCartCopyWith(
           UpdateCart value, $Res Function(UpdateCart) then) =
       _$UpdateCartCopyWithImpl<$Res>;
-  $Res call({Dish? add, Dish? remove, Dish? clearItem});
+  $Res call({CartItem? add, CartItem? remove, CartItem? clearItem});
 }
 
 /// @nodoc
@@ -2310,15 +2310,15 @@ class _$UpdateCartCopyWithImpl<$Res> implements $UpdateCartCopyWith<$Res> {
       add: add == freezed
           ? _value.add
           : add // ignore: cast_nullable_to_non_nullable
-              as Dish?,
+              as CartItem?,
       remove: remove == freezed
           ? _value.remove
           : remove // ignore: cast_nullable_to_non_nullable
-              as Dish?,
+              as CartItem?,
       clearItem: clearItem == freezed
           ? _value.clearItem
           : clearItem // ignore: cast_nullable_to_non_nullable
-              as Dish?,
+              as CartItem?,
     ));
   }
 }
@@ -2329,7 +2329,7 @@ abstract class $UpdateCart$CopyWith<$Res> implements $UpdateCartCopyWith<$Res> {
           UpdateCart$ value, $Res Function(UpdateCart$) then) =
       _$UpdateCart$CopyWithImpl<$Res>;
   @override
-  $Res call({Dish? add, Dish? remove, Dish? clearItem});
+  $Res call({CartItem? add, CartItem? remove, CartItem? clearItem});
 }
 
 /// @nodoc
@@ -2352,15 +2352,15 @@ class _$UpdateCart$CopyWithImpl<$Res> extends _$UpdateCartCopyWithImpl<$Res>
       add: add == freezed
           ? _value.add
           : add // ignore: cast_nullable_to_non_nullable
-              as Dish?,
+              as CartItem?,
       remove: remove == freezed
           ? _value.remove
           : remove // ignore: cast_nullable_to_non_nullable
-              as Dish?,
+              as CartItem?,
       clearItem: clearItem == freezed
           ? _value.clearItem
           : clearItem // ignore: cast_nullable_to_non_nullable
-              as Dish?,
+              as CartItem?,
     ));
   }
 }
@@ -2370,11 +2370,11 @@ class _$UpdateCart$ implements UpdateCart$ {
   const _$UpdateCart$({this.add, this.remove, this.clearItem});
 
   @override
-  final Dish? add;
+  final CartItem? add;
   @override
-  final Dish? remove;
+  final CartItem? remove;
   @override
-  final Dish? clearItem;
+  final CartItem? clearItem;
 
   @override
   String toString() {
@@ -2408,15 +2408,15 @@ class _$UpdateCart$ implements UpdateCart$ {
 }
 
 abstract class UpdateCart$ implements UpdateCart {
-  const factory UpdateCart$({Dish? add, Dish? remove, Dish? clearItem}) =
-      _$UpdateCart$;
+  const factory UpdateCart$(
+      {CartItem? add, CartItem? remove, CartItem? clearItem}) = _$UpdateCart$;
 
   @override
-  Dish? get add => throw _privateConstructorUsedError;
+  CartItem? get add => throw _privateConstructorUsedError;
   @override
-  Dish? get remove => throw _privateConstructorUsedError;
+  CartItem? get remove => throw _privateConstructorUsedError;
   @override
-  Dish? get clearItem => throw _privateConstructorUsedError;
+  CartItem? get clearItem => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   $UpdateCart$CopyWith<UpdateCart$> get copyWith =>

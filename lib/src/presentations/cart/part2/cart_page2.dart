@@ -2,16 +2,26 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/containers/auth/cart_container.dart';
 import 'package:food_delivery/src/containers/auth/user_container.dart';
 import 'package:food_delivery/src/containers/company/companies_container.dart';
 import 'package:food_delivery/src/containers/orders/order_info_container.dart';
 import 'package:food_delivery/src/models/index.dart';
+import 'package:food_delivery/src/presentations/cart/cart_widget.dart';
 import 'package:food_delivery/src/presentations/widgets/select_address_page2.dart';
 
-class CartPage2 extends StatelessWidget {
-  CartPage2();
+class CartPage2 extends StatefulWidget {
+  const CartPage2(this.company);
 
+  final Company? company;
+
+  @override
+  _CartPage2State createState() => _CartPage2State();
+}
+
+class _CartPage2State extends State<CartPage2> {
   late double total;
 
   @override
@@ -20,15 +30,16 @@ class CartPage2 extends StatelessWidget {
       builder: (BuildContext context, OrderInfo info) {
         return CompaniesContainer(
           builder: (BuildContext context, List<Company> companies) {
-            final Company company = companies.where((Company element) => element.id == info.companyId).first;
+//            final Company? company = companies.where((Company element) => element.id == info.companyId).first;
             return UserContainer(
               builder: (BuildContext context, AppUser? currentUser) => CartContainer(
                 builder: (BuildContext context, Cart? cart) {
-                  if ((cart?.totalAmount ?? 0) > company.deliveryFeeThreshold!) {
+                  if ((cart?.totalAmount ?? 0) >= widget.company!.deliveryFeeThreshold!) {
                     total = cart!.totalAmount;
                   } else {
-                    total = cart?.totalAmount ?? 0 + company.deliveryFee!;
+                    total = (cart?.totalAmount ?? 0) + widget.company!.deliveryFee!;
                   }
+                  StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(products: cart?.items));
                   return Scaffold(
                     backgroundColor: Colors.white,
                     appBar: AppBar(
@@ -59,14 +70,14 @@ class CartPage2 extends StatelessWidget {
                             child: ListView.builder(
                                 itemCount: cart?.items.length ?? 0,
                                 itemBuilder: (BuildContext context, int index) {
-                                  final CartItem? item = cart?.items[0];
+                                  final CartItem? item = cart?.items[index];
                                   if (item == null) {
                                     return Container();
                                   }
-                                  return ListTile(
-                                    title: Text(item.name),
-                                    trailing: Text((item.quantity * item.price).toStringAsFixed(2) + ' lei'),
-                                    subtitle: Text('${item.quantity} x ${item.price} lei'),
+//                                    return Container();
+                                  return Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: CartWidget(item),
                                   );
                                 }),
                           ),
@@ -175,9 +186,9 @@ class CartPage2 extends StatelessWidget {
                                                 color: Colors.black54,
                                               ),
                                             ),
-                                            if ((cart?.totalAmount ?? 0) < company.deliveryFeeThreshold!)
+                                            if ((cart?.totalAmount ?? 0) < widget.company!.deliveryFeeThreshold!)
                                               Text(
-                                                '${company.deliveryFee} lei',
+                                                '${widget.company!.deliveryFee} lei',
                                               )
                                             else
                                               const Text(
@@ -203,20 +214,23 @@ class CartPage2 extends StatelessWidget {
                                     style: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
-//                        color: Theme.of(context).accentColor,
                                     ),
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16),
                                   child: ElevatedButton(
-                                    onPressed: () {},
                                     child: Container(
                                       width: double.infinity,
-//                        color: Colors.orange,
                                       height: 50,
                                       child: const Center(child: Text('Finalizare comanda')),
                                     ),
+                                    onPressed: () {
+                                      if (info.address?.address != null && info.products.isNotEmpty) {
+                                        print('face comanda');
+                                      } else
+                                        print('nu face comanda');
+                                    },
                                   ),
                                 ),
                               ],
