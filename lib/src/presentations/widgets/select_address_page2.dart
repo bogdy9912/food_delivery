@@ -38,7 +38,7 @@ class _SelectAddressPage2State extends State<SelectAddressPage2> {
       width: 200,
       child: selectingMode
           ? ListView.builder(
-              itemCount: widget.currentUser.addresses.length + 1,
+              itemCount: widget.currentUser.addresses.length + 2,
               itemBuilder: (BuildContext context, int index) {
                 if (index == 0) {
                   return OutlinedButton(
@@ -59,6 +59,13 @@ class _SelectAddressPage2State extends State<SelectAddressPage2> {
                       });
                     },
                   );
+                }
+                if (index == widget.currentUser.addresses.length + 1) {
+                  return TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('EXIT'));
                 }
                 final AddressPoint? address = widget.currentUser.addresses.values.toList()[index - 1];
                 if (address == widget.currentUser.defaultAddress) {
@@ -109,7 +116,10 @@ class _SelectAddressPage2State extends State<SelectAddressPage2> {
                 }
                 return Dismissible(
                   key: UniqueKey(),
-                  background: Container(color: Colors.red, child: const Icon(Icons.delete_outline_rounded),),
+                  background: Container(
+                    color: Colors.red,
+                    child: const Icon(Icons.delete_outline_rounded),
+                  ),
                   onDismissed: (DismissDirection direction) {
                     setState(() {
                       StoreProvider.of<AppState>(context, listen: false)

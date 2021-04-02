@@ -114,6 +114,15 @@ class _CartPage2State extends State<CartPage2> {
                                               ),
                                             ),
                                             content: SelectAddressPage2(currentUser: currentUser!),
+                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+//                                            contentPadding: ,
+//                                            actions: <TextButton>[
+//                                              TextButton(
+//                                                  onPressed: () {
+//                                                    Navigator.pop(context);
+//                                                  },
+//                                                  child: Text('EXIT'))
+//                                            ],
                                           ),
                                         );
                                       },
