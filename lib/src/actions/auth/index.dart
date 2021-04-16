@@ -17,3 +17,4 @@ part 'update_cart.dart';
 part 'update_profile_info.dart';
 part 'update_addresses.dart';
 part 'set_default_address.dart';
+part 'update_cart_item_mentions.dart';

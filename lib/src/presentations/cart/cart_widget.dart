@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:food_delivery/src/actions/auth/index.dart';
 import 'package:food_delivery/src/models/auth/index.dart';
+import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/widgets/cart_button.dart';
 
 class CartWidget extends StatelessWidget {
@@ -36,10 +39,43 @@ class CartWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
-                  '${item.mentions ?? 'Nu ai introdus nicio mentiune'} ',
-                  maxLines: 2,
-                  style: const TextStyle(color: Colors.grey),
+                InkWell(
+                  child: Text(
+                    '${item.mentions ?? 'Nu ai introdus nicio mentiune'} ',
+                    maxLines: 2,
+                    style: const TextStyle(color: Colors.grey),
+                  ),
+                  onTap: () {
+                    String? _mentions;
+                    showDialog<dynamic>(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: Text(item.name),
+                        content: TextFormField(
+                          initialValue: item.mentions,
+                          keyboardType: TextInputType.multiline,
+                          decoration: const InputDecoration(
+                            hintText: 'Tap to write',
+                          ),
+                          maxLines: 7,
+                          onChanged: (String value) {
+                            _mentions = value;
+                          },
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              StoreProvider.of<AppState>(context)
+                                  .dispatch(UpdateCartItemMentions(id: item.id, mentions: _mentions));
+
+                              Navigator.pop(context);
+                            },
+                            child: const Text('save'),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

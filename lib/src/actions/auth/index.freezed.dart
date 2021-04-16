@@ -3987,3 +3987,156 @@ abstract class SetDefaultAddressError
   $SetDefaultAddressErrorCopyWith<SetDefaultAddressError> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+class _$UpdateCartItemMentionsTearOff {
+  const _$UpdateCartItemMentionsTearOff();
+
+  UpdateCartItemMentions$ call(
+      {required String id, required String? mentions}) {
+    return UpdateCartItemMentions$(
+      id: id,
+      mentions: mentions,
+    );
+  }
+}
+
+/// @nodoc
+const $UpdateCartItemMentions = _$UpdateCartItemMentionsTearOff();
+
+/// @nodoc
+mixin _$UpdateCartItemMentions {
+  String get id => throw _privateConstructorUsedError;
+  String? get mentions => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UpdateCartItemMentionsCopyWith<UpdateCartItemMentions> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UpdateCartItemMentionsCopyWith<$Res> {
+  factory $UpdateCartItemMentionsCopyWith(UpdateCartItemMentions value,
+          $Res Function(UpdateCartItemMentions) then) =
+      _$UpdateCartItemMentionsCopyWithImpl<$Res>;
+  $Res call({String id, String? mentions});
+}
+
+/// @nodoc
+class _$UpdateCartItemMentionsCopyWithImpl<$Res>
+    implements $UpdateCartItemMentionsCopyWith<$Res> {
+  _$UpdateCartItemMentionsCopyWithImpl(this._value, this._then);
+
+  final UpdateCartItemMentions _value;
+  // ignore: unused_field
+  final $Res Function(UpdateCartItemMentions) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? mentions = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      mentions: mentions == freezed
+          ? _value.mentions
+          : mentions // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class $UpdateCartItemMentions$CopyWith<$Res>
+    implements $UpdateCartItemMentionsCopyWith<$Res> {
+  factory $UpdateCartItemMentions$CopyWith(UpdateCartItemMentions$ value,
+          $Res Function(UpdateCartItemMentions$) then) =
+      _$UpdateCartItemMentions$CopyWithImpl<$Res>;
+  @override
+  $Res call({String id, String? mentions});
+}
+
+/// @nodoc
+class _$UpdateCartItemMentions$CopyWithImpl<$Res>
+    extends _$UpdateCartItemMentionsCopyWithImpl<$Res>
+    implements $UpdateCartItemMentions$CopyWith<$Res> {
+  _$UpdateCartItemMentions$CopyWithImpl(UpdateCartItemMentions$ _value,
+      $Res Function(UpdateCartItemMentions$) _then)
+      : super(_value, (v) => _then(v as UpdateCartItemMentions$));
+
+  @override
+  UpdateCartItemMentions$ get _value => super._value as UpdateCartItemMentions$;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? mentions = freezed,
+  }) {
+    return _then(UpdateCartItemMentions$(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      mentions: mentions == freezed
+          ? _value.mentions
+          : mentions // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+class _$UpdateCartItemMentions$ implements UpdateCartItemMentions$ {
+  const _$UpdateCartItemMentions$({required this.id, required this.mentions});
+
+  @override
+  final String id;
+  @override
+  final String? mentions;
+
+  @override
+  String toString() {
+    return 'UpdateCartItemMentions(id: $id, mentions: $mentions)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is UpdateCartItemMentions$ &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.mentions, mentions) ||
+                const DeepCollectionEquality()
+                    .equals(other.mentions, mentions)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(mentions);
+
+  @JsonKey(ignore: true)
+  @override
+  $UpdateCartItemMentions$CopyWith<UpdateCartItemMentions$> get copyWith =>
+      _$UpdateCartItemMentions$CopyWithImpl<UpdateCartItemMentions$>(
+          this, _$identity);
+}
+
+abstract class UpdateCartItemMentions$ implements UpdateCartItemMentions {
+  const factory UpdateCartItemMentions$(
+      {required String id,
+      required String? mentions}) = _$UpdateCartItemMentions$;
+
+  @override
+  String get id => throw _privateConstructorUsedError;
+  @override
+  String? get mentions => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  $UpdateCartItemMentions$CopyWith<UpdateCartItemMentions$> get copyWith =>
+      throw _privateConstructorUsedError;
+}

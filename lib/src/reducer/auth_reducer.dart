@@ -12,6 +12,7 @@ Reducer<AuthState> authReducer = combineReducers(<Reducer<AuthState>>[
   TypedReducer<AuthState, UpdateProfileInfoSuccessful>(_updateProfileInfoSuccessful),
   TypedReducer<AuthState, UpdateAddressesSuccessful>(_updateAddressesSuccessful),
   TypedReducer<AuthState, SetDefaultAddressSuccessful>(_setDefaultAddressSuccessful),
+  TypedReducer<AuthState, UpdateCartItemMentions$>(_updateCartItemMentions),
 //  TypedReducer<AuthState, SetDefaultAddressError>(_SetDefaultAddressError),
 //  TypedReducer<AuthState, SetDefaultAddress$>(_setDefaultAddress$),
 ]);
@@ -74,7 +75,7 @@ AuthState _updateCart(AuthState state, UpdateCart$ action) {
       } else {
         if (b.cart.items[index].quantity > 1) {
           b.cart.items[index] = b.cart.items[index].rebuild((CartItemBuilder b) => b.quantity = b.quantity! - 1);
-        } else{
+        } else {
           b.cart.items.removeWhere((CartItem item) => item.id == action.remove!.id);
         }
       }
@@ -108,7 +109,9 @@ AuthState _updateAddressesSuccessful(AuthState state, UpdateAddressesSuccessful 
 
 //      b.user.addresses.addAll(<String, AddressPoint>{action.add!.id!: action.add!});
     } else if (action.remove != null) {
+      print('prim: ${b.user.addresses.build()}');
       b.user.addresses.remove(action.remove!.id);
+      print('second: ${b.user.addresses.build()}');
     } else if (action.edit != null) {
       b.user.addresses.updateValue(action.edit!.id!, (_) => action.edit!);
     }
@@ -126,3 +129,9 @@ AuthState _setDefaultAddressSuccessful(AuthState state, SetDefaultAddressSuccess
 //  return state.rebuild((AuthStateBuilder b) => b.user.defaultAddress = action.address.toBuilder());
 //}
 
+AuthState _updateCartItemMentions(AuthState state, UpdateCartItemMentions$ action) {
+  return state.rebuild((AuthStateBuilder b) {
+    final int index = b.cart.items.build().indexWhere((CartItem item) => item.id == action.id);
+    b.cart.items[index] = b.cart.items[index].rebuild((CartItemBuilder e) => e.mentions = action.mentions);
+  });
+}
