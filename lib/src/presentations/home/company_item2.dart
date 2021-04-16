@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:food_delivery/src/actions/auth/index.dart';
 import 'package:food_delivery/src/actions/company/index.dart';
 import 'package:food_delivery/src/models/company/index.dart';
 import 'package:food_delivery/src/models/index.dart';
@@ -56,6 +57,7 @@ class CompanyItem2 extends StatelessWidget {
       ),
       onTap: () {
         StoreProvider.of<AppState>(context).dispatch(GetMeniu(companyId: company.id));
+        StoreProvider.of<AppState>(context).dispatch(const UpdateCart());
         Navigator.pushNamed(context, AppRoutes.meniu, arguments: company);
       },
     );
