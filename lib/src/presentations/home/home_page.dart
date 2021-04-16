@@ -8,6 +8,8 @@ import 'package:food_delivery/src/presentations/app_routes.dart';
 import 'package:food_delivery/src/presentations/home/app_drawer.dart';
 import 'package:food_delivery/src/presentations/home/company_item.dart';
 
+import 'company_item2.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage();
 
@@ -75,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                     return Center(
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: CompanyItem(company: companies[index]),
+                        child: CompanyItem2(company: companies[index]),
                       ),
                     );
                   },
