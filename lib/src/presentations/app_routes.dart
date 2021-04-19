@@ -14,7 +14,7 @@ import 'package:food_delivery/src/presentations/sign_up/set_name_page.dart';
 import 'package:food_delivery/src/presentations/sign_up/sign_up_page.dart';
 import 'package:food_delivery/src/presentations/widgets/add_address_page.dart';
 import 'package:food_delivery/src/presentations/widgets/select_address_page.dart';
-import 'package:food_delivery/src/presentations/widgets/select_address_page2.dart';
+
 
 import 'home.dart';
 import 'others/add_company.dart';

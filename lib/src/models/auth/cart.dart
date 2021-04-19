@@ -25,7 +25,7 @@ abstract class Cart implements Built<Cart, CartBuilder> {
 }
 
 abstract class CartItem implements Built<CartItem, CartItemBuilder> {
-  factory CartItem({required String id, required String name, required int quantity, required double price, required String? description, String? mentions }) {
+  factory CartItem({required String id, required String name, required int quantity, required double price, required String? description, String mentions = '' }) {
     return _$CartItem((CartItemBuilder b) {
       b
         ..id = id
@@ -51,7 +51,7 @@ abstract class CartItem implements Built<CartItem, CartItemBuilder> {
 
   String? get description;
 
-  String? get mentions;
+  String get mentions;
 
   Map<String, dynamic>? get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>?;
 

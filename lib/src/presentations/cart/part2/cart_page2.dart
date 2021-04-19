@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:food_delivery/src/actions/index.dart';
 import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/containers/auth/cart_container.dart';
 import 'package:food_delivery/src/containers/auth/user_container.dart';
@@ -23,6 +24,12 @@ class CartPage2 extends StatefulWidget {
 
 class _CartPage2State extends State<CartPage2> {
   late double total;
+
+  void _response(AppAction action){
+    if (action is CreateOrderSuccessful){
+      Navigator.pop(context);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -237,6 +244,12 @@ class _CartPage2State extends State<CartPage2> {
                                     onPressed: () {
                                       if (info.address?.address != null && info.products.isNotEmpty) {
                                         print('face comanda');
+                                        StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(total: total));
+
+                                        StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(companyId: widget.company!.id));
+                                        StoreProvider.of<AppState>(context).dispatch(const UpdateOrderInfo(methodOfPayment: PaymentMethod.card));
+                                        StoreProvider.of<AppState>(context).dispatch(CreateOrder(response: _response));
+
                                       } else
                                         print('nu face comanda');
                                     },

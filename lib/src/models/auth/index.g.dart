@@ -319,19 +319,15 @@ class _$CartItemSerializer implements StructuredSerializer<CartItem> {
       'price',
       serializers.serialize(object.price,
           specifiedType: const FullType(double)),
+      'mentions',
+      serializers.serialize(object.mentions,
+          specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.description;
     if (value != null) {
       result
         ..add('description')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.mentions;
-    if (value != null) {
-      result
-        ..add('mentions')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -982,7 +978,7 @@ class _$CartItem extends CartItem {
   @override
   final String? description;
   @override
-  final String? mentions;
+  final String mentions;
 
   factory _$CartItem([void Function(CartItemBuilder)? updates]) =>
       (new CartItemBuilder()..update(updates)).build();
@@ -993,12 +989,13 @@ class _$CartItem extends CartItem {
       required this.quantity,
       required this.price,
       this.description,
-      this.mentions})
+      required this.mentions})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, 'CartItem', 'id');
     BuiltValueNullFieldError.checkNotNull(name, 'CartItem', 'name');
     BuiltValueNullFieldError.checkNotNull(quantity, 'CartItem', 'quantity');
     BuiltValueNullFieldError.checkNotNull(price, 'CartItem', 'price');
+    BuiltValueNullFieldError.checkNotNull(mentions, 'CartItem', 'mentions');
   }
 
   @override
@@ -1109,7 +1106,8 @@ class CartItemBuilder implements Builder<CartItem, CartItemBuilder> {
             price: BuiltValueNullFieldError.checkNotNull(
                 price, 'CartItem', 'price'),
             description: description,
-            mentions: mentions);
+            mentions: BuiltValueNullFieldError.checkNotNull(
+                mentions, 'CartItem', 'mentions'));
     replace(_$result);
     return _$result;
   }

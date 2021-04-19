@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/actions/company/index.dart';
@@ -30,8 +29,45 @@ class MeniuPage extends StatelessWidget {
                 leading: IconButton(
                   icon: const Icon(Icons.arrow_back),
                   onPressed: () {
-                    Navigator.pop(context);
-                    StoreProvider.of<AppState>(context).dispatch(const GetMeniu.event());
+                    if (cart!.items.isEmpty){
+                      Navigator.popUntil(
+                        context,
+                            (Route<dynamic> route) => route.isFirst,
+                      );
+                      Navigator.pushReplacementNamed(context, AppRoutes.home);
+                      StoreProvider.of<AppState>(context).dispatch(const GetMeniu.event());
+                    }else {
+                      showDialog<AlertDialog>(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          content: Container(
+                            height: 150,
+                            child: const Center(
+                              child: Text('Daca iesiti o sa pierdeti toate produsele din cos!'),
+                            ),
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.popUntil(
+                                  context,
+                                      (Route<dynamic> route) => route.isFirst,
+                                );
+                                Navigator.pushReplacementNamed(context, AppRoutes.home);
+                                StoreProvider.of<AppState>(context).dispatch(const GetMeniu.event());
+                              },
+                              child: const Text('Iesi oricum'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text('Cancel'),
+                            ),
+                          ],
+                        ),
+                      );
+                    }
                   },
                 ),
               ),
