@@ -3,7 +3,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/actions/company/index.dart';
 import 'package:food_delivery/src/containers/company/search_result_container.dart';
 import 'package:food_delivery/src/models/index.dart';
-import 'package:food_delivery/src/presentations/home/company_item.dart';
+
+import 'package:food_delivery/src/presentations/home/company_item2.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -16,11 +17,11 @@ class SearchPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         title: TextField(
           autofocus: true,
-          style: const TextStyle(color: Colors.white, fontSize: 18),
+//          style: const TextStyle(color: Colors.white, fontSize: 18),
           decoration: const InputDecoration(
               hintText: 'Cauta',
-              focusColor: Colors.white,
-              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white))),
+//              focusColor: Colors.white,
+              focusedBorder: UnderlineInputBorder(borderSide: BorderSide.none)),
           keyboardType: TextInputType.name,
           textInputAction: TextInputAction.done,
           onChanged: (String value) {
@@ -38,7 +39,7 @@ class SearchPage extends StatelessWidget {
               return Center(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: CompanyItem(company: companies[index]),
+                  child: CompanyItem2(company: companies[index]),
                 ),
               );
             },

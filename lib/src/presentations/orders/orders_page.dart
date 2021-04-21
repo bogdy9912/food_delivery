@@ -7,15 +7,24 @@ class OrdersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OrdersContainer(
-      builder:(BuildContext context, List<Order> orders) => Scaffold(
-        appBar: AppBar(),
+      builder: (BuildContext context, List<Order> orders) => Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+        ),
         body: ListView.separated(
-            itemCount: orders.length,
-            padding: EdgeInsets.all(12),
-            separatorBuilder: (context, index) => Divider(
-              color: Colors.black,
-            ),
-            itemBuilder: (BuildContext context, int index) => OrderItem(orders[index])),
+          itemCount: orders.length+1,
+          padding: const EdgeInsets.all(16),
+          separatorBuilder: (BuildContext context, int index) => const Divider(
+            color: Colors.black,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            if (index == 0){
+              return const Text('Comenzile \nmele', style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700,),);
+            }
+            return OrderItem(orders[index-1]);
+          },
+        ),
       ),
     );
   }

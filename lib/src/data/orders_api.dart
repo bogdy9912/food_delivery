@@ -38,7 +38,7 @@ class OrdersApi {
         ..address = addressPoint!.toBuilder()
         ..products = ListBuilder<CartItem>(products)
         ..instructions = instructions
-        ..date = DateFormat('yyyy-MM-dd - kk:mm:ss').format(DateTime.now());
+        ..date = DateFormat('dd-MMM-yyyy - kk:mm:ss').format(DateTime.now());
     });
 
     _firestore.doc('users/$uid/orders/${order.id}').set(order.json);

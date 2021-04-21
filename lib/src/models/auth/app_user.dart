@@ -10,19 +10,18 @@ abstract class AppUser implements Built<AppUser, AppUserBuilder> {
   String get uid;
 
   String get email;
-
-
+  
   String get firstName;
-
-
+  
   String get lastName;
-
-
+  
   String get telephone;
 
   BuiltMap<String, AddressPoint> get addresses;
 
   AddressPoint? get defaultAddress;
+  
+//  AddressPoint? get defaultPaymentMethod;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

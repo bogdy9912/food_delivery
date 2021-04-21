@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/src/containers/company/companies_container.dart';
 import 'package:food_delivery/src/models/index.dart';
@@ -9,6 +10,8 @@ class OrderItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final String payment = order.methodOfPayment == PaymentMethod.card? 'Credit Card' : 'Numerar';
     return CompaniesContainer(
       builder: (BuildContext context, List<Company> companies) => Container(
         height: 150,
@@ -35,18 +38,18 @@ class OrderItem extends StatelessWidget {
                         'Total',
                         style: TextStyle(color: Colors.black38),
                       ),
-                      Text(order.total.toString()),
+                      Text(order.total.toString() + ' RON', style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700),),
                       const Text(
                         'Metoda de plata',
                         style: TextStyle(color: Colors.black38),
                       ),
-                      Text(order.methodOfPayment.toString()),
+                      Text(payment, style: const TextStyle(fontWeight: FontWeight.w500)),
                     ],
                   ),
                 ),
                 Container(
                   height: 40,
-                  child: const VerticalDivider(),
+                  child: const VerticalDivider(thickness: 2),
                 ),
                 Expanded(
                   child: Column(
@@ -55,7 +58,7 @@ class OrderItem extends StatelessWidget {
                         'Data',
                         style: TextStyle(color: Colors.black38),
                       ),
-                      Text(order.date.substring(0,10)),
+                      Text(order.date.substring(0,11)),
                     ],
                   ),
                 ),

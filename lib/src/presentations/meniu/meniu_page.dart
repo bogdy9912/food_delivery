@@ -23,20 +23,21 @@ class MeniuPage extends StatelessWidget {
           return MeniuContainer(
             builder: (BuildContext context, Meniu? meniu) => Scaffold(
               appBar: AppBar(
-                title: Text(company!.name),
+//                title: Text(company!.name),
                 centerTitle: true,
                 elevation: 0,
+                backgroundColor: Colors.transparent,
                 leading: IconButton(
                   icon: const Icon(Icons.arrow_back),
                   onPressed: () {
-                    if (cart!.items.isEmpty){
+                    if (cart!.items.isEmpty) {
                       Navigator.popUntil(
                         context,
-                            (Route<dynamic> route) => route.isFirst,
+                        (Route<dynamic> route) => route.isFirst,
                       );
                       Navigator.pushReplacementNamed(context, AppRoutes.home);
                       StoreProvider.of<AppState>(context).dispatch(const GetMeniu.event());
-                    }else {
+                    } else {
                       showDialog<AlertDialog>(
                         context: context,
                         builder: (BuildContext context) => AlertDialog(
@@ -51,7 +52,7 @@ class MeniuPage extends StatelessWidget {
                               onPressed: () {
                                 Navigator.popUntil(
                                   context,
-                                      (Route<dynamic> route) => route.isFirst,
+                                  (Route<dynamic> route) => route.isFirst,
                                 );
                                 Navigator.pushReplacementNamed(context, AppRoutes.home);
                                 StoreProvider.of<AppState>(context).dispatch(const GetMeniu.event());
@@ -74,9 +75,25 @@ class MeniuPage extends StatelessWidget {
               body: meniu == null
                   ? const Center(child: Text('Nu exista un meniu'))
                   : ListView.builder(
-                      itemCount: meniu.items.length,
+                      padding: const EdgeInsets.all(16),
+                      itemCount: meniu.items.length + 1,
                       itemBuilder: (BuildContext context, int index) {
-                        final MeniuItem item = meniu.items[index];
+                        if (index == 0) {
+                          return Column(
+                            children: <Widget>[
+                              Text(
+                                company!.name,
+                                style: const TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const SizedBox(height: 16),
+                            ],
+                          );
+                        }
+
+                        final MeniuItem item = meniu.items[index - 1];
                         return Column(
                           children: <Widget>[
                             ListTile(
@@ -100,6 +117,8 @@ class MeniuPage extends StatelessWidget {
                       StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(companyId: company!.id));
                       StoreProvider.of<AppState>(context)
                           .dispatch(UpdateOrderInfo(address: currentUser!.defaultAddress));
+//                      StoreProvider.of<AppState>(context)
+//                          .dispatch(UpdateOrderInfo(methodOfPayment: currentUser.defaultPaymentMethod));
                       Navigator.pushNamed(context, AppRoutes.cart2, arguments: company);
                     },
                   ),

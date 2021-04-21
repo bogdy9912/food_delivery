@@ -32,6 +32,7 @@ class _ProfilePageState extends State<ProfilePage> {
             elevation: 0,
             title: const Text('profil'),
             centerTitle: true,
+            backgroundColor: Colors.transparent,
             actions: <Widget>[
               TextButton(
                 child: const Text(

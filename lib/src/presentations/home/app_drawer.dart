@@ -12,35 +12,34 @@ class AppDrawer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         ListTile(
-          title: const Text('home'),
-          leading: const Icon(Icons.home_filled),
-          onTap: () {},
-        ),
-        ListTile(
           title: const Text('profil'),
           leading: const Icon(Icons.person_outline),
           onTap: () {
             Navigator.pushNamed(context, AppRoutes.profile);
-
           },
         ),
         ListTile(
-          title: const Text('favorite'),
+          title: const Text('Comenzile mele'),
           leading: const Icon(Icons.view_list_sharp),
           onTap: () {
             StoreProvider.of<AppState>(context).dispatch(const GetOrders());
             Navigator.pushNamed(context, AppRoutes.orders);
           },
         ),
+//        ListTile(
+//          title: const Text('Oferte'),
+//          leading: const Icon(Icons.sticky_note_2_outlined),
+//          onTap: () {},
+//        ),
+//        ListTile(
+//          title: const Text('add company'),
+//          leading: const Icon(Icons.add),
+//          onTap: () {
+//            Navigator.pushNamed(context, AppRoutes.addCompany);
+//          },
+//        ),
         ListTile(
-          title: const Text('add company'),
-          leading: const Icon(Icons.add),
-          onTap: () {
-            Navigator.pushNamed(context, AppRoutes.addCompany);
-          },
-        ),
-        ListTile(
-          title: const Text('Iesire'),
+          title: const Text('Delogheaza-te'),
           leading: const Icon(Icons.logout),
           onTap: () {
             StoreProvider.of<AppState>(context).dispatch(const SignOut());

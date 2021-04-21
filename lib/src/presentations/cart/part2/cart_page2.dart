@@ -73,7 +73,7 @@ class _CartPage2State extends State<CartPage2> {
                   return Scaffold(
                     backgroundColor: Colors.white,
                     appBar: AppBar(
-                      title: const Text('check out'),
+                      title: const Text('finalizare comanda'),
                       centerTitle: true,
                       elevation: 0,
                       backgroundColor: Theme.of(context).primaryColor,
@@ -192,7 +192,31 @@ class _CartPage2State extends State<CartPage2> {
                                           ),
                                           IconButton(
                                             icon: const Icon(Icons.credit_card),
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              showDialog<dynamic>(
+                                                context: context,
+                                                builder: (BuildContext context) => AlertDialog(
+                                                  title: Center(
+                                                    child: Text(
+                                                      'Adrese',
+                                                      style: TextStyle(
+                                                        color: Theme.of(context).accentColor,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  content: SelectAddressPage2(currentUser: currentUser!),
+                                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+//                                            contentPadding: ,
+//                                            actions: <TextButton>[
+//                                              TextButton(
+//                                                  onPressed: () {
+//                                                    Navigator.pop(context);
+//                                                  },
+//                                                  child: Text('EXIT'))
+//                                            ],
+                                                ),
+                                              );
+                                            },
                                           ),
                                         ],
                                       ),
