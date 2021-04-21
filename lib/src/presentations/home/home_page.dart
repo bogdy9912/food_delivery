@@ -29,10 +29,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Calarasi', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14),),
-        centerTitle: true,
+//        title: const Text('Calarasi', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 14),),
+//        centerTitle: true,
         elevation: 0,
-//        backgroundColor: Colors.transparent,
+
+        backgroundColor: Colors.transparent,
       ),
       drawer: Drawer(
         child: AppDrawer(),

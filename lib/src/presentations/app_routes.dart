@@ -8,6 +8,7 @@ import 'package:food_delivery/src/presentations/cart/part2/cart_page2.dart';
 import 'package:food_delivery/src/presentations/checkout/checkout_page.dart';
 import 'package:food_delivery/src/presentations/checkout/payment_page.dart';
 import 'package:food_delivery/src/presentations/meniu/meniu_page.dart';
+import 'package:food_delivery/src/presentations/orders/orders_page.dart';
 import 'package:food_delivery/src/presentations/profile/profile_page.dart';
 import 'package:food_delivery/src/presentations/search/search_page.dart';
 import 'package:food_delivery/src/presentations/sign_up/set_name_page.dart';
@@ -36,6 +37,7 @@ class AppRoutes{
   static String selectAddressPage = '/selectAddressPage';
   static String paymentPage = '/paymentPage';
   static String cart2 = '/cart2';
+  static String orders = '/orders';
   static Map<String, WidgetBuilder> routes= <String, WidgetBuilder>{
     home: (BuildContext context) => const Home(),
     signUp: (BuildContext context) => const SignUpPage(),
@@ -55,6 +57,7 @@ class AppRoutes{
     selectAddressPage: (BuildContext context) => const SelectAddressPage(),
 //    selectAddressPage2: (BuildContext context) => const SelectAddressPage2(),
     paymentPage: (BuildContext context) => const PaymentPage(),
+    orders: (BuildContext context) => OrdersPage(),
     cart2: (BuildContext context) {
       final Company? arg = ModalRoute.of(context)!.settings.arguments as Company?;
       return CartPage2(arg);

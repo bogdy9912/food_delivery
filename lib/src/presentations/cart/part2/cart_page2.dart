@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:food_delivery/src/actions/auth/index.dart';
 import 'package:food_delivery/src/actions/index.dart';
 import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/containers/auth/cart_container.dart';
@@ -10,6 +11,7 @@ import 'package:food_delivery/src/containers/auth/user_container.dart';
 import 'package:food_delivery/src/containers/company/companies_container.dart';
 import 'package:food_delivery/src/containers/orders/order_info_container.dart';
 import 'package:food_delivery/src/models/index.dart';
+import 'package:food_delivery/src/presentations/app_routes.dart';
 import 'package:food_delivery/src/presentations/cart/cart_widget.dart';
 import 'package:food_delivery/src/presentations/widgets/select_address_page2.dart';
 
@@ -25,11 +27,32 @@ class CartPage2 extends StatefulWidget {
 class _CartPage2State extends State<CartPage2> {
   late double total;
 
-  void _response(AppAction action){
-    if (action is CreateOrderSuccessful){
-      Navigator.pop(context);
+  void _response(AppAction action) {
+    if (action is CreateOrderError) {
+      showDialog<AlertDialog>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: const Text('Server error'),
+          actions: <Widget>[
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('CLOSE'))
+          ],
+        ),
+      );
+    } else {
+      StoreProvider.of<AppState>(context).dispatch(const UpdateCart());
+      Navigator.popUntil(
+        context,
+            (Route<dynamic> route) => route.isFirst,
+      );
+      Navigator.pushReplacementNamed(context, AppRoutes.home);
+      StoreProvider.of<AppState>(context).dispatch(const UpdateOrderInfo());
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
