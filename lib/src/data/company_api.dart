@@ -5,8 +5,7 @@ import 'package:food_delivery/src/models/company/index.dart';
 import 'search_index.dart';
 
 class CompanyApi {
-  CompanyApi({required FirebaseFirestore firestore})
-      : _firestore = firestore;
+  CompanyApi({required FirebaseFirestore firestore}) : _firestore = firestore;
 
   final FirebaseFirestore _firestore;
 
@@ -50,12 +49,10 @@ class CompanyApi {
   }
 
   Stream<Meniu> getMeniu(String companyId) {
-    print('data: $companyId');
     return _firestore
         .collection('companies/$companyId/meniu')
         .where('date', isEqualTo: 'now')
         .snapshots()
         .map((QuerySnapshot snapshot) => Meniu.fromJson(snapshot.docs.first.data()));
   }
-
 }
