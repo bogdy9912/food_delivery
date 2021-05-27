@@ -64,12 +64,15 @@ class _$OrderSerializer implements StructuredSerializer<Order> {
           specifiedType: const FullType(PaymentMethod)),
       'date',
       serializers.serialize(object.date, specifiedType: const FullType(String)),
+      'status',
+      serializers.serialize(object.status,
+          specifiedType: const FullType(StatusOrder)),
     ];
     Object? value;
-    value = object.instructions;
+    value = object.review;
     if (value != null) {
       result
-        ..add('instructions')
+        ..add('review')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -121,8 +124,12 @@ class _$OrderSerializer implements StructuredSerializer<Order> {
           result.date = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'instructions':
-          result.instructions = serializers.deserialize(value,
+        case 'status':
+          result.status = serializers.deserialize(value,
+              specifiedType: const FullType(StatusOrder)) as StatusOrder;
+          break;
+        case 'review':
+          result.review = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -315,7 +322,9 @@ class _$Order extends Order {
   @override
   final String date;
   @override
-  final String? instructions;
+  final StatusOrder status;
+  @override
+  final String? review;
 
   factory _$Order([void Function(OrderBuilder)? updates]) =>
       (new OrderBuilder()..update(updates)).build();
@@ -329,7 +338,8 @@ class _$Order extends Order {
       required this.total,
       required this.methodOfPayment,
       required this.date,
-      this.instructions})
+      required this.status,
+      this.review})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, 'Order', 'id');
     BuiltValueNullFieldError.checkNotNull(uid, 'Order', 'uid');
@@ -340,6 +350,7 @@ class _$Order extends Order {
     BuiltValueNullFieldError.checkNotNull(
         methodOfPayment, 'Order', 'methodOfPayment');
     BuiltValueNullFieldError.checkNotNull(date, 'Order', 'date');
+    BuiltValueNullFieldError.checkNotNull(status, 'Order', 'status');
   }
 
   @override
@@ -361,7 +372,8 @@ class _$Order extends Order {
         total == other.total &&
         methodOfPayment == other.methodOfPayment &&
         date == other.date &&
-        instructions == other.instructions;
+        status == other.status &&
+        review == other.review;
   }
 
   @override
@@ -372,14 +384,16 @@ class _$Order extends Order {
                 $jc(
                     $jc(
                         $jc(
-                            $jc($jc($jc(0, id.hashCode), uid.hashCode),
-                                companyId.hashCode),
-                            address.hashCode),
-                        products.hashCode),
-                    total.hashCode),
-                methodOfPayment.hashCode),
-            date.hashCode),
-        instructions.hashCode));
+                            $jc(
+                                $jc($jc($jc(0, id.hashCode), uid.hashCode),
+                                    companyId.hashCode),
+                                address.hashCode),
+                            products.hashCode),
+                        total.hashCode),
+                    methodOfPayment.hashCode),
+                date.hashCode),
+            status.hashCode),
+        review.hashCode));
   }
 
   @override
@@ -393,7 +407,8 @@ class _$Order extends Order {
           ..add('total', total)
           ..add('methodOfPayment', methodOfPayment)
           ..add('date', date)
-          ..add('instructions', instructions))
+          ..add('status', status)
+          ..add('review', review))
         .toString();
   }
 }
@@ -436,9 +451,13 @@ class OrderBuilder implements Builder<Order, OrderBuilder> {
   String? get date => _$this._date;
   set date(String? date) => _$this._date = date;
 
-  String? _instructions;
-  String? get instructions => _$this._instructions;
-  set instructions(String? instructions) => _$this._instructions = instructions;
+  StatusOrder? _status;
+  StatusOrder? get status => _$this._status;
+  set status(StatusOrder? status) => _$this._status = status;
+
+  String? _review;
+  String? get review => _$this._review;
+  set review(String? review) => _$this._review = review;
 
   OrderBuilder();
 
@@ -453,7 +472,8 @@ class OrderBuilder implements Builder<Order, OrderBuilder> {
       _total = $v.total;
       _methodOfPayment = $v.methodOfPayment;
       _date = $v.date;
-      _instructions = $v.instructions;
+      _status = $v.status;
+      _review = $v.review;
       _$v = null;
     }
     return this;
@@ -488,7 +508,9 @@ class OrderBuilder implements Builder<Order, OrderBuilder> {
                   methodOfPayment, 'Order', 'methodOfPayment'),
               date:
                   BuiltValueNullFieldError.checkNotNull(date, 'Order', 'date'),
-              instructions: instructions);
+              status: BuiltValueNullFieldError.checkNotNull(
+                  status, 'Order', 'status'),
+              review: review);
     } catch (_) {
       late String _$failedField;
       try {

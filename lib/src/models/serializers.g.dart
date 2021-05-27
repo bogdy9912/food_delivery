@@ -24,6 +24,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(OrdersState.serializer)
       ..add(PaymentMethod.serializer)
       ..add(RegistrationInfo.serializer)
+      ..add(StatusOrder.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(CartItem)]),
           () => new ListBuilder<CartItem>())

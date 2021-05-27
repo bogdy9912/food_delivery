@@ -51,7 +51,7 @@ class CompanyApi {
   Stream<Meniu> getMeniu(String companyId) {
     return _firestore
         .collection('companies/$companyId/meniu')
-        .where('date', isEqualTo: 'now')
+//        .where('date', isEqualTo: 'now')
         .snapshots()
         .map((QuerySnapshot snapshot) => Meniu.fromJson(snapshot.docs.first.data()));
   }

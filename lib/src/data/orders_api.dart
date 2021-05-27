@@ -37,7 +37,7 @@ class OrdersApi {
         ..total = total
         ..address = addressPoint!.toBuilder()
         ..products = ListBuilder<CartItem>(products)
-        ..instructions = instructions
+//        ..instructions = instructions
         ..date = DateFormat('dd-MMM-yyyy - kk:mm:ss').format(DateTime.now());
     });
 

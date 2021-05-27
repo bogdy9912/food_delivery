@@ -312,6 +312,8 @@ class _$MeniuItemSerializer implements StructuredSerializer<MeniuItem> {
   Iterable<Object?> serialize(Serializers serializers, MeniuItem object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
       'category',
       serializers.serialize(object.category,
           specifiedType: const FullType(String)),
@@ -335,6 +337,10 @@ class _$MeniuItemSerializer implements StructuredSerializer<MeniuItem> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'category':
           result.category = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -369,15 +375,25 @@ class _$DishSerializer implements StructuredSerializer<Dish> {
       'price',
       serializers.serialize(object.price,
           specifiedType: const FullType(double)),
-      'quantity',
-      serializers.serialize(object.quantity,
-          specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.description;
     if (value != null) {
       result
         ..add('description')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.quantity;
+    if (value != null) {
+      result
+        ..add('quantity')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.image;
+    if (value != null) {
+      result
+        ..add('image')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -414,6 +430,10 @@ class _$DishSerializer implements StructuredSerializer<Dish> {
         case 'quantity':
           result.quantity = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
+          break;
+        case 'image':
+          result.image = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -958,6 +978,8 @@ class MeniuBuilder implements Builder<Meniu, MeniuBuilder> {
 
 class _$MeniuItem extends MeniuItem {
   @override
+  final String id;
+  @override
   final String category;
   @override
   final BuiltList<Dish> dishes;
@@ -965,7 +987,10 @@ class _$MeniuItem extends MeniuItem {
   factory _$MeniuItem([void Function(MeniuItemBuilder)? updates]) =>
       (new MeniuItemBuilder()..update(updates)).build();
 
-  _$MeniuItem._({required this.category, required this.dishes}) : super._() {
+  _$MeniuItem._(
+      {required this.id, required this.category, required this.dishes})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(id, 'MeniuItem', 'id');
     BuiltValueNullFieldError.checkNotNull(category, 'MeniuItem', 'category');
     BuiltValueNullFieldError.checkNotNull(dishes, 'MeniuItem', 'dishes');
   }
@@ -981,18 +1006,21 @@ class _$MeniuItem extends MeniuItem {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is MeniuItem &&
+        id == other.id &&
         category == other.category &&
         dishes == other.dishes;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, category.hashCode), dishes.hashCode));
+    return $jf(
+        $jc($jc($jc(0, id.hashCode), category.hashCode), dishes.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('MeniuItem')
+          ..add('id', id)
           ..add('category', category)
           ..add('dishes', dishes))
         .toString();
@@ -1001,6 +1029,10 @@ class _$MeniuItem extends MeniuItem {
 
 class MeniuItemBuilder implements Builder<MeniuItem, MeniuItemBuilder> {
   _$MeniuItem? _$v;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(String? id) => _$this._id = id;
 
   String? _category;
   String? get category => _$this._category;
@@ -1015,6 +1047,7 @@ class MeniuItemBuilder implements Builder<MeniuItem, MeniuItemBuilder> {
   MeniuItemBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _id = $v.id;
       _category = $v.category;
       _dishes = $v.dishes.toBuilder();
       _$v = null;
@@ -1039,6 +1072,7 @@ class MeniuItemBuilder implements Builder<MeniuItem, MeniuItemBuilder> {
     try {
       _$result = _$v ??
           new _$MeniuItem._(
+              id: BuiltValueNullFieldError.checkNotNull(id, 'MeniuItem', 'id'),
               category: BuiltValueNullFieldError.checkNotNull(
                   category, 'MeniuItem', 'category'),
               dishes: dishes.build());
@@ -1068,7 +1102,9 @@ class _$Dish extends Dish {
   @override
   final double price;
   @override
-  final int quantity;
+  final int? quantity;
+  @override
+  final String? image;
 
   factory _$Dish([void Function(DishBuilder)? updates]) =>
       (new DishBuilder()..update(updates)).build();
@@ -1078,12 +1114,12 @@ class _$Dish extends Dish {
       required this.name,
       this.description,
       required this.price,
-      required this.quantity})
+      this.quantity,
+      this.image})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(id, 'Dish', 'id');
     BuiltValueNullFieldError.checkNotNull(name, 'Dish', 'name');
     BuiltValueNullFieldError.checkNotNull(price, 'Dish', 'price');
-    BuiltValueNullFieldError.checkNotNull(quantity, 'Dish', 'quantity');
   }
 
   @override
@@ -1101,15 +1137,20 @@ class _$Dish extends Dish {
         name == other.name &&
         description == other.description &&
         price == other.price &&
-        quantity == other.quantity;
+        quantity == other.quantity &&
+        image == other.image;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc($jc(0, id.hashCode), name.hashCode), description.hashCode),
-            price.hashCode),
-        quantity.hashCode));
+        $jc(
+            $jc(
+                $jc($jc($jc(0, id.hashCode), name.hashCode),
+                    description.hashCode),
+                price.hashCode),
+            quantity.hashCode),
+        image.hashCode));
   }
 
   @override
@@ -1119,7 +1160,8 @@ class _$Dish extends Dish {
           ..add('name', name)
           ..add('description', description)
           ..add('price', price)
-          ..add('quantity', quantity))
+          ..add('quantity', quantity)
+          ..add('image', image))
         .toString();
   }
 }
@@ -1147,6 +1189,10 @@ class DishBuilder implements Builder<Dish, DishBuilder> {
   int? get quantity => _$this._quantity;
   set quantity(int? quantity) => _$this._quantity = quantity;
 
+  String? _image;
+  String? get image => _$this._image;
+  set image(String? image) => _$this._image = image;
+
   DishBuilder();
 
   DishBuilder get _$this {
@@ -1157,6 +1203,7 @@ class DishBuilder implements Builder<Dish, DishBuilder> {
       _description = $v.description;
       _price = $v.price;
       _quantity = $v.quantity;
+      _image = $v.image;
       _$v = null;
     }
     return this;
@@ -1182,8 +1229,8 @@ class DishBuilder implements Builder<Dish, DishBuilder> {
             description: description,
             price:
                 BuiltValueNullFieldError.checkNotNull(price, 'Dish', 'price'),
-            quantity: BuiltValueNullFieldError.checkNotNull(
-                quantity, 'Dish', 'quantity'));
+            quantity: quantity,
+            image: image);
     replace(_$result);
     return _$result;
   }

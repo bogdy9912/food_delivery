@@ -11,9 +11,7 @@ abstract class Company implements Built<Company, CompanyBuilder> {
 
   String get name;
 
-
   double get rating;
-
 
   String? get image;
 

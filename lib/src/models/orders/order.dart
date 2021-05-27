@@ -24,8 +24,9 @@ abstract class Order implements Built<Order, OrderBuilder> {
 
   String get date;
 
+  StatusOrder get status;
 
-  String? get instructions;
+  String? get review;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

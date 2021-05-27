@@ -6,13 +6,17 @@ abstract class Dish implements Built<Dish, DishBuilder> {
 
   Dish._();
 
-
   String get id;
-  String get name;
-  String? get description;
-  double get price;
-  int get quantity;
 
+  String get name;
+
+  String? get description;
+
+  double get price;
+
+  int? get quantity;
+
+  String? get image;
 
   Map<String, dynamic>? get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>?;
 
