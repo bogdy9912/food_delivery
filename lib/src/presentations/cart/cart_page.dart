@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -13,9 +12,10 @@ import 'package:food_delivery/src/containers/company/companies_container.dart';
 import 'package:food_delivery/src/containers/orders/order_info_container.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
-import 'package:food_delivery/src/presentations/cart/cart_widget.dart';
+import 'package:food_delivery/src/presentations/cart/cart_list_view_widget.dart';
+import 'package:food_delivery/src/presentations/cart/cart_payment_method_widget.dart';
+import 'package:food_delivery/src/presentations/cart/delivery_address_widget.dart';
 import 'package:food_delivery/src/presentations/mixin/dialog_mixin.dart';
-import 'package:food_delivery/src/presentations/widgets/select_address_page.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage(this.company);
@@ -26,13 +26,12 @@ class CartPage extends StatefulWidget {
   _CartPageState createState() => _CartPageState();
 }
 
-class _CartPageState extends State<CartPage> with DialogMixin{
+class _CartPageState extends State<CartPage> with DialogMixin {
   late double total;
 
   void _response(AppAction action) {
     if (action is CreateOrderError) {
       showErrorDialog(context, 'Server Error', action.error);
-
     } else {
       StoreProvider.of<AppState>(context).dispatch(const UpdateCart());
       Navigator.popUntil(
@@ -71,41 +70,7 @@ class _CartPageState extends State<CartPage> with DialogMixin{
                     body: SingleChildScrollView(
                       child: Column(
                         children: <Widget>[
-                          Container(
-                            height: max(
-                                MediaQuery.of(context).size.height -
-                                    AppBar().preferredSize.height -
-                                    MediaQuery.of(context).padding.bottom -
-                                    MediaQuery.of(context).padding.top -
-                                    360,
-                                200),
-//                    height: 200,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor,
-                              borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(24),
-                                bottomRight: Radius.circular(24),
-                              ),
-                            ),
-                            clipBehavior: Clip.hardEdge,
-                            child: ListView.separated(
-                                separatorBuilder: (BuildContext context, int index) => const Divider(
-                                      height: 1,
-                                      color: Colors.white,
-                                    ),
-                                itemCount: cart?.items.length ?? 0,
-                                itemBuilder: (BuildContext context, int index) {
-                                  final CartItem? item = cart?.items[index];
-                                  if (item == null) {
-                                    return Container();
-                                  }
-//                                    return Container();
-                                  return Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: CartWidget(item),
-                                  );
-                                }),
-                          ),
+                          const CartListViewWidget(),
                           Container(
                             color: Colors.white,
                             height: 360,
@@ -114,143 +79,13 @@ class _CartPageState extends State<CartPage> with DialogMixin{
                               children: <Widget>[
                                 Padding(
                                   padding: const EdgeInsets.only(top: 8.0),
-                                  child: ListTile(
-                                    title: const Text(
-                                      'Adresa de livrare',
-                                      style: TextStyle(
-//                        color: Theme.of(context).accentColor,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    trailing: TextButton(
-                                      child: const Text('Schimba'),
-                                      onPressed: () {
-//                              Navigator.pushNamed(context, AppRoutes.selectAddressPage);
-//                              Navigator.pushNamed(context, AppRoutes.selectAddressPage2);
-                                        showDialog<dynamic>(
-                                          context: context,
-                                          builder: (BuildContext context) => AlertDialog(
-                                            title: Center(
-                                              child: Text(
-                                                'Adrese',
-                                                style: TextStyle(
-                                                  color: Theme.of(context).accentColor,
-                                                ),
-                                              ),
-                                            ),
-                                            content: SelectAddressPage(currentUser: currentUser!),
-                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                    subtitle: info.address == null
-                                        ? const Text(
-                                            'Nu ai nicio adresa introdusa',
-                                            style: TextStyle(),
-                                            maxLines: 2,
-                                          )
-                                        : Text.rich(
-                                            TextSpan(
-                                              children: <TextSpan>[
-                                                TextSpan(text: '${info.address!.contactName}'),
-                                                TextSpan(text: ' - ${info.address!.contactPhone}'),
-                                                TextSpan(text: '\n${info.address!.address}'),
-//                                    TextSpan(text: '\n${info.address!.city}'),
-//                                    TextSpan(text: ' ${info.address!.town}'),
-                                              ],
-                                            ),
-                                          ),
-                                  ),
+                                  child: DeliveryAddressWidget(),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                                   child: Column(
                                     children: <Widget>[
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: <Widget>[
-                                          const Text(
-                                            'Metoda de plata',
-                                            style: TextStyle(
-//                                color: Theme.of(context).accentColor,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                          TextButton(
-                                            child: Row(
-                                              children: const <Widget>[
-                                                Text('Numerar', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400)),
-//                                                Icon(Icons.money, color: Colors.green,),
-                                              ],
-                                            ),
-                                            onPressed: () {
-                                              showDialog<AlertDialog>(
-                                                  context: context,
-                                                  builder: (BuildContext context) => AlertDialog(
-                                                        title: const Text('Metoda de plata'),
-                                                        content: Column(
-                                                          mainAxisSize: MainAxisSize.min,
-                                                          children: <Widget>[
-                                                            Stack(
-                                                              alignment: AlignmentDirectional.topEnd,
-                                                              children: <Widget>[
-                                                                Container(
-                                                                  decoration: BoxDecoration(
-                                                                    borderRadius: BorderRadius.circular(12),
-                                                                    border: Border.all(
-                                                                        color: Theme.of(context).primaryColor),
-                                                                    color: kColor,
-                                                                  ),
-                                                                  child: const ListTile(
-                                                                    title: Text('Numerar'),
-                                                                    trailing: Icon(
-                                                                      Icons.money,
-                                                                      color: Colors.green,
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: const EdgeInsets.only(top: 8.0, right: 44),
-                                                                  child: Container(
-                                                                    padding: const EdgeInsets.all(4),
-                                                                    decoration: BoxDecoration(
-                                                                      color: Theme.of(context).primaryColor,
-                                                                      borderRadius: BorderRadius.circular(4),
-                                                                      border: Border.all(
-                                                                          color: Theme.of(context).primaryColor),
-                                                                    ),
-                                                                    child: const Text(
-                                                                      'default',
-                                                                      style: TextStyle(
-                                                                        color: Colors.white,
-                                                                        fontSize: 10,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            const ListTile(
-                                                              enabled: false,
-                                                              title: Text('Credit Card'),
-                                                              trailing: Icon(Icons.credit_card),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        actions: <Widget>[
-                                                          TextButton(
-                                                              onPressed: () {
-                                                                Navigator.pop(context);
-                                                              },
-                                                              child: const Text('EXIT'))
-                                                        ],
-                                                      ));
-                                            },
-                                          ),
-                                        ],
-                                      ),
+                                      const CartPaymnetMethodWidget(),
                                       const Divider(),
                                       Padding(
                                         padding: const EdgeInsets.only(top: 8, bottom: 6.0, right: 4),
@@ -286,7 +121,8 @@ class _CartPageState extends State<CartPage> with DialogMixin{
                                               )
                                             else
                                               const Text(
-                                                'GRATIS',style: TextStyle(color: Colors.green, fontWeight: FontWeight.w400),
+                                                'GRATIS',
+                                                style: TextStyle(color: Colors.green, fontWeight: FontWeight.w400),
                                               ),
                                           ],
                                         ),

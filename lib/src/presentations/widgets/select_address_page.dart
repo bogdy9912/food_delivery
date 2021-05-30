@@ -11,9 +11,8 @@ import 'package:food_delivery/src/models/index.dart';
 import '../../../app_theme.dart';
 
 class SelectAddressPage extends StatefulWidget {
-  const SelectAddressPage({required this.currentUser});
+  const SelectAddressPage();
 
-  final AppUser currentUser;
 
   @override
   _SelectAddressPageState createState() => _SelectAddressPageState();
