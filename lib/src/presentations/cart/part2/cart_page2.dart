@@ -97,7 +97,12 @@ class _CartPage2State extends State<CartPage2> {
                                 bottomRight: Radius.circular(24),
                               ),
                             ),
-                            child: ListView.builder(
+                            clipBehavior: Clip.hardEdge,
+                            child: ListView.separated(
+                                separatorBuilder: (BuildContext context, int index) => const Divider(
+                                      height: 1,
+                                      color: Colors.white,
+                                    ),
                                 itemCount: cart?.items.length ?? 0,
                                 itemBuilder: (BuildContext context, int index) {
                                   final CartItem? item = cart?.items[index];
