@@ -11,10 +11,8 @@ import 'package:food_delivery/src/containers/company/companies_container.dart';
 import 'package:food_delivery/src/containers/orders/order_info_container.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
-import 'package:food_delivery/src/presentations/cart/cart_amount_widget.dart';
+import 'package:food_delivery/src/presentations/cart/cart_delivery_details_widget.dart';
 import 'package:food_delivery/src/presentations/cart/cart_list_view_widget.dart';
-import 'package:food_delivery/src/presentations/cart/cart_payment_method_widget.dart';
-import 'package:food_delivery/src/presentations/cart/delivery_address_widget.dart';
 import 'package:food_delivery/src/presentations/mixin/dialog_mixin.dart';
 
 class CartPage extends StatefulWidget {
@@ -70,100 +68,8 @@ class _CartPageState extends State<CartPage> with DialogMixin {
                     body: SingleChildScrollView(
                       child: Column(
                         children: <Widget>[
-                          const CartListViewWidget(),
-                          Container(
-                            color: Colors.white,
-                            height: 360,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 8.0),
-                                  child: DeliveryAddressWidget(),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                                  child: Column(
-                                    children: <Widget>[
-                                      const CartPaymentMethodWidget(),
-                                      const Divider(),
-                                      const Padding(
-                                        padding: EdgeInsets.only(top: 8, bottom: 6.0, right: 4),
-                                        child: CartAmountWidget(),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 6, bottom: 8.0, right: 4),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            const Text(
-                                              'Livrare',
-                                              style: TextStyle(
-                                                color: Colors.black54,
-                                              ),
-                                            ),
-                                            if ((cart?.totalAmount ?? 0) < widget.company!.deliveryFeeThreshold!)
-                                              Text(
-                                                '${widget.company!.deliveryFee} lei',
-                                              )
-                                            else
-                                              const Text(
-                                                'GRATIS',
-                                                style: TextStyle(color: Colors.green, fontWeight: FontWeight.w400),
-                                              ),
-                                          ],
-                                        ),
-                                      ),
-                                      const Divider(),
-                                    ],
-                                  ),
-                                ),
-                                ListTile(
-                                  title: const Text(
-                                    'Total',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                  trailing: Text(
-                                    '$total lei',
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16),
-                                  child: ElevatedButton(
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 50,
-                                      child: const Center(child: Text('Finalizare comanda')),
-                                    ),
-                                    onPressed: info.address?.address != null && info.products.isNotEmpty
-                                        ? () {
-                                            if (info.address?.address != null && info.products.isNotEmpty) {
-                                              print('face comanda');
-                                              StoreProvider.of<AppState>(context)
-                                                  .dispatch(UpdateOrderInfo(total: total));
-
-                                              StoreProvider.of<AppState>(context)
-                                                  .dispatch(UpdateOrderInfo(companyId: widget.company!.id));
-                                              StoreProvider.of<AppState>(context)
-                                                  .dispatch(const UpdateOrderInfo(methodOfPayment: PaymentMethod.cash));
-                                              StoreProvider.of<AppState>(context)
-                                                  .dispatch(CreateOrder(response: _response));
-                                            } else
-                                              print('nu face comanda');
-                                          }
-                                        : null,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                           const CartListViewWidget(),
+                          CartDeliveryDetailsWidget(response: _response, company: widget.company!),
                         ],
                       ),
                     ),

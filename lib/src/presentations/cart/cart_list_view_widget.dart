@@ -28,7 +28,7 @@ class CartListViewWidget extends StatelessWidget {
       ),
       clipBehavior: Clip.hardEdge,
       child: CartContainer(
-        builder:(BuildContext context, Cart? cart) => ListView.separated(
+        builder: (BuildContext context, Cart? cart) => ListView.separated(
           separatorBuilder: (BuildContext context, int index) => const Divider(
             height: 1,
             color: Colors.white,
@@ -39,7 +39,7 @@ class CartListViewWidget extends StatelessWidget {
             if (item == null) {
               return Container();
             }
-//                                    return Container();
+
             return Padding(
               padding: const EdgeInsets.all(8.0),
               child: CartWidget(item),
