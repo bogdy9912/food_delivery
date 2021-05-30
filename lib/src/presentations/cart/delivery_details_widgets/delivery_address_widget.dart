@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/src/containers/orders/order_info_container.dart';
 import 'package:food_delivery/src/models/orders/index.dart';
-import 'package:food_delivery/src/presentations/widgets/select_address_page.dart';
+import 'package:food_delivery/src/presentations/cart/delivery_details_widgets/address_widget/address_handling_widget.dart';
+
 
 class DeliveryAddressWidget extends StatelessWidget {
   @override
@@ -28,7 +29,7 @@ class DeliveryAddressWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                content: const SelectAddressPage(),
+                content: const AddressHandlingWidget(),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
               ),
             );
