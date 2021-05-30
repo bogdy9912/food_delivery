@@ -13,14 +13,7 @@ class DishItem extends StatelessWidget {
       children: List<Widget>.generate(dishes.length, (int index) {
         return ListTile(
           title: Text(dishes[index].name[0].toUpperCase() + dishes[index].name.substring(1)),
-          leading: dishes[index].image == null? null : Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ),
+          leading: dishes[index].image == null? null : Image.network(dishes[index].image!),
           trailing: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[

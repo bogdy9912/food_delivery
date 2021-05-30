@@ -7,15 +7,14 @@ import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
 class OrdersEpics {
-  const OrdersEpics({required OrdersApi api})
-      : _api = api;
+  const OrdersEpics({required OrdersApi api}) : _api = api;
 
   final OrdersApi _api;
 
   Epic<AppState> get epics {
     return combineEpics(<Epic<AppState>>[
-      TypedEpic<AppState, GetOrders$>(_getOrders) ,
-      TypedEpic<AppState, CreateOrder$>(_createOrder) ,
+      TypedEpic<AppState, GetOrders$>(_getOrders),
+      TypedEpic<AppState, CreateOrder$>(_createOrder),
     ]);
   }
 
@@ -24,7 +23,8 @@ class OrdersEpics {
         .flatMap((GetOrders$ action) => Stream<GetOrders$>.value(action)
             .asyncMap((GetOrders$ action) => _api.getOrders(store.state.auth.user!.uid))
             .map((List<Order> orders) => GetOrders.successful(orders))
-            .onErrorReturnWith((dynamic error) => GetOrders.error(error)).doOnData(action.response));
+            .onErrorReturnWith((dynamic error) => GetOrders.error(error))
+            .doOnData(action.response));
   }
 
   Stream<AppAction> _createOrder(Stream<CreateOrder$> actions, EpicStore<AppState> store) {
