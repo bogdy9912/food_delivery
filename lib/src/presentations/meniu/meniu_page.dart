@@ -9,6 +9,7 @@ import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 import 'package:food_delivery/src/presentations/meniu/back_button_meniu_app_bar.dart';
 import 'package:food_delivery/src/presentations/meniu/dish_item.dart';
+import 'package:food_delivery/src/presentations/meniu/floating_button_cart_with_badge.dart';
 
 class MeniuPage extends StatelessWidget {
   const MeniuPage({Key? key, this.company}) : super(key: key);
@@ -65,34 +66,7 @@ class MeniuPage extends StatelessWidget {
                         );
                       },
                     ),
-              floatingActionButton: Stack(
-                alignment: AlignmentDirectional.topEnd,
-                children: <Widget>[
-                  FloatingActionButton(
-                    child: Icon(cart == null ? Icons.shopping_basket_outlined : Icons.shopping_basket),
-                    onPressed: () {
-                      StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(companyId: company!.id));
-                      StoreProvider.of<AppState>(context)
-                          .dispatch(UpdateOrderInfo(address: currentUser!.defaultAddress));
-//                      StoreProvider.of<AppState>(context)
-//                          .dispatch(UpdateOrderInfo(methodOfPayment: currentUser.defaultPaymentMethod));
-                      Navigator.pushNamed(context, AppRoutes.cart2, arguments: company);
-                    },
-                  ),
-                  if (cart != null && cart.totalProducts > 0)
-                    Container(
-                      child: Text(
-                        '${cart.totalProducts}',
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                      padding: const EdgeInsets.all(6),
-                      decoration: const BoxDecoration(
-                        color: Colors.red,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                ],
-              ),
+              floatingActionButton: FloatingButtonCartWithBadge(company!),
             ),
           );
         },
