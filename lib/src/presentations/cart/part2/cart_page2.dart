@@ -292,7 +292,7 @@ class _CartPage2State extends State<CartPage2> {
                                               )
                                             else
                                               const Text(
-                                                'Gratis',
+                                                'GRATIS',style: TextStyle(color: Colors.green, fontWeight: FontWeight.w400),
                                               ),
                                           ],
                                         ),
