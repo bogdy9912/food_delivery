@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
                     return Center(
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: CompanyItem2(company: companies[index]),
+                        child: CompanyItem(company: companies[index]),
                       ),
                     );
                   },

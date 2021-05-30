@@ -6,8 +6,8 @@ import 'package:food_delivery/src/models/company/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 
-class CompanyItem2 extends StatelessWidget {
-  const CompanyItem2({Key? key, required this.company}) : super(key: key);
+class CompanyItem extends StatelessWidget {
+  const CompanyItem({Key? key, required this.company}) : super(key: key);
 
   final Company company;
 
