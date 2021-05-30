@@ -327,19 +327,23 @@ class _CartPage2State extends State<CartPage2> {
                                       height: 50,
                                       child: const Center(child: Text('Finalizare comanda')),
                                     ),
-                                    onPressed: () {
-                                      if (info.address?.address != null && info.products.isNotEmpty) {
-                                        print('face comanda');
-                                        StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(total: total));
+                                    onPressed: info.address?.address != null && info.products.isNotEmpty
+                                        ? () {
+                                            if (info.address?.address != null && info.products.isNotEmpty) {
+                                              print('face comanda');
+                                              StoreProvider.of<AppState>(context)
+                                                  .dispatch(UpdateOrderInfo(total: total));
 
-                                        StoreProvider.of<AppState>(context)
-                                            .dispatch(UpdateOrderInfo(companyId: widget.company!.id));
-                                        StoreProvider.of<AppState>(context)
-                                            .dispatch(const UpdateOrderInfo(methodOfPayment: PaymentMethod.card));
-                                        StoreProvider.of<AppState>(context).dispatch(CreateOrder(response: _response));
-                                      } else
-                                        print('nu face comanda');
-                                    },
+                                              StoreProvider.of<AppState>(context)
+                                                  .dispatch(UpdateOrderInfo(companyId: widget.company!.id));
+                                              StoreProvider.of<AppState>(context)
+                                                  .dispatch(const UpdateOrderInfo(methodOfPayment: PaymentMethod.card));
+                                              StoreProvider.of<AppState>(context)
+                                                  .dispatch(CreateOrder(response: _response));
+                                            } else
+                                              print('nu face comanda');
+                                          }
+                                        : null,
                                   ),
                                 ),
                               ],
