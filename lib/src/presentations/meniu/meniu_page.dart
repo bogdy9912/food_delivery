@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:food_delivery/src/actions/company/index.dart';
 import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/containers/auth/cart_container.dart';
 import 'package:food_delivery/src/containers/auth/user_container.dart';
@@ -8,6 +7,7 @@ import 'package:food_delivery/src/containers/company/meniu_container.dart';
 import 'package:food_delivery/src/models/company/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
+import 'package:food_delivery/src/presentations/meniu/back_button_meniu_app_bar.dart';
 import 'package:food_delivery/src/presentations/meniu/dish_item.dart';
 
 class MeniuPage extends StatelessWidget {
@@ -27,50 +27,7 @@ class MeniuPage extends StatelessWidget {
                 centerTitle: true,
                 elevation: 0,
                 backgroundColor: Colors.transparent,
-                leading: IconButton(
-                  icon: const Icon(Icons.arrow_back),
-                  onPressed: () {
-                    if (cart!.items.isEmpty) {
-                      Navigator.popUntil(
-                        context,
-                        (Route<dynamic> route) => route.isFirst,
-                      );
-                      Navigator.pushReplacementNamed(context, AppRoutes.home);
-                      StoreProvider.of<AppState>(context).dispatch(const GetMeniu.event());
-                    } else {
-                      showDialog<AlertDialog>(
-                        context: context,
-                        builder: (BuildContext context) => AlertDialog(
-                          content: Container(
-                            height: 150,
-                            child: const Center(
-                              child: Text('Daca iesiti o sa pierdeti toate produsele din cos!'),
-                            ),
-                          ),
-                          actions: <Widget>[
-                            TextButton(
-                              onPressed: () {
-                                Navigator.popUntil(
-                                  context,
-                                  (Route<dynamic> route) => route.isFirst,
-                                );
-                                Navigator.pushReplacementNamed(context, AppRoutes.home);
-                                StoreProvider.of<AppState>(context).dispatch(const GetMeniu.event());
-                              },
-                              child: const Text('Iesi oricum'),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text('Cancel'),
-                            ),
-                          ],
-                        ),
-                      );
-                    }
-                  },
-                ),
+                leading: const BackButtonMeniuAppBar(),
               ),
               body: meniu == null
                   ? const Center(child: Text('Nu exista un meniu'))
