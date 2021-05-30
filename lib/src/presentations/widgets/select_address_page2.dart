@@ -284,55 +284,17 @@ class _SelectAddressPage2State extends State<SelectAddressPage2> {
                         ),
                         const Divider(color: Colors.transparent),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
-                            InkWell(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(12),
-                                    bottomLeft: Radius.circular(12),
-                                  ),
-                                ),
-                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                                child: const Text(
-                                  'Anuleaza',
-                                  style: TextStyle(
-                                    fontSize: 20,
-//                          fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              onTap: () {
-                                setState(() {
+                            TextButton(
+                              onPressed: () {setState(() {
                                   addingMode = false;
                                   selectingMode = true;
-                                });
-                              },
+                                });},
+                              child: const Text('ANULEAZA'),
                             ),
-                            InkWell(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.amber),
-                                  color: Colors.amber,
-                                  borderRadius: const BorderRadius.only(
-                                    topRight: Radius.circular(12),
-                                    bottomRight: Radius.circular(12),
-                                  ),
-                                ),
-                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                                child: const Text(
-                                  'Salveaza',
-                                  style: TextStyle(
-                                    color: Colors.brown,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-//                          fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                              onTap: () {
+                            TextButton(
+                              onPressed: () {
                                 final bool valid = Form.of(context)!.validate();
                                 if (valid) {
                                   Form.of(context)!.save();
@@ -351,9 +313,81 @@ class _SelectAddressPage2State extends State<SelectAddressPage2> {
                                   Navigator.pop(context);
                                 }
                               },
+                              child: const Text('SALVEAZA'),
                             ),
                           ],
                         ),
+//                        Row(
+//                          mainAxisAlignment: MainAxisAlignment.center,
+//                          children: <Widget>[
+//                            InkWell(
+//                              child: Container(
+//                                decoration: BoxDecoration(
+//                                  border: Border.all(),
+//                                  borderRadius: const BorderRadius.only(
+//                                    topLeft: Radius.circular(12),
+//                                    bottomLeft: Radius.circular(12),
+//                                  ),
+//                                ),
+//                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+//                                child: const Text(
+//                                  'Anuleaza',
+//                                  style: TextStyle(
+//                                    fontSize: 20,
+////                          fontWeight: FontWeight.bold,
+//                                  ),
+//                                ),
+//                              ),
+//                              onTap: () {
+//                                setState(() {
+//                                  addingMode = false;
+//                                  selectingMode = true;
+//                                });
+//                              },
+//                            ),
+//                            InkWell(
+//                              child: Container(
+//                                decoration: BoxDecoration(
+//                                  border: Border.all(color: Colors.amber),
+//                                  color: Colors.amber,
+//                                  borderRadius: const BorderRadius.only(
+//                                    topRight: Radius.circular(12),
+//                                    bottomRight: Radius.circular(12),
+//                                  ),
+//                                ),
+//                                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+//                                child: const Text(
+//                                  'Salveaza',
+//                                  style: TextStyle(
+//                                    color: Colors.brown,
+//                                    fontSize: 20,
+//                                    fontWeight: FontWeight.bold,
+////                          fontWeight: FontWeight.bold,
+//                                  ),
+//                                ),
+//                              ),
+//                              onTap: () {
+//                                final bool valid = Form.of(context)!.validate();
+//                                if (valid) {
+//                                  Form.of(context)!.save();
+//                                  final DocumentReference ref = FirebaseFirestore.instance.collection('NOT USE').doc();
+//                                  final AddressPoint add = AddressPoint((AddressPointBuilder b) {
+//                                    b
+//                                      ..id = ref.id
+//                                      ..contactName = _name
+//                                      ..contactPhone = _telephone
+//                                      ..address = _address
+//                                      ..city = _city;
+//                                  });
+//                                  StoreProvider.of<AppState>(context)
+//                                      .dispatch(UpdateAddresses(uid: currentUser!.uid, add: add));
+//                                  StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(address: add));
+//                                  Navigator.pop(context);
+//                                }
+//                              },
+//                            ),
+//                          ],
+//                        ),
                       ],
                     ),
                   ),
