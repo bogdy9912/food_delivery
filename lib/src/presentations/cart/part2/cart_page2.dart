@@ -197,7 +197,7 @@ class _CartPage2State extends State<CartPage2> {
                                               showDialog<AlertDialog>(
                                                   context: context,
                                                   builder: (BuildContext context) => AlertDialog(
-                                                        title: Text('Metoda de plata'),
+                                                        title: const Text('Metoda de plata'),
                                                         content: Column(
                                                           mainAxisSize: MainAxisSize.min,
                                                           children: <Widget>[
@@ -211,7 +211,7 @@ class _CartPage2State extends State<CartPage2> {
                                                                         color: Theme.of(context).primaryColor),
                                                                     color: kColor,
                                                                   ),
-                                                                  child: ListTile(
+                                                                  child: const ListTile(
                                                                     title: Text('Numerar'),
                                                                     trailing: Icon(
                                                                       Icons.money,
