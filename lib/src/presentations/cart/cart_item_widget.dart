@@ -5,8 +5,8 @@ import 'package:food_delivery/src/models/auth/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/widgets/cart_button.dart';
 
-class CartWidget extends StatelessWidget {
-  CartWidget(this.item);
+class CartItemWidget extends StatelessWidget {
+  CartItemWidget(this.item);
 
   final CartItem item;
 

@@ -4,11 +4,11 @@ import 'package:food_delivery/src/actions/index.dart';
 import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/containers/orders/order_info_container.dart';
 import 'package:food_delivery/src/models/index.dart';
-import 'package:food_delivery/src/presentations/cart/cart_amount_widget.dart';
-import 'package:food_delivery/src/presentations/cart/cart_delivery_price.dart';
-import 'package:food_delivery/src/presentations/cart/cart_payment_method_widget.dart';
-import 'package:food_delivery/src/presentations/cart/cart_total_widget.dart';
-import 'package:food_delivery/src/presentations/cart/delivery_address_widget.dart';
+import 'delivery_details_widgets/cart_amount_widget.dart';
+import 'delivery_details_widgets/cart_delivery_price.dart';
+import 'delivery_details_widgets/cart_payment_method_widget.dart';
+import 'delivery_details_widgets/cart_total_widget.dart';
+import 'delivery_details_widgets/delivery_address_widget.dart';
 
 class CartDeliveryDetailsWidget extends StatefulWidget {
   const CartDeliveryDetailsWidget({required Function(AppAction) response, required Company company})

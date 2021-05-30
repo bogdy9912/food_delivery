@@ -23,6 +23,7 @@ class FloatingButtonCartWithBadge extends StatelessWidget {
                 child: Icon(cart == null ? Icons.shopping_basket_outlined : Icons.shopping_basket),
                 onPressed: () {
                   StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(companyId: company.id));
+                  StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(products: cart?.items));
                   StoreProvider.of<AppState>(context)
                       .dispatch(UpdateOrderInfo(address: currentUser!.defaultAddress));
 //                      StoreProvider.of<AppState>(context)

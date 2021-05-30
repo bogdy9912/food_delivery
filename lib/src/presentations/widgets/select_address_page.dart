@@ -21,7 +21,7 @@ class SelectAddressPage extends StatefulWidget {
 class _SelectAddressPageState extends State<SelectAddressPage> {
   bool selectingMode = true;
   bool addingMode = false;
-  bool edditingMode = false;
+  bool editingMode = false;
 
   String? _name;
   String? _telephone;
@@ -58,6 +58,7 @@ class _SelectAddressPageState extends State<SelectAddressPage> {
                           _name = currentUser.lastName + ' ' + currentUser.firstName;
                           _telephone = currentUser.telephone;
                         });
+                        showDialog<AlertDialog>(context: context, builder: (BuildContext context) => AlertDialog(title: Text('Nou')));
                       },
                     );
                   }

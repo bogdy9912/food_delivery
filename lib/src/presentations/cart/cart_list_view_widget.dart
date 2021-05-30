@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/src/containers/auth/cart_container.dart';
 import 'package:food_delivery/src/models/index.dart';
-import 'package:food_delivery/src/presentations/cart/cart_widget.dart';
+import 'package:food_delivery/src/presentations/cart/cart_item_widget.dart';
 
 class CartListViewWidget extends StatelessWidget {
   const CartListViewWidget();
@@ -42,7 +42,7 @@ class CartListViewWidget extends StatelessWidget {
 
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: CartWidget(item),
+              child: CartItemWidget(item),
             );
           },
         ),

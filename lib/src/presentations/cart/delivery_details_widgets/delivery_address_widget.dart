@@ -11,15 +11,12 @@ class DeliveryAddressWidget extends StatelessWidget {
         title: const Text(
           'Adresa de livrare',
           style: TextStyle(
-//                        color: Theme.of(context).accentColor,
             fontWeight: FontWeight.w500,
           ),
         ),
         trailing: TextButton(
           child: const Text('Schimba'),
           onPressed: () {
-//                              Navigator.pushNamed(context, AppRoutes.selectAddressPage);
-//                              Navigator.pushNamed(context, AppRoutes.selectAddressPage2);
             showDialog<dynamic>(
               context: context,
               builder: (BuildContext context) => AlertDialog(
@@ -49,8 +46,6 @@ class DeliveryAddressWidget extends StatelessWidget {
               TextSpan(text: '${info.address!.contactName}'),
               TextSpan(text: ' - ${info.address!.contactPhone}'),
               TextSpan(text: '\n${info.address!.address}'),
-//                                    TextSpan(text: '\n${info.address!.city}'),
-//                                    TextSpan(text: ' ${info.address!.town}'),
             ],
           ),
         ),
