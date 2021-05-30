@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:food_delivery/app_theme.dart';
 import 'package:food_delivery/src/actions/auth/index.dart';
 import 'package:food_delivery/src/actions/index.dart';
 import 'package:food_delivery/src/actions/orders/index.dart';
@@ -12,6 +11,7 @@ import 'package:food_delivery/src/containers/company/companies_container.dart';
 import 'package:food_delivery/src/containers/orders/order_info_container.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
+import 'package:food_delivery/src/presentations/cart/cart_amount_widget.dart';
 import 'package:food_delivery/src/presentations/cart/cart_list_view_widget.dart';
 import 'package:food_delivery/src/presentations/cart/cart_payment_method_widget.dart';
 import 'package:food_delivery/src/presentations/cart/delivery_address_widget.dart';
@@ -87,22 +87,9 @@ class _CartPageState extends State<CartPage> with DialogMixin {
                                     children: <Widget>[
                                       const CartPaymentMethodWidget(),
                                       const Divider(),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 8, bottom: 6.0, right: 4),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: <Widget>[
-                                            const Text(
-                                              'Comanda',
-                                              style: TextStyle(
-                                                color: Colors.black54,
-                                              ),
-                                            ),
-                                            Text(
-                                              '${cart?.totalAmount ?? 0} lei',
-                                            ),
-                                          ],
-                                        ),
+                                      const Padding(
+                                        padding: EdgeInsets.only(top: 8, bottom: 6.0, right: 4),
+                                        child: CartAmountWidget(),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(top: 6, bottom: 8.0, right: 4),
