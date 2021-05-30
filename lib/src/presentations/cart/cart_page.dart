@@ -85,7 +85,7 @@ class _CartPageState extends State<CartPage> with DialogMixin {
                                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                                   child: Column(
                                     children: <Widget>[
-                                      const CartPaymnetMethodWidget(),
+                                      const CartPaymentMethodWidget(),
                                       const Divider(),
                                       Padding(
                                         padding: const EdgeInsets.only(top: 8, bottom: 6.0, right: 4),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/app_theme.dart';
 
-class CartPaymnetMethodWidget extends StatelessWidget {
-  const CartPaymnetMethodWidget();
+class CartPaymentMethodWidget extends StatelessWidget {
+  const CartPaymentMethodWidget();
 
   @override
   Widget build(BuildContext context) {
