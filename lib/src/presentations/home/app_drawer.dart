@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:food_delivery/src/actions/auth/index.dart';
+import 'package:food_delivery/src/actions/index.dart';
 import 'package:food_delivery/src/actions/orders/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
+import 'package:food_delivery/src/presentations/mixin/dialog_mixin.dart';
 
-class AppDrawer extends StatelessWidget {
+class AppDrawer extends StatelessWidget with DialogMixin {
+
+  void _response(AppAction action, BuildContext context){
+  if (action is GetOrdersError){
+    showErrorDialog(context, 'Server Error', action.error);
+  }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,7 +31,7 @@ class AppDrawer extends StatelessWidget {
           title: const Text('Comenzile mele'),
           leading: const Icon(Icons.view_list_sharp),
           onTap: () {
-            StoreProvider.of<AppState>(context).dispatch(const GetOrders());
+            StoreProvider.of<AppState>(context).dispatch(GetOrders(response: (AppAction action) => _response(action , context)));
             Navigator.pushNamed(context, AppRoutes.orders);
           },
         ),

@@ -14,6 +14,7 @@ import 'package:food_delivery/src/containers/orders/order_info_container.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 import 'package:food_delivery/src/presentations/cart/cart_widget.dart';
+import 'package:food_delivery/src/presentations/mixin/dialog_mixin.dart';
 import 'package:food_delivery/src/presentations/widgets/select_address_page2.dart';
 
 class CartPage2 extends StatefulWidget {
@@ -25,24 +26,13 @@ class CartPage2 extends StatefulWidget {
   _CartPage2State createState() => _CartPage2State();
 }
 
-class _CartPage2State extends State<CartPage2> {
+class _CartPage2State extends State<CartPage2> with DialogMixin{
   late double total;
 
   void _response(AppAction action) {
     if (action is CreateOrderError) {
-      showDialog<AlertDialog>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: const Text('Server error'),
-          actions: <Widget>[
-            TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text('CLOSE'))
-          ],
-        ),
-      );
+      showErrorDialog(context, 'Server Error', action.error);
+
     } else {
       StoreProvider.of<AppState>(context).dispatch(const UpdateCart());
       Navigator.popUntil(
@@ -188,9 +178,13 @@ class _CartPage2State extends State<CartPage2> {
                                               fontWeight: FontWeight.w500,
                                             ),
                                           ),
-                                          IconButton(
-                                            color: Colors.green,
-                                            icon: const Icon(Icons.money),
+                                          TextButton(
+                                            child: Row(
+                                              children: const <Widget>[
+                                                Text('Numerar', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400)),
+//                                                Icon(Icons.money, color: Colors.green,),
+                                              ],
+                                            ),
                                             onPressed: () {
                                               showDialog<AlertDialog>(
                                                   context: context,
@@ -335,7 +329,7 @@ class _CartPage2State extends State<CartPage2> {
                                               StoreProvider.of<AppState>(context)
                                                   .dispatch(UpdateOrderInfo(companyId: widget.company!.id));
                                               StoreProvider.of<AppState>(context)
-                                                  .dispatch(const UpdateOrderInfo(methodOfPayment: PaymentMethod.card));
+                                                  .dispatch(const UpdateOrderInfo(methodOfPayment: PaymentMethod.cash));
                                               StoreProvider.of<AppState>(context)
                                                   .dispatch(CreateOrder(response: _response));
                                             } else

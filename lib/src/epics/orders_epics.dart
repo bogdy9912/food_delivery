@@ -21,10 +21,10 @@ class OrdersEpics {
 
   Stream<AppAction> _getOrders(Stream<GetOrders$> actions, EpicStore<AppState> store) {
     return actions //
-        .flatMap((GetOrders$ value) => Stream<GetOrders$>.value(value)
-            .asyncMap((GetOrders$ event) => _api.getOrders(store.state.auth.user!.uid))
+        .flatMap((GetOrders$ action) => Stream<GetOrders$>.value(action)
+            .asyncMap((GetOrders$ action) => _api.getOrders(store.state.auth.user!.uid))
             .map((List<Order> orders) => GetOrders.successful(orders))
-            .onErrorReturnWith((dynamic error) => GetOrders.error(error)));
+            .onErrorReturnWith((dynamic error) => GetOrders.error(error)).doOnData(action.response));
   }
 
   Stream<AppAction> _createOrder(Stream<CreateOrder$> actions, EpicStore<AppState> store) {

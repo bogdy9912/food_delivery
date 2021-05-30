@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$GetOrdersTearOff {
   const _$GetOrdersTearOff();
 
-  GetOrders$ call() {
-    return const GetOrders$();
+  GetOrders$ call({required void Function(AppAction) response}) {
+    return GetOrders$(
+      response: response,
+    );
   }
 
   GetOrdersSuccessful successful(List<Order> orders) {
@@ -40,14 +42,14 @@ const $GetOrders = _$GetOrdersTearOff();
 mixin _$GetOrders {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+    TResult Function(void Function(AppAction) response) $default, {
     required TResult Function(List<Order> orders) successful,
     required TResult Function(Object error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+    TResult Function(void Function(AppAction) response)? $default, {
     TResult Function(List<Order> orders)? successful,
     TResult Function(Object error)? error,
     required TResult orElse(),
@@ -90,6 +92,7 @@ abstract class $GetOrders$CopyWith<$Res> {
   factory $GetOrders$CopyWith(
           GetOrders$ value, $Res Function(GetOrders$) then) =
       _$GetOrders$CopyWithImpl<$Res>;
+  $Res call({void Function(AppAction) response});
 }
 
 /// @nodoc
@@ -100,45 +103,70 @@ class _$GetOrders$CopyWithImpl<$Res> extends _$GetOrdersCopyWithImpl<$Res>
 
   @override
   GetOrders$ get _value => super._value as GetOrders$;
+
+  @override
+  $Res call({
+    Object? response = freezed,
+  }) {
+    return _then(GetOrders$(
+      response: response == freezed
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as void Function(AppAction),
+    ));
+  }
 }
 
 /// @nodoc
 class _$GetOrders$ implements GetOrders$ {
-  const _$GetOrders$();
+  const _$GetOrders$({required this.response});
+
+  @override
+  final void Function(AppAction) response;
 
   @override
   String toString() {
-    return 'GetOrders()';
+    return 'GetOrders(response: $response)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is GetOrders$);
+    return identical(this, other) ||
+        (other is GetOrders$ &&
+            (identical(other.response, response) ||
+                const DeepCollectionEquality()
+                    .equals(other.response, response)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(response);
+
+  @JsonKey(ignore: true)
+  @override
+  $GetOrders$CopyWith<GetOrders$> get copyWith =>
+      _$GetOrders$CopyWithImpl<GetOrders$>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+    TResult Function(void Function(AppAction) response) $default, {
     required TResult Function(List<Order> orders) successful,
     required TResult Function(Object error) error,
   }) {
-    return $default();
+    return $default(response);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+    TResult Function(void Function(AppAction) response)? $default, {
     TResult Function(List<Order> orders)? successful,
     TResult Function(Object error)? error,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default();
+      return $default(response);
     }
     return orElse();
   }
@@ -169,7 +197,13 @@ class _$GetOrders$ implements GetOrders$ {
 }
 
 abstract class GetOrders$ implements GetOrders {
-  const factory GetOrders$() = _$GetOrders$;
+  const factory GetOrders$({required void Function(AppAction) response}) =
+      _$GetOrders$;
+
+  void Function(AppAction) get response => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GetOrders$CopyWith<GetOrders$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -236,7 +270,7 @@ class _$GetOrdersSuccessful implements GetOrdersSuccessful {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+    TResult Function(void Function(AppAction) response) $default, {
     required TResult Function(List<Order> orders) successful,
     required TResult Function(Object error) error,
   }) {
@@ -246,7 +280,7 @@ class _$GetOrdersSuccessful implements GetOrdersSuccessful {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+    TResult Function(void Function(AppAction) response)? $default, {
     TResult Function(List<Order> orders)? successful,
     TResult Function(Object error)? error,
     required TResult orElse(),
@@ -356,7 +390,7 @@ class _$GetOrdersError implements GetOrdersError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+    TResult Function(void Function(AppAction) response) $default, {
     required TResult Function(List<Order> orders) successful,
     required TResult Function(Object error) error,
   }) {
@@ -366,7 +400,7 @@ class _$GetOrdersError implements GetOrdersError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+    TResult Function(void Function(AppAction) response)? $default, {
     TResult Function(List<Order> orders)? successful,
     TResult Function(Object error)? error,
     required TResult orElse(),

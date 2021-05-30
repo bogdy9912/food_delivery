@@ -2,7 +2,7 @@ part of orders_actions;
 
 @freezed
 abstract class GetOrders with _$GetOrders implements AppAction {
-  const factory GetOrders() = GetOrders$;
+  const factory GetOrders({required ActionResponse response}) = GetOrders$;
 
   const factory GetOrders.successful(List<Order> orders) = GetOrdersSuccessful;
 

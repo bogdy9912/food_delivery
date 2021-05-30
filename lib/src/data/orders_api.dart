@@ -1,6 +1,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:food_delivery/src/models/auth/index.dart';
+import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/models/orders/index.dart';
 import 'package:intl/intl.dart';
 
@@ -37,6 +38,7 @@ class OrdersApi {
         ..total = total
         ..address = addressPoint!.toBuilder()
         ..products = ListBuilder<CartItem>(products)
+        ..status = StatusOrder.pending
 //        ..instructions = instructions
         ..date = DateFormat('dd-MMM-yyyy - kk:mm:ss').format(DateTime.now());
     });
