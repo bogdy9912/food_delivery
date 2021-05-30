@@ -6,9 +6,9 @@ import 'package:food_delivery/src/models/company/index.dart';
 import 'package:food_delivery/src/models/index.dart';
 import 'package:food_delivery/src/presentations/app_routes.dart';
 import 'package:food_delivery/src/presentations/home/app_drawer.dart';
-import 'package:food_delivery/src/presentations/home/company_item.dart';
 
-import 'company_item2.dart';
+
+import 'company_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage();

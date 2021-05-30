@@ -2,23 +2,16 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:food_delivery/src/models/company/index.dart';
-import 'package:food_delivery/src/presentations/cart/cart_page.dart';
-import 'package:food_delivery/src/presentations/cart/lal.dart';
-import 'package:food_delivery/src/presentations/cart/part2/cart_page2.dart';
-import 'package:food_delivery/src/presentations/checkout/checkout_page.dart';
-import 'package:food_delivery/src/presentations/checkout/payment_page.dart';
 import 'package:food_delivery/src/presentations/meniu/meniu_page.dart';
 import 'package:food_delivery/src/presentations/orders/orders_page.dart';
 import 'package:food_delivery/src/presentations/profile/profile_page.dart';
 import 'package:food_delivery/src/presentations/search/search_page.dart';
 import 'package:food_delivery/src/presentations/sign_up/set_name_page.dart';
 import 'package:food_delivery/src/presentations/sign_up/sign_up_page.dart';
-import 'package:food_delivery/src/presentations/widgets/add_address_page.dart';
-import 'package:food_delivery/src/presentations/widgets/select_address_page.dart';
 
-
+import 'cart/cart_page.dart';
 import 'home.dart';
-import 'others/add_company.dart';
+
 
 // ignore: avoid_classes_with_only_static_members
 class AppRoutes{
@@ -42,25 +35,24 @@ class AppRoutes{
     home: (BuildContext context) => const Home(),
     signUp: (BuildContext context) => const SignUpPage(),
     setName: (BuildContext context) => const SetNamePage(),
-    addCompany: (BuildContext context) => const AddCompany(),
     search: (BuildContext context) => const SearchPage(),
     meniu: (BuildContext context) {
       final Company? arg = ModalRoute.of(context)!.settings.arguments as Company?;
       return MeniuPage(company: arg);
     },
-    cart: (BuildContext context) => const CartPage(),
-    lala: (BuildContext context) =>  Lala(),
-    profile: (BuildContext context) =>  const ProfilePage(),
-    checkout: (BuildContext context) =>  const CheckoutPage(),
-    addAddressPage: (BuildContext context) => const AddAddressPage(),
 
-    selectAddressPage: (BuildContext context) => const SelectAddressPage(),
+
+    profile: (BuildContext context) =>  const ProfilePage(),
+
+
+
+
 //    selectAddressPage2: (BuildContext context) => const SelectAddressPage2(),
-    paymentPage: (BuildContext context) => const PaymentPage(),
+
     orders: (BuildContext context) => OrdersPage(),
     cart2: (BuildContext context) {
       final Company? arg = ModalRoute.of(context)!.settings.arguments as Company?;
-      return CartPage2(arg);
+      return CartPage(arg);
     },
   };
 }

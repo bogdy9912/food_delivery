@@ -4,7 +4,7 @@ import 'package:food_delivery/src/actions/company/index.dart';
 import 'package:food_delivery/src/containers/company/search_result_container.dart';
 import 'package:food_delivery/src/models/index.dart';
 
-import 'package:food_delivery/src/presentations/home/company_item2.dart';
+import 'package:food_delivery/src/presentations/home/company_item.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({Key? key}) : super(key: key);
