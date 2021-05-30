@@ -97,7 +97,7 @@ class MeniuPage extends StatelessWidget {
                         return Column(
                           children: <Widget>[
                             ListTile(
-                              leading: const Icon(Icons.set_meal),
+                              leading: const Icon(Icons.restaurant_menu),
                               title: Text(
                                 item.category.toUpperCase(),
                                 style: const TextStyle(fontSize: 20),

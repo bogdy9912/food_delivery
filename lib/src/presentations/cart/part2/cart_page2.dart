@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:food_delivery/app_theme.dart';
 import 'package:food_delivery/src/actions/auth/index.dart';
 import 'package:food_delivery/src/actions/index.dart';
 import 'package:food_delivery/src/actions/orders/index.dart';
@@ -46,13 +47,12 @@ class _CartPage2State extends State<CartPage2> {
       StoreProvider.of<AppState>(context).dispatch(const UpdateCart());
       Navigator.popUntil(
         context,
-            (Route<dynamic> route) => route.isFirst,
+        (Route<dynamic> route) => route.isFirst,
       );
       Navigator.pushReplacementNamed(context, AppRoutes.home);
       StoreProvider.of<AppState>(context).dispatch(const UpdateOrderInfo());
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -191,31 +191,70 @@ class _CartPage2State extends State<CartPage2> {
                                             ),
                                           ),
                                           IconButton(
-                                            icon: const Icon(Icons.credit_card),
+                                            color: Colors.green,
+                                            icon: const Icon(Icons.money),
                                             onPressed: () {
-                                              showDialog<dynamic>(
-                                                context: context,
-                                                builder: (BuildContext context) => AlertDialog(
-                                                  title: Center(
-                                                    child: Text(
-                                                      'Adrese',
-                                                      style: TextStyle(
-                                                        color: Theme.of(context).accentColor,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  content: SelectAddressPage2(currentUser: currentUser!),
-                                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-//                                            contentPadding: ,
-//                                            actions: <TextButton>[
-//                                              TextButton(
-//                                                  onPressed: () {
-//                                                    Navigator.pop(context);
-//                                                  },
-//                                                  child: Text('EXIT'))
-//                                            ],
-                                                ),
-                                              );
+                                              showDialog<AlertDialog>(
+                                                  context: context,
+                                                  builder: (BuildContext context) => AlertDialog(
+                                                        title: Text('Metoda de plata'),
+                                                        content: Column(
+                                                          mainAxisSize: MainAxisSize.min,
+                                                          children: <Widget>[
+                                                            Stack(
+                                                              alignment: AlignmentDirectional.topEnd,
+                                                              children: <Widget>[
+                                                                Container(
+                                                                  decoration: BoxDecoration(
+                                                                    borderRadius: BorderRadius.circular(12),
+                                                                    border: Border.all(
+                                                                        color: Theme.of(context).primaryColor),
+                                                                    color: kColor,
+                                                                  ),
+                                                                  child: ListTile(
+                                                                    title: Text('Numerar'),
+                                                                    trailing: Icon(
+                                                                      Icons.money,
+                                                                      color: Colors.green,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: const EdgeInsets.only(top: 8.0, right: 44),
+                                                                  child: Container(
+                                                                    padding: const EdgeInsets.all(4),
+                                                                    decoration: BoxDecoration(
+                                                                      color: Theme.of(context).primaryColor,
+                                                                      borderRadius: BorderRadius.circular(4),
+                                                                      border: Border.all(
+                                                                          color: Theme.of(context).primaryColor),
+                                                                    ),
+                                                                    child: const Text(
+                                                                      'default',
+                                                                      style: TextStyle(
+                                                                        color: Colors.white,
+                                                                        fontSize: 10,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            const ListTile(
+                                                              enabled: false,
+                                                              title: Text('Credit Card'),
+                                                              trailing: Icon(Icons.credit_card),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        actions: <Widget>[
+                                                          TextButton(
+                                                              onPressed: () {
+                                                                Navigator.pop(context);
+                                                              },
+                                                              child: const Text('EXIT'))
+                                                        ],
+                                                      ));
                                             },
                                           ),
                                         ],
@@ -293,10 +332,11 @@ class _CartPage2State extends State<CartPage2> {
                                         print('face comanda');
                                         StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(total: total));
 
-                                        StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(companyId: widget.company!.id));
-                                        StoreProvider.of<AppState>(context).dispatch(const UpdateOrderInfo(methodOfPayment: PaymentMethod.card));
+                                        StoreProvider.of<AppState>(context)
+                                            .dispatch(UpdateOrderInfo(companyId: widget.company!.id));
+                                        StoreProvider.of<AppState>(context)
+                                            .dispatch(const UpdateOrderInfo(methodOfPayment: PaymentMethod.card));
                                         StoreProvider.of<AppState>(context).dispatch(CreateOrder(response: _response));
-
                                       } else
                                         print('nu face comanda');
                                     },

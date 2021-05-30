@@ -11,6 +11,7 @@ import 'package:food_delivery/src/models/serializers.dart';
 export 'auth/index.dart';
 export 'company/index.dart';
 export 'orders/index.dart';
+export 'orders/status_order.dart';
 
 part 'index.g.dart';
 part 'app_state.dart';
