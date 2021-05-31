@@ -159,7 +159,7 @@ class _AddAdressPageState extends State<AddAdressPage> {
                             ..city = _city;
                         });
                         StoreProvider.of<AppState>(context)
-                            .dispatch(UpdateAddresses(uid: widget._currentUser.uid, add: add));
+                            .dispatch(UpdateAddresses(add: add));
                         StoreProvider.of<AppState>(context).dispatch(UpdateOrderInfo(address: add));
                         Navigator.pop(context);
                       }

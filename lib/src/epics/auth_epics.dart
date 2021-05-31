@@ -88,9 +88,9 @@ class AuthEpics {
     return actions //
         .flatMap((UpdateAddresses$ action) => Stream<UpdateAddresses$>.value(action)
             .asyncMap((UpdateAddresses$ action) =>
-                _api.updateAddresses(uid: action.uid, add: action.add, remove: action.remove, edit: action.remove))
+                _api.updateAddresses(uid: store.state.auth.user!.uid, add: action.add, remove: action.remove, edit: action.remove))
             .mapTo(
-                UpdateAddresses.successful(uid: action.uid, add: action.add, remove: action.remove, edit: action.edit))
+                UpdateAddresses.successful(uid: store.state.auth.user!.uid, add: action.add, remove: action.remove, edit: action.edit))
             .onErrorReturnWith((dynamic error) => UpdateAddresses.error(error)));
   }
 

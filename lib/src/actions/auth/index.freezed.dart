@@ -2954,12 +2954,8 @@ class _$UpdateAddressesTearOff {
   const _$UpdateAddressesTearOff();
 
   UpdateAddresses$ call(
-      {String? uid,
-      AddressPoint? add,
-      AddressPoint? remove,
-      AddressPoint? edit}) {
+      {AddressPoint? add, AddressPoint? remove, AddressPoint? edit}) {
     return UpdateAddresses$(
-      uid: uid,
       add: add,
       remove: remove,
       edit: edit,
@@ -2993,8 +2989,8 @@ const $UpdateAddresses = _$UpdateAddressesTearOff();
 mixin _$UpdateAddresses {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
-            AddressPoint? edit)
+    TResult Function(
+            AddressPoint? add, AddressPoint? remove, AddressPoint? edit)
         $default, {
     required TResult Function(String? uid, AddressPoint? add,
             AddressPoint? remove, AddressPoint? edit)
@@ -3004,8 +3000,8 @@ mixin _$UpdateAddresses {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
-            AddressPoint? edit)?
+    TResult Function(
+            AddressPoint? add, AddressPoint? remove, AddressPoint? edit)?
         $default, {
     TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
             AddressPoint? edit)?
@@ -3053,11 +3049,7 @@ abstract class $UpdateAddresses$CopyWith<$Res> {
   factory $UpdateAddresses$CopyWith(
           UpdateAddresses$ value, $Res Function(UpdateAddresses$) then) =
       _$UpdateAddresses$CopyWithImpl<$Res>;
-  $Res call(
-      {String? uid,
-      AddressPoint? add,
-      AddressPoint? remove,
-      AddressPoint? edit});
+  $Res call({AddressPoint? add, AddressPoint? remove, AddressPoint? edit});
 }
 
 /// @nodoc
@@ -3073,16 +3065,11 @@ class _$UpdateAddresses$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? uid = freezed,
     Object? add = freezed,
     Object? remove = freezed,
     Object? edit = freezed,
   }) {
     return _then(UpdateAddresses$(
-      uid: uid == freezed
-          ? _value.uid
-          : uid // ignore: cast_nullable_to_non_nullable
-              as String?,
       add: add == freezed
           ? _value.add
           : add // ignore: cast_nullable_to_non_nullable
@@ -3101,10 +3088,8 @@ class _$UpdateAddresses$CopyWithImpl<$Res>
 
 /// @nodoc
 class _$UpdateAddresses$ implements UpdateAddresses$ {
-  const _$UpdateAddresses$({this.uid, this.add, this.remove, this.edit});
+  const _$UpdateAddresses$({this.add, this.remove, this.edit});
 
-  @override
-  final String? uid;
   @override
   final AddressPoint? add;
   @override
@@ -3114,15 +3099,13 @@ class _$UpdateAddresses$ implements UpdateAddresses$ {
 
   @override
   String toString() {
-    return 'UpdateAddresses(uid: $uid, add: $add, remove: $remove, edit: $edit)';
+    return 'UpdateAddresses(add: $add, remove: $remove, edit: $edit)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is UpdateAddresses$ &&
-            (identical(other.uid, uid) ||
-                const DeepCollectionEquality().equals(other.uid, uid)) &&
             (identical(other.add, add) ||
                 const DeepCollectionEquality().equals(other.add, add)) &&
             (identical(other.remove, remove) ||
@@ -3134,7 +3117,6 @@ class _$UpdateAddresses$ implements UpdateAddresses$ {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(uid) ^
       const DeepCollectionEquality().hash(add) ^
       const DeepCollectionEquality().hash(remove) ^
       const DeepCollectionEquality().hash(edit);
@@ -3147,22 +3129,22 @@ class _$UpdateAddresses$ implements UpdateAddresses$ {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
-            AddressPoint? edit)
+    TResult Function(
+            AddressPoint? add, AddressPoint? remove, AddressPoint? edit)
         $default, {
     required TResult Function(String? uid, AddressPoint? add,
             AddressPoint? remove, AddressPoint? edit)
         successful,
     required TResult Function(Object error) error,
   }) {
-    return $default(uid, add, remove, edit);
+    return $default(add, remove, edit);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
-            AddressPoint? edit)?
+    TResult Function(
+            AddressPoint? add, AddressPoint? remove, AddressPoint? edit)?
         $default, {
     TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
             AddressPoint? edit)?
@@ -3171,7 +3153,7 @@ class _$UpdateAddresses$ implements UpdateAddresses$ {
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(uid, add, remove, edit);
+      return $default(add, remove, edit);
     }
     return orElse();
   }
@@ -3203,12 +3185,10 @@ class _$UpdateAddresses$ implements UpdateAddresses$ {
 
 abstract class UpdateAddresses$ implements UpdateAddresses {
   const factory UpdateAddresses$(
-      {String? uid,
-      AddressPoint? add,
+      {AddressPoint? add,
       AddressPoint? remove,
       AddressPoint? edit}) = _$UpdateAddresses$;
 
-  String? get uid => throw _privateConstructorUsedError;
   AddressPoint? get add => throw _privateConstructorUsedError;
   AddressPoint? get remove => throw _privateConstructorUsedError;
   AddressPoint? get edit => throw _privateConstructorUsedError;
@@ -3319,8 +3299,8 @@ class _$UpdateAddressesSuccessful implements UpdateAddressesSuccessful {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
-            AddressPoint? edit)
+    TResult Function(
+            AddressPoint? add, AddressPoint? remove, AddressPoint? edit)
         $default, {
     required TResult Function(String? uid, AddressPoint? add,
             AddressPoint? remove, AddressPoint? edit)
@@ -3333,8 +3313,8 @@ class _$UpdateAddressesSuccessful implements UpdateAddressesSuccessful {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
-            AddressPoint? edit)?
+    TResult Function(
+            AddressPoint? add, AddressPoint? remove, AddressPoint? edit)?
         $default, {
     TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
             AddressPoint? edit)?
@@ -3456,8 +3436,8 @@ class _$UpdateAddressesError implements UpdateAddressesError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
-            AddressPoint? edit)
+    TResult Function(
+            AddressPoint? add, AddressPoint? remove, AddressPoint? edit)
         $default, {
     required TResult Function(String? uid, AddressPoint? add,
             AddressPoint? remove, AddressPoint? edit)
@@ -3470,8 +3450,8 @@ class _$UpdateAddressesError implements UpdateAddressesError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
-            AddressPoint? edit)?
+    TResult Function(
+            AddressPoint? add, AddressPoint? remove, AddressPoint? edit)?
         $default, {
     TResult Function(String? uid, AddressPoint? add, AddressPoint? remove,
             AddressPoint? edit)?
