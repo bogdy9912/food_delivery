@@ -21,13 +21,13 @@
 
 ## HomePage (120')
 * [x] search restaurants (15') /
-* [ ] show all restaurants from city (25')
+* [x] show all restaurants from city (25')
 * [ ] filter and sorting (35') /
 * [ ] presentation layout (list, grid, hero) (10')
 * [ ] reviews scor(20')
 
 ## Restaurant page (90')
-* [ ] add products to cart (10') /
+* [x] add products to cart (10') /
 * [ ] add to favorites restaurants(10')
 * [ ] reviews comment (20')
 
@@ -42,22 +42,22 @@
 
 
 ## Shopping cart (65')
-* [ ] show all products (15')
-* [ ] show total amount (10')
+* [x] show all products (15')
+* [x] show total amount (10')
 
 ## Favorites (30')
 * [ ] show list of favored restaurants (15')
 
 ## Checkout (45')
-* [ ] add address (20')
-* [ ] add payment method (25')
-* [ ] add phone
-* [ ] add command detaill
+* [x] add address (20')
+* [x] add payment method (25')
+* [x] add phone
+* [x] add command detaill
 
 ## Profile (90')
-* [ ] my orders (15')
-* [ ] delivery addresses (25')
-* [ ] edit profile (15')
+* [x] my orders (15')
+* [x] delivery addresses (25')
+* [x] edit profile (15')
 * [ ] choose what notifications to receive
 * [ ] notifications (35')
     * [ ] a new/group of restaurant/s joins the app
